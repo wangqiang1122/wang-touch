@@ -34,6 +34,7 @@
         var box = document.getElementById('box');
         let input = document.getElementById('input');
         box.addEventListener('touchstart',function (ev) {
+            ev.preventDefault()
             var e = ev.targetTouches;
             console.log(e);
             // input.innerHTML = JSON.stringify(e);
@@ -45,12 +46,14 @@
             }
             box.addEventListener('touchmove',function (ev) {
                 var e = ev.targetTouches;
+                ev.preventDefault()
                 if (e.length === 2) {
                     var x = Math.abs(e[0].pageX - e[1].pageX);
                     var y = Math.abs(e[0].pageY - e[1].pageY);
                     var ang2 = Math.atan(x/y);
                     var jiaodu = (ang2 - ang)*180/Math.PI;
                     input.value = jiaodu;
+                    this.style.transform = 'rotate('+jiaodu+')'
                 }
             })
         })
