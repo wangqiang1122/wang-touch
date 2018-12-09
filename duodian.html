@@ -70,9 +70,11 @@ window.onload= function () {
         id.addEventListener('touchend',function (ev) {    // ev.targetTouches  dom元素上的手指列表  ev.changedTouches
             var arrE = ev.changedTouches;                  // 触发当前事件的手指列表 end也就是离开当前元素的手指列表
             for (var a =0 ;a<arrE.length;a++) {
+                if (zhiId === arrE[a].identifier ) {
+                    id.removeEventListener('touchmove',move,false)
+                }
                 console.log(arrE[a].identifier)
             }
-            id.removeEventListener('touchmove',move,false)
         })
     }
 }
