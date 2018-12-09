@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>收缩</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+ <div class="box"></div>
+ <input type="text" id="input1">
+</body>
+<script>
+    window.onload = function () {
+        var box = document.querySelector('.box');
+        var input = document.getElementById('input1');
+        box.addEventListener('touchstart',function (ev) { //w1 为width
+            var e = ev.targetTouches;
+            e = [].slice.call(e);
+            var w1,h1,dis1;
+            if (e.length ===2) {
+                w1 = Math.abs(e[1].pageX-e[0].pageX);
+                h1 = Math.abs(e[1].pageY-e[0].pageY);
+                dis1 = Math.sqrt(Math.pow(w1,2)+Math.pow(h1,2))
+                input.value = `dis = ${dis1}w = ${w1}h=${h1}`
+            }
+        })
+    }
+</script>
+</html>
