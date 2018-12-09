@@ -33,6 +33,7 @@
     window.onload = function () {
         var box = document.getElementById('box');
         let input = document.getElementById('input');
+        let datanag = 0; // 保存当前角度
         box.addEventListener('touchstart',function (ev) {
             ev.preventDefault()
             var e = ev.targetTouches;
@@ -51,7 +52,8 @@
                     var x = Math.abs(e[0].pageX - e[1].pageX);
                     var y = Math.abs(e[0].pageY - e[1].pageY);
                     var ang2 = Math.atan(x/y);
-                    var jiaodu = (ang2 - ang)*180/Math.PI;
+                    var jiaodu = (ang2 - ang+datanag)*180/Math.PI;
+                    datanag = jiaodu;
                     input.value = jiaodu;
                     this.style.transform = 'rotate('+jiaodu+'deg)';
                 }
