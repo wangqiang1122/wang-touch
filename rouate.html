@@ -36,10 +36,18 @@
             console.log(e);
             // input.innerHTML = JSON.stringify(e);
             if (e.length === 2) {
-                var x = Math.abs(e[0].pageX - e[1].pageX);
-                var y = Math.abs(e[0].pageY - e[1].pageY);
-                input.value = `x=${x} y=${y}`
+                // var x = Math.abs(e[0].pageX - e[1].pageX);
+                // var y = Math.abs(e[0].pageY - e[1].pageY);
+                // input.value = `x=${x} y=${y}`
             }
+            box.addEventListener('touchmove',function (ev) {
+                var e = ev.targetTouches;
+                if (e.length === 2) {
+                    var x = Math.abs(e[0].pageX - e[1].pageX);
+                    var y = Math.abs(e[0].pageY - e[1].pageY);
+                    input.value = `jiao = ${Math.atan(x/y)}`
+                }
+            })
         })
     }
 </script>
