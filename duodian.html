@@ -53,6 +53,7 @@ window.onload= function () {
     function clickobj(id) {
         var start,zhiId;
         id.addEventListener('touchstart',function (ev) {
+            ev.preventDefault()
             var e = ev.targetTouches[0]; // DoM上的手指元素列表
             zhiId =ev.targetTouches[0].identifier; // 记录当前手指列表第一个手指的id
              start = { x:e.pageX-this.offsetLeft,y:e.pageY-this.offsetTop };
