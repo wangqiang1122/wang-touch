@@ -53,8 +53,9 @@
                     dis2 = Math.sqrt(Math.pow(w2,2)+Math.pow(h2,2));
                     width2 = (dis2*width1)/dis1;
                     height2 = (dis2*height1)/dis1;
-                    this.style.width = width2+"px";
-                    this.style.height = height2+'px';
+                    input2.value = `${Math.ceil(width2)}${Math.ceil(height2)}`
+                    this.style.width = Math.ceil(width2)+"px";
+                    this.style.height = Math.ceil(height2)+'px';
                 }
             })
         })
