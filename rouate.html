@@ -10,6 +10,12 @@
             height: 200px;
             background-color: yellow;
             position: absolute;
+            top:100px;
+            left: 50px;
+        }
+        #input {
+
+            /*margin-top: 100px;*/
         }
     </style>
 </head>
@@ -18,18 +24,21 @@
 
  </div>
 
-<div id="input"></div>
+<!--<input id="input">1111</input>-->
+ <input type="text" value="1111" id="input">
 </body>
 <script>
     window.onload = function () {
         var box = document.getElementById('box');
-        var input = document.getElementById('input')
+        let input = document.getElementById('input');
         box.addEventListener('touchstart',function (ev) {
-            var e = ev.targetTouches[0]
+            var e = ev.targetTouches;
+            console.log(e);
+            // input.innerHTML = JSON.stringify(e);
             if (e.length === 2) {
                 var x = Math.abs(e[0].pageX - e[1].pageX);
                 var y = Math.abs(e[0].pageY - e[1].pageY);
-                input.innerHTML = `x=${x} y=${y}`
+                input.value = `x=${x} y=${y}`
             }
         })
     }
