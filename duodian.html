@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+        body {
+            height: 3000px;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+        .a1 {
+            background-color: #cccccc;
+            left: 100px;
+            top:10px;
+        }
+        .a2 {
+            background-color: yellow;
+            top:110px;
+        }
+        .a3 {
+            background-color: red;
+            top:50px;
+            left: 200px;
+        }
+    </style>
+</head>
+<body>
+ <div class="box a1"></div>
+ <div class="box a2"></div>
+ <div class="box a3"></div>
+</body>
+<script>
+window.onload= function () {
+    var boxs = document.getElementsByClassName('box');
+    // let len  = boxs.length;
+    // boxs = [].slice.call(boxs);
+    boxs = Array.from(boxs);
+    boxs.forEach(item=> {
+        clickobj(item)
+    });
+    // console.log(boxs);
+    function clickobj(id) {
+        var start,zhiId;
+        id.addEventListener('touchstart',function (ev) {
+            var e = ev.targetTouches[0]; // DoM上的手指元素列表
+            zhiId =ev.targetTouches[0].identifier; // 记录当前手指列表第一个手指的id
+             start = { x:e.pageX-this.offsetLeft,y:e.pageY-this.offsetTop };
+            id.addEventListener('touchmove',move,false);
+        });
+        function move(ev) {
+            ev.preventDefault()
+          var e = ev.targetTouches[0];
+          var move = { x: e.pageX -start.x,y: e.pageY - start.y };
+          this.style.left = move.x+"px";
+          this.style.top = move.y+"px";
+          console.log(move)
+        }
+        id.addEventListener('touchend',function (ev) {    // ev.targetTouches  dom元素上的手指列表  ev.changedTouches
+            var arrE = ev.changedTouches;                  // 触发当前事件的手指列表 end也就是离开当前元素的手指列表
+            for (var a =0 ;a<arrE.length;a++) {
+                console.log(arrE[a].identifier)
+            }
+            id.removeEventListener('touchmove',move,false)
+        })
+    }
+}
+</script>
+</html>
