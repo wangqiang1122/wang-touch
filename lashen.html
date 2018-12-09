@@ -15,27 +15,48 @@
             width: 200px;
             height: 200px;
             background-color: yellow;
+            margin-left: 50px;
         }
     </style>
 </head>
 <body>
+<input type="text" id="input1">
+<input type="text" id="input2">
  <div class="box"></div>
- <input type="text" id="input1">
 </body>
 <script>
     window.onload = function () {
         var box = document.querySelector('.box');
         var input = document.getElementById('input1');
+        var input2 = document.getElementById('input2');
         box.addEventListener('touchstart',function (ev) { //w1 为width
+            ev.preventDefault();
             var e = ev.targetTouches;
             e = [].slice.call(e);
-            var w1,h1,dis1;
+            var w1,h1,dis1,width1,height1;
+            width1 = box.offsetWidth;
+            height1 = box.offsetHeight
             if (e.length ===2) {
                 w1 = Math.abs(e[1].pageX-e[0].pageX);
                 h1 = Math.abs(e[1].pageY-e[0].pageY);
-                dis1 = Math.sqrt(Math.pow(w1,2)+Math.pow(h1,2))
-                input.value = `dis = ${dis1}w = ${w1}h=${h1}`
+                dis1 = Math.sqrt(Math.pow(w1,2)+Math.pow(h1,2));
+                input.value = `dis = ${dis1}w = ${w1}h=${h1}`;
             }
+            box.addEventListener('touchmove',function () {
+                ev.preventDefault();
+                var el = ev.targetTouches;
+                var w2, h2,dis2,width2,height2;
+                e = [].slice.call(e);
+                if (el.length ===2) {
+                    w2 = Math.abs(el[1].pageX-el[0].pageX);
+                    h2 = Math.abs(el[1].pageY-el[0].pageY);
+                    dis2 = Math.sqrt(Math.pow(w2,2)+Math.pow(h2,2));
+                    width2 = (dis2*width1)/dis1;
+                    height2 = (dis2*height1)/dis1;
+                    this.style.width = width2+"px";
+                    this.style.height = height2+'px';
+                }
+            })
         })
     }
 </script>
