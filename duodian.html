@@ -15,8 +15,8 @@
             height: 3000px;
         }
         .box{
-            width: 100px;
-            height: 100px;
+            width: 200px;
+            height: 200px;
             position: absolute;
         }
         .a1 {
@@ -53,14 +53,14 @@ window.onload= function () {
     function clickobj(id) {
         var start,zhiId;
         id.addEventListener('touchstart',function (ev) {
-            ev.preventDefault()
+            ev.preventDefault();
             var e = ev.targetTouches[0]; // DoM上的手指元素列表
             zhiId =ev.targetTouches[0].identifier; // 记录当前手指列表第一个手指的id
              start = { x:e.pageX-this.offsetLeft,y:e.pageY-this.offsetTop };
             id.addEventListener('touchmove',move,false);
         });
         function move(ev) {
-            ev.preventDefault()
+          ev.preventDefault();
           var e = ev.targetTouches[0];
           var move = { x: e.pageX -start.x,y: e.pageY - start.y };
           this.style.left = move.x+"px";
