@@ -46,7 +46,7 @@
                 ev.preventDefault();
                 var el = ev.targetTouches;
                 var w2, h2,dis2,width2,height2;
-                e = [].slice.call(e);
+                e = [].slice.call(el);
                 if (el.length ===2) {
                     w2 = Math.abs(el[1].pageX-el[0].pageX);
                     h2 = Math.abs(el[1].pageY-el[0].pageY);
