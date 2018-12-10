@@ -44,7 +44,8 @@
                 var x = e[0].clientX - e[1].clientX;
                 var y = e[0].clientY - e[1].clientY;
                 // input.value = `x=${x} y=${y}`
-                var ang = Math.atan2(y,x)*180/Math.PI;
+                // var ang = Math.atan2(y,x)*180/Math.PI;
+                var ang = Math.atan(y/x)*180/Math.PI;
             }
             box.addEventListener('touchmove',function (ev) {
                 var e = ev.targetTouches;
@@ -52,7 +53,8 @@
                 if (e.length === 2) {
                     var x = e[0].clientX - e[1].clientX;
                     var y = e[0].clientY - e[1].clientY;
-                    var ang2 = Math.atan2(y,x);
+                    // var ang2 = Math.atan2(y,x);
+                    var ang2 = Math.atan(y/x);
                     var jiaodu = (((ang2)*180/Math.PI)-ang)+startAng;
                     datanag = jiaodu;
                     input.value = jiaodu;
