@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: #ccff00;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+<div id="box">
+
+</div>
+<script>
+    window.onload = function () {
+        var left = 0;
+        var top = 0;
+        var box = document.getElementById('box');
+        box.addEventListener('touchstart',function (ev) {
+            var start = { x:ev.changedTouches[0].clientX-left,y:ev.changedTouches[0].clientY-top}; // 求的是点击的位置到物体左侧的距离
+            box.addEventListener('touchmove',function (ev) {
+                left = ev.changedTouches[0].clientX -start.x;
+                top =  ev.changedTouches[0].clientY -start.y;
+                box.style.left = left+"px";
+                box.style.top = top+"px";
+            })
+        })
+    }
+</script>
+</html>

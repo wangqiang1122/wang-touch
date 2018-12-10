@@ -25,7 +25,7 @@
             float: left;
             line-height: 7.8rem;
             text-align: center;
-            /*transition:  3s;*/
+            /*transition: all 3s ease;*/
         }
      #banner {
          width: 25rem;
@@ -62,6 +62,7 @@
         var banner_left =0;
         var dir = '';
         ul.addEventListener('touchstart',function (ev) {
+            this.style.transition = 'none';
             ev.preventDefault()
             var start = { x:ev.changedTouches[0].clientX, y:ev.changedTouches[0].clientY };
             var disx = start.x - banner_left;
@@ -74,7 +75,9 @@
               if (dir) {
                  if (dir === 'x') {
                      banner_left = move.x - disx;
-                     console.log(move.x)
+                     if (banner_left>0) {
+                         banner_left=0;
+                     }
                      ul.style.transform=ul.style.webkitTransform = 'translateX('+(banner_left)+'px)';
                  } else {
 
@@ -92,7 +95,8 @@
                 ul.removeEventListener('touchmove',fnmove,false);
                 if (dir==='x') {
                   var num = Math.round(banner_left/li.offsetWidth);
-                    banner_left = num*li.offsetWidth;
+                  banner_left = num*li.offsetWidth;
+                  this.style.transition = 'all .7s ease';
                   this.style.webkitTransform = this.style.transform = 'translateX('+(banner_left)+'px)'
                   console.log(num)
                 }
