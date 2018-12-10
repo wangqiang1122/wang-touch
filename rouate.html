@@ -39,6 +39,7 @@
             var e = ev.targetTouches;
             console.log(e);
             // input.innerHTML = JSON.stringify(e);
+            var startAng = datanag;
             if (e.length === 2) {
                 var x = Math.abs(e[0].pageX - e[1].pageX);
                 var y = Math.abs(e[0].pageY - e[1].pageY);
@@ -52,7 +53,7 @@
                     var x = Math.abs(e[0].pageX - e[1].pageX);
                     var y = Math.abs(e[0].pageY - e[1].pageY);
                     var ang2 = Math.atan(x/y);
-                    var jiaodu = ((ang2-ang)*180/Math.PI)+datanag;
+                    var jiaodu = ((ang2-ang)*180/Math.PI)+startAng;
                     datanag = jiaodu;
                     input.value = jiaodu;
                     this.style.transform = 'rotate('+jiaodu+'deg)';
