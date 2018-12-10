@@ -41,18 +41,18 @@
             // input.innerHTML = JSON.stringify(e);
             var startAng = datanag;
             if (e.length === 2) {
-                var x = e[1].clientX - e[0].clientX;
-                var y = e[1].clientY - e[0].clientY;
+                var x = e[0].clientX - e[1].clientX;
+                var y = e[0].clientY - e[1].clientY;
                 // input.value = `x=${x} y=${y}`
-                var ang = Math.atan(x/y)*180/Math.PI;
+                var ang = Math.atan2(y,x)*180/Math.PI;
             }
             box.addEventListener('touchmove',function (ev) {
                 var e = ev.targetTouches;
                 ev.preventDefault()
                 if (e.length === 2) {
-                    var x = e[1].clientX - e[0].clientX;
-                    var y = e[1].clientY - e[0].clientY;
-                    var ang2 = Math.atan(x/y);
+                    var x = e[0].clientX - e[1].clientX;
+                    var y = e[0].clientY - e[1].clientY;
+                    var ang2 = Math.atan2(y,x);
                     var jiaodu = (((ang2)*180/Math.PI)-ang)+startAng;
                     datanag = jiaodu;
                     input.value = jiaodu;
