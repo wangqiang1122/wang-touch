@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <style>
+      body {
+          height: 3000px;
+      }
+     *{
+         padding: 0;
+         margin: 0;
+         list-style: none;
+         box-sizing:border-box ;
+     }
+     #ul {
+         width: 1000rem;
+         transform: translateX(0px);
+         overflow: hidden;
+     }
+        #ul li {
+            width: 25rem;
+            height: 7.8rem;
+            float: left;
+            line-height: 7.8rem;
+            text-align: center;
+            /*transition:  3s;*/
+        }
+     #banner {
+         width: 25rem;
+         overflow: hidden;
+     }
+        #warp {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<div id="warp">
+    <div id="content">
+        <div id="banner">
+            <ul id="ul">
+                <li style="background: yellow">0</li>
+                <li style="background: #00f">1</li>
+                <li style="background: #F0c">2</li>
+                <li style="background: #0fc">3</li>
+                <li style="background: #cf0">4</li>
+                <li style="background: #0f0">5</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    // 基准是500 20px
+    window.onload = function () {
+        window.document.documentElement.style.fontSize = 20*window.document.documentElement.clientWidth/500+'px';
+        var ul = document.getElementById('ul');
+        var translateX=0;
+        ul.addEventListener('touchstart',function (ev) {
+            ev.preventDefault()
+            var start = { x:ev.changedTouches[0].clientX, y:ev.changedTouches[0].clientY };
+            var dir = '';
+            var startL = translateX;
+            var xrun = ev.changedTouches[0].pageX;
+            var s = '';
+            // 阈值 5
+            function fnmove(ev) {
+              ev.preventDefault();
+              if (dir) {
+                 if (dir === 'x') {
+                     s = ev.changedTouches[0].pageX - xrun;
+                     // console.log(s+startL);
+                     // ul.style.transform=ul.style.webkitTransform = `translateX(${s+startL}px)`;
+                     ul.style.transform=ul.style.webkitTransform = 'translateX('+(s+startL)+'px)';
+
+                     translateX = s+startL;
+                 } else {
+
+                 }
+              } else {
+                if (Math.abs(ev.changedTouches[0].clientX-start.x) >=5) {
+                    dir = 'x';
+                } else if (Math.abs(ev.changedTouches[0].clientY-start.y) >=5){
+                    dir = 'y';
+                }
+              }
+            };
+            ul.addEventListener('touchmove',fnmove,false);
+            ul.addEventListener('touchend',function () {
+                ul.removeEventListener('touchmove',fnmove,false);
+                if (dir==='x') {
+                    var num = Math.round(translateX/window.document.documentElement.offsetWidth);
+                    var tran = num*window.document.documentElement.offsetWidth;
+                    // if (s>=0) {
+                    //     tran = translateX+tran
+                    //     console.log(tran);
+                    //     console.log('我是右')
+                    // } else {
+                    //     console.log(-tran);
+                    //     tran = -(Math.abs(tran)+Math.abs(translateX))
+                    // }
+                    translateX = tran;
+                    this.style.webkitTransform = this.style.transform = 'translateX('+(translateX)+'px)'
+                }
+            },false)
+        })
+
+    }
+</script>
+</html>
