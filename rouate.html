@@ -41,8 +41,8 @@
             // input.innerHTML = JSON.stringify(e);
             var startAng = datanag;
             if (e.length === 2) {
-                var x = Math.abs(e[0].pageX - e[1].pageX);
-                var y = Math.abs(e[0].pageY - e[1].pageY);
+                var x = e[0].clientX - e[1].clientX;
+                var y = e[0].clientY - e[1].clientY;
                 // input.value = `x=${x} y=${y}`
                 var ang = Math.atan(x/y)*180/Math.PI;
             }
@@ -50,8 +50,8 @@
                 var e = ev.targetTouches;
                 ev.preventDefault()
                 if (e.length === 2) {
-                    var x = Math.abs(e[0].pageX - e[1].pageX);
-                    var y = Math.abs(e[0].pageY - e[1].pageY);
+                    var x = e[0].clientX - e[1].clientX;
+                    var y = e[0].clientY - e[1].clientY;
                     var ang2 = Math.atan(x/y);
                     var jiaodu = (((ang2)*180/Math.PI)-ang)+startAng;
                     datanag = jiaodu;
