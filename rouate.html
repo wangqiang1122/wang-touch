@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
     <title>旋转</title>
+    <script src="http://localhost:9999/socket.io/socket.io.js"></script>
     <style>
         #box {
             width: 200px;
@@ -29,13 +30,23 @@
  <input type="text" value="1111" id="input">
 </body>
 <script>
+    window.console = window.console || {};
+    window.console._log = window.console.log;
+    var socket = io.connect('ws://localhost:9999');
+    console.log(socket);
+    window.console.log=function (...arg){
+        socket.emit('msg', 'ps');
+        window.console._log(...arg);
+    };
+
     // 弧度/派 = 角度/180
     window.onload = function () {
         var box = document.getElementById('box');
         let input = document.getElementById('input');
         let datanag = 0; // 保存当前角度
         box.addEventListener('touchstart',function (ev) {
-            ev.preventDefault()
+            ev.preventDefault();
+            console.log(ev);
             var e = ev.targetTouches;
             console.log(e);
             // input.innerHTML = JSON.stringify(e);
