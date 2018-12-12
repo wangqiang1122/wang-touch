@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+
+</head>
+<body>
+ <div id="btn">长按触发</div>
+</body>
+<script>
+    window.onload = function () {
+        var btn = document.getElementById('btn');
+        var timer =null;
+        btn.addEventListener('touchstart',function (ev) {
+            ev.preventDefault();
+            timer = setTimeout(function () {
+                console.log('长按触发')
+            },700)
+        })
+        btn.addEventListener('touchend',function (ev) {
+            clearTimeout(timer)
+        })
+    }
+</script>
+</html>

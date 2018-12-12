@@ -5,9 +5,9 @@
     <title>Title</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
     <style>
-      body {
-          height: 3000px;
-      }
+      /*body {*/
+          /*height: 3000px;*/
+      /*}*/
      *{
          padding: 0;
          margin: 0;
@@ -34,7 +34,8 @@
      }
         #warp {
             background: #ccc;
-            /*height: 100%;*/
+            height: 736px;
+            overflow: hidden;
         }
         #content{
             background: #fff;
@@ -47,6 +48,15 @@
             line-height: 30px;
             position: relative;
             z-index: 2;
+        }
+        .bar{
+         height: 100px;
+         width: 10px;
+         background: #000;
+         position: fixed;
+         right: 0;
+         top:0;
+         z-index: 9999;
         }
     </style>
 </head>
@@ -64,7 +74,45 @@
                 <li style="background: #0f0">5</li>
             </ul>
         </div>
+
+         <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div> <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div> <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+        <div>11111</div>
+
+
+
     </div>
+    <div class="bar"></div>
 </div>
 </body>
 <script>
@@ -77,6 +125,8 @@
         var warp = document.getElementById('warp');
         var content  = document.getElementById('content');
         var contitle = warp.querySelector('.title');
+        var bar = document.getElementsByClassName('bar')[0];
+        // bar.style.height =
         var translateX=0;
         var banner_left =0;
         var banner_top = 0;
@@ -88,8 +138,11 @@
             var start = { x:ev.changedTouches[0].clientX, y:ev.changedTouches[0].clientY };
             var disx = start.x - banner_left;
             var disy = start.y - banner_top;
-            console.log(start.x)
-            console.log(disx);
+            var zy = content.offsetHeight-document.documentElement.offsetHeight;
+            var xy = document.documentElement.offsetHeight - bar.offsetHeight;
+            var b =
+            console.log(zy);
+            console.log(xy);
             // 阈值 5
             function fnmove(ev) {
               var move = { x:ev.changedTouches[0].clientX, y:ev.changedTouches[0].clientY };
@@ -107,9 +160,11 @@
                              contitle.innerHTML = '刷新'
                          }
                          content.style.transform=content.style.webkitTransform = 'translateY('+(banner_top/3)+'px)';
+                         bar.style.top = '0px'
                      } else {
                          content.style.transform=content.style.webkitTransform = 'translateY('+(banner_top)+'px)';
-
+                         console.log(xy*(-banner_top/zy))
+                         bar.style.top = (xy*(-banner_top/zy))+'px'
                      }
                  }
               } else {
@@ -120,44 +175,57 @@
                 }
               }
             };
-            ul.addEventListener('touchmove',fnmove,false);
-            ul.addEventListener('touchend',function () {
+            function fnend() {
                 ul.removeEventListener('touchmove',fnmove,false);
+                ul.removeEventListener('touchend',fnend,false);
                 if (dir==='x') {
-                  var num = Math.round(banner_left/li.offsetWidth);
-                  console.log(ul.children.length)
-                  if (num > 0) {
-                      num =0 ;
-                  } else if((-num)>=ul.children.length) {
-                      num = -(ul.children.length-1);
-                  }
-                  banner_left = num*li.offsetWidth;
-                  this.style.transition = 'all .7s ease';
-                  this.style.webkitTransform = this.style.transform = 'translateX('+(banner_left)+'px)'
-                  console.log(num)
-                } else  {
-                    // if (banner_top>=0) {
-                    //     banner_top = 0;
-                    //     content.style.transition = 'all .1s ease';
-                    //     content.style.transform=content.style.webkitTransform = 'translateY('+banner_top+'px)';
-                    //     setTimeout(function () {
-                    //         contitle.innerHTML = '刷新'
-                    //     },100)
-                    // }
-                    if (banner_top>200) {
-                        banner_top = 30;
-                        content.style.transition = 'all .1s ease';
-                        contitle.innerHTML = '正在加载。。。。。';
-                        console.log(banner_top);
-                    } else {
-                        banner_top = 0;
-                        content.style.transition = 'all .1s ease';
+                    var num = Math.round(banner_left/li.offsetWidth);
+                    console.log(ul.children.length)
+                    if (num > 0) {
+                        num =0 ;
+                    } else if((-num)>=ul.children.length) {
+                        num = -(ul.children.length-1);
                     }
-                    console.log(banner_top)
-                    content.style.transform=content.style.webkitTransform = 'translateY('+banner_top+'px)';
+                    banner_left = num*li.offsetWidth;
+                    this.style.transition = 'all .7s ease';
+                    this.style.webkitTransform = this.style.transform = 'translateX('+(banner_left)+'px)'
+                    console.log(num)
+                } else  {
+                    // if (banner_top>200) {
+                    //     banner_top = 30;
+                    //     contitle.innerHTML = '正在加载。。。。。';
+                    //     console.log(banner_top);
+                    //     ajax(function () {
+                    //         banner_top = 0;
+                    //         content.style.transition = 'all .1s ease';
+                    //         content.style.transform=content.style.webkitTransform = 'translateY('+banner_top+'px)';
+                    //     });
+                    //     console.log(banner_top);
+                    // } else if (banner_top<200&&banner_top>0) {
+                    //     banner_top=0
+                    // }
+                    // console.log(banner_top);
+                    // content.style.transition = 'all .1s ease';
+                    // content.style.transform=content.style.webkitTransform = 'translateY('+banner_top+'px)';
                 }
-            },false)
-        })
+
+
+            }
+
+            ul.addEventListener('touchmove',fnmove,false);
+            ul.addEventListener('touchend',fnend,false)
+
+
+        });
+        var time = null;
+        function ajax(fn) {
+            clearTimeout(time)
+            time = setTimeout(function () {
+                time = null;
+                clearTimeout(time)
+                fn&&fn();
+            },2000)
+        }
 
     }
 </script>

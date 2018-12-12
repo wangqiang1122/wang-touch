@@ -5,9 +5,9 @@
     <title>Title</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
     <style>
-      body {
-          height: 3000px;
-      }
+      /*body {*/
+          /*height: 3000px;*/
+      /*}*/
      *{
          padding: 0;
          margin: 0;
@@ -78,18 +78,23 @@
         var content  = document.getElementById('content');
         var contitle = warp.querySelector('.title');
         var translateX=0;
-        var banner_left =0;
+        var oldlen = ul.children.length;
+        var widthli = li.offsetWidth;
+        ul.insertBefore(ul.children[ul.children.length-1].cloneNode(true),ul.children[0]);
+        ul.appendChild(ul.children[1].cloneNode(true))
+        var banner_left = -ul.children[0].offsetWidth;
+        ul.style.transform=ul.style.webkitTransform = 'translateX('+(banner_left)+'px)';
         var banner_top = 0;
         ul.addEventListener('touchstart',function (ev) {
             var dir = '';
-            this.style.transition = 'none';
-            content.style.transition = 'none';
+            ul.style.transition = ul.style.webkitTransition = '';
+            content.style.transition = '';
             ev.preventDefault()
             var start = { x:ev.changedTouches[0].clientX, y:ev.changedTouches[0].clientY };
             var disx = start.x - banner_left;
             var disy = start.y - banner_top;
-            console.log(start.x)
-            console.log(disx);
+            // console.log(start.x)
+            // console.log(disx);
             // 阈值 5
             function fnmove(ev) {
               var move = { x:ev.changedTouches[0].clientX, y:ev.changedTouches[0].clientY };
@@ -120,44 +125,67 @@
                 }
               }
             };
-            ul.addEventListener('touchmove',fnmove,false);
-            ul.addEventListener('touchend',function () {
+            function fnend() {
                 ul.removeEventListener('touchmove',fnmove,false);
+                ul.removeEventListener('touchend',fnend,false);
                 if (dir==='x') {
-                  var num = Math.round(banner_left/li.offsetWidth);
-                  console.log(ul.children.length)
-                  if (num > 0) {
-                      num =0 ;
-                  } else if((-num)>=ul.children.length) {
-                      num = -(ul.children.length-1);
-                  }
+
+                    console.log(widthli);
+                    console.log(li.offsetWidth);
+                    var num = Math.round(banner_left/widthli);
+                    console.log(1)
+                    if (Math.abs(num) === 0) {
+                        console.log('需要敢于')
+                        num = -oldlen;
+                        console.log(banner_left+(num*li.offsetWidth));
+                        ul.style.webkitTransform = ul.style.transform = 'translateX('+(banner_left+(num*widthli))+'px)'
+                        console.log(2)
+                    } else if((-num)>=ul.children.length) {
+                        console.log('wwww')
+                        num = -(ul.children.length-1);
+                    }
+                    console.log(3)
                   banner_left = num*li.offsetWidth;
-                  this.style.transition = 'all .7s ease';
-                  this.style.webkitTransform = this.style.transform = 'translateX('+(banner_left)+'px)'
-                  console.log(num)
+                  ul.style.transition= ul.style.webkitTransition = 'all .7s ease';
+                  ul.style.webkitTransform = ul.style.transform = 'translateX('+(banner_left)+'px)';
+                    // console.log(num);
+                    console.log(banner_left)
                 } else  {
-                    // if (banner_top>=0) {
-                    //     banner_top = 0;
-                    //     content.style.transition = 'all .1s ease';
-                    //     content.style.transform=content.style.webkitTransform = 'translateY('+banner_top+'px)';
-                    //     setTimeout(function () {
-                    //         contitle.innerHTML = '刷新'
-                    //     },100)
-                    // }
                     if (banner_top>200) {
                         banner_top = 30;
-                        content.style.transition = 'all .1s ease';
                         contitle.innerHTML = '正在加载。。。。。';
+                        console.log(banner_top);
+                        ajax(function () {
+                            banner_top = 0;
+                            content.style.transition = 'all .1s ease';
+                            content.style.transform=content.style.webkitTransform = 'translateY('+banner_top+'px)';
+                        });
                         console.log(banner_top);
                     } else {
                         banner_top = 0;
-                        content.style.transition = 'all .1s ease';
                     }
-                    console.log(banner_top)
+                    console.log(banner_top);
+                    content.style.transition = 'all .1s ease';
                     content.style.transform=content.style.webkitTransform = 'translateY('+banner_top+'px)';
                 }
-            },false)
-        })
+
+
+            }
+
+            ul.addEventListener('touchmove',fnmove,false);
+            ul.addEventListener('touchend',fnend,false)
+
+
+        });
+        var time = null;
+        function ajax(fn) {
+            clearTimeout(time)
+            time = setTimeout(function () {
+                time = null;
+                clearTimeout(time)
+                fn&&fn();
+            },2000)
+        }
 
     }
 </script>

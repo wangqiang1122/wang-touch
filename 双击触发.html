@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+
+</head>
+<body>
+<!--<button ondblclick="alert()">jajaj</button>-->
+<button id="btn">双击触发</button>
+</body>
+<script>
+    window.onload = function () {
+      var btn = document.getElementById('btn');
+      var last = 0;
+      var starttime = '';
+      // 记录上一次的点击时间 在end处和第二次点击的时间相减如果值小于三百是双击
+      btn.addEventListener('touchstart',function (ev) {
+          starttime = new Date().getTime();
+          console.log(starttime)
+      })
+        btn.addEventListener('touchend',function (ev) {
+            if (starttime - last<300) {
+                console.log('双击触发')
+            }
+            last = starttime;
+        })
+    }
+</script>
+</html>

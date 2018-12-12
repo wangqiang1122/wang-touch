@@ -71,8 +71,6 @@
               if (dir) {
                  if (dir === 'x') {
                      s = ev.changedTouches[0].pageX - xrun;
-                     // console.log(s+startL);
-                     // ul.style.transform=ul.style.webkitTransform = `translateX(${s+startL}px)`;
                      ul.style.transform=ul.style.webkitTransform = 'translateX('+(s+startL)+'px)';
 
                      translateX = s+startL;
