@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <style>
+        *{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        li{
+            float: left;
+            height: 300px;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        #kou{
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            height: 300px;
+        }
+        #warp{
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            top:0;
+        }
+        #nav a {
+            width: 15px;
+            height: 15px;
+            display: inline-block;
+            background: red;
+            border-radius: 50%;
+            vertical-align: top;
+        }
+
+        #nav .active{
+            background: #000;
+        }
+        #nav{
+            width: 100%;
+            height: 10px;
+            position: absolute;
+            bottom: 5px;
+            z-index: 1;
+            text-align: center;
+        }
+    </style>
+    <script src="../../../../../Volumes/谢明霞Tel:15010890787/王强/htdocs/vue/js/w.tween.js"></script>
+</head>
+<body>
+   <div id="kou">
+       <ul id="warp">
+           <li><img src="../img/1.jpg" alt=""/></li>
+           <li><img src="../img/2.jpg" alt=""/></li>
+           <li><img src="../img/3.jpg" alt=""/></li>
+           <li><img src="../img/4.jpg" alt=""/></li>
+       </ul>
+       <div id="nav">
+           <a href="javascript:;" class="active"></a>
+           <a href="javascript:;"></a>
+           <a href="javascript:;"></a>
+           <a href="javascript:;"></a>
+       </div>
+
+   </div>
+
+
+
+
+</body>
+
+
+<script src="./scroll/w.tween.js"></script>
+<script>
+
+window.onload=function(){
+
+};
+    document.addEventListener("touchstart",function(ev){
+        ev.preventDefault()
+    });
+    var li=document.getElementsByTagName("li");
+    var nav=document.getElementById("nav");
+    var a=nav.getElementsByTagName("a");
+    var ul=document.getElementById("warp");
+    var len=document.getElementsByTagName("li").length;
+    var lenli=document.getElementsByTagName("li").length;
+    var width=document.body.clientWidth;
+    var n=0;
+    var settime;
+    for(var i=0;i<lenli;i++){
+        li[i].style.width=document.body.clientWidth+"px"
+    }
+    ul.innerHTML+=ul.innerHTML;
+    ul.style.width=li[0].offsetWidth*ul.children.length+"px";
+    var aaa=ul.children.length;
+           var  disX = 0,//按下的坐标
+            listL = 0,//当前按下list的left值
+            w = ul.clientWidth; //一张图片的宽度
+    ul.addEventListener("touchstart",start);
+    ul.addEventListener("touchmove",move);
+    ul.addEventListener("touchend",end);
+    function start(ev){
+        var e = ev.changedTouches[0];
+        var num=Math.round(cssTransForm(ul,"translateX")/width);
+        disX = e.pageX;//获取摁下坐标
+
+        if(num==0){
+            num=len*width;
+            css(ul,"translateX",-num)
+        }
+
+        if(-num==ul.children.length-1){
+            css(ul,"translateX",-(len-1)*width);
+        }
+
+        listL = css(ul,"translateX");
+
+
+    }
+    function move(ev){
+        var e = ev.changedTouches[0];
+
+//        ul.style.left = (e.pageX - disX) + listL + 'px';
+       css(ul,"translateX",(e.pageX - disX) + listL);
+
+    }
+    function end(ev){
+        var e = ev.changedTouches[0];
+        var num=Math.round(cssTransForm(ul,"translateX")/width);
+         console.log(num)
+//        ul.style.transition=".5s"
+//        ul.style.left = num * width + 'px'
+        startmove(ul,{translateX:num * width},500,"easeOut");
+        a[n].className="";
+        a[-num% a.length].className="active";
+        n=-num% a.length;
+    }
+//    for(var c=0;c< a.length;c++ ){
+//        a[c].index1=c;
+//        a[c].addEventListener("touchend",function(ev){
+//               console.log(this.index1);
+//            ul.style.transition=".5s";
+////            ul.style.left = -this.index1 * width + 'px';
+//            cssTransForm(ul,"translateX",num * -this.index1 * width);
+//
+//            for(var h=0;h<a.length;h++){
+//                a[h].className="";
+//            }
+//            a[this.index1].className="active"
+//        })
+//    }
+
+   function auPlay(){
+       var num=0;
+       settime=setInterval(function(){
+           num--
+           startmove(ul,{translateX:num * width},500,"easeOut",function(){
+               if(num==-4){
+                   css(ul,"translateX",0);
+                   num=0
+               }
+           });
+       },2000)
+   }
+
+auPlay()
+
+
+
+
+
+
+//  setInterval(function(){
+//
+//       ul.style.transition=".5s";
+//       num=Math.round(ul.offsetLeft/width);
+//       num+=-1;
+//       console.log(-num)
+//       if(-num> a.length){
+//           ul.style.transition="none";
+//           ul.style.left=0;
+//           num=0
+//       }
+//
+//
+//       ul.style.left = num * width + 'px';
+//
+//  },1000);
+
+
+
+
+
+
+
+
+
+
+//var num=Math.round(ul.offsetLeft/width);
+//    setInterval(function(){
+//        num+=1;
+//
+//        if(num>= a.length){
+//
+//            ul.style.transition="none";
+//            ul.style.left=0+"px";
+//    }
+//        ul.style.transition=".5s";
+//        ul.style.left = -num * width + 'px';
+
+
+        //分隔线
+//        var num=Math.round(ul.offsetLeft/width);
+//         num+=1;
+//        ul.style.transition=".5s";
+////        if(num==0){
+////            ul.style.transition="none";
+////            num=len*width;
+////            ul.style.left=-num+"px";
+////        }
+//        console.log(-num==len-1)
+////        if(-num==ul.children.length-1){
+////            ul.style.transition="none";
+////            ul.style.left=-(len-1)*width+"px"
+////        }
+//
+//        ul.style.left = -num * width + 'px';
+//    },1000)
+
+</script>
+
+
+
+</html>

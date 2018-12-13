@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画算法演示</title>
+</head>
+<body>
+ <div>
+
+ </div>
+</body>
+<script>
+    // //t当前时间 b初始值 c变化量  d持续时间   路程 = 时间*速度; 200   5   40s
+    // 持续时间是我需要运动的时间/20(20是自定义来自习惯走一帧大概20毫秒)
+       // new Date 100    x       100
+    window.onload = function () {
+        function ease(t,b,c,d) {
+          return c*t/d+b;
+        }
+        var t =0;  // 初始值
+        var b = 0; // 初始值
+        var d = 300/10;// 持续时间
+        var c = 600; // 变化量 需要走的总长度
+
+        function donghu() {
+            requestAnimationFrame(function () {
+                t++
+                if (t>d) {
+
+                } else {
+                    var mai = ease(t,b,c,d);
+                    donghu();
+                    console.log(mai);
+                }
+            });
+        }
+        donghu()
+        // var timer = null;
+        //  timer = setInterval(function () {
+        //      console.log(ease(a++,0,5,100));
+        //  },500)
+    }
+</script>
+</html>

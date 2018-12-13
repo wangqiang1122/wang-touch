@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+        .wrap{
+           height: 300px;
+           background: #ccc;
+           width: 300px;
+           overflow: hidden;
+            position: relative;
+          }
+        #content{
+            width: 800px;
+            height: 1800px;
+            background: -webkit-linear-gradient(left top,red ,green);
+            position: relative;
+            z-index: 2;
+        }
+        #shua {
+            width: 100%;
+            text-align: center;
+            line-height: 30px;
+            position: absolute;
+            top:0;
+            left: 0;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+ <div class="wrap">
+     <div id="content"></div>
+     <div id="shua">下拉刷新</div>
+
+ </div>
+</body>
+<script src="./scroll/iscroll-probe.js" charset="utf-8"></script>
+<script>
+    window.onload = function () {
+        //scrollCancel
+        var shua = document.getElementById('shua');
+        var scroll = new IScroll('.wrap',{ momentum: true, scrollX: false ,scrollY:true,probeType:3 });
+        var beforex = 0;
+        scroll.on('beforeScrollStart',function () {
+            beforex = 0;
+        });
+        scroll.on('scroll',function () {
+            console.log(scroll.endTime);
+        });
+
+        scroll.on('scrollEnd',function () {
+            if (beforex>=100) {
+                console.log('请求数据');
+                shua.innerHTML = '下拉刷新'
+            }
+        })
+    }
+</script>
+</html>

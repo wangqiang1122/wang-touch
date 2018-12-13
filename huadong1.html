@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+        #wrap{
+            height: 300px;
+            background: #ccc;
+            width: 300px;
+            overflow: hidden;
+        }
+        #content{
+            width: 800px;
+            height: 1800px;
+            background: -webkit-linear-gradient(left top,red ,green);
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+<div id="wrap">
+    <div id="content">
+
+    </div>
+</div>
+</body>
+<script>
+    window.onload = function () {
+        var doc = document;
+        var wrap = doc.getElementById('wrap');
+        var content = doc.getElementById('content');
+        var top = 0; // 初始化滑动高度
+        content.addEventListener('touchstart',function (ev) {
+            var starty = ev.changedTouches[0].clientY - top;
+            var original = ev.changedTouches[0].clientY;
+            var originaltime = new Date().getTime();
+            var lu
+            function fnmove(ev) {
+               top  = ev.changedTouches[0].clientY  - starty;
+               lu = Math.round(ev.changedTouches[0].clientY- original);
+               content.style.transform = content.style.webkitTransform = 'translateY('+top+'px)'
+           }
+           function fnend() {
+               var time = new Date().getTime() - originaltime;
+               if (Math.round(lu/time)) {
+                   top = top + (lu);
+                   console.log(top);
+                   content.style.transitionDuration = '600ms';
+                   content.style.transform = 'translateY('+top+'px)'
+               } else {
+               }
+               console.log(lu);
+               console.log(time);
+               console.log((lu/time)*(time));
+               content.removeEventListener('touchmove',fnmove,false);
+               content.removeEventListener('touchend',fnend,false);
+           }
+           content.addEventListener('touchmove',fnmove,false);
+            content.addEventListener('touchend',fnend,false);
+        });
+        content.addEventListener('transitionend',function () {
+            content.style.transitionDuration = '0ms';
+        })
+
+    }
+</script>
+</html>

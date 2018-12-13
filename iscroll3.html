@@ -19,7 +19,7 @@
           }
         #content{
             width: 800px;
-            height: 800px;
+            height: 1800px;
             background: -webkit-linear-gradient(left top,red ,green);
         }
     </style>
@@ -29,14 +29,27 @@
      <div id="content"></div>
  </div>
 </body>
-<script src="./scroll/iscroll.js" charset="utf-8"></script>
+<script src="./scroll/iscroll-probe.js" charset="utf-8"></script>
 <script>
     window.onload = function () {
-        var scroll = new IScroll('.wrap',{ momentum: true, scrollX: false ,scrollY:true });
+        //scrollCancel
+        var scroll = new IScroll('.wrap',{ momentum: true, scrollX: false ,scrollY:true,probeType:2 });
         scroll.on('beforeScrollStart',function () {
-
+           console.log('开始点击')
+        });
+        scroll.on('scrollStart',function () {
+            console.log('开始滚动')
+        });
+        scroll.on('scroll',function () {
+            console.log(scroll.y)
+            console.log('滚动监听')
+        });
+        scroll.on('scrollCancel',function () {
+            console.log('没有滚动直接抬起')
+        });
+        scroll.on('scrollEnd',function () {
+            console.log('滚动完成')
         })
-        console.log(scroll)
     }
 </script>
 </html>
