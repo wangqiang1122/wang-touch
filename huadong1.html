@@ -40,12 +40,17 @@
         var wrap = doc.getElementById('wrap');
         var content = doc.getElementById('content');
         var top = 0; // 初始化滑动高度
+        window.addEventListener('touchstart',function (ev) {
+            ev.preventDefault();
+        })
         content.addEventListener('touchstart',function (ev) {
+            ev.preventDefault();
             var starty = ev.changedTouches[0].clientY - top;
             var original = ev.changedTouches[0].clientY;
             var originaltime = new Date().getTime();
             var lu
             function fnmove(ev) {
+                ev.preventDefault();
                top  = ev.changedTouches[0].clientY  - starty;
                lu = Math.round(ev.changedTouches[0].clientY- original);
                content.style.transform = content.style.webkitTransform = 'translateY('+top+'px)'
