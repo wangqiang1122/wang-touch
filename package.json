@@ -1,0 +1,23 @@
+{
+  "name": "wang-touch",
+  "version": "1.0.0",
+  "description": "touchtest",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangqiang1122/wang-touch.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wangqiang1122/wang-touch/issues"
+  },
+  "homepage": "https://github.com/wangqiang1122/wang-touch#readme",
+  "dependencies": {
+    "socket.io": "^2.2.0"
+  }
+}

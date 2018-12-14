@@ -1,0 +1,20 @@
+{
+  "name": "wang-touch",
+  "description": "touchtest",
+  "main": "server.js",
+  "authors": [
+    "wangqiang1122 <wangqiangle@163.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/wangqiang1122/wang-touch",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "iscroll": "^5.2.0"
+  }
+}
