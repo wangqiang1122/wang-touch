@@ -72,6 +72,10 @@
         <div class="li">10</div>
     </div>
 </div>
+
+<div style="text-align: center">
+    <a href="https://www.baidu.com/">百度</a>
+</div>
 </body>
 <script>
     window.onload = function () {
@@ -79,11 +83,19 @@
         var wrap = doc.getElementById('wrap');
         var content = doc.getElementById('content');
         var top = 0; // 初始化滑动高度
-        document.querySelector('body').addEventListener('touchstart',function (ev) {
-            ev.preventDefault();
-        });
+        function startWin(ev) {
+            console.log(ev.cancelable);
+            // 判断默认行为是否可以被禁用
+            if (ev.cancelable) {
+                // 判断默认行为是否已经被禁用
+                if (!ev.defaultPrevented) {
+                    ev.preventDefault();
+                }
+            }
+        }
         content.addEventListener('touchstart',function (ev) {
             ev.preventDefault();
+            // document.querySelector('body').addEventListener('touchstart',startWin,false);
             content.style.transitionDuration = '0ms';
             var starty = ev.changedTouches[0].clientY - top;
             var original = ev.changedTouches[0].clientY;
@@ -109,9 +121,11 @@
                console.log((lu/time)*(time));
                content.removeEventListener('touchmove',fnmove,false);
                content.removeEventListener('touchend',fnend,false);
+               // document.querySelector('body').removeEventListener('touchstart',startWin,false);
            }
-           content.addEventListener('touchmove',fnmove,false);
+            content.addEventListener('touchmove',fnmove,false);
             content.addEventListener('touchend',fnend,false);
+
         });
         content.addEventListener('transitionend',function () {
             content.style.transitionDuration = '0ms';

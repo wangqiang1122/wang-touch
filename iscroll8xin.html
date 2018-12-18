@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+        .wrap{
+           height: 300px;
+           background: #ccc;
+           width: 300px;
+           overflow: hidden;
+            position: relative;
+          }
+        #content{
+            width: 800px;
+            height: 1800px;
+            background: -webkit-linear-gradient(left top,red ,green);
+            position: relative;
+            z-index: 2;
+        }
+        #dropdown{
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            line-height: 30px;
+            top:0;
+            left: 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+ <div class="wrap">
+     <div id="content"></div>
+     <div id="dropdown">下拉刷新</div>
+ </div>
+</body>
+<script src="./scroll/iscroll-probe.js" charset="utf-8"></script>
+<script>
+    window.onload = function () {
+        //scrollCancel
+        var first = false;
+        var dropdown = document.getElementById('dropdown');
+        var scroll = new IScroll('.wrap',{ momentum: true, scrollX: false ,scrollY:true,probeType:3 });
+        scroll.on('scrollStart',function () {
+            // console.log('开始滚动');
+            first = true;
+            scroll.endTime =0 ;
+            scroll.on('scroll',scrollfn);
+        });
+        scroll.on('scrollEnd',function () {
+            console.log('滚动完成');
+            dropdown.innerHTML = '下拉刷新'
+        })
+        function scrollfn() {
+            console.log(scroll.endTime)
+            if (scroll.endTime ===0) { // 还在拖动
+                if (scroll.y>100) {
+                    dropdown.innerHTML = '请松手';
+                } else {
+                    dropdown.innerHTML = '下拉刷新'
+                }
+            } else {  // 开始放手
+                if (first) {
+                    if (scroll.y>100) {
+                        dropdown.innerHTML = '加载中';
+                        first = false;
+                        scroll.scrollTo(0,30);
+                        console.log('我松手了');
+                    }
+                }
+                scroll.off('scroll',scrollfn);
+                console.log(first)
+            }
+
+
+        }
+    }
+</script>
+</html>
