@@ -3,8 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <style>
+        #warp {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background: #ccc;
+        }
+        #content {
+            width: 800px;
+            height: 800px;
+            background: -webkit-linear-gradient(left top,red ,green);
+        }
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
+<script src="./wscroll.js"></script>
 <body>
-
+<div id="warp">
+    <div id="content"></div>
+</div>
 </body>
+<script>
+   window.onload= function () {
+       var scroll = new Wscroll('warp',{freeScroll: false,scrollX: true, scrollY: true});
+       console.log(scroll)
+   }
+</script>
 </html>
