@@ -19,7 +19,7 @@
           alert('没有容器');
           return
       }
-      this.content = this.el.children[0];
+      this.content = this.el.children[0]; // 内容区
       this.content.addEventListener('touchstart',start,false);
       this.content.addEventListener('touchmove',move,false);
       this.content.addEventListener('touchend',end,false);
@@ -51,23 +51,36 @@
             } else {
                if (dir ==='l') {
                    translateX = (ev.changedTouches[0].clientX)-disx;
-                   console.log(translateX);
+                   if (translateX>0) {
+                       translateX = translateX/4;
+                   } else if ( Math.abs(translateX)>(self.content.offsetWidth-self.el.offsetWidth)) {
+
+                   }
                   self.content.style.transform = self._translate(translateX,self.options.startY);
                } else if (dir ==='t') {
                    translateY = (ev.changedTouches[0].clientY)-disy;
-                   console.log(translateX);
+                   if (translateY>0) {
+                       translateY = translateY/4;
+                   }
                    self.content.style.transform = self._translate(self.options.startX,translateY);
                }
             }
         }
       }
       function end(ev) {
-          // if (translateX<0) {
-          //     translateX = 0;
-          // }
-          // self._translate(translateX, translateY)
+          console.log(self.content.offsetWidth-window.document.documentElement.offsetWidth)
+          if (translateX>0) {
+              translateX = 0;
+          } else if ( Math.abs(translateX)>(self.content.offsetWidth-self.el.offsetWidth)) {
+              translateX = -(self.content.offsetWidth-self.el.offsetWidth);
+          }
+          if (translateY>0) {
+              translateY = 0;
+          }
           self.options.startX = translateX;
           self.options.startY = translateY;
+          console.log(translateX)
+          self.content.style.transform =self._translate(translateX, translateY)
       }
         console.log(this.options.directionLock);
       return this;
