@@ -14,7 +14,7 @@
         }
         #content {
             width: 800px;
-            height: 800px;
+            height: 1800px;
             background: -webkit-linear-gradient(left top,red ,green);
         }
         *{
@@ -33,7 +33,13 @@
 </body>
 <script>
    window.onload= function () {
-       var scroll = new Wscroll('warp',{freeScroll: false,scrollX: true, scrollY: true});
+       var scroll = new Wscroll('warp',{freeScroll: false,scrollX: false, scrollY: true});
+       scroll.on('beforemovestart',function () {
+           console.log('开始滑动之前')
+       });
+       scroll.on('movestart',function () {
+           console.log('滑动开始')
+       });
        console.log(scroll)
    }
 </script>

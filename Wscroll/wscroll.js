@@ -1,4 +1,5 @@
 (function (w) {
+    var events = {};
     function Wscroll(el, options) {
       this.options = {};
       this.options.scrollX = options.scrollX === undefined ? false:options.scrollX;
@@ -23,20 +24,28 @@
       this.content.addEventListener('touchstart',start,false);
       this.content.addEventListener('touchmove',move,false);
       this.content.addEventListener('touchend',end,false);
-      var dir = '',startx,starty,translateX=this.options.startX,translateY=this.options.startY,self = this,disx,disy;
+      var dir = '',startx,starty,translateX=this.options.startX,translateY=this.options.startY,
+          self = this,disx,disy,left,top,firstmove = false;
       this.content.style.transform = this._translate(this.options.startX,this.options.startY);
       function start(ev) {
           dir = '';
           // translateX =  self.options.startX;
           // translateY = self.options.startY;
-          console.log(translateX)
           startx = ev.changedTouches[0].clientX;
           starty = ev.changedTouches[0].clientY;
           disx = startx - translateX;
           disy = starty - translateY;
-          console.log(disx)
+          events['beforemovestart']&&events['beforemovestart']();
+          left = 0;
+          top = 0;
+          firstmove = true;
+          self.content.style.transition = '';
       }
       function move(ev) {
+        if (firstmove) {
+            events['movestart']&&events['movestart']();
+            firstmove = false;
+        }
         if (self.options.freeScroll) {
             translateX = (ev.changedTouches[0].clientX)-disx;
             translateY = (ev.changedTouches[0].clientY)-disy;
@@ -54,13 +63,17 @@
                    if (translateX>0) {
                        translateX = translateX/4;
                    } else if ( Math.abs(translateX)>(self.content.offsetWidth-self.el.offsetWidth)) {
-
+                       left = (Math.abs(translateX)-(self.content.offsetWidth-self.el.offsetWidth))/4;
+                       translateX = -(Math.abs(self.content.offsetWidth-self.el.offsetWidth)+left);
                    }
                   self.content.style.transform = self._translate(translateX,self.options.startY);
                } else if (dir ==='t') {
                    translateY = (ev.changedTouches[0].clientY)-disy;
                    if (translateY>0) {
                        translateY = translateY/4;
+                   } else if(Math.abs(translateY)>(self.content.offsetHeight-self.el.offsetHeight)) {
+                       top = (Math.abs(translateY)-(self.content.offsetHeight-self.el.offsetHeight))/4;
+                       translateY = -(Math.abs(self.content.offsetHeight-self.el.offsetHeight)+top);
                    }
                    self.content.style.transform = self._translate(self.options.startX,translateY);
                }
@@ -76,13 +89,19 @@
           }
           if (translateY>0) {
               translateY = 0;
+          } else if (Math.abs(translateY)>(self.content.offsetHeight-self.el.offsetHeight)) {
+              translateY = -(self.content.offsetHeight-self.el.offsetHeight);
           }
           self.options.startX = translateX;
           self.options.startY = translateY;
-          console.log(translateX)
-          self.content.style.transform =self._translate(translateX, translateY)
+          self.content.style.transform =self._translate(translateX, translateY);
+          self.content.style.transition = self.content.style.webkitTransition = '600ms';
+          // self.content.style.transition = self.content.style.webkitTransition = 'cubic-bezier(.1, .57, .1, 1)';
+          // 安卓低版本动画会有抖动
+          self.content.style.cssText = 'transition:600ms cubic-bezier(.1, .57, .1, 1); ' +
+              '-webkit-transition:600ms cubic-bezier(.1, .57, .1, 1);'
+              // ' -webkit-transform:'+self._translate(translateX, translateY)+'';
       }
-        console.log(this.options.directionLock);
       return this;
     }
     w.Wscroll =Wscroll;
@@ -97,5 +116,8 @@
         }
         return  arr.join(' ');
 
+    };
+    Wscroll.prototype.on = function (type,fn) {
+        events[type] = fn;
     }
 })(window);
