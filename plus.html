@@ -5,15 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-<!--<input id="fileImage" class="fileImage" type="file"  accept="image/*" capture="camera" size="30">-->
+<input id="fileImage" class="fileImage" type="file"  accept="image/*" capture="camera" size="30">
 <button>拍照</button>
 </body>
 <script>
-    document.addEventListener( "plusready", onPlusReady, false );
-    // 扩展API加载完毕，现在可以正常调用扩展API
-    function onPlusReady() {
-        var cmr = plus.camera.getCamera();
-        alert( "Camera supperted image formats: " + cmr.supportedImageFormats );
+    window.onload = function() {
+        document.addEventListener( "plusready", onPlusReady, false );
+        // 扩展API加载完毕，现在可以正常调用扩展API
+        function onPlusReady() {
+            var cmr = plus.camera.getCamera();
+            alert( "Camera supperted image formats: " + cmr.supportedImageFormats );
+        }
     }
 </script>
 </html>
