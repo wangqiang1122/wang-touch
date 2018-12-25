@@ -2,9 +2,109 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
     <title>Title</title>
+    <script src="hammer.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        .ul1 li {
+            line-height: 30px;
+            position: relative;
+        }
+        .content {
+            width: 100%;
+            position: relative;
+            z-index: 3;
+            line-height: 30px;
+            background-color: white;
+            border: 1px solid black;
+        }
+        .bian {
+            position: absolute;
+            right: 0;
+            top:0;
+            line-height: 30px;
+            background-color: #ccc;
+            z-index: 1;
+            overflow: hidden;
+            border: 1px solid black;
+        }
+        .bian a{
+            width: 50px;
+            line-height: 30px;
+            float: left;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-
+<ul class="ul1">
+    <li>
+        <div class="content">短信1</div>
+        <div class="bian">
+            <a>已读</a>
+            <a>删除</a>
+        </div>
+    </li>
+    <li>
+        <div class="content">短信2</div>
+        <div class="bian">
+            <a>已读</a>
+            <a>删除</a>
+        </div>
+    </li>
+    <li>
+        <div class="content">短信3</div>
+        <div class="bian">
+            <a>已读</a>
+            <a>删除</a>
+        </div>
+    </li>
+    <li>
+        <div class="content">短信4</div>
+        <div class="bian">
+            <a>已读</a>
+            <a>删除</a>
+        </div>
+    </li>
+    <li>
+        <div class="content">短信5</div>
+        <div class="bian">
+            <a>已读</a>
+            <a>删除</a>
+        </div>
+    </li>
+    <li>
+        <div class="content">短信6</div>
+        <div class="bian">
+            <a>已读</a>
+            <a>删除</a>
+        </div>
+    </li>
+</ul>
 </body>
+<script>
+    window.onload = function () {
+        var ul = document.querySelector('.ul1');
+        var lis = ul.querySelectorAll('li');
+        lis.forEach(function (item,index) {
+           var hammer  = new Hammer(item);
+           hammer.on('swipeleft',function (ev) {
+               lis.forEach(function (item) {
+                   item.children[0].style.transform = 'translateX(0px)';
+               });
+               item.children[0].style.transform = 'translateX(-100px)';
+               item.children[0].style.transition = '0.3s all ease';
+           });
+            hammer.on('swiperight',function (ev) {
+                item.children[0].style.transform = 'translateX(0px)';
+            });
+        })
+    };
+</script>
 </html>
