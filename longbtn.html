@@ -17,7 +17,7 @@
         btn.addEventListener('touchstart',function (ev) {
             ev.preventDefault();
             start = new Date().getTime();
-        })
+        });
         btn.addEventListener('touchend',function (ev) {
             end = new Date().getTime();
             if(end-start>=700) {
