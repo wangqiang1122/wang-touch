@@ -9,9 +9,11 @@
 <button>拍照</button>
 </body>
 <script>
-    document.addEventListener( "plusready", function () {
+    document.addEventListener( "plusready", onPlusReady, false );
+    // 扩展API加载完毕，现在可以正常调用扩展API
+    function onPlusReady() {
         var cmr = plus.camera.getCamera();
-        alert(plus);
-    }, false );
+        alert( "Camera supperted image formats: " + cmr.supportedImageFormats );
+    }
 </script>
 </html>
