@@ -15,6 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "iscroll": "^5.2.0"
+    "iscroll": "^5.2.0",
+    "hammerjs": "hammer.js#^2.0.8"
   }
 }
