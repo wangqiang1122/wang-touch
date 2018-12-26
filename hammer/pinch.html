@@ -29,6 +29,7 @@
 </body>
 <script>
     window.onload = function () {
+        // scale 缩放用的
         var box = document.getElementById('box');
         var text = document.getElementById('text');
         var hammer = new Hammer(box);
@@ -37,7 +38,7 @@
             text.innerHTML = ev.scale;
         });
         hammer.on('pinchmove',function (ev) {
-            text.innerHTML = ev.scale;
+            box.style.transform = 'scale('+ev.scale+')';
         });
         hammer.on('pinchend',function (ev) {
 
