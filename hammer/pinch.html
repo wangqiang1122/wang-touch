@@ -38,10 +38,12 @@
         hammer.get('pinch').set({ enable: true });
         hammer.on('pinchstart',function (ev) {
             startScale = Math.abs(ev.scale-a);
+            text.innerHTML = startScale;
         });
         hammer.on('pinchmove',function (ev) {
             a = Math.abs(ev.scale - startScale);
             box.style.transform = 'scale('+a+')';
+            text.innerHTML = a;
         });
         hammer.on('pinchend',function (ev) {
 
