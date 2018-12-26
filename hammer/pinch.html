@@ -40,13 +40,13 @@
         hammer.get('pinch').set({ enable: true });
         hammer.on('pinchstart',function (ev) {
             startScale = Math.abs(ev.scale-a);
-            text.innerHTML = startScale;
+
             num = num+1;
         });
         hammer.on('pinchmove',function (ev) {
             text.innerHTML = num;
             if (num>1) {
-                scale =  Math.abs(ev.scale- startScale)+a;
+                scale =  Math.abs(ev.scale- startScale);
             }else {
                 scale = Math.abs(ev.scale )+a;
             }
