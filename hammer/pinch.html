@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            background: #93004e;
+            margin: 100px auto 0;
+        }
+    </style>
+</head>
+<body>
+  <div id="box">
+
+  </div>
+
+<div id="text"></div>
+</body>
+<script>
+    window.onload = function () {
+        var box = document.getElementById('box');
+        var text = document.getElementById('text');
+        console.log(box);
+        var hammer = new Hammer(box);
+        hammer.on('pinchstart',function (ev) {
+
+        });
+        hammer.on('pinchmove',function (ev) {
+            text.innerHTML = JSON.stringify(ev);
+        });
+        hammer.on('pinchend',function (ev) {
+
+        });
+    }
+</script>
+</html>

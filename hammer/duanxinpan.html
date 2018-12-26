@@ -35,10 +35,19 @@
             border: 1px solid black;
         }
         .bian a{
-            width: 50px;
             line-height: 30px;
             float: left;
             text-align: center;
+            position: relative;
+            height: 30px;
+        }
+        .bian a span {
+            position: absolute;
+            line-height: 30px;
+            width: 50px;
+            margin-left: -25px;
+            left: 50%;
+            top:0;
         }
     </style>
 </head>
@@ -47,43 +56,79 @@
     <li>
         <div class="content">短信1</div>
         <div class="bian">
-            <a>已读</a>
-            <a>删除</a>
+            <a>
+                <span>
+                已读
+                </span>
+            </a>
+            <a>
+                <span>删除</span>
+            </a>
         </div>
     </li>
     <li>
         <div class="content">短信2</div>
         <div class="bian">
-            <a>已读</a>
-            <a>删除</a>
+            <a>
+                <span>
+                已读
+                </span>
+            </a>
+            <a>
+                <span>删除</span>
+            </a>
         </div>
     </li>
     <li>
         <div class="content">短信3</div>
         <div class="bian">
-            <a>已读</a>
-            <a>删除</a>
+            <a>
+                <span>
+                已读
+                </span>
+            </a>
+            <a>
+                <span>删除</span>
+            </a>
         </div>
     </li>
     <li>
         <div class="content">短信4</div>
         <div class="bian">
-            <a>已读</a>
-            <a>删除</a>
+            <a>
+                <span>
+                已读
+                </span>
+            </a>
+            <a>
+                <span>删除</span>
+            </a>
         </div>
     </li>
     <li>
         <div class="content">短信5</div>
         <div class="bian">
-            <a>已读</a>
-            <a>删除</a>
+            <a>
+                <span>
+                已读
+                </span>
+            </a>
+            <a>
+                <span>删除</span>
+            </a>
         </div>
     </li>
     <li>
         <div class="content">短信6</div>
         <div class="bian">
-            <a>已读</a>
-            <a>删除</a>
+            <a>
+                <span>
+                已读
+                </span>
+            </a>
+            <a>
+                <span>删除</span>
+            </a>
         </div>
     </li>
 </ul>
@@ -92,24 +137,64 @@
     window.onload = function () {
         var ul = document.querySelector('.ul1');
         var lis = ul.querySelectorAll('li');
+        var bian = document.querySelector('.bian');
+        var oldItem = '';
         lis.forEach(function (item,index) {
             var hammer  = new Hammer(item);
             let dix = 0,x = 0;
+            var a = item.querySelectorAll('a');
             hammer.on('panstart',function (ev) {
-                console.log(ev.center);
+                console.log(ev);
+                dix = ev.center.x-x;
+                if (oldItem !== ev.target) {
+                    x= 0;
+                    dix = ev.center.x-x;
+                    lis.forEach(function (val,index) {
+                        val.children[0].style.transform = 'translate('+x+'px)';
+                        val.querySelectorAll('a').forEach(function (herf) {
+                            herf.style.transition = '0.3 all ease';
+                            herf.style.width = '0px';
+                            console.log(herf)
+                        })
+                    });
+                } else {
 
-                dix = ev.center.x-x
+                }
+                a.forEach(function (herf) {
+                    herf.style.transition = '';
+                });
+                item.children[0].style.transition = '';
+                oldItem = ev.target;
             });
             hammer.on('panmove',function (ev) {
                 x = ev.center.x - dix;
                 if (x>0) {
                     x =0 ;
                 }
-                item.children[0].style.transform = 'translate('+x+'px)'
+                item.children[0].style.transform = 'translate('+x+'px)';
+                a = item.querySelectorAll('a');
+                a.forEach(function (herf,index) {
+                    herf.style.width = Math.abs(x)/2+'px';
+                });
             });
             hammer.on('panend',function (ev) {
-                console.log(ev.center);
-
+                if (Math.abs(x)>50) {
+                    item.children[0].style.transform = 'translate('+(-100)+'px)';
+                    x  = -100;
+                    item.children[0].style.transition = '0.3s all ease';
+                    a.forEach(function (herf,index) {
+                        herf.style.transition = '0.3s all ease';
+                        herf.style.width = '50px';
+                    });
+                }
+                if (Math.abs(x)<50) {
+                    x  = 0;
+                    item.children[0].style.transform = 'translate('+(x)+'px)';
+                    item.children[0].style.transition = '0.3s all ease';
+                    a.forEach(function (herf,index) {
+                        herf.style.width = '0px';
+                    });
+                }
             });
         })
     };
