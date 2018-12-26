@@ -25,13 +25,14 @@
 
   </div>
 
-<div id="text"></div>
+<div id="text">1111</div>
 </body>
 <script>
     window.onload = function () {
         var box = document.getElementById('box');
         var text = document.getElementById('text');
         var hammer = new Hammer(box);
+        hammer.get('pinch').set({ enable: true });
         hammer.on('pinchstart',function (ev) {
             text.innerHTML = JSON.stringify(ev);
         });
