@@ -34,10 +34,10 @@
         var hammer = new Hammer(box);
         hammer.get('pinch').set({ enable: true });
         hammer.on('pinchstart',function (ev) {
-            text.innerHTML = JSON.stringify(ev);
+            text.innerHTML = ev.scale;
         });
         hammer.on('pinchmove',function (ev) {
-            text.innerHTML = JSON.stringify(ev);
+            text.innerHTML = ev.scale;
         });
         hammer.on('pinchend',function (ev) {
 
