@@ -51,7 +51,6 @@
                 scale = Math.abs(ev.scale )+a;
             }
             box.style.transform = 'scale('+scale+')';
-            text.innerHTML = scale;
         });
         hammer.on('pinchend',function (ev) {
            a = scale;
