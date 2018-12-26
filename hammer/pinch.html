@@ -39,14 +39,14 @@
         var num = 0;
         hammer.get('pinch').set({ enable: true });
         hammer.on('pinchstart',function (ev) {
-            startScale = Math.abs(ev.scale-a);
+            startScale = Math.abs(ev.scale);
 
             num = num+1;
         });
         hammer.on('pinchmove',function (ev) {
             text.innerHTML = num;
             if (num>1) {
-                scale =  Math.abs(ev.scale- startScale);
+                scale =  Math.abs(ev.scale- startScale)+a;
             }else {
                 scale = Math.abs(ev.scale )+a;
             }
