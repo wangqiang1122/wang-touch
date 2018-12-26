@@ -33,12 +33,15 @@
         var box = document.getElementById('box');
         var text = document.getElementById('text');
         var hammer = new Hammer(box);
+        var a = 0;
+        var startScale = 0;
         hammer.get('pinch').set({ enable: true });
         hammer.on('pinchstart',function (ev) {
-            text.innerHTML = ev.scale;
+            startScale = ev.scale;
         });
         hammer.on('pinchmove',function (ev) {
-            box.style.transform = 'scale('+ev.scale+')';
+            a = ev.scale - startScale;
+            box.style.transform = 'scale('+a+')';
         });
         hammer.on('pinchend',function (ev) {
 
