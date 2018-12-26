@@ -46,6 +46,7 @@
         hammer.on('pinchmove',function (ev) {
             if (num>1) {
                 scale =  Math.abs(ev.scale- startScale)+a;
+                text.innerHTML = num;
             }else {
                 scale = Math.abs(ev.scale )+a;
             }
