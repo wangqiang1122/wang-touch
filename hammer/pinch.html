@@ -36,13 +36,19 @@
         var a = 0;
         var startScale = 0;
         var scale = 0;
+        var num = 0;
         hammer.get('pinch').set({ enable: true });
         hammer.on('pinchstart',function (ev) {
             startScale = Math.abs(ev.scale-a);
             text.innerHTML = startScale;
+            num++
         });
         hammer.on('pinchmove',function (ev) {
-            scale = Math.abs(ev.scale )+a;
+            if (num>1) {
+                scale =  Math.abs(ev.scale- startScale)+a;
+            }else {
+                scale = Math.abs(ev.scale )+a;
+            }
             box.style.transform = 'scale('+scale+')';
             text.innerHTML = scale;
         });
