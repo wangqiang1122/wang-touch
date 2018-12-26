@@ -35,18 +35,19 @@
         var hammer = new Hammer(box);
         var a = 0;
         var startScale = 0;
+        var scale = 0;
         hammer.get('pinch').set({ enable: true });
         hammer.on('pinchstart',function (ev) {
             startScale = Math.abs(ev.scale-a);
             text.innerHTML = startScale;
         });
         hammer.on('pinchmove',function (ev) {
-            a = Math.abs(ev.scale - startScale);
-            box.style.transform = 'scale('+a+')';
-            text.innerHTML = a;
+            scale = Math.abs(ev.scale - startScale)+a;
+            box.style.transform = 'scale('+scale+')';
+            text.innerHTML = scale;
         });
         hammer.on('pinchend',function (ev) {
-
+           a = scale;
         });
     }
 </script>
