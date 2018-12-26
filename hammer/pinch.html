@@ -44,9 +44,9 @@
             num = num+1;
         });
         hammer.on('pinchmove',function (ev) {
+            text.innerHTML = num;
             if (num>1) {
                 scale =  Math.abs(ev.scale- startScale)+a;
-                text.innerHTML = num;
             }else {
                 scale = Math.abs(ev.scale )+a;
             }
