@@ -31,10 +31,9 @@
     window.onload = function () {
         var box = document.getElementById('box');
         var text = document.getElementById('text');
-        console.log(box);
         var hammer = new Hammer(box);
         hammer.on('pinchstart',function (ev) {
-
+            text.innerHTML = JSON.stringify(ev);
         });
         hammer.on('pinchmove',function (ev) {
             text.innerHTML = JSON.stringify(ev);
