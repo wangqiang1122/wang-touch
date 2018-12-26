@@ -42,7 +42,7 @@
             text.innerHTML = startScale;
         });
         hammer.on('pinchmove',function (ev) {
-            scale = Math.abs(ev.scale - a);
+            scale = Math.abs(ev.scale )+a;
             box.style.transform = 'scale('+scale+')';
             text.innerHTML = scale;
         });
