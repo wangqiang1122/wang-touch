@@ -41,7 +41,7 @@
                 var y1 = e[0].clientY- e[1].clientY;
                 var ang = Math.atan(y1/x1)*180/Math.PI; // 开始角度 计算出来了
             }
-            box.addEventListener('touchmove',function (ev) {
+            function move(ev) {
                 ev.preventDefault();
                 var e = ev.targetTouches;
                 if (e.length ===2) {
@@ -52,7 +52,13 @@
                     box.style.transform = 'rotate('+datanag+'deg)';
                     input.value = datanag;
                 }
-            })
+            }
+            box.addEventListener('touchmove',move);
+            box.addEventListener('touchend',end);
+            function end() {
+                box.removeEventListener('touchmove',move);
+                box.removeEventListener('touchend',end);
+            }
         });
 
     }
