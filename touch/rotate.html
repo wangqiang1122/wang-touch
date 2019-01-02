@@ -24,11 +24,12 @@
 <div id="box">
 
 </div>
-
+<input type="text" id="input" style="margin-top: 200px">
 </body>
 <script>
     window.onload = function () {
         var box = document.getElementById('box');
+        var input = document.getElementById('input');
         var start = {};
         let datanag = 0; // 保存当前角度
         box.addEventListener('touchstart',function (ev) {
@@ -38,18 +39,19 @@
             if (e.length ===2) {
                 var x1 = e[0].clientX- e[1].clientX;
                 var y1 = e[0].clientY- e[1].clientY;
+                var ang = Math.atan(y1/x1)*180/Math.PI; // 开始角度 计算出来了
             }
-            var ang = Math.atan(y1/x1)*180/Math.PI; // 开始角度 计算出来了
             box.addEventListener('touchmove',function (ev) {
-                ev.preventDefault()
+                ev.preventDefault();
                 var e = ev.targetTouches;
                 if (e.length ===2) {
                     var x2 = e[0].clientX- e[1].clientX;
                     var y2 = e[0].clientY- e[1].clientY;
+                    var ang2 = Math.atan(y2/x2)*180/Math.PI;
+                    datanag = (ang2-ang)+startAng;
+                    box.style.transform = 'rotate('+datanag+'deg)';
+                    input.value = datanag;
                 }
-                var ang2 = Math.atan(y2/x2)*180/Math.PI;
-                datanag = (ang2+ang);
-                box.style.transform = 'rotate('+datanag+'deg)'
             })
         });
 
