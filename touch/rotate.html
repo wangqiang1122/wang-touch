@@ -32,6 +32,7 @@
         var start = {};
         let datanag = 0; // 保存当前角度
         box.addEventListener('touchstart',function (ev) {
+            ev.preventDefault()
             var e = ev.targetTouches;
             var startAng = datanag;
             if (e.length ===2) {
@@ -40,6 +41,7 @@
             }
             var ang = Math.atan(y1/x1)*180/Math.PI; // 开始角度 计算出来了
             box.addEventListener('touchmove',function (ev) {
+                ev.preventDefault()
                 var e = ev.targetTouches;
                 if (e.length ===2) {
                     var x2 = e[0].clientX- e[1].clientX;
