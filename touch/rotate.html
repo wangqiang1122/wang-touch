@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
     <style>
-        #box
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            background: red;
+            margin: 100px auto 0;
+        }
     </style>
 </head>
 <body>
@@ -14,4 +26,31 @@
 </div>
 
 </body>
+<script>
+    window.onload = function () {
+        var box = document.getElementById('box');
+        var start = {};
+        let datanag = 0; // 保存当前角度
+        box.addEventListener('touchstart',function (ev) {
+            var e = ev.targetTouches;
+            var startAng = datanag;
+            if (e.length ===2) {
+                var x1 = e[0].clientX- e[1].clientX;
+                var y1 = e[0].clientY- e[1].clientY;
+            }
+            var ang = Math.atan(y1/x1)*180/Math.PI; // 开始角度 计算出来了
+            box.addEventListener('touchstart',function (ev) {
+                var e = ev.targetTouches;
+                if (e.length ===2) {
+                    var x2 = e[0].clientX- e[1].clientX;
+                    var y2 = e[0].clientY- e[1].clientY;
+                }
+                var ang2 = Math.atan(y1/x1)*180/Math.PI;
+                datanag = (ang2-ang)+startAng;
+                box.style.transform = 'rotate('+datanag+'deg)'
+            })
+        });
+
+    }
+</script>
 </html>
