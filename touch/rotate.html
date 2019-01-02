@@ -39,7 +39,7 @@
                 var y1 = e[0].clientY- e[1].clientY;
             }
             var ang = Math.atan(y1/x1)*180/Math.PI; // 开始角度 计算出来了
-            box.addEventListener('touchstart',function (ev) {
+            box.addEventListener('touchmove',function (ev) {
                 var e = ev.targetTouches;
                 if (e.length ===2) {
                     var x2 = e[0].clientX- e[1].clientX;
