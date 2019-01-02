@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="800" height="600">
+    您的浏览器不支持canvs
+</canvas>
+</body>
+<script>
+    var canvas = document.getElementById('canvas');
+    var dg = canvas.getContext('2d');
+    canvas.addEventListener('mousedown',function (ev) {
+        console.log(this.offsetLeft);
+        console.log(ev.pageX);
+        var start = { x:ev.pageX,y: ev.pageY };
+        window.addEventListener('mousemove',move,false);
+        function move(ev) {
+                dg.beginPath();
+                dg.moveTo(start.x,start.y);
+                dg.lineTo(ev.pageX,ev.pageY);
+                dg.stroke();
+                dg.closePath();
+                start = { x: ev.pageX,y : ev.pageY}
+        }
+        window.addEventListener('mouseup',end,false);
+        function end() {
+            window.removeEventListener('mousemove',move,false);
+            window.removeEventListener('mouseup',end,false);
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementsByTagName('canvas')[0];
+            var dg = canvas.getContext('2d');
+            dg.beginPath();
+            dg.moveTo(10,10);
+            dg.lineTo(100,100);
+            dg.lineWidth = 10;
+            dg.stroke();
+        }
+    </script>
+</head>
+<body>
+ <canvas width="600" height="600"></canvas>
+</body>
+</html>
