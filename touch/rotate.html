@@ -48,7 +48,7 @@
                     var y2 = e[0].clientY- e[1].clientY;
                 }
                 var ang2 = Math.atan(y2/x2)*180/Math.PI;
-                datanag = (ang2+ang)+startAng;
+                datanag = (ang2+ang);
                 box.style.transform = 'rotate('+datanag+'deg)'
             })
         });
