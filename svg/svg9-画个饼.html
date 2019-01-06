@@ -18,20 +18,58 @@
     </script>
 </head>
 <body>
-<name>dadads</name>
-<svg width="600" height="600">
-    <!--<line x1="10" y1="10" x2="100" y2="100" style="stroke: #93004e"></line>-->
-    <!--<polyline points="3,3 30,28 3,53" fill="none" stroke="black" />-->
-    <!--<circle cx="100" cy="100" r="50" fill="none" style="stroke: black" onclick="cli()"></circle>-->
-    <!--<ellipse cx="300" cy="300" rx="50" ry="100" stroke="red" style="fill: none"></ellipse>-->
-    <!--<path d="M 100 100 L 300 100 300 300 100 300 Z" stroke="red" style="fill: rgba(0,0,0,0)"></path>-->
-    <!--<path d="M 100 400-->
-             <!--L 200 400-->
-             <!--A 100 100 0 1 1 400 400-->
-             <!--L 500 400" style="stroke: black;fill: rgba(0,0,0,0)"></path>-->
-    <path d="M 400 200
-             A 100 100 0 1 1 399.999 200
-             " style="stroke: black;fill: rgba(0,0,0,0)"></path>
-</svg>
+<!--<name>dadads</name>-->
+<!--<svg width="600" height="600">-->
+    <!--&lt;!&ndash;<line x1="10" y1="10" x2="100" y2="100" style="stroke: #93004e"></line>&ndash;&gt;-->
+    <!--&lt;!&ndash;<polyline points="3,3 30,28 3,53" fill="none" stroke="black" />&ndash;&gt;-->
+    <!--&lt;!&ndash;<circle cx="100" cy="100" r="50" fill="none" style="stroke: black" onclick="cli()"></circle>&ndash;&gt;-->
+    <!--&lt;!&ndash;<ellipse cx="300" cy="300" rx="50" ry="100" stroke="red" style="fill: none"></ellipse>&ndash;&gt;-->
+    <!--&lt;!&ndash;<path d="M 100 100 L 300 100 300 300 100 300 Z" stroke="red" style="fill: rgba(0,0,0,0)"></path>&ndash;&gt;-->
+    <!--&lt;!&ndash;<path d="M 100 400&ndash;&gt;-->
+             <!--&lt;!&ndash;L 200 400&ndash;&gt;-->
+             <!--&lt;!&ndash;A 100 100 0 1 1 400 400&ndash;&gt;-->
+             <!--&lt;!&ndash;L 500 400" style="stroke: black;fill: rgba(0,0,0,0)"></path>&ndash;&gt;-->
+    <!--&lt;!&ndash;<path d="M 400 200&ndash;&gt;-->
+             <!--&lt;!&ndash;A 100 100 0 1 1 399.999 200&ndash;&gt;-->
+             <!--&lt;!&ndash;" style="stroke: black;fill: rgba(0,0,0,0)"></path>&ndash;&gt;-->
+<!--</svg>-->
 </body>
+<script>
+    window.onload=function () {
+        // 角度转弧度
+        function a2b(deg) {
+            return Math.PI/180*deg;
+        }
+
+        var svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+        var path = document.createElementNS('http://www.w3.org/2000/svg','path');
+        let cx =200, cy=300,r=200,a=30,b=90;
+        // svg.width = 600;
+        // svg.height = 600;
+        // cx xy
+        // 求 x1 y1
+
+        var x1 = cx+(Math.sin(a2b(a))*r);
+        var y1 = cy-(Math.cos(a2b(a))*r);
+        // 求 x2 y2
+        var x2 = cx+(Math.sin(a2b(b))*r);
+        var y2 = cy-(Math.cos(a2b(b))*r);
+        console.log(x2,y2);
+        var da= 0;
+        if (b>(180+a)) {
+            da=1
+        } else {
+            da =0
+        }
+        path.setAttribute('d','M '+cx+' '+cy+
+                              'L '+x1+' '+y1+
+                              'A '+r+' '+r+' '+'0'+' '+da+' '+'1'+' '+x2+' '+y2+
+                              'Z ');
+        path.setAttribute('style','stroke:red;fill:none');
+        svg.setAttribute('width','600');
+        svg.setAttribute('height','600');
+        svg.appendChild(path);
+        document.body.appendChild(svg);
+    }
+</script>
 </html>
