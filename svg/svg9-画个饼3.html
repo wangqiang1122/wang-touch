@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        svg{
+            border: 1px solid black;
+        }
+        name {
+            color: red;
+        }
+    </style>
+    <script>
+        function cli() {
+            alert()
+        }
+    </script>
+</head>
+<body>
+<!--<name>dadads</name>-->
+<!--<svg width="600" height="600">-->
+    <!--&lt;!&ndash;<line x1="10" y1="10" x2="100" y2="100" style="stroke: #93004e"></line>&ndash;&gt;-->
+    <!--&lt;!&ndash;<polyline points="3,3 30,28 3,53" fill="none" stroke="black" />&ndash;&gt;-->
+    <!--&lt;!&ndash;<circle cx="100" cy="100" r="50" fill="none" style="stroke: black" onclick="cli()"></circle>&ndash;&gt;-->
+    <!--&lt;!&ndash;<ellipse cx="300" cy="300" rx="50" ry="100" stroke="red" style="fill: none"></ellipse>&ndash;&gt;-->
+    <!--&lt;!&ndash;<path d="M 100 100 L 300 100 300 300 100 300 Z" stroke="red" style="fill: rgba(0,0,0,0)"></path>&ndash;&gt;-->
+    <!--&lt;!&ndash;<path d="M 100 400&ndash;&gt;-->
+             <!--&lt;!&ndash;L 200 400&ndash;&gt;-->
+             <!--&lt;!&ndash;A 100 100 0 1 1 400 400&ndash;&gt;-->
+             <!--&lt;!&ndash;L 500 400" style="stroke: black;fill: rgba(0,0,0,0)"></path>&ndash;&gt;-->
+    <!--&lt;!&ndash;<path d="M 400 200&ndash;&gt;-->
+             <!--&lt;!&ndash;A 100 100 0 1 1 399.999 200&ndash;&gt;-->
+             <!--&lt;!&ndash;" style="stroke: black;fill: rgba(0,0,0,0)"></path>&ndash;&gt;-->
+<!--</svg>-->
+</body>
+<script>
+    window.onload=function () {
+        // 动画
+        //t当前时间 b初始值 c变化量  d持续时间
+        function anime(start,end,time,fn) {
+            function ease(t,b,c,d) {
+                return c*t/d+b;
+            }
+            function easeOut(t,b,c,d){//减速算法
+                return -c*(t/=d)*(t-2)+b;
+            }
+            console.log(start,end,time)
+            var t =0;  // 初始时间
+            var b = start; // 初始值
+            var d = time/10;// 持续时间
+            var c = end-start; // 变化量 需要走的总长度
+            donghu()
+            function donghu() {
+                requestAnimationFrame(function () {
+                    t++;
+                    if (t>d) {
+                        console.log('我迟到了')
+                    } else {
+                        var mai = ease(t,b,c,d);
+                        fn&&fn(mai);
+                        donghu();
+                        console.log(mai);
+                    }
+                });
+            }
+        }
+        // 角度转弧度
+        function a2b(deg) {
+            return Math.PI/180*deg;
+        }
+
+        var svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+        let cx =200, cy=300,r=100;
+        // svg.width = 600;
+        // svg.height = 600;
+        // cx xy
+        function pie(startdeg,enddeg,color) {
+            var path = document.createElementNS('http://www.w3.org/2000/svg','path');
+            calpath(r)
+            function calpath(rd) {
+                // 求 x1 y1
+                var x1 = cx+(Math.sin(a2b(startdeg))*rd);
+                var y1 = cy-(Math.cos(a2b(startdeg))*rd);
+                // 求 x2 y2
+                var x2 = cx+(Math.sin(a2b(enddeg))*rd);
+                var y2 = cy-(Math.cos(a2b(enddeg))*rd);
+                var shu = 'M '+cx+' '+cy+
+                    'L '+x1+' '+y1+
+                    'A '+rd+' '+rd+' '+'0'+' '+(enddeg-startdeg>180?1:0)+' '+'1'+' '+x2+' '+y2+
+                    'Z ';
+                path.setAttribute('d',shu);
+                path.setAttribute('style','stroke:red;fill:'+color);
+            }
+            svg.appendChild(path);
+            path.addEventListener('mouseover',function (ev) {
+                console.log(r)
+                anime(r,r+50,100,function (val) {
+                    console.log(val)
+                    calpath(val)
+                })
+            })
+            path.addEventListener('mouseout',function (ev) {
+                anime(r+50,r,100,function (val) {
+                    console.log(val)
+                    calpath(val)
+                })
+            })
+        }
+        // 数据
+        let data = [200,300,800,500,200];
+        let colors = ['#fc0','#0fc','#ccc','#cf0','#fcc'];
+        let sum = data.reduce(function (tmp,item) {
+           return tmp+item;
+        });
+        var now = 0;
+        data.forEach((item,index)=> {
+            let ang = 360*(item/sum);
+            console.log(now,ang);
+            pie(now,now+ang,colors[index]);
+            now+=ang;
+        });
+
+        svg.setAttribute('width','600');
+        svg.setAttribute('height','600');
+        document.body.appendChild(svg);
+    }
+</script>
+</html>

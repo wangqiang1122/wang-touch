@@ -25,17 +25,17 @@
 
 
         var t =0;  // 初始时间
-        var b = 0; // 初始值
+        var b = 500; // 初始值
         var d = 600/10;// 持续时间
-        var c = 2000; // 变化量 需要走的总长度
+        var c = 2000-b; // 变化量 需要走的总长度
 
         function donghu() {
             requestAnimationFrame(function () {
-                t++
+                t++;
                 if (t>d) {
                   console.log('我迟到了')
                 } else {
-                    var mai = easeOut(t,b,c,d);
+                    var mai = ease(t,b,c,d);
                     donghu();
                     console.log(mai);
                 }

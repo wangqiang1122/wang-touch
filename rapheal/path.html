@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="rapheal.js"></script>
+    <script>
+        window.onload=function () {
+            var paper = Raphael(0,0,800,800)
+           // var c = paper.ellipse(200, 200, 100, 100,);
+            var a = paper.path('M 100 100 L 300 100 300 300 100 300 Z');
+            a.attr('fill','yellow')
+            a.hover(function () {
+                this.attr('fill','red');
+            },function () {
+                this.attr('fill','yellow');
+            });
+            // a.unhover(function () {
+            //     this.attr('fill','blue')
+            // })
+            // 事件
+
+            // 属性样式
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

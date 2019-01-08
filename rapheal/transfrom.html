@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="rapheal.js"></script>
+    <script>
+        window.onload=function () {
+            var paper = Raphael(0,0,800,800)
+           // var c = paper.ellipse(200, 200, 100, 100,);
+            var c = paper.rect(100,100,300,400).attr('fill','red');
+            // 事件
+            c.click(function () {
+                this.attr('transform','r45 s0.1 0.2')
+            })
+
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

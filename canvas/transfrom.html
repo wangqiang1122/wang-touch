@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="600" height="600">
+
+</canvas>
+</body>
+<script>
+    window.onload=function () {
+        var canvas = document.getElementById('canvas');
+        var dg = canvas.getContext('2d');
+        var a = 0;
+        // 角度换弧度
+        function d2a(n) {
+            return n*Math.PI/180;
+        }
+        dg.rect(100,100,200,200);
+        setInterval(function () {
+            dg.clearRect(0,0,600,600)
+            dg.save(); // 保存canvas之前的状态
+            dg.translate(200,200)
+            dg.beginPath();
+            dg.rotate(d2a(a++));
+            dg.rect(-100,-100,200,200);
+            dg.strokeStyle = 'red';
+            dg.stroke();
+            dg.restore() // 恢复原来的状态
+        },16);
+        // dg.rect(100,100,200,200);
+        // dg.translate(200,200)
+        // dg.beginPath();
+        // dg.rotate(d2a(360));
+        // dg.rect(-100,-100,200,200);
+        // dg.strokeStyle = 'red';
+        // dg.stroke();
+        // dg.clearRect(0,0,600,600);
+    }
+</script>
+</html>
