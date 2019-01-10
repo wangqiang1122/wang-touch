@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="rapheal.js"></script>
+    <style>
+        div {
+            border: 5px solid #000000;
+            width: 1px;
+            border-left: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-right: 5px solid transparent;
+        }
+        #btn{
+            width: 100px;
+            height: 20px;
+        }
+    </style>
+
+</head>
+<body>
+<button id="btn">激活</button>
+<button id="btn2">激活2</button>
+
+<div></div>
+
+</body>
+<script>
+    window.onload=function () {
+        var btn = document.getElementById('btn2');
+        var paper = Raphael(0,50,1000,1000);
+        var path = paper.path('M 100 100 L 200 100 M 100 120 L 200 120 M 100 140 L 200 140').attr(
+            { 'stroke': 'red','stroke-width':'10'});
+           btn.addEventListener('click',function () {
+               path.animate({"path":'M 100 140 L 200 100 M 150 120 L 150 120 M 100 100 L 200 140'},1000,'bounce')
+           })
+    }
+</script>
+</html>

@@ -12,21 +12,26 @@
             border-bottom: 5px solid transparent;
             border-right: 5px solid transparent;
         }
-    </style>
-    <script>
-        window.onload=function () {
-            var paper = Raphael(0,0,800,800)
-           // var c = paper.ellipse(200, 200, 100, 100,);
-            var c = paper.rect(100,100,300,400).attr('fill','red');
-            // 事件
-            c.click(function () {
-                this.animate({'transform': 'r40 s0.1 0.1'},4000,'ease');
-            })
-
+        #btn{
+            width: 100px;
+            height: 20px;
         }
-    </script>
+    </style>
+
 </head>
 <body>
- <div></div>
+<button id="btn">激活</button>
+<button id="btn2">激活2</button>
+
+<div></div>
+
 </body>
+<script>
+    window.onload=function () {
+        var btn = document.getElementById('btn2');
+        var paper = Raphael(0,50,1000,1000);
+        var path = paper.path('M 100 100 L 300 100').attr({'stroke-dasharray':'-..','stroke':'red'});
+
+    }
+</script>
 </html>
