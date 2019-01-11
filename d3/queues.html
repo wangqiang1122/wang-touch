@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="d3.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+    let queue = d3.queue();
+    console.log(queue)
+    // 添加任务
+    queue.defer(function (a,b,cb) {
+        cb(a+b)
+    },10,10);
+    queue.defer(function (a,cb) {
+        cb(a*3)
+    },10);
+    // 等待任务完成
+    queue.await(function (val) {
+        console.log(val)
+    })
+</script>
+</html>

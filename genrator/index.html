@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function *show() {
+        var a = 1;
+       var b= yield ;
+        console.log(b)
+    }
+    var a = show();
+    a.next();
+   var bj= new Promise(function (resolve,reject) {
+        resolve({b:1})
+    });
+   bj.then(function (val) {
+       a.next(val)
+   })
+
+</script>
+</html>

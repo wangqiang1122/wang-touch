@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="d3.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+   window.onload = function () {
+     // 日期生成器
+       var a = d3.randomUniform(); // 创建一个生成器  均值分布
+       var b = d3.randomNormal();  // 正态分布 （高斯分布）
+       var c = d3.randomBates.source(0,1); // 贝茨分布
+       for (var a = 0; a<10; a++){
+           console.log(c());
+       }
+   }
+</script>
+</html>

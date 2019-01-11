@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="d3.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+   window.onload = function () {
+       var arr = d3.map([{name:'blue',age:44},{ name: '张三', age: 44 }, { name: '李四',age:444 }],function (item) {
+           return item.name
+       });
+       console.log(arr.get('张三'))
+   }
+</script>
+</html>
