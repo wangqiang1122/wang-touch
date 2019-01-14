@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+    </style>
+    <script src="d3.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+    window.onload= function () {
+        var data = [
+            { name: '1月', value:'600' },
+            { name: '2月', value:'555' },
+            { name: '3月', value:'55' },
+            { name: '4月', value:'15' },
+            { name: '5月', value:'888' },
+            { name: '6月', value:'66' },
+            { name: '7月', value:'77' },
+        ];
+        var line = d3.line(); // 生成器
+        //
+        line.x(function (item) {
+            return (parseInt(item.name)-1)*(600/(data.length-1))
+        });
+        line.y(function (item) {
+            return 900-item.value/10
+        });
+        var a = line(data);
+        console.log(a)
+        d3.select('body')
+            .append('svg').attr('width',600).attr('height',800).attr('style','border:1px solid black')
+            .append('path').attr('d',a).attr('stroke','red').attr('fill','none')
+    }
+</script>
+</html>
