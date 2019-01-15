@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0 ;
+            margin: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        body {
+            text-align: center;
+        }
+        #c1{
+            background: url('./img/game_bg_2_hd.jpg');
+            background-repeat: no-repeat;
+            margin: 0 auto;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+ <canvas id="c1" width="800" height="600">
+
+ </canvas>
+</body>
+<script>
+    window.onload =function () {
+        var canvas = document.getElementById('c1');
+        var dg = canvas.getContext('2d');
+
+        function Fish() {
+            this.speed = 10;
+            var index = 0; // 统计
+        }
+        Fish.prototype.img = function () {
+
+        };
+
+        function img() {
+            var img = new Image();
+            img.src = './img/fish1.png';
+            var speed = 10;
+            var index = 0;
+            img.onload = function () {
+               var timer=  setInterval(function () {
+                    if (index>3) { index =0}
+                    dg.clearRect(0,0,800,600);
+                    dg.drawImage(img,0,37*index++,55,37,speed+=10,10,55*1,37*1);
+                    if (speed>800) {
+                        clearInterval(timer)
+                    }
+                },200);
+            }
+        }
+        img()
+    }
+</script>
+</html>
