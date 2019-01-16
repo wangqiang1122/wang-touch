@@ -20,6 +20,7 @@
         }
     </style>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/resourse.js"></script>
 </head>
 <body>
  <canvas id="c1" width="800" height="600">
@@ -27,10 +28,17 @@
  </canvas>
 </body>
 <script>
-    window.onload =function () {
+    window.onload = async function () {
+        try {
+            var imgs = await load_resourses();
+        } catch (e) {
+            alert('加载资源失败')
+        }
+        console.log(imgs);
+
+
         var canvas = document.getElementById('c1');
         var dg = canvas.getContext('2d');
-
         function Fish() {
             this.speed = 10;
             var index = 0; // 统计
@@ -38,21 +46,41 @@
         Fish.prototype.img = function () {
 
         };
-
+        function a2d(deg) {
+            return deg*Math.PI/180;
+        }
         function img() {
             var img = new Image();
             img.src = './img/fish1.png';
             var speed = 10;
             var index = 0;
+            var distance = 55/2;
+            var lu= 55/2;
+            var rotation = 0;
             img.onload = function () {
                var timer=  setInterval(function () {
+                   dg.save()
                     if (index>3) { index =0}
-                    dg.clearRect(0,0,800,600);
-                    dg.drawImage(img,0,37*index++,55,37,speed+=10,10,55*1,37*1);
-                    if (speed>800) {
-                        clearInterval(timer)
-                    }
-                },200);
+                    dg.clearRect(0,0,800,600)
+                       if (rotation===180) {
+                           dg.translate(lu-=speed,18/2)
+                           dg.rotate(a2d(180));
+                       } else {
+                           dg.translate(lu+=speed,37/2)
+                           dg.rotate(a2d(0));
+                       }
+                   if (lu>700) {
+                       // dg.clearRect(0,0,800,600);
+                       rotation =180
+                       // clearInterval(timer)
+                   }
+                   if (lu<55) {
+                       rotation =0
+                   }
+
+                   dg.drawImage(img,0,37*index++,55,37,-distance,-37/2,55,37);
+                   dg.restore()
+                },100);
             }
         }
         img()
