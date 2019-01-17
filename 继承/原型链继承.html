@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 好处
+    // 非常纯粹的继承关系，实例是子类的实例，也是父类的实例
+    // 父类新增原型方法/原型属性，子类都能访问到
+    // 简单，易于实现
+
+    // 缺点
+    // 如果要新增原型属性和方法，则必须放在new Animal()这样的语句之后执行。可以在Cat构造函数中，为Cat构造函数属性
+    // 来自原型对象的所有属性被所有实例共享。
+    // 无法实现多继承
+    // 创建子类实例时，无法向父类构造函数传参
+
+    // 原型链继承
+    function Animal (name) {
+        // 属性
+        this.name = name || 'Animal';
+        // 实例方法
+        this.sleep = function(){
+            console.log(this.name + '正在睡觉！');
+        }
+    }
+    // 原型方法
+    Animal.prototype.eat = function(food) {
+        console.log(this.name + '正在吃：' + food);
+    };
+
+    function Cat() {
+
+    }
+    Cat.prototype = new Animal('狗');
+    var a = new Cat();
+    a.sleep()
+</script>
+</html>

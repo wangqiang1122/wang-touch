@@ -13,7 +13,7 @@ function loadRouse(path) {
                     img.src = './img/'+a[name].src;
                     img.onload = function () {
                         res[name] = a[name];
-                        res.img = this;
+                        res[name].img = this;
                         index++;
                         if (count === index) {
                             resolve(res)
@@ -44,6 +44,7 @@ async function load_resourses() {
         for (var i in arr_src){
             res_src[i]=await loadRouse(arr_src[i]);
         }
+        window._g_res_src = res_src;
         return res_src
     } catch (e) {
         throw (e);

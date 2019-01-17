@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 此类继承方式比较简单直接 把 new的 对象直接付给 醒的变量就是可以了
+    // 子类没法传入自己的参数 只是复用父类
+    // 方法只能调用 父类原型里的方法
+
+    // 缺点
+    // 实例是父类的实例，不是子类的实例
+    // 不支持多继承
+    // 优点
+    // 不限制调用方式，不管是new 子类()还是子类(),返回的对象具有相同的效果
+    // 实例继承
+    function Animal (name) {
+        // 属性
+        this.name = name || 'Animal';
+        // 实例方法
+        this.sleep = function(){
+            console.log(this.name + '正在睡觉！');
+        }
+    }
+    // 原型方法
+    Animal.prototype.eat = function(food) {
+        console.log(this.name + '正在吃：' + food);
+    };
+    var a = new Animal('小猫');
+    a.sleep();
+    a.eat('💩');
+</script>
+</html>

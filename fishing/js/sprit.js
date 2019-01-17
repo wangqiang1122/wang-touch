@@ -16,6 +16,11 @@ function Sprit(option) {
    this.scale = option.scale||0;
 }
 
-Sprit.prototype.draw = function () {
-
+Sprit.prototype.draw = function (dg) {
+  console.log(_g_res_src)
+  dg.save();
+  dg.translate(this.w/2,this.h/2);
+  dg.rotate(this.rotation*Math.PI/180);
+  // dg.scale(this.scale,this.scale);
+  dg.drawImage(this.img,this.sx,this.sy,this.w,this.h,-this.w/2,-this.h/2,this.w,this.h);
 };

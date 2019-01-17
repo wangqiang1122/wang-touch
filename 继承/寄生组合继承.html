@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 优点
+    // 该方法的好处在于只调用了一次SuperType构造函数，并且SubType.prototype上没有多余的属性。
+
+    // 该方法是引用类型最理想的继承方式。
+    // 缺点
+    // 写起来麻烦
+
+    // 寄生组合继承
+    function Animal (name) {
+        // 属性
+        this.name = name || 'Animal';
+        // 实例方法
+        this.sleep = function(){
+            console.log(this.name + '正在睡觉！');
+        }
+    }
+    // 原型方法
+    Animal.prototype.eat = function(food) {
+        console.log(this.name + '正在吃：' + food);
+    };
+
+    function Cat(name) {
+        Animal.call(this,name);
+    }
+    function redirect(a,b) {
+        var S = function () {} // 一个纯净的构造函数
+        S.prototype = b.prototype;
+        a.prototype = new S();
+        a.prototype.constructor = a;
+    }
+</script>
+</html>

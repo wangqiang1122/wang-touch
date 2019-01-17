@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+ // 构造函数继承
+ // 优点
+ // 创建子类实例时，可以向父类传递参数
+ // 可以实现多继承（call多个父类对象）
+
+ // 缺点
+ // 实例并不是父类的实例，只是子类的实例
+ // 只能继承父类的实例属性和方法，不能继承原型属性/方法
+ // 无法实现函数复用，每个子类都有父类实例函数的副本，影响性能
+
+ function Arr(a,b) {
+     this.a = a;
+     this.b = b
+     this.fn = function () {
+         console.log(this.a)
+     }
+ }
+ Arr.prototype.console= function () {
+     console.log(this.b)
+ };
+ function F() {
+     Arr.call(this); // 构造函数继承
+     this.a = '我是贺岁';
+     this.b = 'dddd';
+ }
+ var a = new F(); // 只是子类的实例
+ console.log(a)
+ a.fn()
+</script>
+</html>

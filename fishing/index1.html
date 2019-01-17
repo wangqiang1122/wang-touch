@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0 ;
+            margin: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        body {
+            text-align: center;
+        }
+        #c1{
+            background: url('./img/game_bg_2_hd.jpg');
+            background-repeat: no-repeat;
+            margin: 0 auto;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/resourse.js"></script>
+    <script src="js/sprit.js"></script>
+    <script src="js/fish.js"></script>
+    <script src="js/shark.js"></script>
+</head>
+<body>
+ <canvas id="c1" width="800" height="600">
+
+ </canvas>
+</body>
+<script>
+    window.onload = async function () {
+        var gd = $('#c1')[0].getContext('2d');
+        try {
+            var imgs = await load_resourses();
+        } catch (e) {
+            alert('加载资源失败')
+        }
+        console.log(imgs);
+        var fish = new Shark(2);
+        console.log(fish)
+        // var sprit = new Sprit({
+        //     img: imgs.fish.fish1.img,
+        //     width: imgs.fish.fish1.frame.w,
+        //     height: imgs.fish.fish1.frame.h,
+        //     sx:0,
+        //     sy:0,
+        // });
+        fish.draw(gd)
+    }
+</script>
+</html>

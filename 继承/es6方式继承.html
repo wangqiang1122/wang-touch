@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // es6 继承比较方便
+    class Animal {
+        constructor(name) {
+          this.name = name|| '动物们';
+          this.sleep = function () {
+              console.log(this.name+'正在睡觉')
+          }
+        }
+        eat(foot) {
+            console.log(this.name+'正在是'+foot);
+        }
+    }
+    class Arr extends Animal{
+        constructor(name) {
+            super(name)
+        }
+    }
+    var a = new Arr('小猪');
+    a.eat('食物')
+    a.sleep();
+    console.log(a)
+</script>
+</html>
