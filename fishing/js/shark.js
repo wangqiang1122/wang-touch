@@ -12,7 +12,7 @@ function Shark(type) {
 
 function resetConstructor(a,b) {
     var Super = function () {};
-    Super.prototype = b.prototype;
+    Super.prototype = Object.create(b.prototype);
     a.prototype = new Super();
     a.prototype.constructor = a;
 }

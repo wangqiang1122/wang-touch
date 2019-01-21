@@ -17,7 +17,7 @@ function Sprit(option) {
    this.speed = option.speed||0;
 }
 
-Sprit.prototype.draw = function (dg) {
+Sprit.prototype.draw = function (dg) { // 画图
   dg.save();
   dg.translate(this.x,this.y);
   dg.rotate(this.rotation*Math.PI/180);
@@ -25,9 +25,12 @@ Sprit.prototype.draw = function (dg) {
   dg.drawImage(this.img,this.sx,this.sy,this.w,this.h,-this.w/2,-this.h/2,this.w,this.h);
   dg.restore();
 };
-Sprit.prototype.move = function () {
+Sprit.prototype.move = function () { // 路程
     var speedx =this.speed* Math.sin(this.rotation*Math.PI/180);
     var speedy = this.speed*Math.cos(this.rotation*Math.PI/180);
     this.x+=speedx;
     this.y-=speedy;
+};
+Sprit.prototype.nextFrame = function (index) { // 换帧 (更换图片)
+    this.sy = this.h*index
 };

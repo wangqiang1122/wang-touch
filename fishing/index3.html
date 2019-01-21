@@ -20,10 +20,12 @@
         }
     </style>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="./js/pubilc.js"></script>
     <script src="js/resourse.js"></script>
     <script src="js/sprit.js"></script>
     <script src="js/fish.js"></script>
     <script src="js/shark.js"></script>
+    <script src="js/Cannon.js"></script>
 </head>
 <body>
  <canvas id="c1" width="800" height="600">
@@ -40,15 +42,17 @@
             alert('加载资源失败')
         }
         console.log(imgs);
-        var fish = new Fish(2);
+        var fish = new Fish(4);
         console.log(fish.draw);
         console.log(fish);
         fish.x=100;
         fish.y=300;
+        fish.nextFrame()
         requestAnimationFrame(next)
         function next(){
             gd.clearRect(0,0,oc.width,oc.height);
             fish.move();
+            fish.nextfish();
             fish.draw(gd);
             requestAnimationFrame(next)
         }
