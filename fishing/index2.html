@@ -32,6 +32,7 @@
 </body>
 <script>
     window.onload = async function () {
+        var oc = $('#c1')[0];
         var gd = $('#c1')[0].getContext('2d');
         try {
             var imgs = await load_resourses();
@@ -39,22 +40,16 @@
             alert('加载资源失败')
         }
         console.log(imgs);
-        var Shark1 = new Shark(2);
-        var fish = new Fish(5);
-        Shark1.x=100;
-        Shark1.y =200;
-
-        fish.x=500;
-        fish.y=500;
-        // var sprit = new Sprit({
-        //     img: imgs.fish.fish1.img,
-        //     width: imgs.fish.fish1.frame.w,
-        //     height: imgs.fish.fish1.frame.h,
-        //     sx:0,
-        //     sy:0,
-        // });
-        fish.draw(gd);
-        Shark1.draw(gd);
+        var fish = new Fish(1);console.log(fish)
+        fish.x=300;
+        fish.y=400;
+        requestAnimationFrame(next)
+        function next(){
+            gd.clearRect(0,0,oc.width,oc.height);
+            fish.move();
+            fish.draw(gd);
+            requestAnimationFrame(next)
+        }
     }
 </script>
 </html>

@@ -14,13 +14,20 @@ function Sprit(option) {
    this.sy = option.sy||0;
    this.rotation = option.rotation||0;
    this.scale = option.scale||0;
+   this.speed = option.speed||0;
 }
 
 Sprit.prototype.draw = function (dg) {
-  console.log(_g_res_src)
   dg.save();
-  dg.translate(this.w/2,this.h/2);
+  dg.translate(this.x,this.y);
   dg.rotate(this.rotation*Math.PI/180);
   // dg.scale(this.scale,this.scale);
   dg.drawImage(this.img,this.sx,this.sy,this.w,this.h,-this.w/2,-this.h/2,this.w,this.h);
+  dg.restore();
+};
+Sprit.prototype.move = function () {
+    var speedx =this.speed* Math.sin(this.rotation*Math.PI/180);
+    var speedy = this.speed*Math.cos(this.rotation*Math.PI/180);
+    this.x+=speedx;
+    this.y-=speedy;
 };
