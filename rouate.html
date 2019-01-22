@@ -46,20 +46,12 @@
         let datanag = 0; // 保存当前角度
         box.addEventListener('touchstart',function (ev) {
             ev.preventDefault();
-            console.log(ev);
             var e = ev.targetTouches;
-            console.log(e);
-            var ang
-            // input.innerHTML = JSON.stringify(e);
             var startAng = datanag;
             if (e.length === 2) {
                 var x = e[0].clientX - e[1].clientX;
                 var y = e[0].clientY - e[1].clientY;
-                 ang = Math.atan(y/x)*180/Math.PI;
-            }
-            function end(){
-                box.removeEventListener('touchmove',move)
-                box.removeEventListener('touchend',end)
+                var ang = Math.atan(y/x)*180/Math.PI;
             }
             function move(ev) {
                 var e = ev.targetTouches;
@@ -72,6 +64,10 @@
                     input.value = datanag;
                     this.style.transform = 'rotate('+datanag+'deg)';
                 }
+            }
+            function end(){
+                box.removeEventListener('touchmove',move)
+                box.removeEventListener('touchend',end)
             }
             box.addEventListener('touchmove',move)
             box.addEventListener('touchend',end)
