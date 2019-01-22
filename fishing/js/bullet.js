@@ -1,0 +1,3 @@
+function Bullut() {
+    Sprit.call();
+}
