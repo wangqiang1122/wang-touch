@@ -51,7 +51,7 @@
             if (e.length === 2) {
                 var x = e[0].clientX - e[1].clientX;
                 var y = e[0].clientY - e[1].clientY;
-                var ang = Math.atan(y/x)*180/Math.PI;
+                var ang = Math.atan2(y,x)*180/Math.PI;
             }
             function move(ev) {
                 var e = ev.targetTouches;
@@ -59,7 +59,7 @@
                 if (e.length === 2) {
                     var x2 = e[0].clientX - e[1].clientX;
                     var y2 = e[0].clientY - e[1].clientY;
-                    var ang2 = Math.atan(y2/x2)*180/Math.PI;
+                    var ang2 = Math.atan2(y2,x2)*180/Math.PI;
                     datanag = (ang2-ang)+startAng;
                     input.value = datanag;
                     this.style.transform = 'rotate('+datanag+'deg)';
