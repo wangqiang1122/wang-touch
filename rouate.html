@@ -30,14 +30,14 @@
  <input type="text" value="1111" id="input">
 </body>
 <script>
-    window.console = window.console || {};
-    window.console._log = window.console.log;
-    var socket = io.connect('ws://localhost:9999');
-    console.log(socket);
-    window.console.log=function (...arg){
-        socket.emit('msg', 'ps');
-        window.console._log(...arg);
-    };
+    // window.console = window.console || {};
+    // window.console._log = window.console.log;
+    // var socket = io.connect('ws://localhost:9999');
+    // console.log(socket);
+    // window.console.log=function (...arg){
+    //     socket.emit('msg', 'ps');
+    //     window.console._log(...arg);
+    // };
 
     // 弧度/派 = 角度/180
     window.onload = function () {
