@@ -71,9 +71,9 @@
                     var y = e[0].clientY - e[1].clientY;
                     // var ang2 = Math.atan2(y,x);
                     var ang2 = Math.atan(y/x)*180/Math.PI;
-                    var jiaodu = (ang2-ang)+startAng;
-                    datanag = jiaodu;
+                    datanag = (ang2-ang)+startAng;
                     input.value = datanag;
+                    startAng = datanag;
                     this.style.transform = 'rotate('+datanag+'deg)';
                 }
             }
