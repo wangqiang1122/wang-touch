@@ -55,8 +55,6 @@
             if (e.length === 2) {
                 var x = e[0].clientX - e[1].clientX;
                 var y = e[0].clientY - e[1].clientY;
-                // input.value = `x=${x} y=${y}`
-                // var ang = Math.atan2(y,x)*180/Math.PI;
                  ang = Math.atan(y/x)*180/Math.PI;
             }
             function end(){
@@ -67,13 +65,11 @@
                 var e = ev.targetTouches;
                 ev.preventDefault()
                 if (e.length === 2) {
-                    var x = e[0].clientX - e[1].clientX;
-                    var y = e[0].clientY - e[1].clientY;
-                    // var ang2 = Math.atan2(y,x);
-                    var ang2 = Math.atan(y/x)*180/Math.PI;
+                    var x2 = e[0].clientX - e[1].clientX;
+                    var y2 = e[0].clientY - e[1].clientY;
+                    var ang2 = Math.atan(y2/x2)*180/Math.PI;
                     datanag = (ang2-ang)+startAng;
                     input.value = datanag;
-                    startAng = datanag;
                     this.style.transform = 'rotate('+datanag+'deg)';
                 }
             }
