@@ -58,7 +58,11 @@
                 // var ang = Math.atan2(y,x)*180/Math.PI;
                 var ang = Math.atan(y/x)*180/Math.PI;
             }
-            box.addEventListener('touchmove',function (ev) {
+            function end(){
+                box.removeEventListener('touchmove',move)
+                box.removeEventListener('touchend',end)
+            }
+            function move(ev) {
                 var e = ev.targetTouches;
                 ev.preventDefault()
                 if (e.length === 2) {
@@ -71,7 +75,9 @@
                     input.value = jiaodu;
                     this.style.transform = 'rotate('+jiaodu+'deg)';
                 }
-            })
+            }
+            box.addEventListener('touchmove',move)
+            box.addEventListener('touchend',end)
         })
     }
 </script>

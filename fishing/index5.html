@@ -53,17 +53,20 @@
         cannon.y=562;
         // 大炮随着鼠标转
         function move(ev) {
-            var x = ev.offsetX-cannon.x
-            var y = ev.offsetY- cannon.y;
-            var deg = Math.atan(y/x)*180/Math.PI+90;
-            console.log(deg)
+            var a = ev.offsetX- cannon.x;
+            var b = ev.offsetY- cannon.y;
+            var deg1 = Math.atan2(b,a)*180/Math.PI+90;
+            // var deg = Math.atan(b/a)*180/Math.PI+90;
+
+            // console.log(deg,deg1)
+            cannon.rotation = deg;
         }
         function out() {
             oc.removeEventListener('mousemove',move);
             oc.removeEventListener('mouseout',out);
         }
         oc.addEventListener('mousemove',move);
-        oc.addEventListener('mouseout',out);
+        // oc.addEventListener('mouseout',out);
         // 底座
         var data_bar = Bottombar();
         console.log(data_bar)
