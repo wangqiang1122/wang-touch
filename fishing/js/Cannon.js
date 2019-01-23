@@ -7,6 +7,24 @@ function Cannon(type) {
         height: cannon.frame.h,
         sx: cannon.frame.x,
         sy: cannon.frame.y,
+        x: 442,
+        y: 556
     });
+    this.type = type;
 }
 resetConstructor(Cannon,Sprit);
+Cannon.prototype.setType = function (type) {
+    console.log(type<=0)
+    if (type<1 ||type>7){
+        return
+    }
+    var cannon = _g_res_src['cannon']['cannon'+type];
+    this.type = type;
+      this.img=cannon.img
+        this.w= cannon.frame.w
+        this.h= cannon.frame.h
+        this.sx= cannon.frame.x
+        this.sy= cannon.frame.y
+        this.x= 442
+        this.y= 556
+};
