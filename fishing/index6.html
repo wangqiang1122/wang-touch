@@ -27,6 +27,7 @@
     <script src="js/shark.js"></script>
     <script src="js/Cannon.js"></script>
     <script src="js/bottomBar.js"></script>
+    <script src="js/bullet.js"></script>
 </head>
 <body>
  <canvas id="c1" width="800" height="600">
@@ -68,16 +69,28 @@
         oc.addEventListener('mousemove',move);
         // oc.addEventListener('mouseout',out);
         // 大炮发射炮弹
+        let bulletArr = [];
+        oc.addEventListener('click',function () {
+            let bullet = new Bullut(7);
+            bullet.x = cannon.x;
+            bullet.y = cannon.y;
+            bullet.rotation = cannon.rotation;
+            bulletArr.push(bullet)
+        });
         // 底座
         var data_bar = Bottombar();
-        console.log(data_bar)
-        requestAnimationFrame(next)
+        requestAnimationFrame(next);
         function next(){
             gd.clearRect(0,0,oc.width,oc.height);
             // 鱼
             fish.move();
             fish.nextfish();
             fish.draw(gd);
+            // 炮弹
+            for (let a = 0;a<bulletArr.length;a++){
+                bulletArr[a].draw(gd);
+                bulletArr[a].move(gd);
+            }
             // 底座
             data_bar.draw(gd);
             // // 大炮
