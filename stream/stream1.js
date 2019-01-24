@@ -11,7 +11,14 @@ ws.on('error',err=>{
     console.log(err)
     console.log('读取失败没有这个操作')
 });
+ws.on('data',data=>{
+    console.log(data)
+    console.log('写入过程中')
+});
 
+rs.on('data',()=>{
+    console.log('读取过程中')
+});
 rs.on('end',()=>{
     console.log('读取完成')
 });
