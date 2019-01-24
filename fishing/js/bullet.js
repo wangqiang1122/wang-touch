@@ -1,6 +1,5 @@
 function Bullut(type) {
     var bottombar = _g_res_src['bullet']['bullet'+type];
-    console.log(bottombar.img)
     Sprit.call(this,{
         img: bottombar.img,
         width: bottombar.frame.w,

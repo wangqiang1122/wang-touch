@@ -13,15 +13,21 @@ function Sprit(option) {
    this.sx = option.sx||0;
    this.sy = option.sy||0;
    this.rotation = option.rotation||0;
-   this.scale = option.scale||0;
+   this.scaleX = option.scaleX||1;
+   this.scaleY = option.scaleY||1;
    this.speed = option.speed||0;
+   // 图片更换的最大 张数 和更换的频率
+    this.frame = 0;
+    this.max_frame = 4;
+    this.tick = 0;
+    this.max_tick = 10;
 }
 
 Sprit.prototype.draw = function (dg) { // 画图
   dg.save();
   dg.translate(this.x,this.y);
   dg.rotate(this.rotation*Math.PI/180);
-  // dg.scale(this.scale,this.scale);
+  dg.scale(this.scaleX,this.scaleY);
   dg.drawImage(this.img,this.sx,this.sy,this.w,this.h,-this.w/2,-this.h/2,this.w,this.h);
   dg.restore();
 };
@@ -33,4 +39,27 @@ Sprit.prototype.move = function () { // 路程
 };
 Sprit.prototype.nextFrame = function (index) { // 换帧 (更换图片)
     this.sy = this.h*index
+};
+Sprit.prototype.nextfish = function () {
+    this.tick++;
+    if (this.tick === this.max_tick) {
+        this.tick = 0;
+        this.frame++;
+        if (this.frame===this.max_frame) {
+            this.frame =0;
+        }
+        this.nextFrame(this.frame)
+    }
+}
+Sprit.prototype.outofCanvas = function (w,h) {
+  if (
+      this.x<0-this.w-100||
+      this.y<0-this.h-100||
+      this.x>w+this.w+100||
+      this.y>h+this.h+100
+  ) {
+      return true
+  } else {
+      return false
+  }
 };

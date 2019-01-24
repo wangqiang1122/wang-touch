@@ -30,16 +30,16 @@ Fish.prototype.draw= function(dg) {
     Fish.prototype.olddraw.call(this,dg);
     this.rotation +=90;
 };
-Fish.prototype.nextfish= function() {
-    this.tick++;
-    if (this.tick === this.max_tick) {
-        this.tick = 0;
-        this.frame++;
-        if (this.frame===this.max_frame) {
-            this.frame =0;
-        }
-        Sprit.prototype.nextFrame.call(this,this.frame)
-    }
-};
+// Fish.prototype.nextfish= function() {
+//     this.tick++;
+//     if (this.tick === this.max_tick) {
+//         this.tick = 0;
+//         this.frame++;
+//         if (this.frame===this.max_frame) {
+//             this.frame =0;
+//         }
+//         Sprit.prototype.nextFrame.call(this,this.frame)
+//     }
+// };
 
 Fish.constructor = Fish;

@@ -1,6 +1,5 @@
 function Cannon(type) {
     var cannon = _g_res_src['cannon']['cannon'+type];
-    console.log(cannon);
     Sprit.call(this,{
         img:cannon.img,
         width: cannon.frame.w,
