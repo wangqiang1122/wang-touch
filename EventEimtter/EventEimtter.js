@@ -5,4 +5,4 @@ console.log(ev)
 ev.on('blur',function (a,b) {
     console.log(a,b)
 });
-ev.emit('blur',1,2)
+ev.emit('blur',1,2);
