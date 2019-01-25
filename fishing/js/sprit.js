@@ -18,9 +18,9 @@ function Sprit(option) {
    this.speed = option.speed||0;
    // 图片更换的最大 张数 和更换的频率
     this.frame = 0;
-    this.max_frame = 4;
+   //  this.max_frame = 4;
     this.tick = 0;
-    this.max_tick = 10;
+   //  this.max_tick = 10;
 }
 
 Sprit.prototype.draw = function (dg) { // 画图
@@ -40,15 +40,19 @@ Sprit.prototype.move = function () { // 路程
 Sprit.prototype.nextFrame = function (index) { // 换帧 (更换图片)
     this.sy = this.h*index
 };
-Sprit.prototype.nextfish = function () {
+Sprit.prototype.nextImg = function () {
     this.tick++;
     if (this.tick === this.max_tick) {
         this.tick = 0;
         this.frame++;
         if (this.frame===this.max_frame) {
             this.frame =0;
+            this.nextFrame(this.frame)
+            return true
+        } else {
+            this.nextFrame(this.frame)
+            return false
         }
-        this.nextFrame(this.frame)
     }
 }
 Sprit.prototype.outofCanvas = function (w,h) {
@@ -63,3 +67,13 @@ Sprit.prototype.outofCanvas = function (w,h) {
       return false
   }
 };
+Sprit.prototype.colltest = function (sprit2) {
+    var r1 = Math.min(this.w/2,this.h/2);
+    var r2 = Math.min(sprit2.w/2,sprit2.h/2);
+    var dis = Math.sqrt(Math.pow(this.x-sprit2.x,2)+Math.pow(this.y-sprit2.y,2));
+    if (dis<=(r1+r2)){
+        return true
+    } else {
+        return false
+    }
+}

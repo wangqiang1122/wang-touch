@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0 ;
+            margin: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        body {
+            text-align: center;
+        }
+        #c1{
+            background: url('./img/game_bg_2_hd.jpg');
+            background-repeat: no-repeat;
+            margin: 0 auto;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="./js/pubilc.js"></script>
+    <script src="js/resourse.js"></script>
+    <script src="js/sprit.js"></script>
+    <script src="js/fish.js"></script>
+    <script src="js/shark.js"></script>
+    <script src="js/Cannon.js"></script>
+    <script src="js/bottomBar.js"></script>
+    <script src="js/bullet.js"></script>
+    <script src="js/button.js"></script>
+</head>
+<body>
+ <canvas id="c1" width="800" height="600">
+
+ </canvas>
+</body>
+<script>
+    window.onload = async function () {
+        var oc = $('#c1')[0];
+        var gd = $('#c1')[0].getContext('2d');
+        var W = oc.width,H = oc.height;
+        var type = 1;
+        var fishs = []; // 鱼的数组
+        try {
+            var imgs = await load_resourses();
+        } catch (e) {
+            alert('加载资源失败')
+        }
+        console.log(imgs);
+        // 鱼
+        // var fish = new Fish(4);
+        // fish.x=800;
+        // fish.y=300;
+        // fish.rotation = -90;
+        // fish.scaleY = -1;
+        setInterval(function () {
+            if (Math.random()<0.1) {
+                var fish = new Fish(rondomInt(1,6));
+                if (Math.random()<0.5) {
+                    fish.x=-100;
+                    fish.y=rondomY(10,H-50);
+                    fish.rotation = rondomInt(70,110)
+                } else {
+                    fish.x=W+100;
+                    fish.y=rondomY(10,H-50);
+                    fish.rotation = -90;
+                    fish.scaleY = -1;
+                    fish.rotation = rondomInt(-110,-70)
+                }
+                fishs.push(fish);
+            }
+
+        },50);
+        // 大炮
+        var cannon = new Cannon(type);
+        cannon.x=442;
+        cannon.y=562;
+        cannon.type = type;
+        // 大炮随着鼠标转
+        function move(ev) {
+            var a = ev.offsetX- cannon.x;
+            var b = ev.offsetY- cannon.y;
+            var deg1 = Math.atan2(b,a)*180/Math.PI+90;
+            cannon.rotation = deg1;
+        }
+        oc.addEventListener('mousemove',move);
+        // oc.addEventListener('mouseout',out);
+        // 大炮发射炮弹
+        let bulletArr = [];
+        var last_time = new Date().getTime();
+        var bulleting = false;
+        oc.addEventListener('click',function () {
+            var now = new Date().getTime();
+            if (now-last_time<200) {
+                return
+            }
+            last_time = now;
+            let bullet = new Bullut(cannon.type);
+            bulleting = true;
+            bullet.x = cannon.x;
+            bullet.y = cannon.y;
+            bullet.rotation = cannon.rotation;
+            bulletArr.push(bullet)
+        });
+        // 按键
+        var minusbtn = new Button(imgs.bottom.cannon_minus,imgs.bottom.cannon_minus_down);
+        var plusbtn = new Button(imgs.bottom.cannon_plus,imgs.bottom.cannon_plus_down);
+        minusbtn.x = cannon.x-60
+        minusbtn.y = cannon.y+15
+        plusbtn.x = cannon.x+60
+        plusbtn.y = cannon.y+15;
+        oc.addEventListener('mouseup',function (ev) {
+            var minus = false;
+            var plus = false;
+            if ( minusbtn.checkUp(ev.offsetX,ev.offsetY)) {
+                minus = true;
+            }
+            // console.log(plusbtn.checkUp(ev.offsetX,ev.offsetY))
+            if (plusbtn.checkUp(ev.offsetX,ev.offsetY)){
+                plus = true;
+            }
+            console.log(minus,plus);
+            if (minus) {
+                --cannon.type
+                if (cannon.type<1){
+                    cannon.type=1
+                }
+                cannon.setType(cannon.type)
+
+            }
+            if (plus){
+                ++cannon.type
+                if (cannon.type>7){
+                    cannon.type=7
+                }
+                cannon.setType(cannon.type)
+            }
+        });
+        oc.addEventListener('mousedown',function (ev) {
+            minusbtn.checkDown(ev.offsetX,ev.offsetY);
+            plusbtn.checkDown(ev.offsetX,ev.offsetY)
+        });
+        // 底座
+        var data_bar = Bottombar();
+        requestAnimationFrame(next);
+        function next(){
+            gd.clearRect(0,0,oc.width,oc.height);
+            var arr = [];
+            // 鱼
+            // fishs=fishs.filter(item=>!item.outofCanvas(W,H))
+            for (var b=0;b<fishs.length;b++) {
+                if (!fishs[b].outofCanvas(W,H)) {
+                    arr.push(fishs[b])
+                }
+            }
+            fishs = arr;
+            for (var i=0;i<fishs.length;i++) {
+                fishs[i].move();
+                fishs[i].nextImg();
+                fishs[i].draw(gd);
+                // if (!fishs[i].outofCanvas(W,H)) {
+                //     arr.push(fishs[i])
+                // }
+                // fishs = arr;
+            }
+
+            console.log(fishs.length);
+            // 炮弹
+            bulletArr=bulletArr.filter(item=>!item.outofCanvas(W,H))
+            for (let a = 0;a<bulletArr.length;a++){
+                bulletArr[a].draw(gd);
+                bulletArr[a].move(gd);
+            }
+            // 底座
+            data_bar.draw(gd);
+            // 按键
+            minusbtn.draw(gd);
+            plusbtn.draw(gd);
+            // // 大炮
+            if (bulleting) {
+                if(cannon.nextImg()){
+                    bulleting = false
+                }
+            }
+            cannon.draw(gd);
+            // 鱼和炮弹的碰撞检测
+            fishs.forEach((fish,fish_index)=>{
+               bulletArr.forEach((bullet,bull_index)=>{
+                   if (fish.colltest(bullet)){
+                       bulletArr.splice(bull_index,1)
+                       fishs.splice(fish_index,1)
+                   }
+               })
+            });
+            requestAnimationFrame(next)
+        }
+    }
+</script>
+</html>
