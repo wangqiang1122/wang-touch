@@ -10,6 +10,10 @@ function Cannon(type) {
         y: 556
     });
     this.type = type;
+    this.frame = 0;
+    this.max_frame = 5;
+    this.tick = 0;
+    this.max_tick = 2;
 }
 resetConstructor(Cannon,Sprit);
 Cannon.prototype.setType = function (type) {
