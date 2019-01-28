@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="92e56a23-e773-4ce6-9ec8-3af3e82621ee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/EventEimtter/a.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EventEimtter/b.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/EventEimtter/obj.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fishing/index11.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fishing/index12.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fishing/js/coin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/router/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/router/router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/router/server1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/router/server2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/router/www/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EventEimtter/EventEimtter.js" beforeDir="false" afterPath="$PROJECT_DIR$/EventEimtter/EventEimtter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fishing/js/Cannon.js" beforeDir="false" afterPath="$PROJECT_DIR$/fishing/js/Cannon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fishing/js/sprit.js" beforeDir="false" afterPath="$PROJECT_DIR$/fishing/js/sprit.js" afterDir="false" />
-    </list>
+    <list default="true" id="92e56a23-e773-4ce6-9ec8-3af3e82621ee" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -63,6 +47,7 @@
     <session id="-549106619">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -295,12 +280,12 @@
       <workItem from="1548079398985" duration="139000" />
       <workItem from="1548337315059" duration="2624000" />
       <workItem from="1548565056640" duration="174000" />
-      <workItem from="1548566012304" duration="7764000" />
+      <workItem from="1548566012304" duration="8687000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10701000" />
+    <option name="totallyTimeSpent" value="11624000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="40" width="1440" height="810" extended-state="0" />
