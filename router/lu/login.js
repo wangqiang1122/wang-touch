@@ -1,4 +1,4 @@
-let router = require('./router');
+let router = require('../router');
 router.on('/login',function (res,rep) {
     console.log(res.query)
 })

@@ -2,7 +2,7 @@ var http = require('http');
 var url = require('url');
 var fs = require('fs');
 let router1 = require('./router');
-let login = require('./login')
+let login = require('./lu')
 let zlib = require('zlib');
 let server = http.createServer((request,response)=>{
     let { pathname, query } = url.parse(request.url,true);
