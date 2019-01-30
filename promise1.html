@@ -14,20 +14,28 @@
        let self = this;
         var cacth = null;
       fn(function (success) {
-        setTimeout(()=>{
-            self.resolve.forEach((item,index)=>{
-                if (self.resolve.length-1 === index) {
-                    arr(false,item)
-                } else {
-                    arr(true,item)
-                }
-            });
-        },0);
-        function arr(isB,fn) {
-           if (isB) {
-               fn()
-           }
-        }
+          // self.resolve.forEach((item)=>{
+          //     if(item(success)){
+          //        return item(success)
+          //     }
+          // })
+          for (var a=0; a<self.resolve.length;a++){
+              // console.log(self.resolve[a](success) instanceof P);
+              var g = self.resolve[a](success);
+              console.log(g)
+              if(g instanceof P){
+                 next(g);
+                 break;
+              }
+          }
+          function next(val) {
+              console.log(val)
+              val.then(function (data) {
+                  console.log(data);
+                  console.log(1111)
+              });
+          }
+
       },function (fail) {
 
       })
@@ -42,10 +50,9 @@
   var pro = new P(function (resolve,reject) {
       setTimeout(()=>{
           resolve('nnnn')
-      },1000)
+      },500)
   });
     pro.then(function (data) {
-        console.log(data)
         return new P(function (resolve) {
             resolve('aaaa')
         })
