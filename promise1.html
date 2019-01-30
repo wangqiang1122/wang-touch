@@ -12,29 +12,40 @@
        this.resolve = [];
        this.reject = [];
        let self = this;
-        var cacth = null;
       fn(function (success) {
           // self.resolve.forEach((item)=>{
           //     if(item(success)){
           //        return item(success)
           //     }
           // })
-          for (var a=0; a<self.resolve.length;a++){
-              // console.log(self.resolve[a](success) instanceof P);
-              var g = self.resolve[a](success);
-              console.log(g)
-              if(g instanceof P){
-                 next(g);
-                 break;
+          var mer = success;
+          setTimeout(()=>{
+              var a=0;
+              var index =0;
+              zhu(mer)
+              function zhu(data) {
+                  for (; a<self.resolve.length;a++){
+                      index = a;
+                      // console.log(self.resolve[a](success) instanceof P);
+                      var g = self.resolve[a](data);
+                      console.log(g);
+                      if(g instanceof P){
+                          next(g);
+                          break;
+                      }
+                  }
               }
-          }
-          function next(val) {
-              console.log(val)
-              val.then(function (data) {
-                  console.log(data);
-                  console.log(1111)
-              });
-          }
+
+              function next(val) {
+                  if(val instanceof P){
+                      val.then(function (data) {
+                          a = index+ 1;
+                          mer = data;
+                          zhu(mer)
+                      });
+                  }
+              }
+          },0);
 
       },function (fail) {
 
@@ -48,24 +59,47 @@
     };
 
   var pro = new P(function (resolve,reject) {
-      setTimeout(()=>{
+      // setTimeout(()=>{
           resolve('nnnn')
-      },500)
+      // },500)
   });
     pro.then(function (data) {
+
+        console.log('pro1')
         return new P(function (resolve) {
             resolve('aaaa')
         })
+
     }).then(function (adta) {
         console.log(adta)
+        return new P(function (reslove) {
+            reslove('ffff')
+        })
+    }).then(function (data) {
+        console.log(data)
     })
 
+
+
+    // var fff = new P(function (resolve,reject) {
+    //     console.log('1111');
+    //     resolve('aaaa')
+    // });
+    // // var fff = new P(function (resolve,reject) {
+    // //     // setTimeout(()=>{
+    // //         resolve('nnnn')
+    // //     // },500)
+    // // });
+    // console.log(fff)
+    // fff.then(function () {
+    //     alert()
+    // })
 
     // var pro1 = new Promise(function (resolve,reject) {
     //     resolve(1);
     // })
     // pro1.then(function () {
-    //
+    //     console.log('yi')
     // }).then(function () {
     //     console.log('二')
     // })
