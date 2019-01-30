@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function P(fn) {
+       this.resolve = [];
+       this.reject = [];
+       let self = this;
+        var cacth = null;
+      fn(function (success) {
+        setTimeout(()=>{
+            for (let a= 0;a<self.resolve.length;a++){
+               var fn= self.resolve[a](success);
+                ag(fn);
+            }
+
+           function ag(fn) {
+               if (!cacth) {
+                   cacth = fn;
+               } else {
+                   cacth.then(function (data) {
+                       console.log(data)
+                   });
+                   cacth = null;
+               }
+           }
+
+        },0)
+      },function (fail) {
+
+      })
+    }
+
+    P.prototype.then=function (fn1,fn2) {
+        this.resolve.push(fn1);
+        this.reject.push(fn2)
+        return this;
+    };
+
+  var pro = new P(function (resolve,reject) {
+      setTimeout(()=>{
+          resolve('nnnn')
+      },1000)
+  });
+    pro.then(function (data) {
+       console.log(data)
+        return new P(function (re) {
+            re('aaaa')
+        })
+    }).then(function (adta) {
+        console.log(adta)
+    })
+
+
+    // var pro1 = new Promise(function (resolve,reject) {
+    //     resolve(1);
+    // })
+    // pro1.then(function () {
+    //
+    // }).then(function () {
+    //     console.log('二')
+    // })
+</script>
+</html>

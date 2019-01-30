@@ -24,12 +24,14 @@ let server = http.createServer((request,response)=>{
 
     } else {                            // 没有接口静态资源
         let rs = fs.createReadStream('./www'+pathname); //createReadStream
-        rs.on('end',function () {
-            response.setHeader('Content-Encoding','gzip');
-            rs.pipe(gzip).pipe(response);
-        });
+        response.setHeader('Content-Encoding','gzip');
+        rs.pipe(gzip).pipe(response);
+        // rs.on('end',function () {
+        //     response.setHeader('Content-Encoding','gzip');
+        //     rs.pipe(gzip).pipe(response);
+        // });
         rs.on('error',()=>{
-            // response.writeHeader(404);
+            response.setHeader('Content-Encoding','');
             console.log('把偶哦');
             response.writeHeader(404);
             response.write('not font')

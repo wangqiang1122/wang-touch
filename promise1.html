@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function P(fn) {
+       this.resolve = [];
+       this.reject = [];
+       let self = this;
+        var cacth = null;
+      fn(function (success) {
+        setTimeout(()=>{
+            self.resolve.forEach((item,index)=>{
+                if (self.resolve.length-1 === index) {
+                    arr(false,item)
+                } else {
+                    arr(true,item)
+                }
+            });
+        },0);
+        function arr(isB,fn) {
+           if (isB) {
+               fn()
+           }
+        }
+      },function (fail) {
+
+      })
+    }
+
+    P.prototype.then=function (fn1,fn2) {
+        this.resolve.push(fn1);
+        this.reject.push(fn2)
+        return this;
+    };
+
+  var pro = new P(function (resolve,reject) {
+      setTimeout(()=>{
+          resolve('nnnn')
+      },1000)
+  });
+    pro.then(function (data) {
+        console.log(data)
+        return new P(function (resolve) {
+            resolve('aaaa')
+        })
+    }).then(function (adta) {
+        console.log(adta)
+    })
+
+
+    // var pro1 = new Promise(function (resolve,reject) {
+    //     resolve(1);
+    // })
+    // pro1.then(function () {
+    //
+    // }).then(function () {
+    //     console.log('二')
+    // })
+</script>
+</html>
