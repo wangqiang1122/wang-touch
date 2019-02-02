@@ -15,5 +15,5 @@ server.use('/a',(req,res)=>{ // 我是通用版
 
 server.listen('8080');
 // 静态文件
-// static 中间件
+// up 中间件
 server.use(app.static('./www/')); // 静态文件托管
