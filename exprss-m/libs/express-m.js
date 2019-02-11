@@ -28,7 +28,6 @@ module.exports = function () {
            }
           }
       }
-
   });
     server.get=function () {
         let path,fn;

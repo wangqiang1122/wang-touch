@@ -6,7 +6,7 @@ app.listen('2222');
 //     secret: '111111', // session 加密签名尽量长 很难破解 或者 用循环密钥；
 // }));
 app.use(session({ // 循环密钥 默认是20分钟更换一次  在客户端不能用
-    secret: [
+    keys: [
       '111111',
       '2222222',
       '3333'
@@ -14,7 +14,7 @@ app.use(session({ // 循环密钥 默认是20分钟更换一次  在客户端不
 }));
 app.get('/',function (req,res) {
   //   req.session['cache'] = '90圆'
-  // console.log(req.session)
+  console.log(req.session)
   //   res.end('hhhhh')
   if (req.session['count']){
       req.session['count']++
