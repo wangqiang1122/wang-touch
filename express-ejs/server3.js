@@ -19,7 +19,7 @@ app.get('/',function (req,res) {
         if (err) {
             res.status(404).send('数据库错误啦！！！！');
         } else {
-            res.render('4',{ arr:data });
+            res.render('4',{ arr:data,head:['国际','啊哈哈','新闻']});
         }
     })
 });

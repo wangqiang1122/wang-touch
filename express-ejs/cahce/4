@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="head">
+        <span>国际</span>
+        <span>啊哈哈</span>
+        <span>新闻</span>
+    </div>
+
+<script>
+  document.getElementById('head').addEventListener('click',function () {
+      alert()
+  })
+
+
+</script>
+<table border="1">
+    <tr>
+       <th>姓名</th>
+       <th>年龄</th>
+    </tr>
+    <tbody>
+        <tr>
+        <td>1a40040b14d043ba8135db84c872c493</td>
+        <td>bulr1234</td>
+    </tr>
+        <tr>
+        <td>79b21e442f5640e7870b7d8233e7d25c</td>
+        <td>bulr12345</td>
+    </tr>
+        <tr>
+        <td>ac4397904d2c46a3b4d5722189a5399f</td>
+        <td>bulr123</td>
+    </tr>
+        <tr>
+        <td>b3442512-ed46-4542-8007-db4993b91535</td>
+        <td>bulr12</td>
+    </tr>
+        <tr>
+        <td>c78ceb7b-41e5-4d94-878a-2056651c725a</td>
+        <td>bulr1</td>
+    </tr>
+        <tr>
+        <td>fdf6db5d-7685-4b26-81cb-8ac07b524558</td>
+        <td>bulr</td>
+    </tr>
+        </tbody>
+</table>
+
+
+</body>
+</html>

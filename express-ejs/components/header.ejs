@@ -1,3 +1,13 @@
-<div>
-    我是头部
+<div id="head">
+    <% head.forEach((item)=>{ -%>
+    <span><%= item %></span>
+    <% }) -%>
 </div>
+
+<script>
+  document.getElementById('head').addEventListener('click',function () {
+      alert()
+  })
+
+
+</script>
