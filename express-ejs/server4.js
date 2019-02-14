@@ -36,13 +36,14 @@ app.get('/',function (req,res) {
             if (err) {
                 res.status(404).send('数据库错误啦！！！！');
             } else {
-                // ejs.renderFile('./telemple/4.ejs',{ arr:data,head:['国际','啊哈哈','新闻']},(err,data)=>{
-                //     fs.writeFile('./cahce/4',data,err=>{
-                //         console.log(err)
-                //     })
-                //     res.send(data);
-                //     res.end()
-                // })
+                // 缓存到本地·
+                ejs.renderFile('./telemple/4.ejs',{ arr:data,head:['国际','啊哈哈','新闻']},(err,data)=>{
+                    fs.writeFile('./cahce/4',data,err=>{
+                        console.log(err)
+                    })
+                    res.send(data);
+                    res.end()
+                })
             }
         })
     }
