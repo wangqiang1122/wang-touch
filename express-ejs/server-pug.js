@@ -1,6 +1,7 @@
 const express = require('express');
 const consolidate = require('consolidate');
 const mysql = require('mysql');
+const pug = require('pug');
 const dbs = mysql.createPool({host: 'localhost', port: '3306', user: 'root', password: '12345678', database:'20190131'});
 const app = express();
 app.listen('1111');

@@ -3,7 +3,7 @@ const cookies = require('cookie-parser');
 const app = express();
 console.log(cookies)
 app.listen('2222');
-app.use(cookies('111111'));
+app.use(cookies(['dasdas','231231','75675']));
 app.get('/',function (req,res) {
     console.log(req.cookies);
     console.log(req.signedCookies)

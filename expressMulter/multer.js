@@ -6,7 +6,7 @@ const uuid = require('uuid/v4');
 const path = require('path');
 const fs = require('fs');
 app.listen('4444');
-let multerobj = multer({ dest:'./upload',storage:storage });
+let multerobj = multer({ dest:'./upload',storage:storage }); // dest 上传的文件放的地址
 app.use(multerobj.any())
 app.post('/upload',function (req,res,next) {
     console.log(req.files)

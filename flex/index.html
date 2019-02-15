@@ -6,17 +6,19 @@
     <style>
         body{
             position: relative;
-            display: flex;
+            width: 100%;
+            overflow: hidden;
         }
         .div{
-            height: 100%;
+            height: 100vh;
             overflow: auto;
-            width: 100%;
             display: -webkit-flex;
             display: flex;
             -webkit-flex-direction: column;
             -ms-flex-direction: column;
             flex-direction: column;
+            width: 100%;
+            z-index: 5;
         }
         .content {
             overflow-y: auto;
@@ -34,7 +36,9 @@
 </head>
 <body>
  <div class="div">
-     <div class="content">内容</div>
+     <div class="content">内容
+     <div>dasdasdsa</div>
+     </div>
      <div class="btn-footer">地步</div>
  </div>
 </body>

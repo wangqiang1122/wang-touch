@@ -38,7 +38,7 @@ app.get('/',function (req,res) {
             } else {
                 // 缓存到本地·
                 ejs.renderFile('./telemple/4.ejs',{ arr:data,head:['国际','啊哈哈','新闻']},(err,data)=>{
-                    fs.writeFile('./cahce/4',data,err=>{
+                    fs.writeFile('./cahce/4',data,'utf-8',err=>{
                         console.log(err)
                     })
                     res.send(data);
