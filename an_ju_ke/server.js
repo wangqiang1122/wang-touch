@@ -20,6 +20,11 @@ const dbs = mysql.createPool({
     database: config.mysql_database
 });
 app.listen(config.port);
+// 把数据池里的
+app.use((req,res,next)=>{
+    req.dbs = dbs;
+    next()
+});
 
 //multer
 const multerobj = multer({dest: './upload'});
@@ -44,7 +49,7 @@ app.set('views','./temeplate');
 // 管理员
 app.use('/admin',require('./router/admin_router'));
 
-
+// 跟路径
 app.use('/',require('./router/www_router'));
 
 // 静态文件托管管理

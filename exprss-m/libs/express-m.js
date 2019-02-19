@@ -40,7 +40,6 @@ module.exports = function () {
            path = '*';
            fn = arguments[0];
        }
-        console.log(1)
        queue.push({ path,fn });
     };
 
