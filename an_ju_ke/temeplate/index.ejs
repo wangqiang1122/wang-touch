@@ -89,8 +89,8 @@
       </div>
     </div>
 
-    <div id="shadow" class="shadow"></div>
-    <div id="dialog" class="panel panel-default add_modify_dialog">
+    <div id="shadow" class="shadow" ></div>
+    <div id="dialog" class="panel panel-default add_modify_dialog" >
       <div class="panel-heading">
         <h3 class="panel-title">
           添加/修改
@@ -98,51 +98,52 @@
         </h3>
       </div>
       <div class="panel-body" style="overflow:auto; height:460px;">
+        <!--- action="?"当前地址提交----->
         <form class="form-horizontal" action="?" method="post" enctype="multipart/form-data">
 
           <div id="form_contrainer">
 
           </div>
 
-          <!--<div class="form-group">
-            <label for="id1" class="col-sm-2 control-label">数据1</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="id1" placeholder="请输入数据...">
-            </div>
-          </div>
+          <!--<div class="form-group">-->
+            <!--<label for="id1" class="col-sm-2 control-label">数据1</label>-->
+            <!--<div class="col-sm-10">-->
+              <!--<input type="text" class="form-control" id="id1" placeholder="请输入数据...">-->
+            <!--</div>-->
+          <!--</div>-->
 
-          <div class="form-group">
-            <label for="id2" class="col-sm-2 control-label">数据2</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="id2" placeholder="请输入数据...">
-            </div>
-          </div>
+          <!--<div class="form-group">-->
+            <!--<label for="id2" class="col-sm-2 control-label">数据2</label>-->
+            <!--<div class="col-sm-10">-->
+              <!--<input type="text" class="form-control" id="id2" placeholder="请输入数据...">-->
+            <!--</div>-->
+          <!--</div>-->
 
-          <div class="form-group">
-            <label for="id3" class="col-sm-2 control-label">数据3</label>
-            <div class="col-sm-10">
-              <textarea class="form-control" rows="10" id="id3" placeholder="请输入数据..."></textarea>
-            </div>
-          </div>
+          <!--<div class="form-group">-->
+            <!--<label for="id3" class="col-sm-2 control-label">数据3</label>-->
+            <!--<div class="col-sm-10">-->
+              <!--<textarea class="form-control" rows="10" id="id3" placeholder="请输入数据..."></textarea>-->
+            <!--</div>-->
+          <!--</div>-->
 
-          <div class="form-group">
-            <label for="id4" class="col-sm-2 control-label">选择</label>
-            <div class="col-sm-10">
-              <select class="form-control" id="id4">
-                <option value="1">数据1</option>
-                <option value="2">数据2</option>
-                <option value="3">数据3</option>
-                <option value="4">数据4</option>
-              </select>
-            </div>
-          </div>
+          <!--<div class="form-group">-->
+            <!--<label for="id4" class="col-sm-2 control-label">选择</label>-->
+            <!--<div class="col-sm-10">-->
+              <!--<select class="form-control" id="id4">-->
+                <!--<option value="1">数据1</option>-->
+                <!--<option value="2">数据2</option>-->
+                <!--<option value="3">数据3</option>-->
+                <!--<option value="4">数据4</option>-->
+              <!--</select>-->
+            <!--</div>-->
+          <!--</div>-->
 
-          <div class="form-group">
-            <label for="id4" class="col-sm-2 control-label">文件</label>
-            <div class="col-sm-10">
-              <input type="file" class="form-control">
-            </div>
-          </div>-->
+          <!--<div class="form-group">-->
+            <!--<label for="id4" class="col-sm-2 control-label">文件</label>-->
+            <!--<div class="col-sm-10">-->
+              <!--<input type="file" class="form-control">-->
+            <!--</div>-->
+          <!--</div>-->
 
           <div class="form-group">
             <div class="col-sm-10 col-sm-offset-2">
@@ -214,5 +215,34 @@
       <!--oFormContainer.appendChild(oDiv);-->
     <!--}-->
     <!--</script>-->
+    <script>
+      let $W = document.querySelector.bind(document);
+
+      $W('#btn_add').addEventListener('click',function () {
+          $W('#shadow').style.display= 'block';
+          $W('#dialog').style.display = 'block';
+      });
+      $W('#btn_close').addEventListener('click',function () {
+          $W('#shadow').style.display= 'none';
+          $W('#dialog').style.display = 'none';
+      })
+      const oFormContainer = $W('#form_contrainer');
+      const from_input = [
+          { type: 'text', name: 'title', title: '标题'},
+          { type: 'text', name: 'sub_title', title: '副标题'},
+          { type: 'text', name: 'position_main', title: '主位置'},
+          { type: 'text', name: 'position_second', title: '副位置'},
+      ];
+      oFormContainer.innerHTML = '';
+      from_input.forEach(item=>{
+          let div = document.createElement('div');
+          div.className = 'form-group';
+          div.innerHTML = `<label for="id1" class="col-sm-2 control-label">${item.title}</label>
+            <div class="col-sm-10">
+              <input type="${item.type}" class="form-control" id="id1" placeholder="请输入数据..." name="${item.name}">
+            </div>`;
+          oFormContainer.appendChild(div);
+      });
+    </script>
   </body>
 </html>
