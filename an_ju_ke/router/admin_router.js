@@ -125,13 +125,15 @@ router.get('/aaa',function (req,res) {
 });
 router.get('/house',function (req,res) {
     req.dbs.query('SELECT ID,title,ave_price,tel FROM house_table',(err,data)=>{
-        console.log(data)
         res.render('index',{data:data});
     });
 });
 router.post('/house',function (req,res) {
-    console.log(req.body)
-})
+    console.log(req.body);
+    console.log(req.files);
+    req.body['sale_time'] = new Date(req.body.sale_time);
+    req.body['submit_time'] = new Date(req.body.submit_time);
+});
 // 获取客户端ip
 function getIp(req) {
     return req.headers['x-forwarded-for'] ||

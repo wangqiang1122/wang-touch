@@ -232,6 +232,15 @@
           { type: 'text', name: 'sub_title', title: '副标题'},
           { type: 'text', name: 'position_main', title: '主位置'},
           { type: 'text', name: 'position_second', title: '副位置'},
+          { type: 'number', name:'ave_price', title: '均价'},
+          { type: 'number', name:'area_min', title: '最小面积'},
+          { type: 'number', name:'tel', title: '电话'},
+          { type: 'date', name:'sale_time', title: '开盘时间'},
+          { type: 'date', name:'submit_time', title: '交房的日期'},
+          { type: 'file', name: 'main_img', title: '大图'},
+          { type: 'file', name: 'img1', title: '小图1(多选)',multiple: true},
+          { type: 'text', name: 'property_types', title: '户型'},
+          { type: 'file', name: 'property_img', title: '户型图'},
       ];
       oFormContainer.innerHTML = '';
       from_input.forEach(item=>{
@@ -239,7 +248,7 @@
           div.className = 'form-group';
           div.innerHTML = `<label for="id1" class="col-sm-2 control-label">${item.title}</label>
             <div class="col-sm-10">
-              <input type="${item.type}" class="form-control" id="id1" placeholder="请输入数据..." name="${item.name}">
+              <input type="${item.type}" ${ item.multiple? 'multiple': '' } class="form-control" id="id1" placeholder="请输入数据..." name="${item.name}">
             </div>`;
           oFormContainer.appendChild(div);
       });

@@ -7,6 +7,7 @@ const cookieSeesin = require('cookie-session');
 const mysql = require('mysql');
 const cookie = require('cookie-parser'); // 设置cookie
 const multer = require('multer'); // 图片上传 文件post数据
+const storage = multer.memoryStorage();
 const uuid = require('uuid/v4');
 // 配置文件
 const config = require('./config');
