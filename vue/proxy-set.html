@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var json = {};
+    let p = new Proxy(json,{
+        get:function (target,key,proxy) {
+          console.log(target)
+          console.log(key)
+          console.log(proxy)
+        },
+        set:function () {
+            console.log('设置')
+        }
+    });
+    p.a = 12;
+    a = p.a
+</script>
+</html>
