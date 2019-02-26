@@ -12,8 +12,6 @@ module.exports= router;
 
 router.use((req,res,next)=>{
    if (!req.cookies['admin_token']&&url.parse(req.url).pathname !== '/login') {
-      console.log('重定向1');
-      console.log('1111')
       res.redirect(`/admin/login?ref=${req.path}`);
    } else {
        // 如果是token验证的话 需要在在数据库保存token 进入下一步之前需要查找是否有相对应的token
@@ -27,7 +25,9 @@ router.use((req,res,next)=>{
                } else if (data.length===0&&url.parse(req.url).pathname !== '/login') {
                    res.redirect(`/admin/login?ref=${url.path}`);
                } else {
-                   req.admin_ID = data.admin_ID;
+                   req.admin_ID = data[0]['admin_ID'];
+                   console.log('aaaaa');
+                   console.log( req.admin_ID);
                    next()
                }
            });
@@ -108,7 +108,7 @@ router.post('/login',function (req,res) {
                 });
                 let ref = '';
                 if (!req.query['ref']){
-                    ref = ''
+                    ref = '/house'
                 } else {
                     ref = req.query['ref'];
                 }
@@ -119,7 +119,8 @@ router.post('/login',function (req,res) {
     }
 });
 router.get('/aaa',function (req,res) {
-    req.session = null;
+    // req.session = null; // 删除session
+    res.clearCookie('admin_token');
     res.send('aaaa');
     res.end();
 });
@@ -129,10 +130,51 @@ router.get('/house',function (req,res) {
     });
 });
 router.post('/house',function (req,res) {
-    console.log(req.body);
-    console.log(req.files);
-    req.body['sale_time'] = new Date(req.body.sale_time);
-    req.body['submit_time'] = new Date(req.body.submit_time);
+    // console.log(req.body);
+    // console.log(req.files);
+    console.log(req['admin_ID']);
+    let ImgPath = [];
+    let ImgrealPath = [];
+    req.body['sale_time'] = new Date(req.body.sale_time).getTime()/1000;
+    req.body['submit_time'] = new Date(req.body.submit_time).getTime()/1000;
+    req.files.forEach((item) => {
+        switch (item.fieldname) {
+            case 'main_img':
+                req.body['main_img_path'] = item.filename;
+                req.body['main_img_real_path'] = item.path;
+                break;
+            case 'img1':
+                ImgPath.push(item.filename);
+                ImgrealPath.push(item.path);
+                break;
+            case 'property_img':
+                req.body['property_img_paths'] = item.filename;
+                req.body['property_img_real_paths'] = item.path;
+        }
+    })
+    req.body['ID'] = common.uuid();
+    req.body['admin_ID'] = req.admin_ID;
+    req.body['img_paths'] = ImgPath.join(',');
+    req.body['img_real_paths'] = ImgrealPath.join(',');
+    let arrFile = [];
+    let arrfileValue = [];
+    for (var i in req.body){
+        arrFile.push(i);
+        arrfileValue.push(req.body[i]);
+    }
+    let sql = `INSERT INTO house_table (${arrFile.join(',')}) value('${arrfileValue.join("','")}')`
+    req.dbs.query(sql,function (err) {
+        console.log(err)
+        if (!err) {
+            res.redirect('/admin/house')
+        }
+    });
+    console.log(sql)
+});
+
+// 删除
+router.get('/house/delete',(req,res)=>{
+    console.log(req.query);
 });
 // 获取客户端ip
 function getIp(req) {
