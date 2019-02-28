@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const url = require('url');
+const fs = require('fs');
 const common = require('../libs/common'); // 加密用
 const config = require('../config'); // 配置文件
 router.get('/',function (req,res) {
@@ -19,15 +20,12 @@ router.use((req,res,next)=>{
            next()
        } else {
            req.dbs.query(`SELECT * FROM admin_token_table WHERE ID='${req.cookies['admin_token']}'`,function (err,data) {
-               console.log(data)
                if(err) {
                    res.status('500').send('报错了')
                } else if (data.length===0&&url.parse(req.url).pathname !== '/login') {
                    res.redirect(`/admin/login?ref=${url.path}`);
                } else {
                    req.admin_ID = data[0]['admin_ID'];
-                   console.log('aaaaa');
-                   console.log( req.admin_ID);
                    next()
                }
            });
@@ -169,12 +167,64 @@ router.post('/house',function (req,res) {
             res.redirect('/admin/house')
         }
     });
-    console.log(sql)
 });
 
 // 删除
 router.get('/house/delete',(req,res)=>{
-    console.log(req.query);
+    let id = req.query.id;
+    let competle = 0;
+    req.dbs.query(`select * from house_table where id='${id}'`,(err,data)=>{
+       if (err){
+           console.log(err)
+       } else {
+           let imgrealArr = data[0].img_real_paths.split(',').concat(data[0]['property_img_real_paths'].split(','),data[0]['main_img_real_path'].split(','));
+           console.log(imgrealArr);
+           // 高性能的写法
+           // next(0);
+           // function next(i) {
+           //   fs.unlink(imgrealArr[i],err=>{
+           //       if (err) {
+           //           console.log('删除失败',+err)
+           //       } else {
+           //           if (i>=imgrealArr.length-1) {
+           //               console.log('处理完毕')
+           //               req.dbs.query(`delete from house_table where id='${id}'`,err=>{
+           //                   if (err) {
+           //                       console.log(err);
+           //                   } else {
+           //                       console.log('处理完毕');
+           //                       res.redirect('/admin/house')
+           //                   }
+           //               })
+           //           } else {
+           //               next(i+1)
+           //           }
+           //       }
+           //   });
+           // }
+           // 低性能写法 循环写法
+           imgrealArr.forEach(item=>{
+               fs.unlink(item,err=>{
+                   if (err) {
+                       console.log(err)
+                   } else {
+                       competle++;
+                       if (competle>=imgrealArr.length){
+                                         req.dbs.query(`delete from house_table where id='${id}'`,err=>{
+                                             if (err) {
+                                                 console.log(err);
+                                             } else {
+                                                 console.log('处理完毕');
+                                                 res.redirect('/admin/house')
+                                             }
+                                         })
+                       }
+                   }
+               })
+
+           })
+       }
+    })
 });
 // 获取客户端ip
 function getIp(req) {
