@@ -172,7 +172,7 @@ router.post('/house',function (req,res) {
 // 删除
 router.get('/house/delete',(req,res)=>{
     let id = req.query.id;
-    let competle = 0;
+    // let competle = 0;
     req.dbs.query(`select * from house_table where id='${id}'`,(err,data)=>{
        if (err){
            console.log(err)
@@ -180,52 +180,69 @@ router.get('/house/delete',(req,res)=>{
            let imgrealArr = data[0].img_real_paths.split(',').concat(data[0]['property_img_real_paths'].split(','),data[0]['main_img_real_path'].split(','));
            console.log(imgrealArr);
            // 高性能的写法
-           // next(0);
-           // function next(i) {
-           //   fs.unlink(imgrealArr[i],err=>{
-           //       if (err) {
-           //           console.log('删除失败',+err)
-           //       } else {
-           //           if (i>=imgrealArr.length-1) {
-           //               console.log('处理完毕')
-           //               req.dbs.query(`delete from house_table where id='${id}'`,err=>{
-           //                   if (err) {
-           //                       console.log(err);
-           //                   } else {
-           //                       console.log('处理完毕');
-           //                       res.redirect('/admin/house')
-           //                   }
-           //               })
-           //           } else {
-           //               next(i+1)
-           //           }
-           //       }
-           //   });
-           // }
-           // 低性能写法 循环写法
-           imgrealArr.forEach(item=>{
-               fs.unlink(item,err=>{
-                   if (err) {
-                       console.log(err)
-                   } else {
-                       competle++;
-                       if (competle>=imgrealArr.length){
-                                         req.dbs.query(`delete from house_table where id='${id}'`,err=>{
-                                             if (err) {
-                                                 console.log(err);
-                                             } else {
-                                                 console.log('处理完毕');
-                                                 res.redirect('/admin/house')
-                                             }
-                                         })
-                       }
-                   }
-               })
-
-           })
+           next(0);
+           function next(i) {
+             fs.unlink(imgrealArr[i],err=>{
+                 if (err) {
+                     console.log('删除失败',+err)
+                 } else {
+                     if (i>=imgrealArr.length-1) {
+                         console.log('处理完毕')
+                         req.dbs.query(`delete from house_table where id='${id}'`,err=>{
+                             if (err) {
+                                 console.log(err);
+                             } else {
+                                 console.log('处理完毕');
+                                 res.redirect('/admin/house')
+                             }
+                         })
+                     } else {
+                         next(i+1)
+                     }
+                 }
+             });
+           }
+           // 低性能写法 循环写法 回造成大量并发 服务器会一卡一卡的 会有峰值
+           // imgrealArr.forEach(item=>{
+           //     fs.unlink(item,err=>{
+           //         if (err) {
+           //             console.log(err)
+           //         } else {
+           //             competle++;
+           //             if (competle>=imgrealArr.length){
+           //                               req.dbs.query(`delete from house_table where id='${id}'`,err=>{
+           //                                   if (err) {
+           //                                       console.log(err);
+           //                                   } else {
+           //                                       console.log('处理完毕');
+           //                                       res.redirect('/admin/house')
+           //                                   }
+           //                               })
+           //             }
+           //         }
+           //     })
+           //
+           // })
        }
     })
 });
+// 批量删除
+router.get('/house/del',(req,res)=>{
+    let id = req.query.id;
+    let arr = id.split(',');
+    let err = false;
+    arr.forEach(item,(item)=>{
+        if(!/^(\d|[a-f]){32}$/.test(item)) {
+            err = true;
+        }
+    });
+    if (err) {
+        res.status('400').send('哈哈你的id有问题');
+    } else {
+
+    }
+});
+// 修改
 // 获取客户端ip
 function getIp(req) {
     return req.headers['x-forwarded-for'] ||
