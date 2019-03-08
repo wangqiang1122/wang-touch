@@ -39,11 +39,14 @@
                 <span aria-hidden="true">&laquo;</span>
               </a>
             </li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
+            <!--<li><a href="#">1</a></li>-->
+            <!--<li><a href="#">2</a></li>-->
+            <!--<li><a href="#">3</a></li>-->
+            <!--<li><a href="#">4</a></li>-->
+            <!--<li><a href="#">5</a></li>-->
+            <%for (var a=1;a<=page;a++){%>
+            <li><a href="?page=<%=a%>"><%= a%></a></li>
+            <%}%>
             <li>
               <a href="#" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
@@ -71,7 +74,7 @@
             <tr>
               <td>
                 <label>
-                  <input type="checkbox">
+                  <input type="checkbox" name="check" value="<%=json.ID%>">
                   <%=json.ID%>
                 </label>
               </td>
@@ -254,6 +257,23 @@
             </div>`;
           oFormContainer.appendChild(div);
       });
+
+      var checkArr = Array.from(document.getElementsByName('check'));
+      $('#btn_del')[0].onclick=function () {
+          var arr = [];
+          console.log(checkArr)
+              checkArr.forEach(item=>{
+                  if (item.checked) {
+                      arr.push(item.value)
+                  }
+              })
+              console.log(arr);
+          if (arr.length===0) return
+              let url = '/admin/house/del?id='+encodeURIComponent(arr.join(','));
+              if (confirm('您真的要删除这'+arr.length+'条数数据吗')) {
+                  window.location.href = url;
+              }
+      }
     </script>
   </body>
 </html>

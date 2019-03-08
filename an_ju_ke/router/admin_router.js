@@ -123,8 +123,19 @@ router.get('/aaa',function (req,res) {
     res.end();
 });
 router.get('/house',function (req,res) {
-    req.dbs.query('SELECT ID,title,ave_price,tel FROM house_table',(err,data)=>{
-        res.render('index',{data:data});
+    let pageSize = 10;
+    let page = req.query.page;
+    if (!page) {
+        page = 1;
+    } else if (!/^[1-9]\d*$/.test(page)){
+        page = 1
+    }
+    let start = (page-1)*pageSize;
+    req.dbs.query(`SELECT ID,title,ave_price,tel FROM house_table LIMIT ${start},${pageSize}`,(err,data)=>{
+        req.dbs.query('SELECT COUNT(*) AS c FROM house_table',(err,c)=>{
+            res.render('index',{data:data,page:Math.ceil(c[0].c/pageSize)});
+            console.log(c)
+        })
     });
 });
 router.post('/house',function (req,res) {
@@ -133,8 +144,9 @@ router.post('/house',function (req,res) {
     console.log(req['admin_ID']);
     let ImgPath = [];
     let ImgrealPath = [];
-    req.body['sale_time'] = new Date(req.body.sale_time).getTime()/1000;
-    req.body['submit_time'] = new Date(req.body.submit_time).getTime()/1000;
+    req.body['sale_time'] = new Date(req.body.sale_time).getTime()/1000||'';
+    req.body['submit_time'] = new Date(req.body.submit_time).getTime()/1000||'';
+    console.log(req.body)
     req.files.forEach((item) => {
         switch (item.fieldname) {
             case 'main_img':
@@ -160,7 +172,10 @@ router.post('/house',function (req,res) {
         arrFile.push(i);
         arrfileValue.push(req.body[i]);
     }
-    let sql = `INSERT INTO house_table (${arrFile.join(',')}) value('${arrfileValue.join("','")}')`
+    let values=`'${arrfileValue.join("','")}'`;
+    console.log(values)
+    let sql = `INSERT INTO house_table (${arrFile.join(',')}) value(${values})`;
+    console.log(sql)
     req.dbs.query(sql,function (err) {
         console.log(err)
         if (!err) {
@@ -177,30 +192,46 @@ router.get('/house/delete',(req,res)=>{
        if (err){
            console.log(err)
        } else {
-           let imgrealArr = data[0].img_real_paths.split(',').concat(data[0]['property_img_real_paths'].split(','),data[0]['main_img_real_path'].split(','));
+           let imgrealArr = data[0].img_real_paths?data[0].img_real_paths.split(','):[].concat(data[0]['property_img_real_paths']?data[0]['property_img_real_paths'].split(','):[],data[0]['main_img_real_path']?data[0]['main_img_real_path'].split(','):[]);
            console.log(imgrealArr);
            // 高性能的写法
-           next(0);
-           function next(i) {
-             fs.unlink(imgrealArr[i],err=>{
-                 if (err) {
-                     console.log('删除失败',+err)
-                 } else {
-                     if (i>=imgrealArr.length-1) {
-                         console.log('处理完毕')
-                         req.dbs.query(`delete from house_table where id='${id}'`,err=>{
-                             if (err) {
-                                 console.log(err);
-                             } else {
-                                 console.log('处理完毕');
-                                 res.redirect('/admin/house')
-                             }
-                         })
-                     } else {
-                         next(i+1)
-                     }
-                 }
-             });
+           if (imgrealArr.length>0) {
+               next(0);
+               function next(i) {
+                   fs.unlink(imgrealArr[i],err=>{
+                       if (err) {
+                           console.log('删除失败',+err)
+                       } else {
+                           if (i>=imgrealArr.length-1) {
+                               console.log('处理完毕')
+                               req.dbs.query(`delete from house_table where id='${id}'`,err=>{
+                                   if (err) {
+                                       console.log(err);
+                                   } else {
+                                       console.log('处理完毕');
+                                       res.redirect('/admin/house')
+                                   }
+                               })
+                           } else {
+                               next(i+1)
+                           }
+                       }
+                   });
+               }
+           } else {
+               if (i>=imgrealArr.length-1) {
+                   console.log('处理完毕')
+                   req.dbs.query(`delete from house_table where id='${id}'`,err=>{
+                       if (err) {
+                           console.log(err);
+                       } else {
+                           console.log('处理完毕');
+                           res.redirect('/admin/house')
+                       }
+                   })
+               } else {
+                   next(i+1)
+               }
            }
            // 低性能写法 循环写法 回造成大量并发 服务器会一卡一卡的 会有峰值
            // imgrealArr.forEach(item=>{
@@ -231,7 +262,8 @@ router.get('/house/del',(req,res)=>{
     let id = req.query.id;
     let arr = id.split(',');
     let err = false;
-    arr.forEach(item,(item)=>{
+    let num_index = 0;
+    arr.forEach(item=>{
         if(!/^(\d|[a-f]){32}$/.test(item)) {
             err = true;
         }
@@ -239,7 +271,81 @@ router.get('/house/del',(req,res)=>{
     if (err) {
         res.status('400').send('哈哈你的id有问题');
     } else {
+       anext();
+       function anext() {
+         let id = arr[num_index++];
+           req.dbs.query(`select * from house_table where id='${id}'`,(err,data)=>{
+               if (err){
+                   console.log(err)
+               } else {
+                   let imgrealArr = data[0].img_real_paths.split(',').concat(data[0]['property_img_real_paths'].split(','),data[0]['main_img_real_path'].split(','));
+                   console.log(imgrealArr);
+                   // 高性能的写法
+                   if (imgrealArr.length>0) {
+                       next(0);
+                       function next(i) {
+                           fs.unlink(imgrealArr[i],err=>{
+                               if (err) {
+                                   console.log('删除失败',+err)
+                               } else {
+                                   if (i>=imgrealArr.length-1) {
+                                       console.log('处理完毕')
+                                       req.dbs.query(`delete from house_table where id='${id}'`,err=>{
+                                           if (err) {
+                                               console.log(err);
+                                           } else {
+                                               console.log('处理完毕');
+                                               if (num_index>=arr.length) {
+                                                   res.redirect('/admin/house')
+                                               } else {
+                                                   anext()
+                                               }
+                                           }
+                                       })
+                                   } else {
+                                       next(i+1)
+                                   }
+                               }
+                           });
+                       }
+                   } else {
+                       req.dbs.query(`delete from house_table where id='${id}'`,err=>{
+                           if (err) {
+                               console.log(err);
+                           } else {
+                               if (num_index>=arr.length) {
+                                   res.redirect('/admin/house')
+                               } else {
+                                   anext()
+                               }
+                           }
+                       })
+                   }
 
+                   // 低性能写法 循环写法 回造成大量并发 服务器会一卡一卡的 会有峰值
+                   // imgrealArr.forEach(item=>{
+                   //     fs.unlink(item,err=>{
+                   //         if (err) {
+                   //             console.log(err)
+                   //         } else {
+                   //             competle++;
+                   //             if (competle>=imgrealArr.length){
+                   //                               req.dbs.query(`delete from house_table where id='${id}'`,err=>{
+                   //                                   if (err) {
+                   //                                       console.log(err);
+                   //                                   } else {
+                   //                                       console.log('处理完毕');
+                   //                                       res.redirect('/admin/house')
+                   //                                   }
+                   //                               })
+                   //             }
+                   //         }
+                   //     })
+                   //
+                   // })
+               }
+           })
+       }
     }
 });
 // 修改
