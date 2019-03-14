@@ -123,17 +123,28 @@ router.get('/aaa',function (req,res) {
     res.end();
 });
 router.get('/house',function (req,res) {
-    let pageSize = 10;
+    // 搜索
+    let likeSql = true ;
+    if (req.query.keyVal) {
+        console.log(req.query.keyVal);
+        let arr = req.query.keyVal.split(/\s*/);
+        let like_arg = arr.map(item => {
+           return `title LIKE '%${item}%'`
+        });
+        likeSql = like_arg.join(' OR ')
+    }
+    let pageSize =3;
     let page = req.query.page;
     if (!page) {
         page = 1;
     } else if (!/^[1-9]\d*$/.test(page)){
         page = 1
     }
+    console.log(likeSql)
     let start = (page-1)*pageSize;
-    req.dbs.query(`SELECT ID,title,ave_price,tel FROM house_table LIMIT ${start},${pageSize}`,(err,data)=>{
-        req.dbs.query('SELECT COUNT(*) AS c FROM house_table',(err,c)=>{
-            res.render('index',{data:data,page:Math.ceil(c[0].c/pageSize)});
+    req.dbs.query(`SELECT ID,title,ave_price,tel FROM house_table where ${likeSql} LIMIT ${start},${pageSize}`,(err,data)=>{
+        req.dbs.query(`SELECT COUNT(*) AS c FROM house_table where ${likeSql}`,(err,c)=>{  //全部条数
+            res.render('index',{data:data,page:Math.ceil(c[0].c/pageSize),keyval:req.query.keyVal});
             console.log(c)
         })
     });
@@ -348,7 +359,17 @@ router.get('/house/del',(req,res)=>{
        }
     }
 });
-// 修改
+// 修改接口
+router.get('/house/edit',(req,res)=>{
+   let id = req.query.id;
+   if (!(/[/da-f]/.test(id))) {
+       res.status(500).send('你传的id不对哟')
+   }
+   console.log(`SELECT * FROM house_table WHERE ID='${id}'`)
+    req.dbs.query(`SELECT * FROM house_table WHERE ID='${id}'`,(err,data) => {
+        console.log(data)
+    })
+});
 // 获取客户端ip
 function getIp(req) {
     return req.headers['x-forwarded-for'] ||

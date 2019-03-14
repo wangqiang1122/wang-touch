@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0 ;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        #pageID{
+         float: left;
+        }
+        #pageID:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        #pageID li{
+            list-style: none;
+            float: left;
+            width: 30px;
+            height: 30px;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 30px;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+        #pageZ span{
+            float: left;
+            cursor: pointer;
+        }
+        #pageZ:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        #pageID .active{
+           border: 1px solid blue;
+           color: blue;
+       }
+    </style>
+</head>
+<body>
+<div id="pageZ">
+    <span>上一页</span>
+    <ul id="pageID">
+        <!--<li class="active">1</li>-->
+        <!--<li>2</li>-->
+        <!--<li>3</li>-->
+    </ul>
+    <span>总页数</span>
+    <span>下一页</span>
+</div>
+
+</body>
+
+<script>
+ function Page(obj) {
+     this.obj = obj||{page:0,page_count: 0};
+     this.startPage = 0;
+     this.endPage = 0;
+     this.show_page = 5; // 中间显示多少个页码
+     this.z_page = 7;
+ }
+ Page.prototype.init = function () {
+     this.create();
+ };
+ Page.prototype.create = function () {
+     var num = this.obj.page-(this.show_page-1)/2;
+     num = num<1?1:num;
+     console.log(num);
+
+     var pageID = document.getElementById('pageID');
+     if (this.obj.page>Math.ceil(this.show_page/2)) {
+         console.log('我要显示1了')
+     }
+     if ((this.obj.page_count>this.z_page)&&(this.obj.page<=(this.obj.page_count-5))) {
+         console.log('我要显示省略号了')
+     }
+     for (var a = num; a<this.show_page+num; a++) {
+         var li = document.createElement('li');
+         li.innerHTML = a;
+         if (a === this.obj.page) {
+             li.className = 'active'
+         }
+         pageID.appendChild(li)
+     }
+ };
+ var page = new Page({page:398,page_count: 400});
+ page.init();
+</script>
+</html>
