@@ -62,34 +62,64 @@
      this.obj = obj||{page:0,page_count: 0};
      this.startPage = 0;
      this.endPage = 0;
-     this.show_page = 5; // 中间显示多少个页码
-     this.z_page = 7;
+     this.show_page = 5; // 中间显示多少个页码  必须是个基数好看
+     this.z_page = 7;    // 一共显示的页码数
  }
  Page.prototype.init = function () {
      this.create();
  };
  Page.prototype.create = function () {
-     var num = this.obj.page-(this.show_page-1)/2;
-     num = num<1?1:num;
-     console.log(num);
-
+     var ping = (this.show_page-1)/2; // 左右显示的平均数
+     var num = this.obj.page-ping; // 最小页码
+     var endnum =  (this.obj.page+ping)>this.obj.page_count?this.obj.page_count:(this.obj.page+ping) // 最大页码
      var pageID = document.getElementById('pageID');
-     if (this.obj.page>Math.ceil(this.show_page/2)) {
-         console.log('我要显示1了')
+     if (this.obj.page_count<= this.z_page) {
+         this.smallPage()
+     } else if( (this.show_page+num)>this.obj.page_count) {
+         console.log('临近唯页');
+         console.log((this.obj.page_count-this.z_page-1));
+         for (var m=(this.obj.page_count- this.show_page-1);m<=this.obj.page_count;m++) {
+             console.log(m)
+             var li1 = document.createElement('li');
+             li1.innerHTML = m;
+             if (m==this.obj.page) {
+                 li1.className = 'active'
+             }
+             pageID.appendChild(li1)
+         }
+     } else {
+         num = num<1?1:num;
+         console.log(num);
+
+         if (this.obj.page>Math.ceil(this.show_page/2)) {
+             console.log('我前面要显示省略号了')
+         }
+         if ((this.obj.page_count>this.z_page)&&((this.obj.page+(this.show_page-1)/2)<this.obj.page_count)) {
+             console.log('我要显示省略号了')
+         }
+
+         for (var a = num; a<=endnum; a++) {
+             var li = document.createElement('li');
+             li.innerHTML = a;
+             if (a === this.obj.page) {
+                 li.className = 'active'
+             }
+             pageID.appendChild(li)
+         }
      }
-     if ((this.obj.page_count>this.z_page)&&(this.obj.page<=(this.obj.page_count-5))) {
-         console.log('我要显示省略号了')
-     }
-     for (var a = num; a<this.show_page+num; a++) {
+
+ };
+ Page.prototype.smallPage = function () {
+     for (var i=1;i<=this.obj.page_count;i++) {
          var li = document.createElement('li');
-         li.innerHTML = a;
-         if (a === this.obj.page) {
+         li.innerHTML = i;
+         if (i === this.obj.page) {
              li.className = 'active'
          }
          pageID.appendChild(li)
      }
  };
- var page = new Page({page:398,page_count: 400});
+ var page = new Page({page:11,page_count: 11});
  page.init();
 </script>
 </html>
