@@ -82,7 +82,7 @@
               <td><%=json.ave_price%></td>
               <td><%=json.tel%></td>
               <td>
-                <a href="javascript:;">编辑</a>
+                <a href="javascript:;" class="edit" onclick="editClick('<%=json.ID%>')">编辑</a>
                 <a href="/admin/house/delete?id=<%=json.ID%>" onclick="return confirm('你确定删除这个房屋信息吗？删除不可撤销')">删除</a>
               </td>
             </tr>
@@ -103,7 +103,8 @@
       <div class="panel-body" style="overflow:auto; height:460px;">
         <!--- action="?"当前地址提交----->
         <form class="form-horizontal" action="?" method="post" enctype="multipart/form-data">
-
+          <input type="text" id="mod" value="0" name="mod" style="display: none">
+          <input type="text" id="formId" value="" name="formId" style="display: none">
           <div id="form_contrainer">
 
           </div>
@@ -224,40 +225,62 @@
       $W('#btn_add').addEventListener('click',function () {
           $W('#shadow').style.display= 'block';
           $W('#dialog').style.display = 'block';
+          methodEdit()
+          $('#mod').val('0');
+          $('#formId').val('');
       });
       $W('#btn_close').addEventListener('click',function () {
           $W('#shadow').style.display= 'none';
           $W('#dialog').style.display = 'none';
       })
-      const oFormContainer = $W('#form_contrainer');
-      const from_input = [
-          { type: 'text', name: 'title', title: '标题'},
-          { type: 'text', name: 'sub_title', title: '副标题'},
-          { type: 'text', name: 'position_main', title: '主位置'},
-          { type: 'text', name: 'position_second', title: '副位置'},
-          { type: 'number', name:'ave_price', title: '均价'},
-          { type: 'number', name:'area_min', title: '最小面积'},
-          { type: 'number', name:'area_max', title: '最大面积'},
-          { type: 'number', name:'tel', title: '电话'},
-          { type: 'date', name:'sale_time', title: '开盘时间'},
-          { type: 'date', name:'submit_time', title: '交房的日期'},
-          { type: 'file', name: 'main_img', title: '大图'},
-          { type: 'file', name: 'img1', title: '小图1(多选)',multiple: true},
-          { type: 'text', name: 'building_type', title: '类型'},
-          { type: 'text', name: 'property_types', title: '户型'},
-          { type: 'file', name: 'property_img', title: '户型图'},
-      ];
-      oFormContainer.innerHTML = '';
-      from_input.forEach(item=>{
-          let div = document.createElement('div');
-          div.className = 'form-group';
-          div.innerHTML = `<label for="id1" class="col-sm-2 control-label">${item.title}</label>
-            <div class="col-sm-10">
-              <input type="${item.type}" ${ item.multiple? 'multiple': '' } class="form-control" id="id1" placeholder="请输入数据..." name="${item.name}">
-            </div>`;
-          oFormContainer.appendChild(div);
-      });
 
+      function methodEdit(obj) {
+          const oFormContainer = $W('#form_contrainer');
+          const from_input = [
+              { type: 'text', name: 'title', title: '标题'},
+              { type: 'text', name: 'sub_title', title: '副标题'},
+              { type: 'text', name: 'position_main', title: '主位置'},
+              { type: 'text', name: 'position_second', title: '副位置'},
+              { type: 'number', name:'ave_price', title: '均价'},
+              { type: 'number', name:'area_min', title: '最小面积'},
+              { type: 'number', name:'area_max', title: '最大面积'},
+              { type: 'number', name:'tel', title: '电话'},
+              { type: 'date', name:'sale_time', title: '开盘时间'},
+              { type: 'date', name:'submit_time', title: '交房的日期'},
+              { type: 'file', name: 'main_img', title: '大图'},
+              { type: 'file', name: 'img1', title: '小图1(多选)',multiple: true},
+              { type: 'text', name: 'building_type', title: '类型'},
+              { type: 'text', name: 'property_types', title: '户型'},
+              { type: 'file', name: 'property_img', title: '户型图'},
+          ];
+          oFormContainer.innerHTML = '';
+          from_input.forEach(item=>{
+              let div = document.createElement('div');
+              div.className = 'form-group';
+              div.innerHTML = `<label for="id1" class="col-sm-2 control-label">${item.title}</label>
+            <div class="col-sm-10">
+              <input type="${item.type}" ${ item.multiple? 'multiple': '' } class="form-control" id="id1" placeholder="请输入数据..."
+              name="${item.name}" value="${obj[item.name]}">
+            </div>`;
+              oFormContainer.appendChild(div);
+          });
+      }
+
+      function editClick(id) {
+          $('#mod').val('1');
+          $('#formId').val(id);
+          $.ajax({
+              method: 'get',
+              url:'/admin/house/edit',
+              data: { id: id },
+              success:function (val) {
+                  $W('#shadow').style.display= 'block';
+                  $W('#dialog').style.display = 'block';
+                  methodEdit(val)
+                  console.log(val)
+              }
+          })
+      }
       var checkArr = Array.from(document.getElementsByName('check'));
       $('#btn_del')[0].onclick=function () {
           var arr = [];

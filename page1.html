@@ -9,6 +9,12 @@
             margin: 0;
             box-sizing: border-box;
         }
+        #pageZ {
+            -moz-user-select:none; /*火狐*/
+             -webkit-user-select:none; /*webkit浏览器*/
+             -ms-user-select:none; /*IE10*/
+            user-select:none;
+        }
         #pageID{
          float: left;
         }
@@ -31,6 +37,8 @@
         #pageZ span{
             float: left;
             cursor: pointer;
+            display: inline-block;
+            line-height: 30px;
         }
         #pageZ:after{
             content: '';
@@ -45,14 +53,14 @@
 </head>
 <body>
 <div id="pageZ">
-    <span>上一页</span>
-    <ul id="pageID">
+    <span class="previous">上一页</span>
+    <div id="pageID">
         <!--<li class="active">1</li>-->
         <!--<li>2</li>-->
         <!--<li>3</li>-->
-    </ul>
-    <span>总页数</span>
-    <span>下一页</span>
+    </div>
+    <span class="next">下一页</span>
+    <span class="total">总页数</span>
 </div>
 
 </body>
@@ -60,54 +68,46 @@
 <script>
  function Page(obj) {
      this.obj = obj||{page:0,page_count: 0};
-     this.startPage = 0;
-     this.endPage = 0;
-     this.show_page = 5; // 中间显示多少个页码  必须是个基数好看
      this.z_page = 7;    // 一共显示的页码数
+     this.show_page = this.z_page-2; // 中间显示多少个页码  必须是个基数好看
+     this.fn = this.obj.block;
+     this.init()
  }
  Page.prototype.init = function () {
      this.create();
  };
  Page.prototype.create = function () {
-     var ping = (this.show_page-1)/2; // 左右显示的平均数
+     var ping = (this.show_page-1)/2; // 左右显示的平均数  在中间
      var num = this.obj.page-ping; // 最小页码
      var endnum =  (this.obj.page+ping)>this.obj.page_count?this.obj.page_count:(this.obj.page+ping) // 最大页码
      var pageID = document.getElementById('pageID');
+     var self= this;
+     pageID.innerHTML = '';
+     num = num<1?1:num;
      if (this.obj.page_count<= this.z_page) {
          this.smallPage()
-     } else if( (this.show_page+num)>this.obj.page_count) {
-         console.log('临近唯页');
-         console.log((this.obj.page_count-this.z_page-1));
-         for (var m=(this.obj.page_count- this.show_page-1);m<=this.obj.page_count;m++) {
-             console.log(m)
-             var li1 = document.createElement('li');
-             li1.innerHTML = m;
-             if (m==this.obj.page) {
-                 li1.className = 'active'
-             }
-             pageID.appendChild(li1)
-         }
-     } else {
-         num = num<1?1:num;
-         console.log(num);
+     } else if( (this.obj.page+ping+1)>=this.obj.page_count) { // 还要加上最后一个   接近尾页
+         pageID.appendChild(this.nearBack())
 
-         if (this.obj.page>Math.ceil(this.show_page/2)) {
-             console.log('我前面要显示省略号了')
-         }
-         if ((this.obj.page_count>this.z_page)&&((this.obj.page+(this.show_page-1)/2)<this.obj.page_count)) {
-             console.log('我要显示省略号了')
-         }
-
-         for (var a = num; a<=endnum; a++) {
-             var li = document.createElement('li');
-             li.innerHTML = a;
-             if (a === this.obj.page) {
-                 li.className = 'active'
-             }
-             pageID.appendChild(li)
-         }
+     } else if ((ping+2)>=(this.obj.page)) {  //3   接近首页
+         pageID.appendChild( this.nearHome())
+         console.log('临近首页')
+     }else {
+         pageID.appendChild(this.centerPage(num,endnum));
      }
-
+     document.onclick = function (event) {
+         switch (event.target.className) {
+             case 'previous':
+                 self._previous();
+                 break;
+             case 'next':
+                 self._next();
+                 break;
+             default:
+                 self.clickLi(event.target);
+         }
+         self.fn(self.obj.page)
+     }
  };
  Page.prototype.smallPage = function () {
      for (var i=1;i<=this.obj.page_count;i++) {
@@ -119,7 +119,103 @@
          pageID.appendChild(li)
      }
  };
- var page = new Page({page:11,page_count: 11});
- page.init();
+ Page.prototype.nearBack = function () {
+     var oFragmeng = document.createDocumentFragment(); // 创建了一个文档碎片
+     var ul = document.createElement('ul')
+     var Div = oFragmeng.appendChild(ul);
+      Div.innerHTML = '<li>1</li><li>....</li>';
+     for (var m=(this.obj.page_count- this.show_page);m<=this.obj.page_count;m++) {
+         var li1 = document.createElement('li');
+         li1.innerHTML = m;
+         if (m===this.obj.page) {
+             li1.className = 'active'
+         }
+         Div.appendChild(li1)
+     }
+    return oFragmeng.firstChild;
+ };
+
+ Page.prototype.nearHome = function () {
+     var oFragmeng = document.createDocumentFragment(); // 创建了一个文档碎片
+     var ul = document.createElement('ul');
+     var Div = oFragmeng.appendChild(ul);
+     for(var a =1;a<this.z_page;a++) {
+         var li1 = document.createElement('li');
+         li1.innerHTML = a;
+         if (a===this.obj.page) {
+             li1.className = 'active'
+         }
+         Div.append(li1)
+     }
+     for (var h=0;h<2;h++ ) {
+         var li2 = document.createElement('li');
+         if (h===0) {
+             li2.innerHTML = '....'
+         } else {
+             li2.innerHTML = this.obj.page_count;
+         }
+         Div.append(li2)
+     }
+    return oFragmeng.firstChild;
+ };
+
+ Page.prototype.centerPage = function (startPage,endPage) {
+     var oFragmeng = document.createDocumentFragment(); // 创建了一个文档碎片
+     var ul = document.createElement('ul');
+     var Div= oFragmeng.appendChild(ul)
+     if (this.obj.page>Math.ceil(this.show_page/2)) {
+         console.log('我前面要显示省略号了');
+         for (var young =0;young<2;young++) {
+             var li1 = document.createElement('li');
+             if (young===0) {
+                 li1.innerHTML=1;
+             } else {
+                 li1.innerHTML='....';
+             }
+             Div.appendChild(li1)
+         }
+     }
+
+     for (var a = startPage; a<=endPage; a++) {
+         var li = document.createElement('li');
+         li.innerHTML = a;
+         if (a === this.obj.page) {
+             li.className = 'active'
+         }
+         Div.appendChild(li)
+     }
+     if ((this.obj.page_count>this.z_page)&&((this.obj.page+(this.show_page-1)/2)<this.obj.page_count)) {
+         for (var end=0;end<2;end++) {
+             var li3 = document.createElement('li');
+             if (end===0) {
+                 li3.innerHTML='....'
+             } else {
+                 li3.innerHTML = this.obj.page_count;
+             }
+             Div.appendChild(li3)
+         }
+         console.log('我要显示省略号了')
+     }
+     return oFragmeng.firstChild
+ };
+
+ Page.prototype._previous = function () {
+     this.obj.page = this.obj.page-1<1?1:this.obj.page-1;
+     this.create()
+ }
+ Page.prototype._next = function () {
+     this.obj.page = this.obj.page+1>this.obj.page_count?this.obj.page_count:this.obj.page+1;
+     this.create()
+ };
+ Page.prototype.clickLi = function (target) {
+     if (!isNaN(target.innerHTML)) {
+         this.obj.page = Number(target.innerHTML);
+         this.create()
+     }
+ };
+
+ var page = new Page({page:1,page_count: 17,block:function (num) {
+         console.log(num)
+     }});
 </script>
 </html>

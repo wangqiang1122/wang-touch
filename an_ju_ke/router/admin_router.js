@@ -157,7 +157,6 @@ router.post('/house',function (req,res) {
     let ImgrealPath = [];
     req.body['sale_time'] = new Date(req.body.sale_time).getTime()/1000||'';
     req.body['submit_time'] = new Date(req.body.submit_time).getTime()/1000||'';
-    console.log(req.body)
     req.files.forEach((item) => {
         switch (item.fieldname) {
             case 'main_img':
@@ -184,15 +183,35 @@ router.post('/house',function (req,res) {
         arrfileValue.push(req.body[i]);
     }
     let values=`'${arrfileValue.join("','")}'`;
-    console.log(values)
-    let sql = `INSERT INTO house_table (${arrFile.join(',')}) value(${values})`;
-    console.log(sql)
-    req.dbs.query(sql,function (err) {
-        console.log(err)
-        if (!err) {
-            res.redirect('/admin/house')
-        }
-    });
+    console.log(values);
+    if (req.body.mod=1) {
+        let arr = [];
+       var files = [ 'title','sub_title','position_main','position_second','ave_price','area_min',
+           'area_max','tel','sale_time','submit_time','building_type','main_img_path','main_img_real_path',
+           'img_paths','img_real_paths','property_types','property_img_paths','property_img_real_paths' ];
+     files.forEach(item => {
+         arr.push(`${item}='${req.body[item]}'`)
+     })
+     let sql1 = `UPDATE house_table set ${arr.join(',')} where ID='${req.body.formId}'`;
+     req.dbs.query(sql1,(err,data)=>{
+         console.log(err);
+         if (err) {
+
+         } else {
+             res.redirect('/admin/house')
+         }
+     })
+     console.log(sql1)
+    } else {
+        let sql = `INSERT INTO house_table (${arrFile.join(',')}) value(${values})`;
+        console.log(sql)
+        req.dbs.query(sql,function (err) {
+            console.log(err)
+            if (!err) {
+                res.redirect('/admin/house')
+            }
+        });
+    }
 });
 
 // 删除
@@ -362,12 +381,13 @@ router.get('/house/del',(req,res)=>{
 // 修改接口
 router.get('/house/edit',(req,res)=>{
    let id = req.query.id;
+   console.log(req.query)
    if (!(/[/da-f]/.test(id))) {
        res.status(500).send('你传的id不对哟')
    }
    console.log(`SELECT * FROM house_table WHERE ID='${id}'`)
     req.dbs.query(`SELECT * FROM house_table WHERE ID='${id}'`,(err,data) => {
-        console.log(data)
+        res.send(data[0]);
     })
 });
 // 获取客户端ip
