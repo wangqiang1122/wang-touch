@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var http = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=da&rsv_pq=b16c054b0004d81b&rsv_t=9b57STL%2F7y9ZxuI6d%2Bvn%2BwxDx6v%2F3Q8%2BeaLoMsZWjZDCNgMXSmpx3Froenc&rqlang=cn&rsv_enter=1&rsv_sug3=2&rsv_sug1=1&rsv_sug7=100&rsv_sug2=0&inputT=794&rsv_sug4=794'
+    var reg = /(?<=\?)\S*/;
+    http.match(reg)[0].split(/&/).forEach(item=>{
+        console.log(item.split(/=/))
+    })
+</script>
+</html>

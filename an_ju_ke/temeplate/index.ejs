@@ -11,10 +11,11 @@
   <body>
     <div class="page-wrap">
       <div class="page-menu">
-        <ul class="nav nav-pills nav-stacked">
-          <li role="presentation" class="active"><a href="#">房源</a></li>
-          <li role="presentation"><a href="#">友情链接</a></li>
-          <li role="presentation"><a href="#">广告管理</a></li>
+        <ul class="nav nav-pills nav-stacked" id="nav">
+          <li role="presentation" title="house"><a href="/admin/house">房源</a></li>
+          <li role="presentation" title="link"><a href="/admin/link">友情链接</a></li>
+          <li role="presentation" title="ad"><a href="/admin/ad">广告管理</a></li>
+          <li role="presentation" title="broker"><a href="/admin/broker">经纪人管理</a></li>
         </ul>
       </div>
       <div class="page-content">
@@ -63,30 +64,46 @@
                   ID
                 </label>
               </th>
-              <th width="200">标题</th>
-              <th width="100">均价</th>
-              <th width="200">电话</th>
+              <%
+              nameVals.forEach(item=>{
+                  if (item=='ID') return;
+              %>
+              <th width="200"><%= item%></th>
+              <%});%>
+              <!--<th width="200">标题</th>-->
+              <!--<th width="100">均价</th>-->
+              <!--<th width="200">电话</th>-->
               <th width="200">操作</th>
             </tr>
           </thead>
           <tbody>
-            <% data.forEach(json=>{ %>
+            <% data.forEach(json=>{
+            %>
             <tr>
+              <%
+              nameKeys.forEach(key =>{
+              if (key=='ID') {
+              %>
               <td>
-                <label>
-                  <input type="checkbox" name="check" value="<%=json.ID%>">
-                  <%=json.ID%>
-                </label>
+              <label>
+              <input type="checkbox" name="check" value="<%=json[key]%>">
+               <%=json[key]%>
+              </label>
               </td>
-              <td><%=json.title%></td>
-              <td><%=json.ave_price%></td>
-              <td><%=json.tel%></td>
+              <%  } else {
+              %>
+              <td><%=json[key]%></td>
+              <!--&lt;!&ndash;<td><%=json.ave_price%></td>&ndash;&gt;-->
+              <!--&lt;!&ndash;<td><%=json.tel%></td>&ndash;&gt;-->
+              <% }
+              })%>
               <td>
                 <a href="javascript:;" class="edit" onclick="editClick('<%=json.ID%>')">编辑</a>
-                <a href="/admin/house/delete?id=<%=json.ID%>" onclick="return confirm('你确定删除这个房屋信息吗？删除不可撤销')">删除</a>
+                <a href="/admin/<%= table%>/delete?id=<%=json.ID%>" onclick="return confirm('你确定删除这个房屋信息吗？删除不可撤销')">删除</a>
               </td>
             </tr>
-            <% }); %>
+            <%
+              }); %>
           </tbody>
         </table>
       </div>
@@ -102,9 +119,10 @@
       </div>
       <div class="panel-body" style="overflow:auto; height:460px;">
         <!--- action="?"当前地址提交----->
-        <form class="form-horizontal" action="?" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal" action="?" method="post" enctype="multipart/form-data" id="form_data">
           <input type="text" id="mod" value="0" name="mod" style="display: none">
           <input type="text" id="formId" value="" name="formId" style="display: none">
+          <input type="text" id="pageID" value="" name="pageID" style="display: none">
           <div id="form_contrainer">
 
           </div>
@@ -219,6 +237,7 @@
       <!--oFormContainer.appendChild(oDiv);-->
     <!--}-->
     <!--</script>-->
+    <script src="/js/from_data.js"></script>
     <script>
       let $W = document.querySelector.bind(document);
 
@@ -233,26 +252,27 @@
           $W('#shadow').style.display= 'none';
           $W('#dialog').style.display = 'none';
       })
+      const from_input = data['<%= table %>'];
+      console.log(data['<%= table%>']);
+      // form_data
 
+      $('#form_data').submit(function () {
+          var inputs =Array.from($('input[type="date"]'));
+          inputs.forEach(item=>{
+              var date=Math.round( new Date(item.value).getTime()/1000)||0;
+              var newinput = document.createElement('input');
+              newinput.name = item.name;
+              newinput.value = date
+              item.name = '';
+              $('#form_contrainer').append(newinput)
+          })
+          return true
+      })
+      // console.log($('#form_data'))
+
+      // 生成
       function methodEdit(obj) {
           const oFormContainer = $W('#form_contrainer');
-          const from_input = [
-              { type: 'text', name: 'title', title: '标题'},
-              { type: 'text', name: 'sub_title', title: '副标题'},
-              { type: 'text', name: 'position_main', title: '主位置'},
-              { type: 'text', name: 'position_second', title: '副位置'},
-              { type: 'number', name:'ave_price', title: '均价'},
-              { type: 'number', name:'area_min', title: '最小面积'},
-              { type: 'number', name:'area_max', title: '最大面积'},
-              { type: 'number', name:'tel', title: '电话'},
-              { type: 'date', name:'sale_time', title: '开盘时间'},
-              { type: 'date', name:'submit_time', title: '交房的日期'},
-              { type: 'file', name: 'main_img', title: '大图'},
-              { type: 'file', name: 'img1', title: '小图1(多选)',multiple: true},
-              { type: 'text', name: 'building_type', title: '类型'},
-              { type: 'text', name: 'property_types', title: '户型'},
-              { type: 'file', name: 'property_img', title: '户型图'},
-          ];
           oFormContainer.innerHTML = '';
           from_input.forEach(item=>{
               let div = document.createElement('div');
@@ -260,19 +280,42 @@
               div.innerHTML = `<label for="id1" class="col-sm-2 control-label">${item.title}</label>
             <div class="col-sm-10">
               <input type="${item.type}" ${ item.multiple? 'multiple': '' } class="form-control" id="id1" placeholder="请输入数据..."
-              name="${item.name}" value="${obj[item.name]}">
+              name="${item.name}" value="${obj?obj[item.name]||'':''}">
             </div>`;
               oFormContainer.appendChild(div);
+              if (item.type ==='date'&&obj) {
+                  var name = document.getElementsByName(item.name)[0];
+                  var date = new Date(obj[item.name]*1000)
+                  var Month = '';
+                  var days = '';
+                  if ((date.getMonth()+1)<10) {
+                      Month = '0'+(date.getMonth()+1)
+                  } else {
+                      Month = (date.getMonth()+1)
+                  }
+                  if (date.getDate()<10) {
+                      days = '0'+date.getDate()
+                  } else {
+                      days = date.getDate()
+
+                  }
+                  var datetime = date.getFullYear()+'-'+Month+'-'+days;
+                  name.value = datetime;
+              }
+
           });
       }
 
       function editClick(id) {
           $('#mod').val('1');
           $('#formId').val(id);
+          var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+          var r = window.location.search.substr(1).split('=')
+          $('#pageID').val(r[1]);
           $.ajax({
               method: 'get',
-              url:'/admin/house/edit',
-              data: { id: id },
+              url:'/admin/<%= table%>/edit',
+              data: { id: id ,page: r[1]},
               success:function (val) {
                   $W('#shadow').style.display= 'block';
                   $W('#dialog').style.display = 'block';
@@ -280,6 +323,9 @@
                   console.log(val)
               }
           })
+      }
+      function reqUrl() {
+
       }
       var checkArr = Array.from(document.getElementsByName('check'));
       $('#btn_del')[0].onclick=function () {
@@ -297,6 +343,16 @@
                   window.location.href = url;
               }
       }
+      var lis =$('#nav')[0].children;
+      lis=[].slice.call(lis);
+     for (var a in lis) {
+         if (lis[a].title=== '<%= table%>') {
+             console.log(lis[a])
+             lis[a].className = 'active'
+         } else {
+             lis[a].className= '';
+         }
+     }
     </script>
   </body>
 </html>

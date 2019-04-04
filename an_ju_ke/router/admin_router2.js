@@ -152,19 +152,16 @@ router.get('/:table',function (req,res) {
     if (routerConfig[`${table}_table_config`]) {
         nameKeys=Object.keys(routerConfig[`${table}_table_config`]);
         nameVals=Object.values(routerConfig[`${table}_table_config`]);
-        let order = 'order by create_time DESC'; //asc 生序 desc 降序
+        let order = 'order by submit_time asc'; //asc 生序 dsc 降序
         if (table==='house') {
             d = `SELECT ${nameKeys.join(',')} FROM ${table}_table where ${likeSql} ${order} LIMIT ${start},${pageSize}`
         } else {
             d = `SELECT ${nameKeys.join(',')} FROM ${table}_table where ${likeSql} LIMIT ${start},${pageSize}`
         }
-        console.log(d)
         req.dbs.query(d,(err,data)=>{
             console.log(err)
             req.dbs.query(`SELECT COUNT(*) AS c FROM ${table}_table where ${likeSql}`,(err,c)=>{  //全部条数kf
-                res.render('index',{data:data,page:Math.ceil(c[0].c/pageSize),
-                    keyval:req.query.keyVal,
-                    nameVals:nameVals,nameKeys:nameKeys,table: table});
+                res.render('index',{data:data,page:Math.ceil(c[0].c/pageSize),keyval:req.query.keyVal,nameVals:nameVals,nameKeys:nameKeys});
             })
         });
     } else {
@@ -208,14 +205,14 @@ router.post('/:table',function (req,res) {
 
     let arrFile = [];
     let arrfileValue = [];
+    let files = [ 'title','sub_title','position_main','position_second','ave_price','area_min',
+        'area_max','tel','sale_time','submit_time','building_type','main_img_path','main_img_real_path',
+        'img_paths','img_real_paths','property_types','property_img_paths','property_img_real_paths' ];
+
+
+
     //判断是新建还是编辑
     if (req.body.mod==1) {
-
-    let files = routerConfig[`insert_${table}`];
-        routerConfig['disable_data'].forEach(item =>{
-            files = files.filter(i=>item!=i)
-        });
-     console.log(files);
      let arr = [];
      files.forEach(item => {
          console.log(req.body[item]);
@@ -231,7 +228,7 @@ router.post('/:table',function (req,res) {
          if (err) {
 
          } else {
-            res.redirect(`/admin/${table}?page=${page}`)
+            res.redirect(`/admin/house?page=${page}`)
          }
      })
      console.log(sql1)
@@ -257,16 +254,12 @@ router.post('/:table',function (req,res) {
                 real_path: 'img_real_paths',
                 type: 'Array'
             },
-            img: {
-                path: 'img_path',
-                real_path: 'img_real_path',
-                type: 'Array'
-            },
         };
         let file_paths = {}; // 存放 文件名称
         let file_realpaths = {}; //
         req.files.forEach(item=>{
           let name =  item.fieldname; //main_img
+            console.log(item.fieldname)
           if (files_info[name]) {
              if (!file_paths[name]) {
                  file_paths[name] = [];
@@ -298,9 +291,6 @@ router.post('/:table',function (req,res) {
                 arrfileValue.push(req.body[i]);
             }
         })
-        arrfileValue.push(Math.floor(new Date().getTime()/1000));
-        arrFile.push('create_time');
-
         let values=`'${arrfileValue.join("','")}'`;
         let sql = `INSERT INTO ${table}_table (${arrFile.join(',')}) value(${values})`;
         console.log(sql)
@@ -314,22 +304,14 @@ router.post('/:table',function (req,res) {
 });
 
 // 删除
-router.get('/:table/delete',(req,res)=>{
+router.get('/house/delete',(req,res)=>{
     let id = req.query.id;
-    let table = req.params.table;
-
     // let competle = 0;
-    console.log(`select * from ${table}_table where id='${id}'`)
-    req.dbs.query(`select * from ${table}_table where id='${id}'`,(err,data)=>{
+    req.dbs.query(`select * from house_table where id='${id}'`,(err,data)=>{
        if (err){
            console.log(err)
        } else {
-           let imgrealArr
-           if (table==='house') {
-               imgrealArr = data[0].img_real_paths?data[0].img_real_paths.split(','):[].concat(data[0]['property_img_real_paths']?data[0]['property_img_real_paths'].split(','):[],data[0]['main_img_real_path']?data[0]['main_img_real_path'].split(','):[]);
-           } else {
-               imgrealArr =  data[0].img_real_path&&data[0].img_real_path!== 'undefined'?data[0].img_real_path.split(','):[]
-           }
+           let imgrealArr = data[0].img_real_paths?data[0].img_real_paths.split(','):[].concat(data[0]['property_img_real_paths']?data[0]['property_img_real_paths'].split(','):[],data[0]['main_img_real_path']?data[0]['main_img_real_path'].split(','):[]);
            console.log(imgrealArr);
            // 高性能的写法
            if (imgrealArr.length>0) {
@@ -341,12 +323,12 @@ router.get('/:table/delete',(req,res)=>{
                        } else {
                            if (i>=imgrealArr.length-1) {
                                console.log('处理完毕')
-                               req.dbs.query(`delete from ${table}_table where id='${id}'`,err=>{
+                               req.dbs.query(`delete from house_table where id='${id}'`,err=>{
                                    if (err) {
                                        console.log(err);
                                    } else {
                                        console.log('处理完毕');
-                                       res.redirect(`/admin/${table}`)
+                                       res.redirect('/admin/house')
                                    }
                                })
                            } else {
@@ -356,14 +338,19 @@ router.get('/:table/delete',(req,res)=>{
                    });
                }
            } else {
-               req.dbs.query(`delete from ${table}_table where id='${id}'`,err=>{
-                   if (err) {
-                       console.log(err);
-                   } else {
-                       console.log('处理完毕');
-                       res.redirect(`/admin/${table}`)
-                   }
-               })
+               if (i>=imgrealArr.length-1) {
+                   console.log('处理完毕')
+                   req.dbs.query(`delete from house_table where id='${id}'`,err=>{
+                       if (err) {
+                           console.log(err);
+                       } else {
+                           console.log('处理完毕');
+                           res.redirect('/admin/house')
+                       }
+                   })
+               } else {
+                   next(i+1)
+               }
            }
            // 低性能写法 循环写法 回造成大量并发 服务器会一卡一卡的 会有峰值
            // imgrealArr.forEach(item=>{
@@ -481,16 +468,14 @@ router.get('/house/del',(req,res)=>{
     }
 });
 // 修改接口
-router.get('/:table/edit',(req,res)=>{
+router.get('/house/edit',(req,res)=>{
    let id = req.query.id;
-   let table = req.params.table;
    console.log(req.query)
    if (!(/[/da-f]/.test(id))) {
        res.status(500).send('你传的id不对哟')
    }
-   console.log(`SELECT * FROM ${table}_table WHERE ID='${id}'`)
-    req.dbs.query(`SELECT * FROM ${table}_table WHERE ID='${id}'`,(err,data) => {
-        console.log(data)
+   console.log(`SELECT * FROM house_table WHERE ID='${id}'`)
+    req.dbs.query(`SELECT * FROM house_table WHERE ID='${id}'`,(err,data) => {
         res.send(data[0]);
     })
 });

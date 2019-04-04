@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="input">
+<button id="btn">dada</button>
+</body>
+<script>
+    var but = document.getElementById('input');
+    var btn = document.getElementById('btn')
+    // var reg = /^\d{1,5}$/;
+    var reg = /^(\d|[1-9]\d{1,3})$/; // 机器解析  成/(\.jpg)|(png$)/i   在
+    btn.onclick = function () {
+        console.log(111)
+            if (reg.test(but.value)) {
+                console.log('通过')
+            } else {
+                console.log('不通过')
+            }
+        }
+
+</script>
+</html>
