@@ -7,6 +7,6 @@ server.use(mainRouter.routes())
 
 
 
-mainRouter.use('/user',require('./routers/user'))
+mainRouter.use('/user',require('./routers/user'));
 
 server.listen('4444');
