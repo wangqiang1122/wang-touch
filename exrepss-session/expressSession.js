@@ -1,6 +1,8 @@
 const express = require('express');
 const session = require('cookie-session');
 const app = express();
+const fs = require('fs');
+
 app.listen('2222');
 // app.use(session({
 //     secret: '111111', // session 加密签名尽量长 很难破解 或者 用循环密钥；
@@ -21,7 +23,11 @@ app.get('/',function (req,res) {
   } else {
       req.session['count'] =1;
   }
-    res.send(`欢迎你第${ req.session['count']}到这个网站`);
-    res.end();
+    fs.readFile('./1.html',(err,data)=>{
+        // res.send(data.toString())
+        res.end(data);
+    });
 
+    // res.send(`欢迎你第${ req.session['count']}到这个网站`);
+    // res.end();
 });

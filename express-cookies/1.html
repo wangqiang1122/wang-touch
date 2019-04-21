@@ -2,9 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+dasdasdasd
 </body>
+
+<script>
+    console.log(document.cookie);
+    var obj = {}
+    document.cookie.split('; ').forEach(item=>{
+       var val = item.split('=');
+       console.log(val)
+       obj[val[0]] = val[1]
+    });
+    console.log(obj.name)
+    console.log(typeof document.cookie)
+
+    // 设置cookies
+    var setCookie = function (name, value, day) {
+               if(day !== 0){     //当设置的时间等于0时，不设置expires属性，cookie在浏览器关闭后删除
+                     var expires = day * 24 * 60 * 60 * 1000;
+                     var date = new Date(+new Date()+expires);
+                     document.cookie = name + "=" + escape(value) + ";expires=" + date.toGMTString();
+                   }else{
+                     document.cookie = name + "=" + escape(value);
+                   }
+             };
+
+    setCookie('ni','我是页面设置',10)
+    
+</script>
 </html>

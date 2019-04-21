@@ -3,15 +3,14 @@ let server = new koa();
 let static = require('koa-static');
 
 
+
+// koa --可以统一处理error 报错
 server.use(async (ctx,next)=>{
-    console.log('1');
-    for(var a =0;a<10;a++){
+    try {
         await next()
+    } catch (e) {
+        ctx.response.body = '404'
     }
-    console.log('2')
 })
 
-server.use(async (ctx,next)=>{
-   console.log('a')
-});
 server.listen('2233')
