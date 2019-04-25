@@ -1,0 +1,12 @@
+{
+  "/apidata":{
+    "target":"https://bmwentportaldev.chinacloudsites.cn",
+    "secure":false,
+    "logLevel":"debug",
+    "changeOrigin":true,
+    "pathRewrite":{
+      "^/apidata":""
+    }
+
+  }
+}

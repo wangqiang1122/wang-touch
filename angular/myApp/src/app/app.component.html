@@ -1,5 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
+  <a routerLink="/index">index</a><br>
+  <a routerLink="/home/1">home</a>
+
   <h1 [appMydirective]="231">
     Welcome to {{ title }}!
   </h1>
@@ -9,5 +12,5 @@
 </div>
 <h2>Here are some links to help you start: </h2>
 
-
+<app-alert *ngIf="isAlert"></app-alert>
 <router-outlet></router-outlet>

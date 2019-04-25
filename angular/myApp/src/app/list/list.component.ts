@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { NewworkService } from '../service/newwork.service';
+import {  observeService } from '../service/emit';
 
 @Component({
   selector: 'app-list',
@@ -9,13 +10,15 @@ import { NewworkService } from '../service/newwork.service';
 })
 export class ListComponent implements OnInit {
 
-  constructor(private server: NewworkService) { }
+  constructor(private server: NewworkService,private observe: observeService) { }
 
   ngOnInit() {
-    this.server.doLogin().subscribe((res)=>{
-      console.log(res)
-    },(err)=>{
-      console.log(err)
+    console.log(this.server);
+    this.server.doLogin().then((data)=>{
+      console.log(data)
+      if (data===1) {
+        this.observe.observe.emit('err','1');
+      }
     })
   }
 
