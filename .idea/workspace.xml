@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92e56a23-e773-4ce6-9ec8-3af3e82621ee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/exrepss-session/1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/myApp/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/myApp/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/express-cookies/1.html" beforeDir="false" afterPath="$PROJECT_DIR$/express-cookies/1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/express-cookies/express-cookies.js" beforeDir="false" afterPath="$PROJECT_DIR$/express-cookies/express-cookies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exrepss-session/expressSession.js" beforeDir="false" afterPath="$PROJECT_DIR$/exrepss-session/expressSession.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/koa-static/koa-static.js" beforeDir="false" afterPath="$PROJECT_DIR$/koa-static/koa-static.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/koa-static/libs/lib.js" beforeDir="false" afterPath="$PROJECT_DIR$/koa-static/libs/lib.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/koa-static/www/1.html" beforeDir="false" afterPath="$PROJECT_DIR$/koa-static/www/1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/koa/koa-error.js" beforeDir="false" afterPath="$PROJECT_DIR$/koa/koa-error.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/koa/koa-middle.js" beforeDir="false" afterPath="$PROJECT_DIR$/koa/koa-middle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/koa/koa-middle1.js" beforeDir="false" afterPath="$PROJECT_DIR$/koa/koa-middle1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/koa/koa-time.js" beforeDir="false" afterPath="$PROJECT_DIR$/koa/koa-time.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reg/切链接.html" beforeDir="false" afterPath="$PROJECT_DIR$/reg/切链接.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa/www/myApp/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/koa/www/myApp/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/koa/www/myApp/main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/koa/www/myApp/main.js.map" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -111,37 +100,71 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-670898040">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="css" value="1" />
+          <entry key="html" value="5" />
+          <entry key="js" value="5" />
+          <entry key="json" value="7" />
+          <entry key="ts" value="9" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CSS" value="1" />
+          <entry key="HTML" value="5" />
+          <entry key="JSON" value="7" />
+          <entry key="JavaScript" value="5" />
+          <entry key="TypeScript" value="9" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts">
+        <counts>
+          <entry key="Angular2LanguageService" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="html" value="60" />
+          <entry key="json" value="8" />
+          <entry key="ts" value="1927" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="60" />
+          <entry key="JSON" value="8" />
+          <entry key="TypeScript" value="1927" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/koa-static/koa-static.js">
+        <entry file="file://$PROJECT_DIR$/angular/myApp/src/app/app.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angular/myApp/src/app/list/list.component.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/koa-static/libs/lib.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="25" selection-start-column="25" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exprss-m/server.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exprss-m/libs/express-m.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+              <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#50#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -149,8 +172,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angular/myApp/src/app/app.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="210">
+              <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/angular/myApp/proxyconfig.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="16" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -158,8 +193,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/angular/myApp/src/app/app.module.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+            <state relative-caret-position="137">
+              <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
               <folding>
                 <element signature="e#0#58#0" expanded="true" />
               </folding>
@@ -167,38 +202,56 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/exrepss-session/expressSession.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angular/myApp/src/app/app-routing.module.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
-              <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+            <state relative-caret-position="285">
+              <caret line="19" column="58" lean-forward="true" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="58" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exrepss-session/1.html">
+        <entry file="file://$PROJECT_DIR$/angular/myApp/src/app/service/emit.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="8" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+            <state relative-caret-position="240">
+              <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/express-cookies/express-cookies.js">
+        <entry file="file://$PROJECT_DIR$/angular/myApp/src/app/service/newwork.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" selection-start-line="3" selection-end-line="4" />
+            <state relative-caret-position="-41">
+              <caret line="28" column="84" selection-start-line="28" selection-start-column="84" selection-end-line="28" selection-end-column="84" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assert/1.js">
+        <entry file="file://$PROJECT_DIR$/angular/myApp/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="30" selection-start-column="24" selection-end-column="30" />
+            <state relative-caret-position="75">
+              <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/angular/myApp/angular.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="60" column="42" lean-forward="true" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -208,8 +261,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -248,10 +301,21 @@
         <option value="$PROJECT_DIR$/koa-static/www/1.html" />
         <option value="$PROJECT_DIR$/koa-static/koa-static.js" />
         <option value="$PROJECT_DIR$/koa-static/libs/lib.js" />
-        <option value="$PROJECT_DIR$/angular/myApp/src/app/app.component.ts" />
-        <option value="$PROJECT_DIR$/angular/myApp/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/exrepss-session/expressSession.js" />
         <option value="$PROJECT_DIR$/exrepss-session/1.html" />
+        <option value="$PROJECT_DIR$/angular/proxyconfig.js" />
+        <option value="$PROJECT_DIR$/angular/myApp/package.json" />
+        <option value="$PROJECT_DIR$/angular/myApp/src/index.html" />
+        <option value="$PROJECT_DIR$/angular/myApp/src/app/app-routing.module.ts" />
+        <option value="$PROJECT_DIR$/angular/myApp/src/app/alert/alert.component.html" />
+        <option value="$PROJECT_DIR$/angular/myApp/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/angular/myApp/src/app/app.component.ts" />
+        <option value="$PROJECT_DIR$/angular/myApp/src/app/app.component.html" />
+        <option value="$PROJECT_DIR$/angular/myApp/src/app/list/list.component.ts" />
+        <option value="$PROJECT_DIR$/angular/myApp/src/app/service/emit.ts" />
+        <option value="$PROJECT_DIR$/angular/myApp/proxyconfig.json" />
+        <option value="$PROJECT_DIR$/angular/myApp/angular.json" />
+        <option value="$PROJECT_DIR$/angular/myApp/src/app/service/newwork.service.ts" />
       </list>
     </option>
   </component>
@@ -275,8 +339,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="809" />
+    <option name="width" value="1280" />
+    <option name="height" value="739" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -293,12 +357,33 @@
             <path>
               <item name="wang-touch" type="b2602c69:ProjectViewProjectNode" />
               <item name="wang-touch" type="462c0819:PsiDirectoryNode" />
+              <item name="angular" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wang-touch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wang-touch" type="462c0819:PsiDirectoryNode" />
+              <item name="angular" type="462c0819:PsiDirectoryNode" />
+              <item name="myApp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wang-touch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wang-touch" type="462c0819:PsiDirectoryNode" />
+              <item name="animate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wang-touch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wang-touch" type="462c0819:PsiDirectoryNode" />
               <item name="express-cookies" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wang-touch" type="b2602c69:ProjectViewProjectNode" />
               <item name="wang-touch" type="462c0819:PsiDirectoryNode" />
               <item name="exrepss-session" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wang-touch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wang-touch" type="462c0819:PsiDirectoryNode" />
+              <item name="koa" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wang-touch" type="b2602c69:ProjectViewProjectNode" />
@@ -310,6 +395,12 @@
               <item name="wang-touch" type="462c0819:PsiDirectoryNode" />
               <item name="koa-static" type="462c0819:PsiDirectoryNode" />
               <item name="libs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wang-touch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wang-touch" type="462c0819:PsiDirectoryNode" />
+              <item name="koa-static" type="462c0819:PsiDirectoryNode" />
+              <item name="www" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -325,17 +416,20 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/angular/myApp/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/koa-static" />
-      <recent name="$PROJECT_DIR$/router/lu" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/angular/myApp/src/app/service" />
+      <recent name="$PROJECT_DIR$/koa/www" />
       <recent name="$PROJECT_DIR$/koa" />
       <recent name="$PROJECT_DIR$/vue" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/angular/myApp" />
+      <recent name="$PROJECT_DIR$/koa-static" />
+      <recent name="$PROJECT_DIR$/router/lu" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -350,14 +444,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.expressSession.js">
+  <component name="RunManager" selected="Node.js.koa1.js">
     <configuration name="expressSession.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="expressSession.js" working-dir="$PROJECT_DIR$/exrepss-session">
       <method v="2" />
     </configuration>
     <configuration name="koa-middle1.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="koa-middle1.js" working-dir="$PROJECT_DIR$/koa">
-      <method v="2" />
-    </configuration>
-    <configuration name="koa-middle.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="koa-middle.js" working-dir="$PROJECT_DIR$/koa">
       <method v="2" />
     </configuration>
     <configuration name="koa-static.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="koa-static.js" working-dir="$PROJECT_DIR$/koa-static">
@@ -366,20 +457,23 @@
     <configuration name="koa-time.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="koa-time.js" working-dir="$PROJECT_DIR$/koa">
       <method v="2" />
     </configuration>
+    <configuration name="koa1.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="koa1.js" working-dir="$PROJECT_DIR$/koa">
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Node.js.koa-middle.js" />
       <item itemvalue="Node.js.koa-middle1.js" />
       <item itemvalue="Node.js.koa-time.js" />
       <item itemvalue="Node.js.koa-static.js" />
       <item itemvalue="Node.js.expressSession.js" />
+      <item itemvalue="Node.js.koa1.js" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.koa1.js" />
         <item itemvalue="Node.js.expressSession.js" />
         <item itemvalue="Node.js.koa-static.js" />
         <item itemvalue="Node.js.koa-time.js" />
         <item itemvalue="Node.js.koa-middle1.js" />
-        <item itemvalue="Node.js.koa-middle.js" />
       </list>
     </recent_temporary>
   </component>
@@ -412,32 +506,32 @@
       <workItem from="1554608215542" duration="4706000" />
       <workItem from="1555733049731" duration="3104000" />
       <workItem from="1555812365825" duration="14248000" />
+      <workItem from="1556000214100" duration="21528000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49861000" />
+    <option name="totallyTimeSpent" value="71389000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="809" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1280" height="739" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49585062" visible="true" weight="0.24947146" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49585062" visible="true" weight="0.2494043" />
       <window_info id="Structure" order="1" sideWeight="0.5041494" side_tool="true" weight="0.24947146" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="TypeScript" weight="0.32914925" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32635984" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32635984" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39972144" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32775453" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32302937" />
+      <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32766616" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -450,75 +544,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/reg/空格.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reg/正则NUMber.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reg/vue-reg.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reg/url.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="29" selection-start-line="10" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reg/input-reg.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reg/切链接.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/express/1.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/express/2.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/express/server1.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/express-ejs/server1.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/express-ejs/server-pug.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/express-cookies/1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/koa/koa-middle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/koa/koa-time.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/koa/koa-error.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/koa/koa-middle1.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -551,13 +576,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/koa/koa1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="28" lean-forward="true" selection-start-line="2" selection-end-line="3" />
         </state>
       </provider>
     </entry>
@@ -659,13 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assert/1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="30" selection-start-column="24" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/koa-static/koa-static.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -685,32 +696,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/exprss-m/libs/express-m.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
+        <state relative-caret-position="210">
           <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular/myApp/src/app/app.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular/myApp/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/express-cookies/express-cookies.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="3" selection-end-line="4" />
         </state>
       </provider>
     </entry>
@@ -721,10 +708,165 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/express-cookies/express-cookies.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" selection-start-line="3" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assert/1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="30" selection-start-column="24" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/exrepss-session/expressSession.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+        <state relative-caret-position="180">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/myApp/src/app/list/list.component.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/myApp/src/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/koa/koa1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="2" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/koa/www/myApp/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/myApp/src/app/app.component.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/myApp/src/app/alert/alert.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="22" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/myApp/src/app/alert/alert.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/myApp/src/app/list/list.component.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/myApp/src/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/myApp/src/app/list/list.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/myApp/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/myApp/src/app/app-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="58" lean-forward="true" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/myApp/src/app/app.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/myApp/angular.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="60" column="42" lean-forward="true" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/myApp/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/myApp/src/app/service/emit.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/myApp/src/app/service/newwork.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-41">
+          <caret line="28" column="84" selection-start-line="28" selection-start-column="84" selection-end-line="28" selection-end-column="84" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular/myApp/proxyconfig.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="16" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="16" />
         </state>
       </provider>
     </entry>
