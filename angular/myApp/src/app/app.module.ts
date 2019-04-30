@@ -9,6 +9,7 @@ import { IndexComponentComponent } from './index-component/index-component.compo
 import { HomeComponentComponent } from './home-component/home-component.component';
 import { ListComponent } from './list/list.component';
 import { AlertComponent } from './alert/alert.component';
+import { SlotComponent } from './slot/slot.component';
 
 @NgModule({
   // 声明 组件放声明
@@ -19,6 +20,7 @@ import { AlertComponent } from './alert/alert.component';
     HomeComponentComponent,
     ListComponent,
     AlertComponent,
+    SlotComponent,
   ],
   //倒入 模块放倒入
   imports: [

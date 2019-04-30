@@ -39,7 +39,6 @@ export class NewworkService {
     // console.log(this.hostbmw);
     // console.log(this.host);
     // console.log(this.baseUrl);
-    var header = new HttpHeaders({'ocp-apim-subscription-key':'2014_MyBMW837',  'Content-Type': 'application/json',   });
     var data = {
       "CampaignId":"1",
       "SponsorPhoneNum":"13621199162",
@@ -48,9 +47,9 @@ export class NewworkService {
       "WeChatID":"WeChatID",
       "CheckCode":"4321"
     };
-    console.log(header.getAll('ocp-apim-subscription-key'))
     return new Promise((resolve,reject)=>{
-      this.http.post('api/V1/CampaignShare/GetShareUrl',data,{ headers: header }).subscribe((data)=>{
+      //                  https://bmwintegrationdev.chinacloudsites.cn/api/gateway/loyaltyservice/api/+
+      this.http.post('https://bmwintegrationdev.chinacloudsites.cn/api/gateway/loyaltyservice/api/V1/CampaignShare/GetShareUrl',data,{ headers: this.setHeader() }).subscribe((data)=>{
         resolve(data)
       },()=>{
         console.log(this)
@@ -65,9 +64,7 @@ export class NewworkService {
     //     catchError(this.errorHander)
     //   )// 应该是observable的东西
   }
-  // public errorHander (err:any): Observable<any>{
-  //   console.log(this);
-  //   console.log(err);
-  //   return of(1)
-  // }
+  setHeader() {
+    return new HttpHeaders({'ocp-apim-subscription-key':'2014_MyBMW837',  'Content-Type': 'application/json'});
+  }
 }
