@@ -21,7 +21,7 @@ class Mykoa {
                     console.log('我是async');
                     fn(ctx,()=>{ // 这个是next
                         return new Promise((resolve)=>{
-                            _run(n+1)
+                            _run(n+1);
                             resolve();
                         });
                     })
