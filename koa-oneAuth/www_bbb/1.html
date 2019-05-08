@@ -3,8 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            function getCookies() {
+                var obj = {};
+                var cookies = document.cookie.split(' ');
+                for (var a=0; a<cookies.length;a++) {
+                    var str = cookies[a].split('=');
+                    obj[str[0]] = str[1]
+                }
+                return obj
+            }
+            function urlToken() {
+                console.log( window.location)
+                var query = {};
+                if (window.location.search) {
+                    var search = window.location.search.substring(1).split('&');
+                    for (var a=0;a<search.length;a++) {
+                        var str  = search[a].split('=');
+                        query[str[0]] = str[1];
+                    }
+                }
+                return query;
+            }
+            if (getCookies().token) {
+
+            } else {
+              if (urlToken().token) {
+                  window.document.cookie = 'token='+urlToken().token;
+              } else {
+                  window.location.href = 'http://www.oneAuth.com:2222/login?name=blue&password=123456&src='+encodeURIComponent(window.location.href)
+              }
+            }
+
+
+            $('#btn').click(function () {
+                $.ajax({
+                    url:'http://www.oneAuth.com:2222/login',
+                    data: { name: $('#code').val(),password:$('#pass').val() },
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data.token);
+                        document.cookie = 'token='+data.token
+                        document.cookie = 'name=aaa'
+                    },
+                    error:function (err) {
+                        console.log('失败')
+                        console.log(err)
+                    }
+                })
+            })
+        })
+    </script>
 </head>
 <body>
- bbb
+账号 <input type="text" id="code">
+密码 <input type="text" id="pass">
+<button id="btn">提交 </button>
 </body>
+
 </html>

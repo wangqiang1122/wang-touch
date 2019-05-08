@@ -27,6 +27,8 @@
     "koa": "^2.7.0",
     "koa-better-body": "^3.0.4",
     "koa-convert": "^1.2.0",
+    "koa-ejs": "^4.2.0",
+    "koa-mysql": "^1.0.3",
     "koa-session": "^5.11.0",
     "koa-static": "^5.0.0",
     "multer": "^1.4.1",
