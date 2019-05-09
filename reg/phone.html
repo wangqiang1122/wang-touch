@@ -14,5 +14,7 @@
     console.log(email.test('wangqiang@163.com'));
     var ren = /^(a).{1,8}(z)$/;
     console.log(ren.test('a       z'))
+    var p = '13821649567';
+    console.log(p.replace(/(?<=\d{3})\d{4}(?=\d{4})/,'****'))
 </script>
 </html>
