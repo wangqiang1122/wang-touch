@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el:'#div',
+                data: function () {
+                    return {
+                       arr: [
+                           { name:'bule',age:'1', gender: '男的' },
+                           { name:'小明',age:'1', gender: '女的' },
+                           { name:'小龙',age:'1', gender: '男的' }
+                       ],
+                        arr1: [1,5,6,6,7]
+                    }
+                },
+            })
+        }
+    </script>
+</head>
+<body>
+
+<div id="div">
+   <table width="100%" border="1px solid #000">
+       <thead>
+       <tr>
+           <td>姓名</td>
+           <td>年龄</td>
+           <td>性别</td>
+       </tr>
+       </thead>
+       <tbody>
+       <tr v-for = 'item in arr'>
+           <td>{{item.name}}</td>
+           <td>{{item.age}}</td>
+           <td>{{item.gender}}</td>
+       </tr>
+       </tbody>
+   </table>
+   <ul>
+       <li v-for="(item, index) in arr1" :key="index">{{item}}|{{index}}</li>
+   </ul>
+
+</div>
+
+
+</body>
+</html>

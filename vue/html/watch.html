@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el:'#div',
+                data: function () {   // data里不要用私有_
+                    return {
+                        // a:'dasad<strong>1</strong>'
+                        a:0,
+                        b:0,
+                    }
+                },
+                watch: {
+                    a:function(newValue,oldValue) {
+                        console.log(parseInt(newValue)>10)
+                        if (newValue>10) {
+                            return 10
+                        }
+                    },
+                    b:function(oldValue,newValue) {
+                       return parseInt(newValue)
+                    }
+                }
+
+            })
+        }
+    </script>
+</head>
+<body>
+
+<div id="div">
+    <input type="text" v-model="a">
+    <input type="text" v-model='b'>
+    {{a+b}}
+    <!--{{parseInt(a)+parseInt(b)}}-->
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+    <style>
+        .router-link-active{
+            color: red
+        }
+    </style>
+</head>
+<body>
+ <div id="div1">
+     <router-link to="/user/nu11m">用户</router-link>
+     <router-link to="/article/nu33m">列表</router-link>
+     <router-view></router-view>
+ </div>
+</body>
+<script>
+    let router = new VueRouter({
+       routes:[
+           { path:'/',component: { template: '<div>主页</div>' } },
+           { path:'/user/:id',component: { template: '<div>用户猎豹{{$route.params.id}}</div>'} },
+           { path:'/article/:id',component: { template: '<div>文章列表</div>' } }
+       ]
+    });
+
+    var vm = new Vue({
+        el:"#div1",
+        router: router,
+        watch: {
+            $route(...args) {
+                console.log(...args)
+            }
+        }
+    })
+</script>
+</html>

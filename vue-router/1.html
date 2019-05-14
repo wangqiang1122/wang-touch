@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+ <div id="div1">
+     <a href="#/user">用户</a>
+     <router-link to="user">用户</router-link>
+     <a href="#/article">列表</a>
+     <router-link to="article">列表</router-link>
+     <router-view></router-view>
+ </div>
+</body>
+<script>
+    let router = new VueRouter({
+       routes:[
+           { path:'/',component: { template: '<div>主页</div>' } },
+           { path:'/user',component: { template: '<div>用户猎豹</div>' } },
+           { path:'/article',component: { template: '<div>文章列表</div>' } }
+       ]
+    });
+
+    var vm = new Vue({
+        el:"#div1",
+        router: router
+    })
+</script>
+</html>

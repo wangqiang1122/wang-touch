@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el:'#div',
+                data: function () {   // data里不要用私有_
+                    return {
+                        // a:'dasad<strong>1</strong>'
+                        a:0,
+                        b:0,
+                    }
+                },
+                computed:{
+                    num1: {
+                        get: function () {
+                           return this.a
+                        },
+                        set: function (newValue) {
+                          this.a = parseInt(newValue)
+                        }
+                    },
+                    num2: {
+                        get: function () {
+                            return this.b
+                        },
+                        set: function (newValue) {
+                            this.b = parseInt(newValue)
+                        }
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+
+<div id="div">
+    <input type="text" v-model="num1">
+    <input type="text" v-model='num2'>
+    {{num1+num2}}
+    <!--{{parseInt(a)+parseInt(b)}}-->
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el:'#div',
+                data: function () {
+                    return {
+                      a:'dasad<strong>1</strong>'
+                    }
+                },
+            })
+        }
+    </script>
+</head>
+<body>
+
+<div id="div">
+  <div v-html ='a'></div>
+</div>
+
+
+</body>
+</html>

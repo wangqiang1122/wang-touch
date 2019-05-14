@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el:'#div',
+                data: function () {
+                    return {
+                        show: false,
+                    }
+                },
+                methods: {
+                    cli() {
+                        this.show = !this.show;
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+
+<div id="div">
+    <button @click="cli">隐藏</button>
+    <div style="background: #93004e;width: 200px;height: 200px" v-if="show"></div>
+</div>
+
+
+</body>
+</html>

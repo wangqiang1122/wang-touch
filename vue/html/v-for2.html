@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el:'#div',
+                data: function () {
+                    return {
+                       arr: [
+                           { name:'bule',age:'1', gender: '男的' },
+                           { name:'小明',age:'1', gender: '女的' },
+                           { name:'小龙',age:'1', gender: '男的' }
+                       ],
+                        arr1: [1,5,6,6,7],
+                        str: 'fadasdasd'
+                    }
+                },
+            })
+        }
+    </script>
+</head>
+<body>
+
+<div id="div">
+ <ul>
+     <li v-for="n in str">{{n}}</li>
+ </ul>
+
+</div>
+
+
+</body>
+</html>

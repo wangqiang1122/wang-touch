@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+    <style>
+        .router-link-active{
+            color: red
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <router-link :to="{name: 'user'}">用户</router-link>
+    <router-link :to="{path: '/name'}">列表</router-link>
+    <router-view></router-view>
+</div>
+</body>
+<script>
+    // :to= "{ path,name,params,query }"
+    let router = new VueRouter({   // 有可能会有路径问题
+        routes:[
+            {   path:'/user',
+                name: 'user',
+                component: { template: '<div><div>用户猎豹</div></div>'},
+            },
+            {   path:'/name',
+                name: 'name',
+                component: { template: '<div><div>l列表</div></div>'},
+            },
+        ]
+    });
+
+    var vm = new Vue({
+        el:"#div1",
+        router: router,
+    })
+</script>
+</html>

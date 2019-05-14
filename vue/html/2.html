@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el:'#div',
+                data: function () {
+                    return {
+                        a:'1'
+                    }
+                },
+                methods: {
+                    cli(){
+                        alert()
+                    },
+                    cli1() {
+                        console.log('111')
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+
+<div id="div" :title="a">
+    {{a}}
+
+    <div v-bind:title="a">dddd</div>
+    <div v-on:click="cli">1111</div>
+    <button @click="cli1"></button>
+</div>
+
+
+</body>
+</html>

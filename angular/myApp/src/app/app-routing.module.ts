@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: '', redirectTo:'/index', pathMatch:'full'},
   { path:'index', component: IndexComponentComponent },
   { path:'home/:id', component: HomeComponentComponent, children:[
-      { path: 'list', component: ListComponent }
+     { path: 'list', component: ListComponent }
     ] }
 ];
 

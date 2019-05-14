@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+
+    <script>
+       window.onload = function () {
+           let r1 = new VueRouter({
+               routes: [
+                   { path:'/user',
+                     components: {
+                       default: {  template: '<div><div>我是默认</div></div>' },
+                       a: {template: '<div><div>我是a</div></div>'},
+                       b: {template: '<div><div>我是b</div></div>'}
+                     },
+                   },
+                   // { path:'/name',
+                   //   component: { template: '<div><div>名字</div></div>'},
+                   // },
+                   // { path:'/art',
+                   //   component: { template: '<div><div>art</div></div>'},
+                   // },
+               ]
+           });
+
+
+           var vm = new Vue({
+               el: '#div1',
+               router: r1,
+           })
+       }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <router-view></router-view>
+    <router-view name="a"></router-view>
+    <router-view name="b"></router-view>
+    <!--<router-view name="c"></router-view>-->
+    <!--<router-view></router-view>-->
+
+</div>
+</body>
+</html>

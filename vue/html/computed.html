@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el:'#div',
+                data: function () {
+                    return {
+                        // a:'dasad<strong>1</strong>'
+                    }
+                },
+                computed:{
+                    a:function () {
+                        return 'aaa'+1;
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+
+<div id="div">
+    <div > {{a}}</div>
+</div>
+
+
+</body>
+</html>

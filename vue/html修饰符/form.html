@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el:'#div',
+                data: function () {   // data里不要用私有_
+                    return {
+                        // a:'dasad<strong>1</strong>'
+                        a:0,
+                        b:0,
+                    }
+                },
+                methods: {
+                    fn(){
+                        alert('提交了')
+                    },
+                    fn2() {
+                        console.log('enter')
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+
+<div id="div">
+    <form action="index.html" @submit.prevent="fn">
+        <button type="submit">提交了</button>
+        <div>dasdasddasdasd</div>
+        <input type="text" @keydown.enter="fn2">
+    </form>
+</div>
+
+
+</body>
+</html>
