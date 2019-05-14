@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script>
+        window.onload = function () {
+            // 注册组件(生明)
+            Vue.component('vue-header', { template: '<div>1111</div>' });
+
+            var vm = new Vue({
+                el: '#div1',
+            });
+        }
+    </script>
 </head>
 <body>
-$END$
+
+ <div id="div1">
+     <vue-header></vue-header>
+ </div>
+
 </body>
 </html>

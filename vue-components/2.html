@@ -8,11 +8,20 @@
     <script>
         window.onload = function () {
             // 注册组件(生明)
-            Vue.component('vue-header', { template: '<div>1111</div>' });
+            // Vue.component('vue-header', { template: '<div>1111</div>' });
 
             var vm = new Vue({
                 el: '#div1',
+                components: {
+                    'vue-header': { template: '<div>1111</div>' }
+                }
             });
+            // var vm1 = new Vue({
+            //     el: '#div2',
+            //     // components: {
+            //     //     'vue-header': { template: '<div>1111</div>' }
+            //     // }
+            // });
         }
     </script>
 </head>
@@ -21,6 +30,8 @@
  <div id="div1">
      <vue-header></vue-header>
  </div>
-
+ <!--<div id="div2">-->
+     <!--<vue-header></vue-header>-->
+ <!--</div>-->
 </body>
 </html>
