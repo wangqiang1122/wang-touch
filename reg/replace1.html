@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+   let str = '2019-04-05T00:00:00'.substr(0,10);
+   var reg = /(\d{4})\-(\d{1,2})\-(\d{1,2})/;
+    console.log(str.replace(reg,'$1年$2月$3日'))
+</script>
+</html>

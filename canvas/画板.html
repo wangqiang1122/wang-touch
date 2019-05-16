@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #canvas {
+            margin-top: 50px;
+            margin-left: 100px;
+        }
+    </style>
+</head>
+<body>
+ <canvas id="canvas" width="300px" height="300px" style="border: 1px solid black"></canvas>
+
+ <button id="btn">保存到本地</button>
+</body>
+<script>
+  window.onload = function () {
+      let canvas = document.getElementById('canvas');
+      console.log(canvas)
+      canvas.addEventListener('mousedown',function (ev) {
+          var x1 = ev.offsetX,y1 = ev.offsetY;
+          var x2,y2
+          let context = canvas.getContext('2d');
+          function move(ev) {
+              context.beginPath();
+            context.moveTo(x1,y1);
+            x2 = ev.offsetX;
+            y2 = ev.offsetY
+            context.lineTo(x2,y2);
+            context.strokeStyle = '#000'
+            context.stroke();
+            context.closePath();
+            x1 = x2;
+            y1 = y2;
+          }
+          function end() {
+              canvas.removeEventListener('mousemove',move);
+              canvas.removeEventListener('mouseup',end);
+          }
+          canvas.addEventListener('mousemove',move);
+          canvas.addEventListener('mouseup',end);
+      })
+      var btn = document.getElementById('btn')
+      btn.addEventListener('click',function () {
+         var imgURL = canvas.toDataURL('image/png');
+         var dlLink = document.createElement('a');
+         var MIME_TYPE = 'image/png';
+          dlLink.download = 'ssss';
+          dlLink.href = imgURL;
+          dlLink.dataset.downloadurl = [MIME_TYPE, dlLink.download, dlLink.href].join(':');
+          document.body.appendChild(dlLink);
+          dlLink.click();
+          document.body.removeChild(dlLink);
+      });
+
+  }
+</script>
+</html>

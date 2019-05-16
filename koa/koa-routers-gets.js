@@ -3,7 +3,7 @@ const server = new koa();
 const router = require('koa-router');
 const mainRouter = router();
 
-server.use(mainRouter.routes())
+server.use(mainRouter.routes());
 
 
 
