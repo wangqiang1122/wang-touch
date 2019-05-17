@@ -1,6 +1,8 @@
 const path = require('path')
 
 module.exports = {
+  verbose: true, // 自定义添加
+  testURL: "http://localhost/", // 自定义添加
   rootDir: path.resolve(__dirname, '../../'),
   moduleFileExtensions: [
     'js',
@@ -19,7 +21,7 @@ module.exports = {
   ],
   snapshotSerializers: ['<rootDir>/node_modules/jest-serializer-vue'],
   setupFiles: ['<rootDir>/test/unit/setup'],
-  mapCoverage: true,
+  // mapCoverage: true,   // 自定义
   coverageDirectory: '<rootDir>/test/unit/coverage',
   collectCoverageFrom: [
     'src/**/*.{js,vue}',

@@ -1,5 +1,6 @@
 <template>
     <div>
+      <div class="div1">12131</div>
       <Header></Header>
       <form action="">
         账号：<input type="text" ><br>
@@ -14,13 +15,12 @@
 <script>
 import axios from 'axios'
 
-import Header from '@/components/cmp-header'
-import Footer from '@/components/cmp-footer'
+// import Header from '@/components/cmp-header'
+// import Footer from '@/components/cmp-footer'
 
 export default {
   name: 'login',
   mounted () {
-    console.log(this)
     this.$axios.get('http://localhost:3333/api/house/page').then((data) => {
       console.log(data)
     })
@@ -29,9 +29,14 @@ export default {
       console.log(data)
     })
   },
+  methods: {
+    fn (a, b) {
+      return a + b
+    }
+  },
   components: {
-    Header,
-    Footer
+    Header: import('@/components/cmp-header'),
+    Footer: import('@/components/cmp-footer')
   }
 }
 </script>
