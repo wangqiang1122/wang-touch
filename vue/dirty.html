@@ -2,9 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+
 </body>
+<script>
+    window.onload = function () {
+      let json = { a:1,b:2 };
+      // 复制一份
+      let old_json = {  };
+      for (var key in json) {
+          old_json[key] = json[key]
+      }
+      //....
+      //...
+      //...
+
+      // json.a = '11111'
+        delete json.a
+      // 修改了
+      // 删除
+      // 新加
+      // 修改
+      for (let name in old_json) {
+          if (!json[name]) {
+              alert('删了')
+          } else if (json[name]!==old_json[name]) {
+              alert('修改了')
+          }
+      }
+      for (let item in json) {
+          if (!old_json[item]) {
+              alert('新加了')
+          }
+      }
+
+
+
+    }
+</script>
 </html>

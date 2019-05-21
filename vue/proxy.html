@@ -13,13 +13,25 @@
         get:function (target,key,proxy) {
           console.log(target)
           console.log(key)
-          console.log(proxy)
+          console.log(proxy);
+          console.log(target[key])
         },
-        set:function () {
+        set:function (target,key,value,proxy) {
+            target[key] = value;
             console.log('设置')
+        },
+        has:function (target,key) {
+
+          return key in target
+        },
+        deleteProperty: function (target, key) {
+            console.log(arguments);
         }
     });
     p.a = 12;
-    a = p.a
+    console.log(p.a);
+    console.log('a' in p);
+    delete p.a;
+    console.log(p)
 </script>
 </html>

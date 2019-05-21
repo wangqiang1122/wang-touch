@@ -2,9 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+
 </body>
+<script>
+    window.console = window.console || {};
+    window.console._log = window.console.log;
+    window.console.log=function (...arg){
+        window.console._log(...arg);
+    };
+    console.log(2222)
+</script>
 </html>

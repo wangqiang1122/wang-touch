@@ -12,14 +12,14 @@
 </template>
 
 <script>
-import Header from '@/components/cmp-header'
-import Footer from '@/components/cmp-footer'
+// import Header from '@/components/cmp-header'
+// import Footer from '@/components/cmp-footer'
 
 export default {
   name: 'reg',
   components: {
-    Header,
-    Footer
+    Header: import('@/components/cmp-header'),
+    Footer: import('@/components/cmp-footer')
   }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
     <div>
       <div class="div1">12131</div>
-      <Header></Header>
+      <Header/>
       <form action="">
         账号：<input type="text" ><br>
         密码：<input type="text"><br>

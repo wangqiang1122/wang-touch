@@ -2,9 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+
 </body>
+<script>
+    let obj = {};
+
+    let cahe = { a: 1};
+    Object.defineProperty(obj,'a',{
+        set: function (val) {
+            console.log(arguments);
+            console.log(val)
+        },
+        get: function () {
+          return cahe['a'];
+        }
+    })
+    obj.a = 1;
+    console.log(obj.a)
+</script>
+
 </html>
