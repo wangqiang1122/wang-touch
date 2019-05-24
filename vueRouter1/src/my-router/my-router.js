@@ -39,6 +39,7 @@ export default class myRouter {
   // 绑定事件
   bindevents() {
     window.addEventListener('hashchange',this.onhashchnahe.bind(this))
+    console.log(!window.location.hash.substr(1))
     window.addEventListener('load',this.onhashchnahe.bind(this))
   }
   // 路由映射表
@@ -54,10 +55,10 @@ export default class myRouter {
   }
   getcreatehash(e) {
     let to, from;
-    if (e.type ==='load') {
+    if (e.type === 'load') { //type = 'load'
       if (!location.hash) {
         window.location.href = `${window.location.href}#${this.app.current}`;
-        return
+        return { to, from }
       }
       to=location.hash.substr(1)||'/';
       from = '';
@@ -79,6 +80,7 @@ export default class myRouter {
   }
 
   onhashchnahe(e) {
+    console.log(e)
     let { to ,from } = this.getcreatehash(e);
     let hash = this.gethash();
     let router = this.routeMap[hash]

@@ -7,23 +7,24 @@
     <script src="js/my-vue.js"></script>
 
     <script>
+
         window.onload = function () {
             var vm=new Vue({
                 el: '#div1',
-                data: { a:1,b:10 }
+                data: { a:1,b:10 },
             });
-            document.addEventListener('click',()=>{
+            document.addEventListener('click',() => {
                 vm.b++
-            })
+            });
             console.log(vm.b);
-            console.log(Proxy.property)
+            // console.log(Proxy.property);
         };
     </script>
 </head>
 <body>
 <div id="div1">
     <div>
-        {{a-b}}
+        {{b}}
     </div>
 </div>
 </body>

@@ -28,7 +28,7 @@ Vue.prototype.document = function () {
     this.el.innerHTML = '';
     var _this = this;
     this.el.innerHTML = this._html.replace(reg,function (key) {
-       console.log(key.match(/(?<={{)[\s\S]*(?=}})/g)[0]);
-       return _this.data[key.match(/(?<={{)[\s\S]*(?=}})/g)];
+       console.log( _this.data[key.match(/(?<={{)[\s\S]*(?=}})/g)[0]]);
+       return _this.data[key.match(/(?<={{)[\s\S]*(?=}})/g)[0]];
     });
 };
