@@ -14,10 +14,8 @@ export default class myRouter {
           // new Vue的时候传递的
           Vue.prototype.$kkbrouter = '我是小老弟';
           Vue.prototype.$krouter = this.$options.Myrouter;
-          console.log(Vue.prototype);
-          // console.log(this.$options.router)
+          this.$options.Myrouter.init()
         }
-        // console.log(options)
       },
     });
   }
@@ -25,13 +23,23 @@ export default class myRouter {
   constructor(json) {
     this.$options = json;
     this.routeMap = {};
-    this.init();
+    let that =this;
+    this.app = new Vue({
+      data: {
+        current: that.gethash()||'/'
+      }
+    })
   }
   init() {
-    console.log(this.$options);
     this.createRouteMap(this.$options);
     this.gethash();
-    this.initComponent()
+    this.bindevents();
+    this.initComponent();
+  }
+  // 绑定事件
+  bindevents() {
+    window.addEventListener('hashchange',this.onhashchnahe.bind(this))
+    window.addEventListener('load',this.onhashchnahe.bind(this))
   }
   // 路由映射表
   createRouteMap(options) {
@@ -41,17 +49,46 @@ export default class myRouter {
   }
   // 获取路由hash值
   gethash() {
-    console.log(window.location.hash.substr(1))
+    console.log(window.location.hash.substr(1));
+    return window.location.hash.substr(1)|| '/';
+  }
+  getcreatehash(e) {
+    let to, from;
+    if (e.type ==='load') {
+      if (!location.hash) {
+        window.location.href = `${window.location.href}#${this.app.current}`;
+        return
+      }
+      to=location.hash.substr(1)||'/';
+      from = '';
+    } else if (e.type === 'hashchange') {
+      to=e.newURL.split('#')[1];
+      from=e.oldURL.split('#')[1];
+    }
+    return { to, from };
   }
   // 刷新组件内容
   initComponent() {
-    console.log(this.$options);
     const _this = this;
-    Vue.component('router-myview', {
-       render(createElement) {
-         console.log(_this.routeMap['/'])
-         return createElement(_this.routeMap['/'].component)
-       }
-    })
+      Vue.component('router-myview', {
+        render(createElement) {
+          return createElement(_this.routeMap[_this.app.current].component)
+        }
+      })
+
+  }
+
+  onhashchnahe(e) {
+    let { to ,from } = this.getcreatehash(e);
+    let hash = this.gethash();
+    let router = this.routeMap[hash]
+    if (router.beforeEnter) {
+      router.beforeEnter(to,from,()=>{
+        this.app.current = hash;
+      })
+    } else {
+      this.app.current = hash;
+    }
+
   }
 }

@@ -3,30 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!--<script src="https://unpkg.com/vue/dist/vue.js"></script>-->
+    <script src="js/my-vue.js"></script>
+
     <script>
-        // window.onload = function () {
-        //     new Vue({
-        //         el: '#div1',
-        //         data: { a:1 }
-        //     })
-        // };
-        window._console = window.console;
-        window._console.log = window.console.log;
-        // console = {
-        //     log : function (a) {
-        //         _console.log('ssss'+a)
-        //     }
-        // };
-       window.console.log = function(...args) {
-            window._console.log(...args)
+        window.onload = function () {
+            var vm=new Vue({
+                el: '#div1',
+                data: { a:1,b:10 }
+            });
+            document.addEventListener('click',()=>{
+                vm.b++
+            })
+            console.log(vm.b);
+            console.log(Proxy.property)
         };
-        console.log('aaaaa')
     </script>
 </head>
 <body>
 <div id="div1">
-    {{a}}
+    <div>
+        {{a-b}}
+    </div>
 </div>
 </body>
 </html>

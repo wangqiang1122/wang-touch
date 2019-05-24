@@ -1,6 +1,8 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <a href="#/">根目录</a>
+    <a href="#/about">about</a>
     <!--<router-view/>-->
     <router-myview/>
   </div>
