@@ -24,11 +24,19 @@ Vue.prototype.init = function () {
   return obj
 };
 Vue.prototype.document = function () {
-    var reg = /{{[\s\S]*}}/g;
+    var reg = /\{\{[^\}]*\}\}/g;   //
     this.el.innerHTML = '';
     var _this = this;
+    console.log(_this)
     this.el.innerHTML = this._html.replace(reg,function (key) {
-       console.log( _this.data[key.match(/(?<={{)[\s\S]*(?=}})/g)[0]]);
-       return _this.data[key.match(/(?<={{)[\s\S]*(?=}})/g)[0]];
+        console.log(key)
+        var str = key.match(/(?<={{)[\s\S]*(?=}})/g)[0];
+        str = str.replace(/\w*\.\w*|\w/g,function (a) {
+            return '_this.data.'+a+''
+        });
+        console.log(str)
+        console.log(eval(str))
+        return eval(str)
+       // return _this.data[str];
     });
 };

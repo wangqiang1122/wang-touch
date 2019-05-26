@@ -11,7 +11,7 @@
         window.onload = function () {
             var vm=new Vue({
                 el: '#div1',
-                data: { a:1,b:10 },
+                data: { a:1,b:10,json: {a:'a'} },
             });
             document.addEventListener('click',() => {
                 vm.b++
@@ -26,7 +26,8 @@
     <div>
         {{b}}
     </div>
-    <div>{{a}}</div>
+    <div>{{a+b}}</div>
+    <div>{{json.a}}</div>
 </div>
 </body>
 </html>
