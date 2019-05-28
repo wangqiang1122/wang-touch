@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <!--<script src="https://unpkg.com/vue/dist/vue.js"></script>-->
-    <script src="js/my-vue1.js"></script>
+    <script src="js/my-vue2.js"></script>
 
     <script>
-
         window.onload = function () {
             var vm=new Vue({
                 el: '#div1',
                 data: { a:1,b:10,json: {a:15} ,obj: {h: { name: 16 }}},
+                methods: {
+                    fn() {
+                        console.log(this.a)
+                    }
+                }
             });
-            document.addEventListener('click',() => {
-                vm.b++
-            });
-            console.log(vm.b);
-            // console.log(Proxy.property);
         };
     </script>
 </head>
@@ -26,8 +25,8 @@
     <div>
         {{b}}
     </div>
-    <div>{{a+b}}</div>
-    <div>{{json.a}}</div>
+    <div :title='a'>{{a+b}}</div>
+    <div :aaa='b'>{{json.a}}</div>
     <div>{{obj.h.name}}</div>
     <div>{{json.a+obj.h.name}}</div>
 </div>

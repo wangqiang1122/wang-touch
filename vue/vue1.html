@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <!--<script src="https://unpkg.com/vue/dist/vue.js"></script>-->
-    <script src="js/my-vue.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!--<script src="js/my-vue.js"></script>-->
 
     <script>
 
@@ -12,6 +12,11 @@
             var vm=new Vue({
                 el: '#div1',
                 data: { a:1,b:10 },
+                methods: {
+                    cli(){
+                        alert('1')
+                    }
+                }
             });
             document.addEventListener('click',() => {
                 vm.b++
@@ -23,7 +28,7 @@
 </head>
 <body>
 <div id="div1">
-    <div>
+    <div @click="cli">
         {{b}}
     </div>
     <div>{{a}}</div>

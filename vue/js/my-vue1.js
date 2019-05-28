@@ -33,20 +33,10 @@ Vue.prototype.document = function () {
     var _this = this;
     this.el.innerHTML = this._html.replace(reg,function (key) {
         var str = key.match(/(?<={{)[\s\S]*(?=}})/g)[0];
-        // str = str.replace(/\w*\.\w*\.\w*|\w/g,function (a) {
-        //     console.log(a)
-        //     return '_this.data.'+a+''
-        // });
-        if (/\+|\*|\-|\//.test(str)) {
-            str = str.replace(/\w+/g,function (a) {
-                return '_this.data.'+a
-            });
-            return  eval(str)
-        } else {
-            // return '_this.data.'+a+''
-            return eval('_this.data.'+str)
-        }
-        // return eval(str)
-       // return _this.data[str];
+        str = str.replace(/[^(\+|\*+\-|\/)]+/g,(args)=>{
+            return '_this.data.'+args
+        });
+        console.log(str)
+        return eval(str)
     });
 };
