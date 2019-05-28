@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <div>
+      <div id="div1">1111</div>
+      <button id="btn">点击</button>
+  </div>
+</body>
+<script>
+    window.onload = function () {
+        var a = document.getElementById('div1'); // 会变化的
+        var btn = document.getElementById('btn');
+        btn.addEventListener('click',function () {
+            a.innerHTML = 'aaa';
+            console.log(a)
+        })
+    }
+</script>
+</html>

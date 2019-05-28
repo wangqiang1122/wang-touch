@@ -2,7 +2,9 @@ function Vue(options) {
     let obj = {};
     this.data = options.data|| {};
     this.el = document.querySelector(options.el);
-    this._html =  this.el.innerHTML;
+    // 深度克隆
+    this.$old_el = this.el.cloneNode(true);
+    // this._html =  this.el.innerHTML;
     this.methods = options.methods;
     this.document(obj);
     this.init(obj);
@@ -29,14 +31,15 @@ Vue.prototype.init = function (obj) {
   return obj
 };
 Vue.prototype.document = function ($data) {
-    console.log($data)
     var reg = /\{\{[^\}]*\}\}/g;   //
-    this.el.innerHTML = '';
+    // this.el.innerHTML = '';
     var _this = this;
-
-    this.el.innerHTML = this._html.replace(reg,function (key) {
+    this.el.parentNode.replaceChild(this.$old_el,this.el);
+    this.el = this.$old_el;
+    this.$old_el = this.el.cloneNode(true)
+    console.log( this.$old_el)
+    this.el.innerHTML = this.el.innerHTML.replace(reg,function (key) {
         var str = key.match(/(?<={{)[\s\S]*(?=}})/g)[0];
-
         return expStr(str,_this.data)
     });
     // 处理属性
@@ -63,9 +66,6 @@ Vue.prototype.document = function ($data) {
             }
         }
     }
-};
-Vue.prototype.event = function () {
-
 };
 function expStr(key,data) {
     var str = key.replace(/[^(\+|\*+\-|\/)]+/g,(args)=>{

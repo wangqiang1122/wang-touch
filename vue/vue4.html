@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <!--<script src="https://unpkg.com/vue/dist/vue.js"></script>-->
-    <script src="js/my-vue3.js"></script>
+    <script src="js/my-vue4.js"></script>
 
     <script>
         window.onload = function () {
@@ -13,7 +13,8 @@
                 data: { a:1,b:10,json: {a:15} ,obj: {h: { name: 16 }}},
                 methods: {
                     fn() {
-                        console.log(this.a)
+                        // console.log(this.a)
+                        this.a++
                     }
                 }
             });
