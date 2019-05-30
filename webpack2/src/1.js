@@ -1,3 +1,7 @@
-import './css/1.css'
+import "./css/1.css";
 
-console.log(8888);
+
+
+
+
+console.log("8888");

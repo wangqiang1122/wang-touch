@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import './1.css'
+import './asset/1.css'
 
 $(function () {
     $('.cli').click(function () {

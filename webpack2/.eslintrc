@@ -1,0 +1,15 @@
+{
+  "parserOptions": {   //解析的选项
+    "ecmaVersion": 6,  // es的版本  6代表es6
+    "sourceType": "module",   // 是模块身份
+    "ecmaFeatures": {         // 某些特性是否启用
+      "jsx": true
+    }
+  },
+  "rules": {  // 规则
+    "indent": [ "error", 2],   // 缩进（空格）
+    "linebreak-style": [ "error", "unix" ],  // 换行
+    "quotes": [ "error", "double" ], // 引号
+    "semi": ["error", "always"]   // 结尾分毫
+  }
+}

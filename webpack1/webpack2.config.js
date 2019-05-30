@@ -1,4 +1,5 @@
 module.exports = {
+    mode: 'development',   // production  能打多大就打多大 development  按需打包
     entry:  `${__dirname}/src/2.js`,               // 最好也写成绝对路径
     output: {
         filename: '3.bundle.js',
