@@ -11,7 +11,7 @@ dbs.beginTransaction(async (err)=>{
        //         console.log('我回滚了1')
        //     })
        // }
-      var a = await _catch('SELECT * FROM user_table');
+      var a = await _catch('SELECT * FROM usr_table');
       var b = await _catch('DELETE FROM user_table where id = 1');
        // try {
        //     let data = await dbs.queryC('DELETE FROM user_table where ids = 1');
@@ -32,12 +32,19 @@ dbs.beginTransaction(async (err)=>{
    }
 });
 async function _catch(sqlstr) {
-    try {
-        let data = await dbs.queryC(sqlstr);
-        return data
-    } catch (e) {
+    let data = await dbs.queryC(sqlstr);
+    if (!data) {
         dbs.rollback((err)=>{
-            console.log('我回滚了')
-        })
+                console.log('我回滚了11111')
+         })
     }
+    // try {
+    //     let data = await dbs.queryC(sqlstr);
+    //     console.log(data)
+    //     return data
+    // } catch (e) {
+    //     dbs.rollback((err)=>{
+    //         console.log('我回滚了')
+    //     })
+    // }
 }

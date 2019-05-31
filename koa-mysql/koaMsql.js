@@ -13,6 +13,8 @@ module.exports = {
                         resolve(data)
                     }
                 })
+            }).catch((err)=>{
+                console.log('我是报错')
             })
         };
         return dbs;
