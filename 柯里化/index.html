@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var a = [2,3,4,5];
+    console.log(...a);
+
+
+    function js() {
+        var arr = [].slice.call(arguments);
+        var str = '';
+        var index = 0;
+        while (arr[++index]) {
+            console.log(index)
+            str+=arr[index]
+        }
+        console.log(str)
+    }
+
+    console.log(js.apply(null,a))
+
+
+    const curry = (fn, ...arg) => {
+        console.log(...arg);
+        let all = arg || [];
+        return (...rest) => {
+            let _args = all;
+            _args.push(...rest);
+            if (rest.length === 0) {
+                all=[];
+                return fn.apply(this, _args);
+            } else {
+                console.log(..._args)
+                return curry.call(this, fn, ..._args);
+            }
+        }
+    }
+    // const curry = function (fn, arg){
+    //     console.log({}.toString.call(arg));
+    //     let all
+    //     if ({}.toString.call(arg).indexOf('Array')!=-1) {
+    //         all = arg;
+    //     } else {
+    //         all = [arg];
+    //     }
+    //     return function () {
+    //         var rest = [].slice.call(arguments);
+    //         let _args = all;
+    //         _args.push(rest[0]);
+    //         if (rest.length === 0) {
+    //             all=[];
+    //             return fn.apply(this, _args);
+    //         } else {
+    //             return curry.call(this, fn, _args);
+    //         }
+    //     }
+    // }
+
+    var as =curry(function (a,b,c) {
+        return a+b+c
+    },1)(2)(3)()
+
+    console.log(as)
+
+
+</script>
+</html>
