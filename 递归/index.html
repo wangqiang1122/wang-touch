@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function w() {
+        var arr = [2,3,4,5,45];
+        var i=0;
+        var arr1 = [];
+        function next(num) {
+            if (!num) {
+                return
+            } else {
+                i++;
+                next(arr[i])
+            }
+            arr1.push(num)
+            console.log(arr1)
+        }
+        next(arr[i])
+    }
+    w()
+</script>
+</html>
