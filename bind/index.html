@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    Function.prototype.bind = function (Arg) {
+        var _this = this;
+        return function() {
+            console.log(this)
+            console.log(Arg)
+            _this.apply(Arg)
+        }
+    }
+
+    function f() {
+        console.log(this)
+    }
+    var temp = f.bind(1);
+    // var f1 = temp.bind(2)
+    // var f2 = f1.bind(3)
+    temp)
+</script>
+</html>
