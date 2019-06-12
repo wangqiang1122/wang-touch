@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    function Pron(fn) {
+        this.resolve = [];
+        this.reject = [];
+        var that = this;
+        var index = 0;
+        fn((data)=>{
+            setTimeout(()=>{
+                next(data)
+                function next(shu) {
+                        if (that.resolve[index]) {
+                            var b = that.resolve[index](shu);
+                            if (b instanceof Pron) {
+                                b.then((t)=>{
+                                    index+=1;
+                                    next(t)
+                                })
+                            } else {
+                                index+=1;
+                                next(b)
+                            }
+                        }
+                }
+            })
+
+        },()=>{});
+
+    }
+
+    Pron.prototype.then = function (resolve,reject) {
+        this.resolve.push(resolve)
+        this.reject.push(reject)
+        return this
+    }
+
+    var a = new Pron((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve('1111')
+        },1000)
+    });
+    a.then((data)=>{
+        console.log(data)
+        return new Pron((resolve)=>{
+            setTimeout(()=>{
+                resolve('我是特殊的')
+            },1000)
+        })
+    }).then((data)=>{
+        console.log(data)
+    })
+     .then((data)=>{
+        setTimeout(()=>{
+            console.log(data)
+        })
+    });
+
+    // var b = new Pron((resolve,reject)=>{
+    //     setTimeout(()=>{
+    //         resolve('2222')
+    //     },1000)
+    // });
+    // b.then((data)=>{
+    //     console.log(data)
+    // })
+
+
+
+</script>
+</html>
