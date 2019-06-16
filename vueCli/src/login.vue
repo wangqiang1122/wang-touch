@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'Waxios'
 
 // import Header from '@/components/cmp-header'
 // import Footer from '@/components/cmp-footer'

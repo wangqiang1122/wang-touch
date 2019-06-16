@@ -9,4 +9,4 @@ server.use(mainRouter.routes());
 
 mainRouter.use('/user',require('./routers/user'));
 
-server.listen('4444');
+server.listen('4444')
