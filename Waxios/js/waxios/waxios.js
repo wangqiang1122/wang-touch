@@ -13,6 +13,12 @@ function Waxios(config) {
 Waxios.prototype.request = function (config) {
     //请求方法封装
     var Config = until.merageConfig(this.config,config);
+    /**
+     * 求情拦截器
+     * 接口请求之前先遍历request里面的函数
+     * 返回拦截器
+     * 接口发送请求之后需要先遍历response里面的函数
+     */
     return this.dispatchRequest(Config)
 };
 // 封装请求
