@@ -19,6 +19,7 @@ Waxios.prototype.request = function (config) {
      * 返回拦截器
      * 接口发送请求之后需要先遍历response里面的函数
      */
+    var chan = [this.dispatchRequest];
     return this.dispatchRequest(Config)
 };
 // 封装请求
