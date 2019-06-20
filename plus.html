@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://cn-digital2-app-int.bmw.com.cn/cookiemapping/js/getMsgAPI.min.js"></script>
 </head>
 <body>
 <input id="fileImage" class="fileImage" type="file"  accept="image/*" capture="camera" size="30">
@@ -10,6 +11,7 @@
 </body>
 <script>
     window.onload = function() {
+        console.log(sendMasg)
         if(window.plus) {
             onPlusReady();
         } else {

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var a = Promise.resolve('1');
+    var b = a.then((data)=>{
+        return data
+        // return new Promise((resolve)=>{
+        //     console.log(data)
+        //     resolve(data)
+        // })
+    },()=>{})
+    console.log(b)
+    b.then((data)=>{
+        console.log(data)
+    })
+</script>
+</html>

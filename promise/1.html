@@ -31,7 +31,7 @@
                             }
                         }
                 }
-            })
+            },0)
 
         },()=>{});
 
@@ -41,6 +41,12 @@
         this.resolve.push(resolve)
         this.reject.push(reject)
         return this
+    };
+
+    Pron.resolve = function (data) {
+        return new Pron((resolve,reject)=>{
+            resolve(data)
+        })
     }
 
     var a = new Pron((resolve,reject)=>{
@@ -57,21 +63,24 @@
         })
     }).then((data)=>{
         console.log(data)
+        return '22222'
     })
      .then((data)=>{
         setTimeout(()=>{
             console.log(data)
-        })
+        },0)
     });
+  //////////////////
 
-    // var b = new Pron((resolve,reject)=>{
-    //     setTimeout(()=>{
-    //         resolve('2222')
-    //     },1000)
-    // });
-    // b.then((data)=>{
-    //     console.log(data)
-    // })
+   var hut = Pron.resolve('222')
+   var hut1 = hut.then((dats)=>{
+       console.log(dats)
+       return dats
+   });
+    var b =hut1.then((data)=>{
+        console.log(data)
+    })
+    console.log(b)
 
 
 
