@@ -49,33 +49,37 @@
         })
     }
 
-    var a = new Pron((resolve,reject)=>{
-        setTimeout(()=>{
-            resolve('1111')
-        },1000)
-    });
-    a.then((data)=>{
-        console.log(data)
-        return new Pron((resolve)=>{
-            setTimeout(()=>{
-                resolve('我是特殊的')
-            },1000)
-        })
-    }).then((data)=>{
-        console.log(data)
-        return '22222'
-    })
-     .then((data)=>{
-        setTimeout(()=>{
-            console.log(data)
-        },0)
-    });
+    // var a = new Pron((resolve,reject)=>{
+    //     setTimeout(()=>{
+    //         resolve('1111')
+    //     },1000)
+    // });
+    // a.then((data)=>{
+    //     console.log(data)
+    //     return new Pron((resolve)=>{
+    //         setTimeout(()=>{
+    //             resolve('我是特殊的')
+    //         },1000)
+    //     })
+    // }).then((data)=>{
+    //     console.log(data)
+    //     return '22222'
+    // })
+    //  .then((data)=>{
+    //     setTimeout(()=>{
+    //         console.log(data)
+    //     },0)
+    // });
   //////////////////
 
-   var hut = Pron.resolve('222')
+   var hut = Pron.resolve('w我是1')
    var hut1 = hut.then((dats)=>{
-       console.log(dats)
-       return dats
+       // console.log(dats)
+       return new Pron((resolve)=>{
+           setTimeout(()=>{
+               resolve(dats)
+           },4000)
+       })
    });
     var b =hut1.then((data)=>{
         console.log(data)

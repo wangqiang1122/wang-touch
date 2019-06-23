@@ -23,6 +23,20 @@
     function Arr() {
 
     }
+    Arr['s'] = function() {
+        console.log('22')
+    };
+    Arr.prototype.g = function () {
+
+    };
+    var a = new Arr();
+    for (var attr in a) {
+        console.log(attr)
+    }
+    Arr.s();
+    console.log();
+    console.log(a instanceof Arr)
+    console.log(Arr instanceof Function)
 
    // var b = [];
    // console.log(b instanceof Array)
