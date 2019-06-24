@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/browser.js"></script>
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+<script type="text/babel">
+    let div = document.getElementById('div1');
+    class Parent extends React.Component{
+        constructor(...args) {
+            super(...args)
+        }
+        fn() {
+            console.log(this.refs.child1)
+            this.refs.child1.add(2)
+            // this.refs.child1.setState({
+            //     a: this.refs['child1'].state.a+=1
+            // })
+        }
+        render() {
+            return (
+                <div>
+                    <input type="button" value="+1" onClick={this.fn.bind(this)}/>
+                    <Child ref="child1"></Child>
+                </div>
+            )
+        }
+    }
+
+    class Child extends React.Component{
+        constructor(...args) {
+            super(...args)
+            this.state = {
+                a:0
+            };
+        }
+        add(n){
+            this.setState({
+                a: this.state.a+n
+            })
+        }
+        render() {
+            return <div>
+                我是child<br/>
+                {this.state.a}
+            </div>
+        }
+    }
+
+    ReactDOM.render(<div>
+        <Parent></Parent>
+    </div>,div)
+</script>
+</html>

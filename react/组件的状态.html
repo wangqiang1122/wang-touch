@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/browser.js"></script>
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+</head>
+<body>
+<div id="div1">
+
+</div>
+</body>
+<script type="text/babel"> // 支持jsx   browser支持jsx  jsx 创建元素比较方便 请看render
+let div = document.getElementById('div1');
+
+class Imp1 extends React.Component{
+    constructor(...args) {
+        super(...args)
+        this.name = '我是';
+        this.age = '31231';
+        // 组件的状态初始化
+        this.state = {a:this.props.a}
+    }
+    fn() {
+        // this.state.a++
+        // console.log(this.state)
+        this.setState({
+            a: this.state.a+1
+        })
+    }
+    render(){
+        console.log(this)
+
+        // var style = { color: 'red' }
+        return <div onClick={this.fn.bind(this)}>{this.state.a}</div>
+    }
+}
+
+ReactDOM.render(
+    <div>
+        <Imp1 a={1}></Imp1>
+        <input type="text" id="user"/></div>, // jsx的元素
+    div                // 跟节点
+)
+</script>
+</html>

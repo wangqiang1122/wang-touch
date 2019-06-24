@@ -27,9 +27,9 @@
         console.log(this.name + '正在吃：' + food);
     };
     function Arr(name) {
-        Animal.call(this,name)
+        Animal.call(this,name) //
     }
-    Arr.prototype= new Animal();  // 多复用了一次对象 耗性能
+    Arr.prototype= new Animal();  // 多复用了一次对象 耗性能 对象的引用关系不能打破
     Arr.prototype.constructor = Arr;     // 需要重新指向构造函数 无法重定向constructor
     var a = new Arr('鸡');
     console.log(a)
