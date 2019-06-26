@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/browser.js"></script>
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+<script type="text/babel">
+    let div = document.getElementById('div1');
+    class Parent extends React.Component{
+        constructor(...args) {
+            super(...args)
+            this.state = {
+                p:0,
+            }
+        }
+        componentDidMount() {
+            console.log('父组件挂载了')
+        }
+        componentDidUpdate() {
+            console.log('父组件更新了')
+        }
+       fn() {
+           this.setState({
+               p: this.state.p+3
+           })
+       }
+        render() {
+            return (
+                <div>
+                    <input type="button" value="点击" onClick={this.fn.bind(this)}/>
+                    <Child p={this.state.p}></Child>
+                </div>
+            )
+        }
+    }
+
+    class Child extends React.Component{
+        constructor(...args) {
+            super(...args)
+            this.state = {
+                a:0
+            };
+        }
+        componentDidMount() {
+            console.log('子组件挂载了')
+        }
+        componentDidUpdate() {
+            console.log('子组件更新了')
+        }
+        render() {
+            return <div>
+                {this.props.p}
+                我是child<br/>
+            </div>
+        }
+    }
+
+    ReactDOM.render(<div>
+        <Parent></Parent>
+    </div>,div)
+</script>
+</html>
