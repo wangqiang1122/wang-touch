@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        body{
+            background-color: #000;
+            /*景深相当于眼睛距离元素的位置距离*/
+            perspective: 100px;
+        }
+        .rotating-plane{
+            width: 64px;
+            height: 64px;
+            background-color: #0000CC;
+            margin: 30px auto;
+            animation:mymove 2s infinite;
+            -webkit-animation: mymove 2s ease-in-out infinite;
+            /*transform: rotate(120deg);*/
+            /*transition:transform 60s ;*/
+        }
+        /* 动画*/
+        @keyframes mymove
+        {
+            0% {
+                transform: rotateX(0) rotateY(0);
+            }
+            50% {
+                transform: rotateX(-180deg)  rotateY(0);
+            }
+            100% {
+                transform: rotateX(-180deg) rotateY(-180deg);
+            }
+        }
+    </style>
+</head>
+<body>
+ <div class="rotating-plane"></div>
+</body>
+</html>
