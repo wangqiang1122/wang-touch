@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        body{
+            background-color: #000;
+            /*景深相当于眼睛距离元素的位置距离*/
+            perspective: 100px;
+        }
+        .dots{
+            width: 64px;
+            height: 64px;
+            margin: 100px auto 0;
+        }
+        .dots .dot{
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: pink;
+            display: inline-block;
+            animation: childsAnimetion 1.4s infinite ease-in-out;
+        }
+        .dots .dot-1{
+            animation-delay: -0.32s;
+        }
+        .dots .dot-2{
+            animation-delay: -0.16s;
+        }
+        /* 动画*/
+
+        @keyframes childsAnimetion
+        {
+            0% {
+                transform:  scale(0);
+            }
+            50% {
+                transform: scale(1);
+            }
+            100%{
+                transform: scale(0);
+            }
+        }
+    </style>
+</head>
+<body>
+ <section>
+     <div class="dots">
+         <div class="dot dot-1"></div>
+         <div class="dot dot-2"></div>
+         <div class="dot dot-3"></div>
+
+     </div>
+ </section>
+</body>
+</html>

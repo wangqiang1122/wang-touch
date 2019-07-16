@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        body{
+            background-color: #000;
+            /*景深相当于眼睛距离元素的位置距离*/
+            perspective: 100px;
+        }
+        .spinner {
+            width: 40px;
+            height: 40px;
+            margin: 100px auto 0;
+            position: relative;
+            background: pink;
+            border-radius: 50%;
+            animation: spinnerAnimetion 1s ease-in-out infinite;
+        }
+        .dots{
+            width: 64px;
+            height: 64px;
+            margin: 100px auto 0;
+            animation: fatherK 2s infinite linear;
+        }
+        .dots .dot{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: pink;
+            display: inline-block;
+            animation: childsAnimetion 2s infinite ease-in-out;
+        }
+        .dots .dot-2{
+            animation-delay: -1s;
+        }
+        /* 动画*/
+        @keyframes fatherK {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes childsAnimetion
+        {
+            0% {
+                transform:  scale(0);
+            }
+            50% {
+                transform: scale(1);
+            }
+            100%{
+                transform: scale(0);
+            }
+        }
+    </style>
+</head>
+<body>
+ <section>
+     <div class="dots">
+         <div class="dot dot-1"></div>
+         <div class="dot dot-2"></div>
+     </div>
+ </section>
+</body>
+</html>

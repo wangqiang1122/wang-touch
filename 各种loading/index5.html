@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        body{
+            background-color: #000;
+            /*景深相当于眼睛距离元素的位置距离*/
+            perspective: 100px;
+        }
+        .cubes {
+            width: 40px;
+            height: 40px;
+            margin: 100px auto 0;
+            position: relative;
+        }
+        .cubes .cube {
+            height: 10px;
+            width: 10px;
+            background-color: pink;
+            animation:cubeanimetion 3s ease-in-out infinite ;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .cubes .cube1{
+            animation-delay: -1.5s;
+        }
+        /* 动画*/
+        @keyframes cubeanimetion
+        {
+            0% {
+                transform:  rotateZ(0deg);
+            }
+            25% {
+                transform: translateX(30px) rotate(-90deg) scale(.4);
+            }
+            50% {
+                transform: translateX(30px) translateY(30px) rotate(-179deg) scale(1);
+            }
+            50.1% {
+                transform: translateX(30px) translateY(30px) rotate(-180deg) scale(1);
+            }
+            75% {
+                transform: translateX(0px) translateY(30px) rotate(-270deg) scale(.4);
+            }
+            100% {
+                transform:  rotate(-360deg) ;
+            }
+        }
+    </style>
+</head>
+<body>
+ <section class="cubes">
+     <div class="cube cube1"></div>
+     <div class="cube cube2"></div>
+ </section>
+</body>
+</html>
