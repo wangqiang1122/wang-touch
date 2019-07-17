@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        body{
+            background-color: #000;
+            /*景深相当于眼睛距离元素的位置距离*/
+            perspective: 100px;
+        }
+        .dots{
+            width: 64px;
+            height: 64px;
+            margin: 100px auto 0;
+        }
+        .circle-bounce {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            /*background-color: blue;*/
+            margin:  50px auto;
+            position: relative;
+        }
+        .circle-bounce .child{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: absolute;
+            top:0;
+            left: 0;
+        }
+        .circle-bounce .child:before {
+            content: '';
+            width: 15%;
+            height: 15%;
+            border-radius: 100%;
+            background-color: pink;
+            display: block;
+            margin: 0 auto;
+            animation: childsAnimetion 1.2s infinite ease-in-out;
+        }
+        .circle-bounce .circle-1{
+            transform: rotate(30deg);
+        }
+        .circle-bounce .circle-1:before{
+           animation-delay: -1.1s;
+        }
+        .circle-bounce .circle-2{
+            transform: rotate(60deg);
+        }
+        .circle-bounce .circle-2:before{
+            animation-delay: -1.0s;
+        }
+        .circle-bounce .circle-3{
+            transform: rotate(90deg);
+        }
+        .circle-bounce .circle-3:before{
+            animation-delay:-0.9s;
+        }
+        .circle-bounce .circle-4{
+            transform: rotate(120deg);
+        }
+        .circle-bounce .circle-4:before{
+            animation-delay: -0.8s;
+        }
+        .circle-bounce .circle-5{
+            transform: rotate(150deg);
+        }
+        .circle-bounce .circle-5:before{
+            animation-delay: -0.7s;
+        }
+        .circle-bounce .circle-6{
+            transform: rotate(180deg);
+        }
+        .circle-bounce .circle-6:before{
+            animation-delay: -0.6s;
+        }
+        .circle-bounce .circle-7{
+            transform: rotate(210deg);
+        }
+        .circle-bounce .circle-7:before{
+            animation-delay: -0.5s;
+        }
+        .circle-bounce .circle-8{
+            transform: rotate(240deg);
+        }
+        .circle-bounce .circle-8:before{
+            animation-delay: -0.4s;
+        }
+        .circle-bounce .circle-9{
+            transform: rotate(270deg);
+        }
+        .circle-bounce .circle-9:before{
+            animation-delay: -0.3s;
+        }
+        .circle-bounce .circle-10{
+            transform: rotate(300deg);
+        }
+        .circle-bounce .circle-10:before{
+            animation-delay: -0.2s;
+        }
+        .circle-bounce .circle-11{
+            transform: rotate(330deg);
+        }
+        .circle-bounce .circle-11:before{
+            animation-delay: -0.1s;
+        }
+        /* 动画*/
+
+        @keyframes childsAnimetion
+        {
+            0% {
+                /*transform:  scale(0);*/
+                opacity: 0;
+            }
+            40% {
+                /*transform: scale(1);*/
+                opacity: 1;
+            }
+            80%{
+                opacity: 0;
+                /*transform: scale(0);*/
+            }
+            100%{
+                opacity: 0;
+                /*transform: scale(0);*/
+            }
+        }
+    </style>
+</head>
+<body>
+ <section>
+     <div class="circle-bounce">
+         <div class="child circle-1"></div>
+         <div class="child circle-2"></div>
+         <div class="child circle-3"></div>
+         <div class="child circle-4"></div>
+         <div class="child circle-5"></div>
+         <div class="child circle-6"></div>
+         <div class="child circle-7"></div>
+         <div class="child circle-8"></div>
+         <div class="child circle-9"></div>
+         <div class="child circle-10"></div>
+         <div class="child circle-11"></div>
+         <div class="child circle-12"></div>
+     </div>
+ </section>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        body{
+            background-color: #000;
+            /*景深相当于眼睛距离元素的位置距离*/
+            perspective: 100px;
+        }
+        .folding-cube{
+          width: 64px;
+          height: 64px;
+          margin: 50px auto;
+          transform: rotate(45deg);
+        }
+        .folding-cube .folding{
+            width: 50%;
+            height: 50%;
+            float: left;
+            background-color: pink;
+        }
+        /*.folding-cube .cube-4{*/
+            /*transform: rotateY(30deg);*/
+            /*transform-origin: 100% 100%;*/
+        /*}*/
+        /* 动画*/
+
+        @keyframes childscube
+        {
+            0% {
+                transform:  scale3d(1,1,1);
+            }
+            35%{
+                transform:  scale3d(0,0,1);
+            }
+            75%{
+                transform:  scale3d(1,1,1);
+            }
+            100%{
+                transform: scale3d(1,1,1);
+            }
+        }
+    </style>
+</head>
+<body>
+ <section>
+     <div class="folding-cube">
+         <div class="folding cube-1"></div>
+         <div class="folding cube-2"></div>
+         <div class="folding cube-3"></div>
+         <div class="folding cube-4"></div>
+     </div>
+ </section>
+</body>
+</html>
