@@ -12,7 +12,14 @@
     var obj = {
         d:'dddd',
     };
-    var reg = /\{\{d\}\}/;
-    console.log(str.replace(reg,obj.d))
+    var reg = /\{\{(.*)\}\}/;
+
+
+    if (reg.test(str)) {
+        console.log(RegExp.$1)
+    }
+    var arr = [1,1,4,5];
+    console.log(Array.from(new Set(arr)))
+    // console.log(str.replace(reg,obj.d))
 </script>
 </html>

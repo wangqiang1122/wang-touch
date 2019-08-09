@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="wue.js"></script>
+    <script src="compile.js"></script>
+</head>
+<body>
+  <div id="div">
+      <div class="s">
+          <p>{{name}}</p>
+           {{test}}</div>
+          <div w-html="div"></div>
+      <input type="text" w-model="test">
+
+  </div>
+      <!--<span w-text="test"></span>-->
+</body>
+<script>
+    var a =new Wue({
+        el: '#div',
+        data: {
+            test: 'haahah',
+            name: 'hello',
+            foo: { age: 111 },
+            div: '<h1>dadas</h1>'
+        }
+    })
+    // console.log(a.$data.foo.age)
+    a.$data.foo.age = 122;
+</script>
+</html>

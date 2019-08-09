@@ -12,13 +12,17 @@
     // Object.observe(json,function (val) { //  Object.observe已经被浏览器删除 用proxy代替
     //     console.log(val)
     // })
-    const obj = {
-        prop: 42
-    };
+    // const obj = {
+    //     prop: 42
+    // };
+    //
+    // Object.freeze(obj);
+    // console.log('prop1' in obj)
+    // obj.prop = 33;
+    // console.log(obj)
+    var a ='';
+    Object.defineProperty({},a,{
 
-    Object.freeze(obj);
-    console.log('prop1' in obj)
-    obj.prop = 33;
-    console.log(obj)
+    })
 </script>
 </html>
