@@ -37,7 +37,6 @@ Wue.prototype.defineReactive = function (obj,key,val) {
            if (newval===val) {
                return
            }
-           console.log(dep)
            val = newval
            dep.notify()
         },
@@ -75,6 +74,7 @@ function Watcher(vm,key,cb) {
     // 将来new 一个监听器时，将当前的Watcher实例附加到 Dep.target上
     // 避免不必要的重复添加
     Dep.target = this;
+    console.log(this);
     this.vm[key];
     Dep.target = null;
 }

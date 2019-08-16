@@ -103,9 +103,7 @@ Compile.prototype.model = function (node,vm,exp) {
     const val = vm[exp]; // 需要数据托管
     // 双绑定需要处理视图对数据的改变
     node.addEventListener('input',function (e) {
-        console.log(e.target.value)
         vm[exp] = e.target.value;
-        console.log(vm[exp])
     })
 }
 // 更新非常重要
@@ -115,15 +113,15 @@ Compile.prototype.update = function (node,vm,exp,dir) {
   new Watcher(vm,exp,(val)=>{
       updaterFn&&updaterFn(node,val);
   })
-}
+};
 Compile.prototype.textUpdater = function (node,val) {
     node.textContent = val;
-}
+};
 Compile.prototype.htmlUpdater = function (node,val) {
     node.innerHTML = val;
-}
+};
 Compile.prototype.modelUpdater = function (node,val) {
     console.log(node)
     console.log(val)
     node.value = val;
-}
+};

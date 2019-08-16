@@ -8,6 +8,16 @@
 
 </body>
 <script>
+    // var a = Object.create({'ddddd':'1111'}); // 也是建立一建立新的对象 但是只是引用变量的干关系
+    var a = new Object({'ddddd':'1111'}); // 构造函数继承
+    console.log(a)
+    var obj1 = {a:2,b:3};
+    var obj2 = {c:2,h:4};
+    var c = Object.assign(obj1,obj2);
+    obj1.a = 'nni'
+    console.log(c)
+
+
     // function P(fn) {
     //     this.handle = {
     //         resolve : [],

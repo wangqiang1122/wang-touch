@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /**
+     * 如果一个操作数是对象，另一个操作数不是进行相比较的话，
+     * 则调用对象的valueOf()方法，看看是否有valueOf()，
+     * 有的话用得到的基本类型值按照前面的规则进行比较；
+     * 如果没有则会再次调用toString（）用得到的基本类型值按照前面的规则进行比较。
+     咱们是不是可以利用这隐身规则进行处理a==1&&a==2&&a==3成立
+     * */
+    const a = {
+        i: 1,
+        valueOf:function() {
+          return {}
+        },
+        toString: function () {
+            return a.i++;
+        }
+    }
+
+    if(a == 1 && a == 2 && a == 3) {
+        console.log('Hello World!');
+    }
+    function add(a) {
+        var temp = function(b) {return add(a + b);}
+        temp.toString = function(){return a;};
+        return temp;
+    }
+    var ans = add(1)(2)(2);
+    console.log(ans); // 5
+</script>
+</html>
