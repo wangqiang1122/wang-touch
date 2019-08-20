@@ -29,7 +29,7 @@
         console.log('Hello World!');
     }
     function add(a) {
-        var temp = function(b) {return add(a + b);}
+        var temp = function(b) {return add(a + b);};
         temp.toString = function(){return a;};
         return temp;
     }
