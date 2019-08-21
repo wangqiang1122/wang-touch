@@ -38,7 +38,7 @@ Waxios.prototype.request = function (config) {
     var p = Promise.resolve(Config);
     // 遍历拦截器哈数栈 并执行里面的函数
     while (chan.length){
-    p = p.then(chan.shift(),chan.shift())
+      p = p.then(chan.shift(),chan.shift())
     }
     return p
 };
@@ -51,8 +51,8 @@ Waxios.prototype.dispatchRequest = function (config) {
         for (var attr in config.headers) {
             http.setRequestHeader(attr , config.headers[attr])
         }
-        console.log(http.getAllResponseHeaders())
-        // http.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
+        // console.log(http.getAllResponseHeaders())
+        http.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
         http.setRequestHeader('x-name', 'zmouse');
         http.setRequestHeader('token', 'zmouse');
 

@@ -17,8 +17,6 @@ router2.use((ctx,next)=>{
     next()
 });
 router2.get('/get', async (ctx,next)=>{
-    console.log(ctx)
-    console.log('1111');
     ctx.stauts = 200;
     ctx.body = { 'name': '网', age: 'dddd' };
 });
