@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        #banner {
+            width: 25rem;
+            overflow: hidden;
+        }
+        #banner ul {
+            width: 1000rem;
+            transform: translateX(0px);
+            overflow: hidden;
+        }
+        #banner li {
+            width: 25rem;
+            height: 7.8rem;
+            float: left;
+            line-height: 7.8rem;
+            text-align: center;
+        }
+        #content{
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <div id="content">
+        <div id="banner">
+            <ul>
+                <li style="background: yellow">0</li>
+                <li style="background: #00f">1</li>
+                <li style="background: #F0c">2</li>
+                <li style="background: #0fc">3</li>
+                <li style="background: #cf0">4</li>
+                <li style="background: #0f0">5</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    window.onload = function () {
+        window.document.documentElement.style.fontSize = 20*window.document.documentElement.clientWidth/500+'px';
+        var banner = document.getElementById('banner');
+        var ul = banner.getElementsByTagName('ul')[0];
+        var oldlen = ul.children.length;
+        var liWidth = ul.children[1].offsetWidth;
+        console.log(liWidth)
+        ul.insertBefore(ul.children[oldlen-1].cloneNode(true),ul.childNodes[0]);
+        ul.appendChild(ul.children[1].cloneNode(true))
+        var banner_left = -liWidth;
+        ul.style.webkitTransform =ul.style.transform= 'translateX('+(banner_left)+'px)';
+        ul.addEventListener('touchstart',function (ev) {
+            var dir = ''; //方向确定
+            ul.style.transition = ul.style.webkitTransition = '';
+            ev.preventDefault();
+            var e = ev.changedTouches[0];
+            var start = { x : e.clientX-banner_left };
+            var startmove = { x:e.clientX,y:e.clientY  };
+            // 阈值5
+            function fnmove(e) {
+                ev.preventDefault();
+                if (dir) {
+                    if (dir === 'l') {
+                        banner_left = e.changedTouches[0].clientX - start.x;
+                        ul.style.webkitTransform =ul.style.transform= 'translateX('+(banner_left)+'px)';
+                    }
+
+                } else {
+                    if (Math.abs(e.changedTouches[0].clientX -startmove.x)>=5 ) {
+                        // console.log('11')
+                        dir = 'l'
+                    }  else if (Math.abs(e.changedTouches[0].clientY -startmove.y)>=5) {
+                        dir = 't'
+                    }
+                }
+
+            }
+            function fnend() {
+                ul.removeEventListener('touchmove',fnmove,false);
+                ul.removeEventListener('touchend',fnend,false);
+                if (dir === 'l') {
+                    var num = Math.round(banner_left/liWidth);
+                    console.log(num);
+                    console.log(ul.children.length);
+                    if (Math.abs(num) ===0) {
+                        num = -oldlen;
+                        ul.style.webkitTransform=ul.style.transform = 'translateX('+(banner_left+(num*liWidth))+'px)';
+                    } else if(Math.abs(num)>=(ul.children.length-1)) {
+                        num = -1;
+                        var s= (banner_left+((ul.children.length-1)*liWidth))
+                        ul.style.webkitTransform=ul.style.transform = 'translateX('+(-(liWidth-s))+'px)';
+                        console.log(banner_left+(num*liWidth))
+                    }
+                    banner_left = num*banner.offsetWidth; // 必须要在dom元素上取  否则会有不可意思的事情发生
+                    //ul.children[0].offsetWidth必须要在dom上取 如果用liWidth上会发生回滚
+                    ul.style.transition= ul.style.webkitTransition = 'all .7s ease';
+                    console.log(banner_left)
+                    ul.style.webkitTransform= ul.style.transform =`translateX(${banner_left}px)`;
+                }
+            }
+
+            ul.addEventListener('touchmove',fnmove,false);
+            ul.addEventListener('touchend',fnend,false)
+        },false)
+    }
+</script>
+</html>
