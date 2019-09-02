@@ -32,7 +32,7 @@
         }
         /***css3动画部分***/
         #banner ul{
-            -webkit-animation: mymove 10s linear infinite normal;
+            -webkit-animation: mymove 10s linear;
         }
         @-webkit-keyframes mymove  {
             0%,20%{
@@ -75,9 +75,17 @@
 <script>
     window.onload = function () {
         var ul = document.querySelector('ul');
+        console.log(ul);
         ul.addEventListener('webkitAnimationEnd',function () {
-            console.log(1)
+            console.log('动画结束')
+        },true);
+        ul.addEventListener('webkitAnimationIteration',function () { // 开始重复执行
+            console.log('动画开始重复')
+        },true)
+        ul.addEventListener('webkitAnimationStart',function () {
+            console.log('动画开始')
         })
+
     }
 </script>
 </html>
