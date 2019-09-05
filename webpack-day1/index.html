@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title><%= htmlWebpackPlugin.options.title  %></title>
+    <style>
+        a {
+            color: red;
+        }
+    </style>
 </head>
 <body>
-
+ <div id="root"></div>
 </body>
-<script src="dist/main.js"></script>
 </html>
