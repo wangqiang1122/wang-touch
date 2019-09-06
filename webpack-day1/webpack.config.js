@@ -3,6 +3,8 @@ const HTMLWebapckPlugin = require('html-webpack-plugin'); // 打包html
 const {CleanWebpackPlugin} = require('clean-webpack-plugin'); // 打包之前清除build的文件
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 把c所有的css文件都打包到一个文件里 就不需要的style——loader
 const webpack = require('webpack');
+// 往低端浏览器打入es6的原声实现方法 用babel
+
 
 module.exports = {
     // 打包模式是开发模式
@@ -20,6 +22,34 @@ module.exports = {
     module: {
         // 遇到不认识的模块在这里找loader
         rules: [
+            // 把es6
+            {
+                test:/\.js$/,
+                exclude:'/node_modules/', // 排除node_modules文件夹
+                use:[{
+                    loader:'babel-loader',
+                    options:{
+                          // 这个是babel的语法转换规则
+                        // presets: [["@babel/preset-env", {    // 转换规则的polyfill的配置项目 需要的才打包进来
+                        //     useBuiltIns: "usage",//按需注入   不能只用他 会报错 这是个实验性功能 有不可确定性
+                        //     corejs:2,
+                        //     targets: {
+                        //         edge: "17",
+                        //         firefox: "60",
+                        //         chrome: "67",
+                        //         safari: "11.1"
+                        //     },
+                        // }]],
+                        plugins: [['@babel/plugin-transform-runtime',{
+                            // "absoluteRuntime": false,
+                            // "corejs": 2,
+                            // "helpers": true,
+                            // "regenerator": true,
+                            // "useESModules": false
+                        }]],   //是以babel插件的形式引入
+                    }
+                }], //babel-loader只是babel和webpack通信的桥梁 不承担转换任务 babel-core 只是babel-core只是核心代码库
+            },
             {
                 test: /\.(png|jpe?g|gif)$/,
                 use: {
@@ -53,6 +83,7 @@ module.exports = {
             // 自动添加浏览器前缀的loader - postcss-loader
             {
                 test: /\.scss/,
+                // exclude: /node_modules/,  // loader的时候排除某个文件夹
                 // 用两个loader需要用数组
                 use: [ 'style-loader', 'css-loader','sass-loader','postcss-loader']
             },

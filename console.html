@@ -5,14 +5,24 @@
     <title>Title</title>
 </head>
 <body>
+  <div id="div">
+      <p id="p1">1</p>
+      <p id="p2">2</p>
 
+  </div>
 </body>
 <script>
-    window.console = window.console || {};
-    window.console._log = window.console.log;
-    window.console.log=function (...arg){
-        window.console._log(...arg);
-    };
-    console.log(2222)
+    // window.console = window.console || {};
+    // window.console._log = window.console.log;
+    // window.console.log=function (...arg){
+    //     window.console._log(...arg);
+    // };
+    // console.log(2222)
+    var div = document.getElementById('div');
+    var d = document.createElement('div');
+    d.innerHTML = '2222';
+    div.insertBefore(document.getElementById('p1'),null) // 如果最后一位是null 则代表是push
+    // console.log(document.getElementById('p2').nextSibling)
+
 </script>
 </html>

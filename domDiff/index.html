@@ -2,9 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<div id="div"></div>
+
 </body>
+<script src="Vdom.js"></script>
+<script>
+    var vnode = createElement('div',{class:'item1'},[
+        createElement('p',{ key:"a",style: { color: 'blue', } },'节点1'),
+        createElement('p',{ key: 'b','@click':function () {alert()}  },'节点2'),
+        createElement('p',{  key: 'c','class': 'dd'},'节点3'),
+        createElement('p',{ key:"d" },'节点4'),
+    ])
+   // console.log(vnode)
+  render(document.getElementById('div'),vnode)
+
+    var vnode1 = createElement('div',{class:'item1'},[
+        createElement('p',{ key:"h" ,style: {background: 'blue'}},'节点4222'),
+        createElement('p',{ key:"g" },'节点7'),
+        createElement('p',{  key: 'c','class': 'dd'},'节点3'),
+        createElement('p',{ key:"a",style: { color: 'red', } },'节点1'),
+        createElement('p',{ key:'b', style: { background: 'red' } },'节点2'),
+        createElement('p',{ key:"e" },'节点5'),
+        createElement('p',{ key:"f" },'节点6'),
+        // // createElement('p',{ key:"d" },'节点4'),
+        // createElement('p',{  key: 'c','class': 'dd'},'节点3'),
+        // createElement('p',{ key: 'b','@click':function () {alert()}  },'节点2'),
+        // createElement('p',{ key:"a",style: { color: 'blue', } },'节点1'),
+
+    ])
+    setTimeout(()=>{
+        render(document.getElementById('div'),vnode1)
+    },1000)
+
+
+</script>
 </html>
