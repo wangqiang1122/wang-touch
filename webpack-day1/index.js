@@ -24,7 +24,7 @@
 //    })
 // }
 
-// import "@babel/polyfill";    // 没有@是babel是babel6    有@的是babel7的特性
+import "@babel/polyfill";    // 没有@是babel是babel6    有@的是babel7的特性
 
 
 let arr = [2,34,5];

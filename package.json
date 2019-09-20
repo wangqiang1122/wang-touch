@@ -39,6 +39,7 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
+    "@babel/parser": "^7.6.0",
     "webpack-cli": "^3.3.2"
   }
 }

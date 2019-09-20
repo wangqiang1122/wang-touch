@@ -21,6 +21,15 @@
             }
             file1.readAsDataURL(a.files[0])
         }
+        var reg = '/1\\d{10}/ig';
+        var aa = /([^/]+)(\S*)/;
+        var bb = /(?<=\/)\.*/g;
+
+        console.log(reg.match(bb));
+        console.log(aa.exec(reg));
+
+        var f = /^1\d{10}$/
+        console.log(f.test('12345678900'))
 
 </script>
 </html>
