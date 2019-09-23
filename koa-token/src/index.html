@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+账号 <input type="text" value="" id='account'>
+密码 <input type="text" value="" id="password">
+<div></div>
+<button id="login">login</button>
+<button id="loginOut">loginOut</button>
+<button id="loginUser">loginUser</button>
+<button id="clearOut">clearOut</button>
+
+
+</body>
+
+<script>
+    window.onload = function () {
+        function Id(id) {
+            return document.getElementById(id)
+        }
+        function json(data) {
+            var arr = [];
+            for(var a in data){
+                arr.push(a+'='+data[a]);
+            }
+
+            return arr.join('&')
+        }
+        function Ajax(methods,url,data,fn) {
+            var http = new XMLHttpRequest();
+            http.open(methods,url,true);
+            http.onreadystatechange = function () {
+               if (this.status===200&&this.readyState===4){
+                   fn&&fn(JSON.parse(this.response))
+               }
+            };
+            http.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8');
+            if (localStorage.getItem('Authorization'))  {
+                http.setRequestHeader( 'Authorization', localStorage.getItem('Authorization'));
+            }
+
+            http.send(methods==='post'?json(data):'')
+        }
+
+        Id('login').addEventListener('click',function () {
+            Ajax('post','http://localhost:5555/a/tokenLogin',{a:'d',b:"f"},function (val) {
+                console.log(val)
+                if (val.token) {
+                    localStorage.setItem('Authorization','Bearer '+val.token)
+                }
+            })
+        })
+        Id('loginUser').addEventListener('click',function () {
+            Ajax('get','http://localhost:5555/a/tokengetUser','',function (val) {
+                console.log(val)
+            })
+        })
+
+    }
+</script>
+</html>
