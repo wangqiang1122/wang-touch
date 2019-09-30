@@ -2,29 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92e56a23-e773-4ce6-9ec8-3af3e82621ee" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/js设计模式/index3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js设计模式/index4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js设计模式/备忘录模式.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js设计模式/适配器模式.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lowdb/Base.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lowdb/LocalStorage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lowdb/_stringify.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js设计模式/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/js设计模式/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js设计模式/index2.html" beforeDir="false" afterPath="$PROJECT_DIR$/js设计模式/index2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js设计模式/中介者模式.js" beforeDir="false" afterPath="$PROJECT_DIR$/js设计模式/中介者模式.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js设计模式/享元模式.js" beforeDir="false" afterPath="$PROJECT_DIR$/js设计模式/享元模式.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js设计模式/代理模式.js" beforeDir="false" afterPath="$PROJECT_DIR$/js设计模式/代理模式.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js设计模式/单例模式.js" beforeDir="false" afterPath="$PROJECT_DIR$/js设计模式/单例模式.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js设计模式/外观模式.js" beforeDir="false" afterPath="$PROJECT_DIR$/js设计模式/外观模式.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js设计模式/工厂模式.js" beforeDir="false" afterPath="$PROJECT_DIR$/js设计模式/工厂模式.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js设计模式/建设者模式.js" beforeDir="false" afterPath="$PROJECT_DIR$/js设计模式/建设者模式.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js设计模式/引用.js" beforeDir="false" afterPath="$PROJECT_DIR$/js设计模式/引用.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js设计模式/模拟vuewatcher的引用关系.js" beforeDir="false" afterPath="$PROJECT_DIR$/js设计模式/模拟vuewatcher的引用关系.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js设计模式/策略模式.js" beforeDir="false" afterPath="$PROJECT_DIR$/js设计模式/策略模式.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js设计模式/职责链模式.js" beforeDir="false" afterPath="$PROJECT_DIR$/js设计模式/职责链模式.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js设计模式/装饰器模式.js" beforeDir="false" afterPath="$PROJECT_DIR$/js设计模式/装饰器模式.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js设计模式/订阅和发布.js" beforeDir="false" afterPath="$PROJECT_DIR$/js设计模式/订阅和发布.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/koa-token/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/koa-token/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/koa-token/routers/token.js" beforeDir="false" afterPath="$PROJECT_DIR$/koa-token/routers/token.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/koa-token/src/github.html" beforeDir="false" afterPath="$PROJECT_DIR$/koa-token/src/github.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack-bundle/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack-bundle/bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack-bundle/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/webpack-bundle/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack-bundle/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/webpack-bundle/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack-bundle/src/b.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack-bundle/src/b.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/继承/寄生组合继承.html" beforeDir="false" afterPath="$PROJECT_DIR$/继承/寄生组合继承.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/继承/拷贝继承.html" beforeDir="false" afterPath="$PROJECT_DIR$/继承/拷贝继承.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -222,8 +210,8 @@
         <counts>
           <entry key="babelrc" value="10" />
           <entry key="css" value="4" />
-          <entry key="html" value="79" />
-          <entry key="js" value="215" />
+          <entry key="html" value="87" />
+          <entry key="js" value="220" />
           <entry key="json" value="33" />
           <entry key="jsx" value="2" />
           <entry key="less" value="4" />
@@ -236,10 +224,10 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="4" />
-          <entry key="HTML" value="79" />
+          <entry key="HTML" value="87" />
           <entry key="JSON" value="43" />
           <entry key="JSX Harmony" value="2" />
-          <entry key="JavaScript" value="215" />
+          <entry key="JavaScript" value="220" />
           <entry key="Less" value="4" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="SCSS" value="3" />
@@ -250,8 +238,8 @@
         <counts>
           <entry key="babelrc" value="146" />
           <entry key="css" value="77" />
-          <entry key="html" value="3690" />
-          <entry key="js" value="19591" />
+          <entry key="html" value="5436" />
+          <entry key="js" value="20122" />
           <entry key="json" value="283" />
           <entry key="jsx" value="13" />
           <entry key="less" value="67" />
@@ -261,10 +249,10 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="77" />
-          <entry key="HTML" value="3690" />
+          <entry key="HTML" value="5436" />
           <entry key="JSON" value="429" />
           <entry key="JSX Harmony" value="13" />
-          <entry key="JavaScript" value="19591" />
+          <entry key="JavaScript" value="20122" />
           <entry key="Less" value="67" />
           <entry key="SCSS" value="94" />
         </counts>
@@ -274,94 +262,88 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js设计模式/index.html">
+        <entry file="file://$PROJECT_DIR$/js设计模式/职责链模式.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="193">
+              <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js设计模式/index2.html">
+        <entry file="file://$PROJECT_DIR$/js设计模式/index4.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="110" column="38" selection-start-line="110" selection-start-column="38" selection-end-line="110" selection-end-column="38" />
+              <folding>
+                <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js设计模式/备忘录模式.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+              <caret line="15" column="11" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js设计模式/建设者模式.js">
+        <entry file="file://$PROJECT_DIR$/继承/拷贝继承.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+            <state relative-caret-position="228">
+              <caret line="30" column="31" lean-forward="true" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js设计模式/工厂模式.js">
+        <entry file="file://$PROJECT_DIR$/继承/构造函数继承.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+            <state relative-caret-position="-166" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/继承/组合继承.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-212" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/继承/实例继承.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-177" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/继承/寄生组合继承.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js设计模式/享元模式.js">
+        <entry file="file://$PROJECT_DIR$/继承/原型链继承.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="80" column="49" selection-start-line="80" selection-start-column="49" selection-end-line="80" selection-end-column="49" />
+            <state relative-caret-position="178">
+              <caret line="32" column="26" lean-forward="true" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js设计模式/职责链模式.js">
+        <entry file="file://$PROJECT_DIR$/js设计模式/index3.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="84" column="23" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/koa-my/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="27" column="19" lean-forward="true" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/koa-my/my-koa.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wke/compile.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1669">
-              <caret line="117" column="20" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js设计模式/代理模式.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="68" selection-start-line="68" selection-start-column="3" selection-end-line="89" selection-end-column="61" />
+            <state relative-caret-position="135">
+              <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -407,6 +389,7 @@
       <find>console.log</find>
       <find>HOST</find>
       <find>promise</find>
+      <find>history</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -422,15 +405,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/webpack-react/css/index.css" />
-        <option value="$PROJECT_DIR$/webpack-react/scss/index.scss" />
-        <option value="$PROJECT_DIR$/webpack-day1/webpack.config.js" />
-        <option value="$PROJECT_DIR$/webpack-react/postcss.config.js" />
-        <option value="$PROJECT_DIR$/webpack-react/less/index.less" />
-        <option value="$PROJECT_DIR$/webpack-react/index.jsx" />
-        <option value="$PROJECT_DIR$/webpack-day1/index.js" />
-        <option value="$PROJECT_DIR$/webpack-day1/.babelrc" />
-        <option value="$PROJECT_DIR$/webpack-react/a.js" />
         <option value="$PROJECT_DIR$/webpack-react/build/webpack.config.prod.js" />
         <option value="$PROJECT_DIR$/webpack-react/loash.js" />
         <option value="$PROJECT_DIR$/webpack-react/webpack.config.js" />
@@ -471,8 +445,17 @@
         <option value="$PROJECT_DIR$/js设计模式/工厂模式.js" />
         <option value="$PROJECT_DIR$/js设计模式/建设者模式.js" />
         <option value="$PROJECT_DIR$/js设计模式/享元模式.js" />
-        <option value="$PROJECT_DIR$/js设计模式/职责链模式.js" />
         <option value="$PROJECT_DIR$/js设计模式/index2.html" />
+        <option value="$PROJECT_DIR$/js设计模式/职责链模式.js" />
+        <option value="$PROJECT_DIR$/js设计模式/index3.html" />
+        <option value="$PROJECT_DIR$/js设计模式/适配器模式.js" />
+        <option value="$PROJECT_DIR$/lowdb/_stringify.js" />
+        <option value="$PROJECT_DIR$/lowdb/Base.js" />
+        <option value="$PROJECT_DIR$/lowdb/LocalStorage.js" />
+        <option value="$PROJECT_DIR$/继承/拷贝继承.html" />
+        <option value="$PROJECT_DIR$/继承/寄生组合继承.html" />
+        <option value="$PROJECT_DIR$/js设计模式/备忘录模式.js" />
+        <option value="$PROJECT_DIR$/js设计模式/index4.html" />
       </list>
     </option>
   </component>
@@ -515,8 +498,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="144" />
-    <option name="y" value="29" />
+    <option name="x" value="14" />
+    <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="736" />
   </component>
@@ -537,6 +520,11 @@
               <item name="wang-touch" type="b2602c69:ProjectViewProjectNode" />
               <item name="wang-touch" type="462c0819:PsiDirectoryNode" />
               <item name="js设计模式" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wang-touch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wang-touch" type="462c0819:PsiDirectoryNode" />
+              <item name="继承" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -696,15 +684,15 @@
       <workItem from="1566803096696" duration="11932000" />
       <workItem from="1567392386479" duration="36882000" />
       <workItem from="1567652388442" duration="67781000" />
-      <workItem from="1568885393154" duration="49833000" />
+      <workItem from="1568885393154" duration="58230000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="684615000" />
+    <option name="totallyTimeSpent" value="693012000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="144" y="29" width="1280" height="736" extended-state="0" />
+    <frame x="14" y="23" width="1280" height="736" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.486" visible="true" weight="0.26767275" />
@@ -756,81 +744,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/webpack-react/build/webpack.commion.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack-react/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="83" column="5" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack-react/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack-day3/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="26" selection-start-column="26" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack-day3/dist/add.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="11" lean-forward="true" selection-start-column="11" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack-day3/Plugins/copy-right-plugin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="19" column="37" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/koa/koa-router-get.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/koa/koa-time.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/koa/www/myApp/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/koa/www/1.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/koa/koa-routers-gets.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/koa/routers/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Waxios/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="28" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Waxios/server/a.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1069,17 +982,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js设计模式/职责链模式.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="84" column="23" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js设计模式/index2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lowdb/_stringify.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lowdb/Base.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="38" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lowdb/LocalStorage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js设计模式/适配器模式.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js设计模式/职责链模式.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/继承/实例继承.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-177" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/继承/拷贝继承.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="30" column="31" lean-forward="true" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/继承/构造函数继承.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-166" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/继承/组合继承.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-212" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/继承/寄生组合继承.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/继承/原型链继承.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="32" column="26" lean-forward="true" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js设计模式/index3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js设计模式/备忘录模式.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="11" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js设计模式/index4.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="110" column="38" selection-start-line="110" selection-start-column="38" selection-end-line="110" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
