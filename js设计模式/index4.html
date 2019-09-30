@@ -83,9 +83,9 @@
     var pre = '';
     var num =0;
     function setData(id) {
+          var xin = [];
           var index = id.charAt(1);
           var val = null;
-          console.log(index);
           if (pre==='o') {
               if (val) {
                   val = null;
@@ -104,9 +104,11 @@
               pre=val
           }
           arr[index-1] = val;
-          console.log(history1)
+          arr.forEach(item=>{
+              xin.push(item)
+          });
           history1.push({
-                queue: arr
+                queue: xin
           });
           console.log(history1.print())
           historyCreate()
@@ -126,6 +128,11 @@
        console.log(e.target.getAttribute('id'));
        var h = e.target.getAttribute('id').charAt(1);
        var hindex = h-1;
+       var a = history1.re()[hindex].queue;
+       for (var i = 0; i<a.length;i++) {
+           console.log(a[i])
+           Id('a'+(i+1)).innerHTML = a[i];
+       }
        console.log(history1.re()[hindex])
     })
 
