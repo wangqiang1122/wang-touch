@@ -1,32 +1,42 @@
 Function.prototype.before = function (beforeFn) {
   var _this =this;
   return function () {
-      beforeFn.call(_this,arguments);
-      return _this.apply(_this,arguments)
+      // console.log(arguments)
+      var s = beforeFn.call(_this,arguments);
+      console.log(s);
+      console.log(arguments);
+      return _this.apply(_this,[arguments,s])
   }
 };
 
 Function.prototype.after = function (beforeFn) {
     var _this =this;
     return function () {
-       var ret =  _this.apply(_this,arguments)
-       beforeFn.call(_this,arguments);
+       var ret =  _this.apply(_this,arguments);
+       beforeFn.call(_this,{arguments,ret});
        return ret
     }
 };
 
 
 function a() {
-    console.log('b')
+    console.log(arguments)
     return 'da'
 }
-// a.before(function () {
-//     console.log('a')
-// })();
-// a()
-var o = a.after(function () {
-    console.log('after')
-})();
+var b = a.before(function () {
+    // console.log(arguments)
+    return 's'
+});
+console.log(b('hhhh'))
+// b('hhhh');
+// a('hhhh')
 
 
-console.log(o)
+
+// var o = a.after(function () {
+//     console.log(arguments)
+//     console.log('after')
+// });
+//
+//
+// console.log(o('1'))

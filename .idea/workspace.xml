@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92e56a23-e773-4ce6-9ec8-3af3e82621ee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/设计模式/不同鸭子的整合.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/设计模式/国王和怪兽打架.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/设计模式/对多态的理解.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js设计模式/组合模式.js" beforeDir="false" afterPath="$PROJECT_DIR$/js设计模式/组合模式.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js设计模式/适配器模式.js" beforeDir="false" afterPath="$PROJECT_DIR$/js设计模式/适配器模式.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js设计模式/装饰器模式.js" beforeDir="false" afterPath="$PROJECT_DIR$/js设计模式/装饰器模式.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reg/密码校验.html" beforeDir="false" afterPath="$PROJECT_DIR$/reg/密码校验.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -206,8 +201,8 @@
         <counts>
           <entry key="babelrc" value="10" />
           <entry key="css" value="4" />
-          <entry key="html" value="88" />
-          <entry key="js" value="225" />
+          <entry key="html" value="89" />
+          <entry key="js" value="226" />
           <entry key="json" value="33" />
           <entry key="jsx" value="2" />
           <entry key="less" value="4" />
@@ -221,10 +216,10 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="4" />
-          <entry key="HTML" value="88" />
+          <entry key="HTML" value="89" />
           <entry key="JSON" value="43" />
           <entry key="JSX Harmony" value="2" />
-          <entry key="JavaScript" value="225" />
+          <entry key="JavaScript" value="226" />
           <entry key="Less" value="4" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="SCSS" value="3" />
@@ -236,8 +231,8 @@
         <counts>
           <entry key="babelrc" value="146" />
           <entry key="css" value="77" />
-          <entry key="html" value="5562" />
-          <entry key="js" value="22667" />
+          <entry key="html" value="5685" />
+          <entry key="js" value="22671" />
           <entry key="json" value="283" />
           <entry key="jsx" value="13" />
           <entry key="less" value="67" />
@@ -248,10 +243,10 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="77" />
-          <entry key="HTML" value="5562" />
+          <entry key="HTML" value="5685" />
           <entry key="JSON" value="429" />
           <entry key="JSX Harmony" value="13" />
-          <entry key="JavaScript" value="22667" />
+          <entry key="JavaScript" value="22671" />
           <entry key="Less" value="67" />
           <entry key="SCSS" value="94" />
           <entry key="TypeScript" value="1" />
@@ -266,24 +261,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js设计模式/代理模式.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1065">
-              <caret line="71" column="29" lean-forward="true" selection-start-line="71" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js设计模式/中介者模式.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="10" selection-start-column="9" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js设计模式/适配器模式.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -311,11 +288,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/设计模式/国王和怪兽打架.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4">
-              <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+            <state relative-caret-position="147">
+              <caret line="19" column="4" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/reg/密码校验.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="61" lean-forward="true" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js设计模式/装饰器模式.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="41" lean-forward="true" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -414,7 +409,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/webpack-react/build/webpack.commion.js" />
         <option value="$PROJECT_DIR$/webpack-react/package.json" />
         <option value="$PROJECT_DIR$/webpack-react/index.html" />
         <option value="$PROJECT_DIR$/webpack-react/.babelrc" />
@@ -443,7 +437,6 @@
         <option value="$PROJECT_DIR$/js设计模式/引用.js" />
         <option value="$PROJECT_DIR$/js设计模式/模拟vuewatcher的引用关系.js" />
         <option value="$PROJECT_DIR$/js设计模式/中介者模式.js" />
-        <option value="$PROJECT_DIR$/js设计模式/装饰器模式.js" />
         <option value="$PROJECT_DIR$/js设计模式/外观模式.js" />
         <option value="$PROJECT_DIR$/js设计模式/工厂模式.js" />
         <option value="$PROJECT_DIR$/js设计模式/建设者模式.js" />
@@ -465,6 +458,8 @@
         <option value="$PROJECT_DIR$/设计模式/不同鸭子的整合.js" />
         <option value="$PROJECT_DIR$/设计模式/国王和怪兽打架.ts" />
         <option value="$PROJECT_DIR$/设计模式/国王和怪兽打架.js" />
+        <option value="$PROJECT_DIR$/reg/密码校验.html" />
+        <option value="$PROJECT_DIR$/js设计模式/装饰器模式.js" />
       </list>
     </option>
   </component>
@@ -521,11 +516,6 @@
               <item name="wang-touch" type="462c0819:PsiDirectoryNode" />
               <item name="js设计模式" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="wang-touch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wang-touch" type="462c0819:PsiDirectoryNode" />
-              <item name="设计模式" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -571,7 +561,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.国王和怪兽打架.js">
+  <component name="RunManager" selected="Node.js.装饰器模式.js">
     <configuration name="对多态的理解.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="对多态的理解.js" working-dir="$PROJECT_DIR$/设计模式">
       <method v="2" />
     </configuration>
@@ -581,26 +571,26 @@
     <configuration name="国王和怪兽打架.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="国王和怪兽打架.js" working-dir="$PROJECT_DIR$/设计模式">
       <method v="2" />
     </configuration>
+    <configuration name="装饰器模式.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="装饰器模式.js" working-dir="$PROJECT_DIR$/js设计模式">
+      <method v="2" />
+    </configuration>
     <configuration name="app.js (2)" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="app.js" working-dir="$PROJECT_DIR$/koa-my">
       <method v="2" />
     </configuration>
-    <configuration name="bundle.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="bundle.js" working-dir="$PROJECT_DIR$/webpack-bundle">
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Node.js.bundle.js" />
       <item itemvalue="Node.js.app.js (2)" />
       <item itemvalue="Node.js.对多态的理解.js" />
       <item itemvalue="Node.js.不同鸭子的整合.js" />
       <item itemvalue="Node.js.国王和怪兽打架.js" />
+      <item itemvalue="Node.js.装饰器模式.js" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.装饰器模式.js" />
         <item itemvalue="Node.js.国王和怪兽打架.js" />
         <item itemvalue="Node.js.不同鸭子的整合.js" />
         <item itemvalue="Node.js.对多态的理解.js" />
         <item itemvalue="Node.js.app.js (2)" />
-        <item itemvalue="Node.js.bundle.js" />
       </list>
     </recent_temporary>
   </component>
@@ -689,7 +679,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="707228000" />
+    <option name="totallyTimeSpent" value="708889000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1280" height="736" extended-state="1" />
@@ -744,9 +734,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Waxios/js/index2.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Waxios/js/waxios/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -930,13 +917,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js设计模式/装饰器模式.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="14" lean-forward="true" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js设计模式/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
@@ -1051,8 +1031,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/设计模式/国王和怪兽打架.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4">
-          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+        <state relative-caret-position="147">
+          <caret line="19" column="4" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/reg/密码校验.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="61" lean-forward="true" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js设计模式/装饰器模式.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="41" lean-forward="true" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="41" />
         </state>
       </provider>
     </entry>

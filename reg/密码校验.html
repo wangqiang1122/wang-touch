@@ -11,5 +11,13 @@
     var str = 'aW111111';
     var reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/;
     console.log(reg.test(str))
+    /***
+     * 密码必须包含一个数字和字母
+     *
+     */
+
+    var reg1 = /^(?![0-9]+$)(?![A-Za-z]+$)[0-9A-Za-z]{8,40}$/
+    console.log(reg1.test('1111111111'))
+
 </script>
 </html>
