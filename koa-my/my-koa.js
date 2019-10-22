@@ -26,6 +26,7 @@ class Mykoa {
                     fn(ctx, ()=>{ // 这个是next
                         return new Promise((resolve,reject)=>{
                             _run(n+1,()=>{
+                                console.log('接口数据')
                                 resolve()
                             })
                         })
@@ -41,7 +42,7 @@ class Mykoa {
                         _run(n+1)
                     })
                 }
-                  callback&&callback()
+                callback&&callback()
             }
         });
     }
