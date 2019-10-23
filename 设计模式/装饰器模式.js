@@ -28,6 +28,7 @@ class CondimentDecorator extends  Beverage{
  }
     Beverage1.prototype = {
         getdescription:()=>{
+            console.log(this);
             return this.description
         },
         cost:()=>{
@@ -38,15 +39,10 @@ class CondimentDecorator extends  Beverage{
 // es5完美形式的对象继承 打破对象之间的引用
 function jicheng(object1,object2) {
     // object2继承object1
-    console.log(object1.prototype)
     var A = function () {};
     A.prototype = object1.prototype;
-    console.log(A.prototype);
-    console.log(new A())
     object2.prototype = new A();
-    console.log(object2.prototype)
     object2.prototype.constructor = object2;
-    // console.log(object2.prototype)
 }
 
 
@@ -56,5 +52,65 @@ function jicheng(object1,object2) {
  }
 jicheng(Beverage1,CondimentDecorator1);
 
-console.log(new CondimentDecorator1('wwwww').getdescription())
+// 新的饮料名字1
+
+function Espress() {
+    Beverage1.call(this,'Espress')
+}
+jicheng(Beverage1,Espress);
+// Espress.prototype = Beverage1.prototype;
+Espress.prototype.cost= function() {
+    return 1
+};
+Espress.prototype.getdescription= function() {
+    return this.description
+};
+
+
+// 新的饮料名字2
+function HouseBlend(description) {
+    Beverage1.call(this,description)
+}
+jicheng(Beverage1,HouseBlend);
+HouseBlend.prototype.getdescription= function() {
+    return 'HouseBlend'
+}
+HouseBlend.prototype.cost= function() {
+    return 2
+};
+//// 新的饮料名字3
+function DrakRoast(description) {
+    Beverage1.call(this,description)
+}
+jicheng(Beverage1,DrakRoast);
+DrakRoast.prototype.getdescription= function() {
+    return 'HouseBlend'
+}
+DrakRoast.prototype.cost= function() {
+    return 3
+};
+
+// 调料1
+
+function  Mocha(beverage) {
+   this.beverage=beverage;
+}
+Mocha.prototype.getdescription= function () {
+  return this.beverage.getdescription()+'Mocha'
+};
+Mocha.prototype.cost = function () {
+    return this.beverage.cost()+ 0.3
+};
+
+
+
+// var a = new HouseBlend();
+var a = new Espress();
+
+var beverage = new Mocha(a);
+beverage =  new Mocha(beverage);
+
+console.log(beverage.getdescription());
+console.log(beverage.cost());
+
 
