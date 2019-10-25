@@ -96,7 +96,7 @@ function  Mocha(beverage) {
    this.beverage=beverage;
 }
 Mocha.prototype.getdescription= function () {
-  return this.beverage.getdescription()+'Mocha'
+  return this.beverage.getdescription()+'-Mocha'
 };
 Mocha.prototype.cost = function () {
     return this.beverage.cost()+ 0.3
