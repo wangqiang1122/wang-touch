@@ -6,10 +6,12 @@ function CreatesingleLayer(fn) {  // 单例模式的方法类 没有缓存新建
     * */
     // 这是一个闭包函数
     var instance;
-    return function () {
+    return function (val) {
+
          if (instance) {
              return instance
          } else {
+             console.log(val);
              return instance=fn.apply(this)
          }
      }
@@ -19,7 +21,6 @@ function createModel() {
     var div = document.createElement('div');
     div.className = 'madel';
     div.innerHTML = '单例模式';
-    console.log('2222')
     document.body.appendChild(div);
     return div;
 }

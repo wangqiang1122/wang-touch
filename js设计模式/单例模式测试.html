@@ -5,7 +5,40 @@
     <title>Title</title>
 </head>
 <body>
-
+<button id = 'a1'>点击</button>
 </body>
 <script src="单例模式.js"></script>
+<script>
+    var btn = document.getElementById('a1');
+    var a = v();
+    btn.addEventListener('click',()=>{
+        var g = a('dadadada');
+        console.log(g)
+    });
+    // console.log(a);
+</script>
+<script>
+    let SingleTest=(function () {
+        let _instance = null;
+        function _init(ops) {
+            for(let i in ops){
+                this[i]=ops[i];
+            }
+        }
+        return function (arg) {
+            console.log(arg);
+            // if(_instance==null){
+            //     _instance=this;
+            // }
+            _init.call(this,arg)
+            return this;
+        }
+    })();
+
+    let i1=new SingleTest({s:'s'});
+    let i2=new SingleTest({s:'g'});
+    console.log(i1===i2);
+    console.log(i1.s);
+    console.log(i2.s);
+</script>
 </html>
