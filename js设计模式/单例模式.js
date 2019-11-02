@@ -7,11 +7,11 @@ function CreatesingleLayer(fn) {  // 单例模式的方法类 没有缓存新建
     // 这是一个闭包函数
     var instance;
     return function (val) {
-
+        console.log(val);
          if (instance) {
+             instance.innerHTML = val;
              return instance
          } else {
-             console.log(val);
              return instance=fn.apply(this)
          }
      }
