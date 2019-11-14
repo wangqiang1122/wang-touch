@@ -17,6 +17,7 @@ function CheesePizza() {
 
 }
 CheesePizza.prototype = new Pizza();
+
 // YangweiPizza
 function YangweiPizza(str) {
     Pizza.call(this,str);

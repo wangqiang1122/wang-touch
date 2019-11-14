@@ -17,6 +17,8 @@ class Pizza{
         print('box');
     }
 }
+// 店1和店2 原料需要从
+
 //店1的特色
 class LaweiPizza extends Pizza {
     constructor() {
