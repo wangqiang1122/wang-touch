@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<iframe name="name1" src="iframe-p.html?data=222&a=1" style="" id="iframe1" onload="da()"></iframe>
+
+
+<form action="./iframe1.html" target="name1" enctype="multipart/form-data" method="post">
+   账号： <input type="text"><br>
+   密码：<input type="password">
+   <button type="submit">提交</button>
+</form>
+
+<button id="btn">点击激活i</button>
+</body>
+
+<script>
+    var iframe = document.getElementById('iframe1');
+   var btn = document.getElementById('btn');
+    window.onload = function () {
+
+        // console.log(document.readyState);
+
+        if (document.readyState =='complete') {
+            name1.window.say();
+            console.log(name1.window.document);
+        }
+    }
+
+    function da(e) {
+        // name1.window.say();
+        // console.log(name1.window.document);
+    }
+    btn.onclick = function () {
+        iframe.window.say()
+    }
+    // name1.window.say();
+    function say() {
+        console.log('say')
+    }
+</script>
+</html>
