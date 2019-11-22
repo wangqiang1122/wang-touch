@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #f {
+            position: relative;
+        }
+        #k{
+            position: absolute;
+            left: 140px;
+            top:100px;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<div id="f">
+    <canvas id="c1" width="400" height="400"></canvas>
+    <div id="k"></div>
+</div>
+<input type="file" value="选择图片" id="file">
+<button id="qie">剪裁</button>
+<button id="upload">上传服务器</button>
+<img src="" alt="" id="img1">
+</body>
+<script>
+    var file = document.getElementById('file');
+    var c1 = document.getElementById('c1');
+    var qie = document.getElementById('qie');
+    var upload = document.getElementById('upload');
+    var k = document.getElementById('k');
+    var img1 = document.getElementById('img1');
+    var fiFileReader = new FileReader();
+    var dg = c1.getContext('2d');
+    file.addEventListener('change',function (ev) {
+        fiFileReader.readAsDataURL(this.files[0]);
+        fiFileReader.onload = function () {
+            var oImg = new Image();
+            oImg.src = this.result;
+            console.log(oImg)
+            oImg.onload = function() {
+                dg.clearRect(0,0,400,400)
+                dg.drawImage(oImg,0,0,oImg.width,oImg.height,0,0,400,400);
+            };
+        }
+    })
+    hua()
+    var sx,sy;
+    function hua() {
+      c1.onmousedown = function (ev) {
+          sx = ev.offsetX;
+          sy = ev.offsetY;
+          c1.onmousemove = function (ev) {
+              dg.beginPath();
+              dg.moveTo(sx,sy);
+              dg.lineTo(ev.offsetX,ev.offsetY);
+              dg.stroke()
+              sx = ev.offsetX;
+              sy = ev.offsetY;
+          }
+      }
+    }
+    window.document.onmouseup =function () {
+        c1.onmousemove = null;
+    };
+    function move(ev){
+        console.log(ev)
+        k.style.left = ev.pageX-50+'px';
+        k.style.top = ev.pageY-50+'px';
+    }
+    k.addEventListener('mousedown',function (ev) {
+       k.style.left = ev.pageX-50+'px';
+       k.style.top = ev.pageY-50+'px';
+        k.addEventListener('mousemove',move)
+    })
+    k.onmouseup = function () {
+        k.removeEventListener('mousemove',move);
+    }
+    //剪裁
+    var canvas = document.createElement('canvas');
+    var dg2 = canvas.getContext('2d');
+    var str = '';
+    qie.onclick = function () {
+        console.log(k.offsetTop);
+        var sx = k.offsetLeft;
+        var sy = k.offsetTop;
+        var sw = k.offsetWidth;
+        var sh = k.offsetHeight;
+        canvas.width = k.offsetWidth;
+        canvas.height = k.offsetHeight;
+        console.log(sx);
+        console.log(sy);
+        console.log(sw);
+        console.log(sh);
+        dg2.drawImage(c1,sx,sy,sw,sh,0,0,100,100);
+        str = canvas.toDataURL();
+        img1.src = str
+    }
+    upload.onclick = function () {
+        var url = 'http://localhost:1111/reg'
+        var xhr = new XMLHttpRequest();
+        xhr.open('post',url);
+        xhr.onreadystatechange = function () {
+
+        };
+        xhr.send(str);
+    }
+</script>
+
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <canvas id="c1" width="800" height="600"></canvas>
+</body>
+<script>
+    let c1 = document.getElementById('c1');
+    let dg = c1.getContext('2d');
+    var l =0;
+     setInterval(function () {
+         dg.clearRect(0,0,800,600)
+         l+=5;
+         dg.strokeRect(l,l,100,100);
+     },100);
+</script>
+</html>

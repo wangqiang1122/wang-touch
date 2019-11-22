@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<video src="http://www.w3school.com.cn/i/movie.ogg" controls id="video"></video>
+<canvas width="400" height="400" id="c1"></canvas>
+<button id="btn">过去</button>
+</body>
+<script>
+    var c1 = document.getElementById('c1');
+    var video = document.getElementById('video');
+    var btn = document.getElementById('btn');
+
+    var dg = c1.getContext('2d');
+    // btn.onclick = function() {
+    //     dg.drawImage(video,0,0)
+    // }
+    function next() {
+        requestAnimationFrame(function () { //(((r*c1.width)+c)*4)+0
+            dg.drawImage(video,0,0);
+            var Imagedate1 = dg.getImageData(0,0,400,400);
+            for (var a = 0;a<c1.height;a++) {
+                for (var c =0;c<c1.width;c++) {
+                  let avg = (Imagedate1.data[(((a*c1.width)+c)*4)]+Imagedate1.data[(((a*c1.width)+c)*4)+1]+Imagedate1.data[(((a*c1.width)+c)*4)+2])/3
+                  Imagedate1.data[(((a*c1.width)+c)*4)]=Imagedate1.data[(((a*c1.width)+c)*4)+1]=Imagedate1.data[(((a*c1.width)+c)*4)+2]=avg
+                }
+            }
+            dg.putImageData(Imagedate1,0,0);
+            next()
+        })
+    }
+    next()
+
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <canvas id="c1" width="800" height="600"></canvas>
+</body>
+<script>
+    let c1 = document.getElementById('c1');
+    let dg = c1.getContext('2d');
+    var l =0;
+    let x = 10, y = 50, w = 100, h =100;
+     dg.strokeRect(x,y,w,h);
+
+     c1.onclick = function (ev) {
+         var x1 = ev.offsetX;
+         var y2 = ev.offsetY;
+         if (x1>=x&&x1<=w+x&&y2>=y&&y2<=h+y) {
+             console.log('点击了')
+         }
+     }
+</script>
+</html>

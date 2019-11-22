@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="c1" width="500" height="400"></canvas>
+<button id="btn">上传</button>
+</body>
+
+<script>
+    var c1 = document.getElementById('c1');
+    var gd = c1.getContext('2d');
+    var btn = document.getElementById('btn');
+    let sx,sy;
+    function c(ev) {
+           gd.beginPath()
+            gd.moveTo(sx,sy);
+            gd.lineTo(ev.pageX,ev.pageY);
+            sx = ev.pageX;
+            sy = ev.pageY;
+            gd.stroke();
+    }
+    c1.onmousedown = function (ev) {
+        sx = ev.offsetX;
+        sy = ev.offsetY;
+        console.log(ev);
+        c1.addEventListener('mousemove',c)
+        // c1.onmousemove = function (ev) {
+        //     gd.beginPath()
+        //     gd.moveTo(sx,sy);
+        //     gd.lineTo(ev.pageX,ev.pageY);
+        //     sx = ev.pageX;
+        //     sy = ev.pageY;
+        //     gd.stroke();
+        // }
+    }
+    window.document.addEventListener('mouseup',function () {
+       c1.removeEventListener('mousemove',c)
+        // c1.onmousemove = null
+    })
+    btn.addEventListener('click',function () {
+        console.log(c1.toDataURL())
+        ajax('http://localhost:1111/reg')
+    })
+    function ajax(url) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('post',url);
+        xhr.onreadystatechange = function () {
+
+        }
+        xhr.send(encodeURIComponent(c1.toDataURL()));
+    }
+</script>
+</html>

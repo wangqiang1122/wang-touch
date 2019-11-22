@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画</title>
+</head>
+<body>
+<canvas id="c1" width="600" height="600" ></canvas>
+</body>
+<script>
+    var c1 = document.getElementById('c1');
+    var gd = c1.getContext('2d');
+    var oImg = new Image();
+    oImg.src = './sprit.jpeg';
+    var step = 0;
+    var des = { d:0,l:32,r:63,u:96};
+    var der = { 37:'l',38:'u',39:'r',40:'d'}
+    oImg.onload = function () {
+        var u = 'l';
+        var x = 100, y=100, speeds = 1;
+        window.document.addEventListener('keydown',function (ev) {
+            switch (ev.keyCode) {
+                case 37:
+                      u = der[ev.keyCode];
+                      x-= speeds;
+                    break;
+                case 38:
+                    u = der[ev.keyCode];
+                    y-=speeds;
+                    break;
+                case 39:
+                    u = der[ev.keyCode];
+                    x+=speeds;
+                    break;
+                case 40:
+                    u = der[ev.keyCode];
+                    y+=speeds;
+                    break;
+            }
+        });
+        // function next() {
+        //     window.requestAnimationFrame(function () {
+        //         gd.clearRect(0,0,600,600);
+        //         switch (u) {
+        //             case 'l':
+        //                 x-= speeds;
+        //                 break;
+        //             case 'u':
+        //                 y-= speeds;
+        //                 break
+        //             case 'r':
+        //                 x+=speeds;
+        //                 break;
+        //             case 'd':
+        //                 y+=speeds;
+        //                 break
+        //         }
+        //         if (step>=3) {
+        //             step = 0;
+        //         }
+        //         gd.drawImage(oImg,step*35,des[u],28,35,x,y,28,35);
+        //         step+=1;
+        //         next()
+        //     },50)
+        // }
+        // next()
+        setInterval(function () {
+            gd.clearRect(0,0,600,600);
+            switch (u) {
+                case 'l':
+                    x-= speeds;
+                    break;
+                case 'u':
+                    y-= speeds;
+                    break;
+                case 'r':
+                    x+=speeds;
+                    break;
+                case 'd':
+                    y+=speeds;
+                    break;
+            }
+            if (step>=3) {
+                step = 0;
+            }
+            gd.drawImage(oImg,step*35,des[u],28,35,x,y,28,35);
+            step+=1;
+
+        },110)
+        // setInterval(function () {
+        //     gd.drawImage(oImg,0,des[u],28,35,100,100,28,35)
+        // },100)
+    }
+
+
+</script>
+</html>

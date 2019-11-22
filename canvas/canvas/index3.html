@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        #c1{
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600px" height="600px" id="c1">不支持canvas</canvas>
+</body>
+<script>
+    let c1 = document.getElementById('c1');
+    let context = c1.getContext('2d'); // 上下文 绘图用的借口
+    var startX,startY;
+    c1.onmousedown = function (ev) {
+        console.log(ev.offsetX);
+        context.beginPath();
+        startX = ev.offsetX;
+        startY = ev.offsetY;
+        c1.onmousemove = function (e) {
+            context.moveTo(startX,startY);
+            context.lineTo(e.offsetX,e.offsetY);
+            context.strokeStyle = 'red';
+            context.stroke();
+            startX = e.offsetX;
+            startY = e.offsetY
+        }
+    }
+    window.document.onmouseup  =function () {
+        c1.onmousemove = null;
+    }
+</script>
+</html>
