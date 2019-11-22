@@ -77,22 +77,27 @@
      this.create();
  };
  Page.prototype.create = function () {
+     // page:1 page_count 17
+     // 保证被点击的页数在中间
      var ping = (this.show_page-1)/2; // 左右显示的平均数  在中间
      var num = this.obj.page-ping; // 最小页码
      var endnum =  (this.obj.page+ping)>this.obj.page_count?this.obj.page_count:(this.obj.page+ping) // 最大页码
+     console.log(endnum);
      var pageID = document.getElementById('pageID');
      var self= this;
      pageID.innerHTML = '';
      num = num<1?1:num;
      if (this.obj.page_count<= this.z_page) {
+         alert('smallPage');
          this.smallPage()
-     } else if( (this.obj.page+ping+1)>=this.obj.page_count) { // 还要加上最后一个   接近尾页
+     } else if( (this.obj.page+ping+1)>=this.obj.page_count) {// 还要加上最后一个   接近尾页
          pageID.appendChild(this.nearBack())
 
      } else if ((ping+2)>=(this.obj.page)) {  //3   接近首页
          pageID.appendChild( this.nearHome())
          console.log('临近首页')
      }else {
+         console.log(num,endnum);
          pageID.appendChild(this.centerPage(num,endnum));
      }
      document.onclick = function (event) {
