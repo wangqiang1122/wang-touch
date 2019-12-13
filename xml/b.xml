@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<?xml-stylesheet type="text/css" href="./first.css" ?>
+
+<addresslist>
+    <linkman>
+        <name>肖朋伟</name>
+        <id>2236</id>
+        <company>null</company>
+        <email>xpwi@qq.com</email>
+        <tel>66666</tel>
+
+    </linkman>
+</addresslist>

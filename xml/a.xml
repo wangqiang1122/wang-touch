@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/css" href="./first.css" ?>
+
+<bookstore>
+    <book>
+        <title lang="en">RESTful Web Services</title>
+        <price>29.00</price>
+    </book>
+    <book>
+        <title lang="zh">C#编程基础</title>
+        <price>46.00</price>
+    </book>
+</bookstore>
