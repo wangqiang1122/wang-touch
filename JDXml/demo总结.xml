@@ -1,0 +1,137 @@
+<!--京东xml无法设置静态资源，必须要有editProperty编辑属性-->
+
+<floor>
+    <container id="ddd">
+        <style>
+            <attribute name="width" value="-1"/>
+            <attribute name="height" value="100"/>
+            <attribute name="visible" value="true"/>
+            <attribute name="backgroundColor" value="#f7ffe4"/>
+            <attribute name="layout" value="linear"/>
+            <attribute name="orientation" value="horizontal"/>
+        </style>
+        <image url="https://img13.360buyimg.com/zx/jfs/t3073/114/4368933366/29361/50a9dafa/583fc2e2Ncbe3d4b5.jpg">
+            <style>
+                <attribute name="width" value="100"/>
+                <attribute name="height" value="100"/>
+            </style>
+        </image>
+        <image url="https://img13.360buyimg.com/zx/jfs/t3073/114/4368933366/29361/50a9dafa/583fc2e2Ncbe3d4b5.jpg">
+            <style>
+                <attribute name="width" value="80"/>
+                <attribute name="height" value="80"/>
+            </style>
+        </image>
+        <editProperty>
+            <dataDefines>
+                <dataDefine name="textArea" type="text" middleType="J_TEXT_AREA" middleName="textArea" propertyName="文本区域">
+                    <config type="textarea">
+                    </config>
+                </dataDefine>
+            </dataDefines>
+        </editProperty>
+    </container>
+</floor>
+
+
+<floor>
+<container>
+    <style>
+        <attribute name="width" value="-1"/>
+        <attribute name="height" value="90"/>
+        <attribute name="backgroundColor" value="#ffffff"/>
+    </style>
+    <text value="$text">
+        <style>
+            <attribute name="gravity" value="5"/>
+            <attribute name="fontSize" value="15"/>
+            <attribute name="fontWeight" value="500"/>
+        </style>
+        <editProperty>
+            <dataDefines>
+                <dataDefine  middleType="J_TEXT" middleName="text" name="text" type="text" propertyName="title文案">
+                    <config>
+
+                    </config>
+                </dataDefine>
+            </dataDefines>
+        </editProperty>
+    </text>
+</container>
+</floor>
+
+        <!--图片链接-->
+<floor>
+<container>
+    <style>
+        <attribute name="width" value="-1"></attribute>
+        <attribute name="height" value="-2"></attribute>
+    </style>
+    <image url="$imageUrl">
+        <style>
+            <attribute name="width" value="60"/>
+            <attribute name="height" value="94"/>
+        </style>
+    </image>
+    <editProperty>
+        <dataDefines>
+            <dataDefine
+                    middleType="J_LINK_IMAGE" middleName="linkImageData"
+
+                    name="imageUrl"
+                    type="image" width="160" height="160" propertyName="图片配置">
+                <config>
+                </config>
+            </dataDefine>
+        </dataDefines>
+    </editProperty>
+</container>
+</floor>
+
+        <!--时间源设置-->
+        <?xml version="1.0" encoding="utf-8" ?>
+<floor>
+<container>
+    <style>
+        <attribute name="width" value="-1"/>
+        <attribute name="height" value="100"/>
+    </style>
+    <text prefix="当前时间：" value="$time" suffix='shshshs'>
+    </text>
+    <editProperty>
+        <dataDefines>
+            <dataDefine name="time" type="text" middleType="J_DATE_TIME" middleName="time" propertyName="时间类型">
+                <config type="datetime">
+                </config>
+            </dataDefine>
+        </dataDefines>
+    </editProperty>
+</container>
+</floor>
+        <!--单选问题-->
+
+<floor>
+<container>
+    <style>
+        <attribute name="width" value="-1"/>
+        <attribute name="height" value="100"/>
+    </style>
+    <text prefix="当前选中：" value="$quality">
+        <style>
+            <attribute name="textColor" value="red"/>
+        </style>
+    </text>
+    <editProperty>
+        <dataDefines>
+            <dataDefine name="quality" type="text" middleType="J_NORMAL_ARRAY" middleName="quality" propertyName="多选框">
+                <config type="radio">
+                    <data text="一般" value="0" defaultSelect="true" visible="true"/>
+                    <data text="较高" value="1" defaultSelect="false" visible="true"/>
+                    <data text="极高" value="2" defaultSelect="false" visible="true"/>
+                </config>
+            </dataDefine>
+
+        </dataDefines>
+    </editProperty>
+</container>
+</floor>
