@@ -1,0 +1,69 @@
+<floor>
+    <container>
+        <style>
+            <attribute name="width" value="-1"/>
+            <attribute name="height" value="-1"/>
+        </style>
+        <container>
+            <style>
+                <attribute name="width" value="360"/>
+                <attribute name="height" value="30"/>
+                <attribute name="borderColor" value="#888888"/>
+                <attribute name="visible" value="true"/>
+                <attribute name="layout" value="absolute"/>
+                <attribute name="borderWidth" value="1"/>
+                <attribute name="marginLeft" value="5"/>
+            </style>
+            <text value="$textArea">
+                <style>
+                    <attribute name="gravity" value="5"/>
+                    <attribute name="lines" value="1"/>
+                    <attribute name="fontSize" value="14"/>
+                    <attribute name="textColor" value="#888888"/>
+                </style>
+            </text>
+
+            <container>
+                <style>
+                    <attribute name="layout" value="absolute"/>
+                    <attribute name="marginRight" value="10"/>
+                    <attribute name="visible" value="true"/>
+                    <attribute name="marginTop" value="0"/>
+                </style>
+                <text  value="$textArea1">
+                    <style>
+                        <attribute name="gravity" value="6"/>
+                        <attribute name="lines" value="1"/>
+                        <attribute name="fontSize" value="14"/>
+                        <attribute name="textColor" value="#888888"/>
+                    </style>
+                </text>
+            </container>
+
+        </container>
+
+        <editProperty>
+            <dataDefines>
+                <dataDefine name="textArea" type="text" middleType="J_LINK_TEXT" middleName="textArea" propertyName="文本区域">
+                    <config type="textarea">
+                    </config>
+                </dataDefine>
+                <dataDefine name="textArea1" type="text" middleType="J_TEXT_AREA" middleName="textArea1" propertyName="文本区域">
+                    <config type="textarea">
+                    </config>
+                </dataDefine>
+            </dataDefines>
+        </editProperty>
+        <events>
+            <event type="click">
+                <actions>
+                    <openURL>
+                        <params>
+                            <param name="跳转活动" value="$textArea.data"/>
+                        </params>
+                    </openURL>
+                </actions>
+            </event>
+        </events>
+    </container>
+</floor>

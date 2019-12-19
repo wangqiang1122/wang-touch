@@ -1,0 +1,57 @@
+<floor>
+    <container>
+        <style>
+            <attribute name="width" value="-1"/>
+            <attribute name="height" value="-1"/>
+            <attribute name="backgroundColor" value="red"/>
+        </style>
+        <grid>
+            <style>
+                <attribute name="marginTop" value="0"/>
+                <attribute name="marginLeft" value="0"/>
+                <attribute name="marginBottom" value="2"/>
+                <attribute name="width" value="-1"/>
+                <attribute name="height" value="-1"/>
+                <attribute name="column" value="2"/>
+            </style>
+            <foreach jsonArrayName="$skuList">
+                <template>
+                    <container>
+                        <sku name="$skuList.[?].skuId"/>
+                        <style>
+                            <attribute name="layout" value="absolute"/>
+                            <attribute name="width" value="170"/>
+                            <attribute name="height" value="120"/>
+                        </style>
+                        <image url="$skuList.[?].imageUrl">
+                            <style>
+                                <attribute name="marginTop" value="2"/>
+                                <attribute name="marginLeft" value="9"/>
+                                <attribute name="width" value="170"/>
+                                <attribute name="height" value="120"/>
+                            </style>
+                        </image>
+                        <events>
+                            <event type="click">
+                                <actions>
+                                    <openURL>
+                                        <params>
+                                            <param name="跳转sku" value="$skuList.[?].skuId"/>
+                                        </params>
+                                    </openURL>
+                                </actions>
+                            </event>
+                        </events>
+                    </container>
+                </template>
+            </foreach>
+        </grid>
+        <editProperty>
+            <dataDefines>
+                <dataDefine middleType="J_COMMON_SKU_MATERIAL" middleName="goodsMaterialGroup"
+                            name="skuList" type="sku" max="4" propertyName="配置商品">
+                </dataDefine>
+            </dataDefines>
+        </editProperty>
+    </container>
+</floor>

@@ -108,6 +108,7 @@
     </editProperty>
 </container>
 </floor>
+
         <!--单选问题-->
 
 <floor>
@@ -135,3 +136,239 @@
     </editProperty>
 </container>
 </floor>
+
+        <!--配置轮播图挂跳转链接完成-->
+
+<floor>
+<slider>
+    <foreach jsonArrayName="$slide_array">
+        <template>
+            <image url="$slide_array.[?].imageUrl">
+                <style>
+                    <attribute name="width" value="-1"/>
+                    <attribute name="height" value="-1"/>
+                </style>
+                <events>
+                    <event type="click">
+                        <actions>
+                            <openURL>
+                                <params>
+                                    <param name="跳转sku" value="$slide_array.[?].detail"/>
+                                </params>
+                            </openURL>
+                        </actions>
+                    </event>
+                </events>
+            </image>
+        </template>
+    </foreach>
+    <style>
+        <attribute name="height" value="130"/>
+        <attribute name="width" value="-1"/>
+        <attribute name="backgroundColor" value="#FFFFFF"/>
+    </style>
+    <editProperty>
+        <dataDefines>
+            <dataDefine middleType="J_ADV_MATERIAL" middleName="lunboGoodsGroup"
+                        name="slide_array" type="jsonArray" max="10" width="960" height="390" propertyName="轮播图配置">
+                <config>
+                    <data text="sku" value="1" defaultSelect="false"/>
+                    <data text="promotion" value="2" defaultSelect="true"/>
+                </config>
+            </dataDefine>
+        </dataDefines>
+    </editProperty>
+</slider>
+</floor>
+
+
+        <!--上传图片单个的-->
+
+<floor>
+<container>
+    <style>
+        <attribute name="width" value="-1"/>
+        <attribute name="height" value="94"/>
+    </style>
+    <image url="$imageUrl">
+        <style>
+            <attribute name="width" value="320"/>
+            <attribute name="height" value="94"/>
+        </style>
+    </image>
+    <editProperty>
+        <dataDefines>
+            <dataDefine middleType="J_LINK_IMAGE" middleName="linkImageData"
+                        name="imageUrl" type="image" width="160" height="160" propertyName="第一张图片配置">
+                <config>
+                    <data text="sku" value="1" defaultSelect="true"/>
+                    <data text="promotion" value="2" defaultSelect="false"/>
+                </config>
+            </dataDefine>
+        </dataDefines>
+    </editProperty>
+    <events>
+        <event type="click">
+            <actions>
+                <openURL>
+                    <params>
+                        <param name="页面跳转" value="$imageUrl.data"/>
+                    </params>
+                </openURL>
+            </actions>
+        </event>
+    </events>
+</container>
+</floor>
+
+        <!--添加商品列表-->
+<floor>
+<container>
+    <style>
+        <attribute name="width" value="-1"/>
+        <attribute name="height" value="170"/>
+        <attribute name="backgroundColor" value="red"/>
+    </style>
+    <grid>
+        <style>
+            <attribute name="marginTop" value="10"/>
+            <attribute name="marginLeft" value="9"/>
+            <attribute name="width" value="302"/>
+            <attribute name="height" value="155"/>
+            <attribute name="column" value="2"/>
+        </style>
+        <foreach jsonArrayName="$skuList">
+            <template>
+                <container>
+                    <sku name="$skuList.[?].skuId"/>
+                    <style>
+                        <attribute name="layout" value="absolute"/>
+                        <attribute name="width" value="151"/>
+                        <attribute name="height" value="155"/>
+                    </style>
+                    <image url="$skuList.[?].imageUrl">
+                        <style>
+                            <attribute name="marginTop" value="0"/>
+                            <attribute name="marginLeft" value="20"/>
+                            <attribute name="width" value="160"/>
+                            <attribute name="height" value="155"/>
+                        </style>
+                    </image>
+                    <container>
+                        <style>
+                            <attribute name="marginTop" value="119"/>
+                            <attribute name="marginLeft" value="20"/>
+                            <attribute name="layout" value="linear"/>
+                            <attribute name="orientation" value="vertical"/>
+                            <attribute name="width" value="160"/>
+                            <attribute name="height" value="36"/>
+                            <attribute name="backgroundColor" value="#cdffffff"/>
+                        </style>
+                        <text value="$skuList.[?].skuName">
+                            <style>
+                                <attribute name="marginLeft" value="6"/>
+                                <attribute name="marginTop" value="2"/>
+                                <attribute name="width" value="144"/>
+                                <attribute name="height" value="17"/>
+                                <attribute name="fontSize" value="13"/>
+                            </style>
+                        </text>
+                        <text value="$skuList.[?].price">
+                            <style>
+                                <attribute name="marginLeft" value="6"/>
+                                <attribute name="width" value="130"/>
+                                <attribute name="fontSize" value="13"/>
+                                <attribute name="height" value="23"/>
+                                <attribute name="textColor" value="#f15353"/>
+                            </style>
+                        </text>
+                    </container>
+                    <events>
+                        <event type="click">
+                            <actions>
+                                <openURL>
+                                    <params>
+                                        <param name="跳转sku" value="$skuList.[?].skuId"/>
+                                    </params>
+                                </openURL>
+                            </actions>
+                        </event>
+                    </events>
+                </container>
+            </template>
+        </foreach>
+    </grid>
+    <editProperty>
+        <dataDefines>
+            <dataDefine middleType="J_COMMON_SKU_MATERIAL" middleName="goodsMaterialGroup"
+                        name="skuList" type="sku" max="4" propertyName="配置商品">
+            </dataDefine>
+        </dataDefines>
+    </editProperty>
+</container>
+</floor>
+
+        <!--添加商品一个占一行的列表-->
+<floor>
+<list>
+    <foreach start="0" step="1" jsonArrayName="$slide_array">
+        <template>
+            <container>
+                <style>
+                    <attribute name="width" value="-1"/>
+                    <attribute name="height" value="119"/>
+                    <attribute name="layout" value="linear"/>
+                    <attribute name="orientation" value="horizontal"/>
+                </style>
+                <image url="$slide_array.[?].imageUrl">
+                    <style>
+                        <attribute name="width" value="119"/>
+                        <attribute name="height" value="119"/>
+                        <attribute name="paddingTop" value="5"/>
+                        <attribute name="paddingLeft" value="5"/>
+                        <attribute name="paddingRight" value="5"/>
+                        <attribute name="paddingBottom" value="5"/>
+                    </style>
+                </image>
+                <container>
+                    <style>
+                        <attribute name="width" value="-1"/>
+                        <attribute name="height" value="-1"/>
+                    </style>
+                    <text value="$slide_array.[?].skuName">
+                        <style>
+                            <attribute name="marginRight" value="6"/>
+                            <attribute name="width" value="-1"/>
+                            <attribute name="height" value="40"/>
+                            <attribute name="marginTop" value="12"/>
+                            <attribute name="lines" value="2"/>
+                        </style>
+                    </text>
+                    <text value="$slide_array.[?].price">
+                        <style>
+                            <attribute name="marginTop" value="30"/>
+                            <attribute name="textColor" value="#f02b2b"/>
+                            <attribute name="fontWeight" value="500"/>
+                        </style>
+                    </text>
+                </container>
+            </container>
+        </template>
+    </foreach>
+    <style>
+        <attribute name="width" value="-1"/>
+        <attribute name="height" value="600"/>
+        <attribute name="backgroundColor" value="#FFFFFF"/>
+    </style>
+    <editProperty>
+        <dataDefines>
+            <dataDefine middleType="J_COMMON_SKU_MATERIAL" middleName="goodsMaterialGroup"
+                        name="slide_array" type="sku" max="6" propertyName="商品配置">
+            </dataDefine>
+        </dataDefines>
+    </editProperty>
+</list>
+</floor>
+
+
+

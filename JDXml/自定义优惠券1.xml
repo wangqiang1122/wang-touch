@@ -1,0 +1,283 @@
+<floor>
+    <container>
+        <style>
+            <attribute name="width" value="-1"></attribute>
+            <attribute name="height" value="-2"></attribute>
+        </style>
+        <container>
+            <style>
+                <attribute name="width" value="-1"></attribute>
+                <attribute name="height" value="-2"></attribute>
+            </style>
+            <grid>
+                <style>
+                    <attribute name="width" value="-1"></attribute>
+                    <attribute name="height" value="-2"></attribute>
+                    <attribute name="column" value="2"></attribute>
+                    <attribute name="borderColor" value="#ffffff"></attribute>
+                    <attribute name="borderWidth" value="0"></attribute>
+                </style>
+                <foreach jsonArrayName="$coupon_array">
+                    <template>
+                        <container>
+                            <style>
+                                <attribute name="width" value="188"></attribute>
+                                <attribute name="height" value="$coupon_array.[?].height"></attribute>
+                                <attribute name="layout" value="absolute"></attribute>
+                            </style>
+                            <image url="$coupon_array.[?].imageUrl">
+                                <style>
+                                    <attribute name="width" value="-1"></attribute>
+                                    <attribute name="height" value="$coupon_array.[?].height"></attribute>
+                                    <attribute name="needPlaceholder" value="false"></attribute>
+                                </style>
+                            </image>
+
+
+                            <events>
+                                <event type="click">
+                                    <actions>
+                                        <sendRequest>
+                                            <params>
+                                                <param name="领取优惠券" type="receiveCoupon" value="$coupon_array.[?]"/>
+                                            </params>
+                                        </sendRequest>
+                                        <jdmtav2>
+                                            <params>
+                                                <param name="eventId" value="Terminator_Coupon"/>
+                                                <param name="eventContext" value="$coupon_array.[?].roleId"/>
+                                            </params>
+                                        </jdmtav2>
+                                    </actions>
+                                </event>
+                            </events>
+                            <conditions>
+                                <!--已领取-->
+                                <condition type="==" left="$coupon_array.[?].state" right="14">
+                                    <container>
+                                        <style>
+                                            <attribute name="width" value="-1"></attribute>
+                                            <attribute name="height" value="-1"></attribute>
+                                            <attribute name="layout" value="absolute"></attribute>
+                                        </style>
+                                        <image url="//img14.360buyimg.com/zx/jfs/t20230/332/1609538530/3170/7a7303cb/5b2f0763N64cfbe83.png">
+                                            <style>
+                                                <attribute name="width" value="-1"></attribute>
+                                                <attribute name="height" value="-1"></attribute>
+                                                <attribute name="needPlaceholder" value="false"></attribute>
+                                            </style>
+                                        </image>
+                                        <container>
+                                            <style>
+                                                <attribute name="width" value="52"></attribute>
+                                                <attribute name="height" value="-1"></attribute>
+                                                <attribute name="marginTop" value="0"></attribute>
+                                                <attribute name="marginRight" value="2"></attribute>
+                                                <attribute name="layout" value="absolute"></attribute>
+                                            </style>
+                                            <image url="//img20.360buyimg.com/zx/jfs/t18316/206/949080946/6005/8d54a1/5ab46343N13cb321f.png">
+                                                <style>
+                                                    <attribute name="align" value="5"></attribute>
+                                                    <attribute name="width" value="52"></attribute>
+                                                    <attribute name="height" value="52"></attribute>
+                                                    <attribute name="needPlaceholder" value="false"></attribute>
+                                                </style>
+                                            </image>
+                                        </container>
+                                    </container>
+                                </condition>
+                                <!--已领取-->
+                                <condition type="==" left="$coupon_array.[?].state" right="15">
+                                    <container>
+                                        <style>
+                                            <attribute name="width" value="-1"></attribute>
+                                            <attribute name="height" value="-1"></attribute>
+                                            <attribute name="layout" value="absolute"></attribute>
+                                        </style>
+                                        <image url="//img14.360buyimg.com/zx/jfs/t20230/332/1609538530/3170/7a7303cb/5b2f0763N64cfbe83.png">
+                                            <style>
+                                                <attribute name="width" value="-1"></attribute>
+                                                <attribute name="height" value="-1"></attribute>
+                                                <attribute name="needPlaceholder" value="false"></attribute>
+                                            </style>
+                                        </image>
+                                        <container>
+                                            <style>
+                                                <attribute name="width" value="52"></attribute>
+                                                <attribute name="height" value="-1"></attribute>
+                                                <attribute name="marginTop" value="0"></attribute>
+                                                <attribute name="marginRight" value="2"></attribute>
+                                                <attribute name="layout" value="absolute"></attribute>
+                                            </style>
+                                            <image url="//img20.360buyimg.com/zx/jfs/t18316/206/949080946/6005/8d54a1/5ab46343N13cb321f.png">
+                                                <style>
+                                                    <attribute name="align" value="5"></attribute>
+                                                    <attribute name="width" value="52"></attribute>
+                                                    <attribute name="height" value="52"></attribute>
+                                                    <attribute name="needPlaceholder" value="false"></attribute>
+                                                </style>
+                                            </image>
+                                        </container>
+                                    </container>
+                                </condition>
+                                <!--已结束-->
+                                <condition type="==" left="$coupon_array.[?].state" right="8">
+                                    <container>
+                                        <style>
+                                            <attribute name="width" value="-1"></attribute>
+                                            <attribute name="height" value="-1"></attribute>
+                                            <attribute name="layout" value="absolute"></attribute>
+                                        </style>
+                                        <image url="//img14.360buyimg.com/zx/jfs/t20230/332/1609538530/3170/7a7303cb/5b2f0763N64cfbe83.png">
+                                            <style>
+                                                <attribute name="width" value="-1"></attribute>
+                                                <attribute name="height" value="-1"></attribute>
+                                                <attribute name="needPlaceholder" value="false"></attribute>
+                                            </style>
+                                        </image>
+                                        <container>
+                                            <style>
+                                                <attribute name="width" value="52"></attribute>
+                                                <attribute name="height" value="-1"></attribute>
+                                                <attribute name="marginTop" value="0"></attribute>
+                                                <attribute name="marginRight" value="2"></attribute>
+                                                <attribute name="layout" value="absolute"></attribute>
+                                            </style>
+                                            <image url="//img10.360buyimg.com/zx/jfs/t23107/14/660850559/2722/bbc88bbe/5b3b1325Nf395a5ae.png">
+                                                <style>
+                                                    <attribute name="align" value="5"></attribute>
+                                                    <attribute name="width" value="52"></attribute>
+                                                    <attribute name="height" value="52"></attribute>
+                                                    <attribute name="needPlaceholder" value="false"></attribute>
+                                                </style>
+                                            </image>
+                                        </container>
+                                    </container>
+                                </condition>
+                                <!--已结束-->
+                                <condition type="==" left="$coupon_array.[?].state" right="11">
+                                    <container>
+                                        <style>
+                                            <attribute name="width" value="-1"></attribute>
+                                            <attribute name="height" value="-1"></attribute>
+                                            <attribute name="layout" value="absolute"></attribute>
+                                        </style>
+                                        <image url="//img14.360buyimg.com/zx/jfs/t20230/332/1609538530/3170/7a7303cb/5b2f0763N64cfbe83.png">
+                                            <style>
+                                                <attribute name="width" value="-1"></attribute>
+                                                <attribute name="height" value="-1"></attribute>
+                                                <attribute name="needPlaceholder" value="false"></attribute>
+                                            </style>
+                                        </image>
+                                        <container>
+                                            <style>
+                                                <attribute name="width" value="52"></attribute>
+                                                <attribute name="height" value="-1"></attribute>
+                                                <attribute name="marginTop" value="0"></attribute>
+                                                <attribute name="marginRight" value="2"></attribute>
+                                                <attribute name="layout" value="absolute"></attribute>
+                                            </style>
+                                            <image url="//img10.360buyimg.com/zx/jfs/t23107/14/660850559/2722/bbc88bbe/5b3b1325Nf395a5ae.png">
+                                                <style>
+                                                    <attribute name="align" value="5"></attribute>
+                                                    <attribute name="width" value="52"></attribute>
+                                                    <attribute name="height" value="52"></attribute>
+                                                    <attribute name="needPlaceholder" value="false"></attribute>
+                                                </style>
+                                            </image>
+                                        </container>
+                                    </container>
+                                </condition>
+                                <!--抢完-->
+                                <condition type="==" left="$coupon_array.[?].state" right="16">
+                                    <container>
+                                        <style>
+                                            <attribute name="width" value="-1"></attribute>
+                                            <attribute name="height" value="-1"></attribute>
+                                            <attribute name="layout" value="absolute"></attribute>
+                                        </style>
+                                        <image url="//img14.360buyimg.com/zx/jfs/t20230/332/1609538530/3170/7a7303cb/5b2f0763N64cfbe83.png">
+                                            <style>
+                                                <attribute name="width" value="-1"></attribute>
+                                                <attribute name="height" value="-1"></attribute>
+                                                <attribute name="needPlaceholder" value="false"></attribute>
+                                            </style>
+                                        </image>
+                                        <container>
+                                            <style>
+                                                <attribute name="width" value="52"></attribute>
+                                                <attribute name="height" value="-1"></attribute>
+                                                <attribute name="marginTop" value="0"></attribute>
+                                                <attribute name="marginRight" value="2"></attribute>
+                                                <attribute name="layout" value="absolute"></attribute>
+                                            </style>
+                                            <image url="//img12.360buyimg.com/zx/jfs/t20935/275/1817813737/2662/8eb60990/5b3750c6Nb29b6a9e.png">
+                                                <style>
+                                                    <attribute name="align" value="5"></attribute>
+                                                    <attribute name="width" value="52"></attribute>
+                                                    <attribute name="height" value="52"></attribute>
+                                                    <attribute name="needPlaceholder" value="false"></attribute>
+                                                </style>
+                                            </image>
+                                        </container>
+                                    </container>
+                                </condition>
+                                <!--抢完-->
+                                <condition type="==" left="$coupon_array.[?].state" right="17">
+                                    <container>
+                                        <style>
+                                            <attribute name="width" value="-1"></attribute>
+                                            <attribute name="height" value="-1"></attribute>
+                                            <attribute name="layout" value="absolute"></attribute>
+                                        </style>
+                                        <image url="//img14.360buyimg.com/zx/jfs/t20230/332/1609538530/3170/7a7303cb/5b2f0763N64cfbe83.png">
+                                            <style>
+                                                <attribute name="width" value="-1"></attribute>
+                                                <attribute name="height" value="-1"></attribute>
+                                                <attribute name="needPlaceholder" value="false"></attribute>
+                                            </style>
+                                        </image>
+                                        <container>
+                                            <style>
+                                                <attribute name="width" value="52"></attribute>
+                                                <attribute name="height" value="-1"></attribute>
+                                                <attribute name="marginTop" value="0"></attribute>
+                                                <attribute name="marginRight" value="2"></attribute>
+                                                <attribute name="layout" value="absolute"></attribute>
+                                            </style>
+                                            <image url="//img12.360buyimg.com/zx/jfs/t20935/275/1817813737/2662/8eb60990/5b3750c6Nb29b6a9e.png">
+                                                <style>
+                                                    <attribute name="align" value="5"></attribute>
+                                                    <attribute name="width" value="52"></attribute>
+                                                    <attribute name="height" value="52"></attribute>
+                                                    <attribute name="needPlaceholder" value="false"></attribute>
+                                                </style>
+                                            </image>
+                                        </container>
+                                    </container>
+                                </condition>
+                            </conditions>
+                        </container>
+                    </template>
+                </foreach>
+            </grid>
+            <editProperty>
+                <dataDefines>
+                    <dataDefine name="coupon_array" type="coupon" middleType="J_COUPON" middleName="couponConfig"
+                                min='2' max='10'
+                                propertyName="优惠券">
+                        <config>
+                            <extConfig>
+                                <data key="category" value="COUPON_USER_2PERLINE"></data>
+                                <data key="minPicWidth" value="160"></data>
+                                <data key="maxPicWidth" value="160"></data>
+                                <data key="minPicHeight" value="160"></data>
+                                <data key="maxPicHeight" value="160"></data>
+                            </extConfig>
+                        </config>
+                    </dataDefine>
+                </dataDefines>
+            </editProperty>
+        </container>
+    </container>
+</floor>

@@ -1,0 +1,118 @@
+<floor>
+    <container>
+        <style>
+            <attribute name="width" value="-1"/>
+            <attribute name="height" value="-2"/>
+        </style>
+        <container>
+            <style>
+                <attribute name="width" value="-1"></attribute>
+                <attribute name="height" value="-1"></attribute>
+                <attribute name="orientation" value="horizontal"/>
+                <attribute name="marginLeft" value="9"></attribute>
+            </style>
+            <container>
+                <style>
+                    <attribute name="width" value="170"/>
+                    <attribute name="height" value="120"/>
+                    <attribute name="visible" value="true"/>
+                    <attribute name="layout" value="absolute"/>
+
+                </style>
+                <image url="$image1">
+                    <style>
+                        <attribute name="width" value="170"/>
+                        <attribute name="height" value="120"/>
+                    </style>
+                </image>
+                <container>
+                    <style>
+                        <attribute name="visible" value="true"/>
+                        <attribute name="layout" value="absolute"/>
+                        <attribute name="width" value="120"/>
+                        <attribute name="height" value="40"/>
+                        <attribute name="align" value="5"/>
+                    </style>
+                    <text value="$textArea">
+                        <style>
+                            <attribute name="backgroundColor" value="#cdffffff"/>
+                            <attribute name="gravity" value="5"/>
+                            <attribute name="lines" value="3"/>
+                            <attribute name="fontSize" value="14"/>
+                            <attribute name="textColor" value="#101010"/>
+                        </style>
+                    </text>
+                </container>
+            </container>
+            <container>
+                <style>
+                    <attribute name="width" value="170"/>
+                    <attribute name="height" value="120"/>
+                    <attribute name="visible" value="true"/>
+                    <attribute name="layout" value="absolute"/>
+                    <attribute name="marginLeft" value="18"></attribute>
+                </style>
+                <image url="$image2">
+                    <style>
+                        <attribute name="width" value="170"/>
+                        <attribute name="height" value="120"/>
+                    </style>
+                </image>
+                <container>
+                    <style>
+                        <attribute name="visible" value="true"/>
+                        <attribute name="layout" value="absolute"/>
+                        <attribute name="width" value="120"/>
+                        <attribute name="height" value="40"/>
+                        <attribute name="align" value="5"/>
+                    </style>
+                    <text value="$textArea1">
+                        <style>
+                            <attribute name="backgroundColor" value="#cdffffff"/>
+                            <attribute name="gravity" value="5"/>
+                            <attribute name="lines" value="3"/>
+                            <attribute name="fontSize" value="14"/>
+                            <attribute name="textColor" value="#101010"/>
+                        </style>
+                    </text>
+                </container>
+            </container>
+        </container>
+        <events>
+            <event type="click">
+                <actions>
+                    <openURL>
+                        <params>
+                            <param name="页面跳转" value="$image1.data"/>
+                        </params>
+                    </openURL>
+                </actions>
+            </event>
+            <event type="click">
+                <actions>
+                    <openURL>
+                        <params>
+                            <param name="页面跳转" value="$image2.data"/>
+                        </params>
+                    </openURL>
+                </actions>
+            </event>
+        </events>
+        <editProperty>
+            <dataDefines>
+                <dataDefine name="image1" type="image" middleType="J_LINK_IMAGE" middleName="linkImageData" propertyName="配置活动图片">
+                </dataDefine>
+                <dataDefine name="textArea" type="text" middleType="J_TEXT_AREA" middleName="textArea" propertyName="文本区域">
+                    <config type="textarea">
+                    </config>
+                </dataDefine>
+                <dataDefine name="image2" type="image" middleType="J_LINK_IMAGE" middleName="linkImageData2" propertyName="配置活动图片">
+                </dataDefine>
+                <dataDefine name="textArea1" type="text" middleType="J_TEXT_AREA" middleName="textArea1" propertyName="文本区域">
+                    <config type="textarea">
+                    </config>
+                </dataDefine>
+            </dataDefines>
+        </editProperty>
+    </container>
+</floor>

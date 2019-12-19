@@ -1,0 +1,410 @@
+<floor>
+    <container>
+        <style>
+            <attribute name="width" value="-1"/>
+            <attribute name="height" value="-1"/>
+        </style>
+        <container>
+            <style>
+                <attribute name="width" value="-1"></attribute>
+                <attribute name="height" value="-1"></attribute>
+
+                <attribute name="borderColor" value="red"/>
+                <attribute name="borderWidth" value="1"/>
+
+            </style>
+
+            <container>
+                <style>
+                    <attribute name="width" value="-1"></attribute>
+                    <attribute name="height" value="-1"></attribute>
+                    <attribute name="orientation" value="horizontal"/>
+                    <attribute name="scroll" value="2"/>
+
+                </style>
+                <container>
+                    <style>
+                        <attribute name="width" value="115"/>
+                        <attribute name="height" value="115"/>
+
+                        <attribute name="layout" value="absolute"/>
+
+                    </style>
+                    <image url="$image1">
+                        <style>
+                            <attribute name="width" value="115"/>
+                            <attribute name="height" value="115"/>
+                            <attribute name="needPlaceholder" value="false"/>
+                        </style>
+                    </image>
+                    <container>
+                        <style>
+
+                            <attribute name="layout" value="absolute"/>
+                            <attribute name="width" value="115"/>
+                            <attribute name="height" value="100"/>
+                            <attribute name="align" value="5"/>
+                            <attribute name="paddingTop" value="10"/>
+                        </style>
+                        <text value="$textArea">
+                            <style>
+                                <attribute name="gravity" value="5"/>
+                                <attribute name="lines" value="3"/>
+                                <attribute name="fontSize" value="36"/>
+                                <attribute name="textColor" value="#ffffff"/>
+                            </style>
+                        </text>
+                        <text value="Coupons">
+                            <style>
+                                <attribute name="gravity" value="2"/>
+                                <attribute name="lines" value="3"/>
+                                <attribute name="fontSize" value="8"/>
+                                <attribute name="textColor" value="#ffffff"/>
+                            </style>
+                        </text>
+                        <text value="立即领取">
+                            <style>
+                                <attribute name="gravity" value="8"/>
+                                <attribute name="lines" value="3"/>
+                                <attribute name="fontSize" value="8"/>
+                                <attribute name="textColor" value="#ffffff"/>
+                            </style>
+                        </text>
+                    </container>
+                </container>
+                <container>
+                    <style>
+                        <attribute name="width" value="115"/>
+                        <attribute name="height" value="115"/>
+
+                        <attribute name="layout" value="absolute"/>
+                        <attribute name="marginLeft" value="4"></attribute>
+                    </style>
+                    <image url="$image2">
+                        <style>
+                            <attribute name="width" value="115"/>
+                            <attribute name="height" value="115"/>
+                            <attribute name="needPlaceholder" value="false"/>
+                        </style>
+                    </image>
+                    <container>
+                        <style>
+                            <attribute name="visible" value="true"/>
+                            <attribute name="layout" value="absolute"/>
+                            <attribute name="width" value="115"/>
+                            <attribute name="height" value="100"/>
+                            <attribute name="align" value="5"/>
+                            <attribute name="paddingTop" value="10"/>
+                        </style>
+                        <text value="$textArea1">
+                            <style>
+                                <attribute name="gravity" value="5"/>
+                                <attribute name="lines" value="3"/>
+                                <attribute name="fontSize" value="36"/>
+                                <attribute name="textColor" value="#ffffff"/>
+                            </style>
+                        </text>
+                        <text value="Coupons">
+                            <style>
+                                <attribute name="gravity" value="2"/>
+                                <attribute name="lines" value="3"/>
+                                <attribute name="fontSize" value="8"/>
+                                <attribute name="textColor" value="#ffffff"/>
+                            </style>
+                        </text>
+                        <text value="立即领取">
+                            <style>
+                                <attribute name="gravity" value="8"/>
+                                <attribute name="lines" value="3"/>
+                                <attribute name="fontSize" value="8"/>
+                                <attribute name="textColor" value="#ffffff"/>
+                            </style>
+                        </text>
+                    </container>
+                    <container>
+                        <style>
+
+                            <attribute name="layout" value="absolute"/>
+                            <attribute name="width" value="115"/>
+                            <attribute name="height" value="100"/>
+                            <attribute name="align" value="5"/>
+                            <attribute name="paddingTop" value="10"/>
+                        </style>
+                        <text value="$textArea1">
+                            <style>
+                                <attribute name="gravity" value="5"/>
+                                <attribute name="lines" value="3"/>
+                                <attribute name="fontSize" value="36"/>
+                                <attribute name="textColor" value="#ffffff"/>
+                            </style>
+                        </text>
+                        <text value="Coupons">
+                            <style>
+                                <attribute name="gravity" value="2"/>
+                                <attribute name="lines" value="3"/>
+                                <attribute name="fontSize" value="8"/>
+                                <attribute name="textColor" value="#ffffff"/>
+                            </style>
+                        </text>
+                        <text value="立即领取">
+                            <style>
+                                <attribute name="gravity" value="8"/>
+                                <attribute name="lines" value="3"/>
+                                <attribute name="fontSize" value="8"/>
+                                <attribute name="textColor" value="#ffffff"/>
+                            </style>
+                        </text>
+                    </container>
+                </container>
+
+                <container>
+                    <style>
+                        <attribute name="width" value="115"/>
+                        <attribute name="height" value="115"/>
+
+                        <attribute name="layout" value="absolute"/>
+                        <attribute name="marginLeft" value="4"/>
+                    </style>
+                    <image url="$image3">
+                        <style>
+                            <attribute name="width" value="115"/>
+                            <attribute name="height" value="115"/>
+                            <attribute name="needPlaceholder" value="false"/>
+                        </style>
+                    </image>
+                    <container>
+                        <style>
+
+                            <attribute name="layout" value="absolute"/>
+                            <attribute name="width" value="115"/>
+                            <attribute name="height" value="100"/>
+                            <attribute name="align" value="5"/>
+                            <attribute name="paddingTop" value="10"/>
+                        </style>
+                        <text value="$textArea2">
+                            <style>
+                                <attribute name="gravity" value="5"/>
+                                <attribute name="lines" value="3"/>
+                                <attribute name="fontSize" value="36"/>
+                                <attribute name="textColor" value="#ffffff"/>
+                            </style>
+                        </text>
+                        <text value="Coupons">
+                            <style>
+                                <attribute name="gravity" value="2"/>
+                                <attribute name="lines" value="3"/>
+                                <attribute name="fontSize" value="8"/>
+                                <attribute name="textColor" value="#ffffff"/>
+                            </style>
+                        </text>
+                        <text value="立即领取">
+                            <style>
+                                <attribute name="gravity" value="8"/>
+                                <attribute name="lines" value="3"/>
+                                <attribute name="fontSize" value="8"/>
+                                <attribute name="textColor" value="#ffffff"/>
+                            </style>
+                        </text>
+                    </container>
+
+                </container>
+
+                <container>
+                    <style>
+                        <attribute name="width" value="115"/>
+                        <attribute name="height" value="115"/>
+
+                        <attribute name="layout" value="absolute"/>
+                        <attribute name="marginLeft" value="4"/>
+                    </style>
+                    <image url="$image4">
+                        <style>
+                            <attribute name="width" value="115"/>
+                            <attribute name="height" value="115"/>
+                            <attribute name="needPlaceholder" value="false"/>
+                        </style>
+                    </image>
+                    <container>
+                        <style>
+
+                            <attribute name="layout" value="absolute"/>
+                            <attribute name="width" value="115"/>
+                            <attribute name="height" value="100"/>
+                            <attribute name="align" value="5"/>
+                            <attribute name="paddingTop" value="10"/>
+                        </style>
+                        <text value="$textArea3">
+                            <style>
+                                <attribute name="gravity" value="5"/>
+                                <attribute name="lines" value="3"/>
+                                <attribute name="fontSize" value="36"/>
+                                <attribute name="textColor" value="#ffffff"/>
+                            </style>
+                        </text>
+                        <text value="Coupons">
+                            <style>
+                                <attribute name="gravity" value="2"/>
+                                <attribute name="lines" value="3"/>
+                                <attribute name="fontSize" value="8"/>
+                                <attribute name="textColor" value="#ffffff"/>
+                            </style>
+                        </text>
+                        <text value="立即领取">
+                            <style>
+                                <attribute name="gravity" value="8"/>
+                                <attribute name="lines" value="3"/>
+                                <attribute name="fontSize" value="8"/>
+                                <attribute name="textColor" value="#ffffff"/>
+                            </style>
+                        </text>
+                    </container>
+                </container>
+                <container>
+                    <style>
+                        <attribute name="width" value="115"/>
+                        <attribute name="height" value="115"/>
+
+                        <attribute name="layout" value="absolute"/>
+                        <attribute name="marginLeft" value="4"/>
+                    </style>
+                    <image url="$image5">
+                        <style>
+                            <attribute name="width" value="115"/>
+                            <attribute name="height" value="115"/>
+                            <attribute name="needPlaceholder" value="false"/>
+                        </style>
+                    </image>
+                    <container>
+                        <style>
+
+                            <attribute name="layout" value="absolute"/>
+                            <attribute name="width" value="115"/>
+                            <attribute name="height" value="100"/>
+                            <attribute name="align" value="5"/>
+                            <attribute name="paddingTop" value="10"/>
+                        </style>
+                        <text value="$textArea4">
+                            <style>
+                                <attribute name="gravity" value="5"/>
+                                <attribute name="lines" value="3"/>
+                                <attribute name="fontSize" value="36"/>
+                                <attribute name="textColor" value="#ffffff"/>
+                            </style>
+                        </text>
+                        <text value="Coupons">
+                            <style>
+                                <attribute name="gravity" value="2"/>
+                                <attribute name="lines" value="3"/>
+                                <attribute name="fontSize" value="8"/>
+                                <attribute name="textColor" value="#ffffff"/>
+                            </style>
+                        </text>
+                        <text value="立即领取">
+                            <style>
+                                <attribute name="gravity" value="8"/>
+                                <attribute name="lines" value="3"/>
+                                <attribute name="fontSize" value="8"/>
+                                <attribute name="textColor" value="#ffffff"/>
+                            </style>
+                        </text>
+                    </container>
+                </container>
+
+
+
+            </container>
+        </container>
+
+
+        <events>
+            <event type="click">
+                <actions>
+                    <openURL>
+                        <params>
+                            <param name="页面跳转" value="$image1.data"/>
+                        </params>
+                    </openURL>
+                </actions>
+            </event>
+            <event type="click">
+                <actions>
+                    <openURL>
+                        <params>
+                            <param name="页面跳转" value="$image2.data"/>
+                        </params>
+                    </openURL>
+                </actions>
+            </event>
+            <event type="click">
+                <actions>
+                    <openURL>
+                        <params>
+                            <param name="页面跳转" value="$image3.data"/>
+                        </params>
+                    </openURL>
+                </actions>
+            </event>
+            <event type="click">
+                <actions>
+                    <openURL>
+                        <params>
+                            <param name="页面跳转" value="$image4.data"/>
+                        </params>
+                    </openURL>
+                </actions>
+            </event>
+            <event type="click">
+                <actions>
+                    <openURL>
+                        <params>
+                            <param name="页面跳转" value="$image5.data"/>
+                        </params>
+                    </openURL>
+                </actions>
+            </event>
+        </events>
+        <editProperty>
+            <dataDefines>
+                <dataDefine name="image1" type="image" middleType="J_LINK_IMAGE" middleName="linkImageData" propertyName="配置活动图片">
+                </dataDefine>
+                <dataDefine name="textArea" type="text" middleType="J_TEXT_AREA" middleName="textArea" propertyName="文本区域">
+                    <config type="textarea">
+                    </config>
+                </dataDefine>
+
+                <dataDefine name="image2" type="image" middleType="J_LINK_IMAGE" middleName="linkImageData2" propertyName="配置活动图片">
+                </dataDefine>
+                <dataDefine name="textArea1" type="text" middleType="J_TEXT_AREA" middleName="textArea1" propertyName="文本区域">
+                    <config type="textarea">
+                    </config>
+                </dataDefine>
+
+                <dataDefine name="image3" type="image" middleType="J_LINK_IMAGE"
+                            middleName="linkImageData3" propertyName="配置活动图片">
+                </dataDefine>
+                <dataDefine name="textArea2" type="text" middleType="J_TEXT_AREA" middleName="textArea2" propertyName="文本区域">
+                    <config type="textarea">
+                    </config>
+                </dataDefine>
+
+                <dataDefine name="image4" type="image" middleType="J_LINK_IMAGE"
+                            middleName="linkImageData4" propertyName="配置活动图片">
+                </dataDefine>
+                <dataDefine name="textArea3" type="text" middleType="J_TEXT_AREA" middleName="textArea3" propertyName="文本区域">
+                    <config type="textarea">
+                    </config>
+                </dataDefine>
+
+                <dataDefine name="image5" type="image" middleType="J_LINK_IMAGE"
+                            middleName="linkImageData5" propertyName="配置活动图片">
+                </dataDefine>
+                <dataDefine name="textArea4" type="text" middleType="J_TEXT_AREA" middleName="textArea4" propertyName="文本区域">
+                    <config type="textarea">
+                    </config>
+                </dataDefine>
+
+
+            </dataDefines>
+        </editProperty>
+    </container>
+</floor>
