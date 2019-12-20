@@ -75,6 +75,8 @@
                     if (dir === 'l') {
                         banner_left = e.changedTouches[0].clientX - start.x;
                         ul.style.webkitTransform =ul.style.transform= 'translateX('+(banner_left)+'px)';
+                    } else {
+                        ul.style.webkitTransform =ul.style.transform= 'translateY('+(10)+'px)';
                     }
 
                 } else {
