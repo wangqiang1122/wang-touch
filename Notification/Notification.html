@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    if (window.Notification) { // 判断浏览器是否兼容Notification
+        let permission = Notification.permission;
+        if(permission === 'granted'){
+            console.log('用户允许通知');
+        }else if(permission === 'denied'){
+            console.log('用户拒绝通知');
+        }else{
+            console.log('用户还没选择，去向用户申请权限吧');
+            Notification.requestPermission().then(function(permission) {
+                if(permission === 'granted'){
+                    console.log('用户允许通知');
+                }else if(permission === 'denied'){
+                    console.log('用户拒绝通知');
+                }
+            });
+        }
+        var n = new Notification('状态更新提醒',{
+            body: '你的朋友圈有3条新状态，快去查看吧',
+            dir: 'ltr',
+            icon: 'http://blog.gdfengshuo.com/images/avatar.jpg',
+            requireInteraction: true
+        })
+    }
+</script>
+</html>
