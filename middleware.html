@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+		<script type="text/javascript">
+			function getUrlParam(name) {
+			     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); // 构造一个含有目标参数的正则表达式对象
+			     var r = window.location.search.substr(1).match(reg); // 匹配目标参数
+			     if (r != null) return decodeURI(r[2]);
+			     return null; // 返回参数值
+			 }
+			 // 调用方法
+			var token = getUrlParam('accessToken');
+			var reserve_param = getUrlParam('reserve_param');
+			var params = {
+				token:token,
+				reserve_param:reserve_param
+			}
+			wx.miniProgram.postMessage({data:params})
+			wx.miniProgram.navigateBack()
+			// window.setTimeout(function(){
+			// },5000)
+		</script>
+	</head>
+	<body style="font-size: 30px;">
+		hello world
+	</body>
+</html>
