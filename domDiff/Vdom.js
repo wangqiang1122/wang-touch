@@ -62,7 +62,7 @@ function render(container,vnode) {
   } else {
       mount(container,vnode);
   }
-    container.vnode = vnode;
+  container.vnode = vnode;
 }
 // 核心diff
 function patch(container,oldNode,newNode) {

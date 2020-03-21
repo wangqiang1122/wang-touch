@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var b = 'hlht://充电设备接口ID.运营商ID/[自定义]';
+    var reg = /(?<=hlht:\/\/)[^]*(?=\/[^]*)/g;  // 正则断言小程序不支持
+    var reg1 =  /(\d|[a-zA-Z|\u4e00-\u9fa5])*\.(\d|[a-zA-Z|\u4e00-\u9fa5])*/g
+
+    // console.log(b.match(reg)[0].split('.'));
+    console.log(b.match(reg1));
+</script>
+</html>
