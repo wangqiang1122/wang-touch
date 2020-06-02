@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <div id="f1" >dadadsa</div>
+  <div id="cli">click</div>
+</body>
+<script>
+     window.onload=function() {
+        var f1 = document.getElementById('f1');
+        var cli = document.getElementById("cli");
+        f1.dataset.info = JSON.stringify({ name: "dada", age: "ggg" })
+         cli.onclick = function () {
+             console.log(f1.getAttribute('data-info'));
+             var g = JSON.parse(f1.getAttribute('data-info'));
+             console.log(g)
+             g.formatter = {a: 1, b: {c:3}}
+             console.log(g);
+             f1.setAttribute('data-info',JSON.stringify(g))
+         }
+     }
+
+</script>
+</html>
