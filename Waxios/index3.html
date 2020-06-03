@@ -8,4 +8,22 @@
 <body>
 
 </body>
+<script>
+    // bind的实现
+
+    function bind(fn,context) {
+        return function () {
+            return fn.apply(context,arguments);
+        }
+    }
+
+
+    // a = [].slice.apply('22222');
+    a = bind([].slice,'gggggg');
+    console.log(a())
+
+    // console.log(a)
+
+
+</script>
 </html>

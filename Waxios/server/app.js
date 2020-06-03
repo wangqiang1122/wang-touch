@@ -5,6 +5,7 @@ const mainRouter = router();
 
 server.use(async (ctx,next)=>{
     ctx.set('Access-Control-Allow-Origin', 'http://localhost:63342');
+    // ctx.set('Access-Control-Allow-Origin', '*');
     ctx.set('Access-Control-Allow-Credentials', true); // 跨域是否允许携带请求头
     if ( ctx.method.toUpperCase() === 'OPTIONS' ) {
         console.log('发送了非简单请求');

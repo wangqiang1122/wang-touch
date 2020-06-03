@@ -30,7 +30,7 @@ Waxios.prototype.request = function (config) {
     // 请求拦截器拦截器
      while (this.Interceptor.request.handle.resolve.length) {
         chan.unshift(this.Interceptor.request.handle.resolve.shift(),this.Interceptor.request.handle.reject.shift())
-     }
+    }
      // 返回拦截器
     while (this.Interceptor.response.handle.resolve.length) {
         chan.push(this.Interceptor.response.handle.resolve.shift(),this.Interceptor.response.handle.reject.shift())
