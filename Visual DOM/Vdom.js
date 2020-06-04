@@ -15,8 +15,16 @@ function createNode(nodes) { // 建立真实dom树
     if (lists.props) {
         // console.log(Object.keys(lists.props))
         Object.keys(lists.props).forEach(item => {
+          console.log(item)
           if (item=='class') {
               v.className = lists.props[item]
+          }
+          if (item ==='style') {
+             console.log(lists.props[item]);
+             var styles = lists.props[item];
+             var reg =  /^{}$/g;
+             var f = styles.split('{')[1].split('}')[0];
+             v.style = f;
           }
         });
     }

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        html{
+        }
+        body{
+
+        }
+        #scroll1{
+
+        }
+        #app{
+            height: 400px;
+            /*overflow-y: scroll;*/
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+        ::-webkit-scrollbar
+        {
+            display: none!important;
+            width: 0px;
+            height: 0px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div id="scroll1" style="height: 1000px;border: 1px solid black;">
+
+    </div>
+</div>
+
+</body>
+
+<script>
+  var srcoll = document.getElementById('scroll1');
+  let height = document.documentElement.clientHeight;
+  document.getElementById('app').style.height = height+'px';
+  document.getElementById('app').addEventListener('scroll',(e)=>{
+      console.log(e.target.scrollTop);
+  })
+
+  // document.addEventListener('visibilitychange', function() {
+  //     alert('22222')
+  // })
+</script>
+</html>
