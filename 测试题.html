@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let industry_list = [
+        {
+            "parent_ind" : "女装",
+            "name" : "连衣裙",
+
+        },
+        {
+            "name": "女装"
+        },
+        {
+            "parent_ind" : "女装",
+            "name" : "半身裙",
+        },
+        {
+            "parent_ind" : "女装",
+            "name" : "A字裙",
+        },
+        {
+            "name": "数码"
+        },
+        {
+            "parent_ind" : "数码",
+            "name": "电脑配件",
+        },
+        {
+            "parent_ind" : "电脑配件",
+            "name": "内存",
+        }
+    ];
+
+
+    function convert_format(industry_list) {
+        let data = {};
+        var arr1=  [];
+        while (industry_list) {
+            let item = industry_list.shift();
+            if (!item) break;
+            if (Object.keys(item).length===1) {
+                data[item['name']] = {};
+            } else {
+                arr1.push(item)
+            }
+        }
+        var parent = '';
+        while (arr1) {
+            let item = arr1.shift();
+            if (!item) break;
+            if (parent['name']===item['parent_ind']) {
+                if (typeof parent[item['name']]!=='object') {
+                    parent[item['name']] = {}
+                }
+                delete parent.parent_ind;
+                delete parent.name;
+                parent[item['name']] = item;
+            } else {
+                data[item['parent_ind']][item['name']] = item;
+            }
+            parent = item;
+        }
+        console.log(data);
+        return data
+    }
+    convert_format(industry_list)
+</script>
+</html>
