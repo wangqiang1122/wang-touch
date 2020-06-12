@@ -40,3 +40,5 @@ industry_list.forEach(item=>{
     data[item['parent_ind']][item['name']] = item
 });
 console.log(data)
+
+var a = function ():string {}
