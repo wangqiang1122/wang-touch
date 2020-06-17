@@ -1,7 +1,7 @@
 
 
 function initVnode(nodes) {  // 虚拟dom转化为真实dom
-
+  console.log(nodes)
   if (nodes.el) {
       return createNode(nodes)
   } else {

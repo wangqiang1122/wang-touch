@@ -6,7 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    
+
+
+
 </body>
 
 <script>
@@ -14,6 +16,7 @@
     console.log("setTimeout1");
     Promise.resolve().then(data => {
         console.log(222);
+       setTimeout(()=>{console.log('ddddd')},0)
     });
     });
     setTimeout(()=>{

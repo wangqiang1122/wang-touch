@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92e56a23-e773-4ce6-9ec8-3af3e82621ee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/event-loop.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/event-loop1.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/duodian.html" beforeDir="false" afterPath="$PROJECT_DIR$/duodian.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Visual DOM/1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Visual DOM/1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Visual DOM/Vdom.js" beforeDir="false" afterPath="$PROJECT_DIR$/Visual DOM/Vdom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Visual DOM/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Visual DOM/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event-loop/eventLoop.html" beforeDir="false" afterPath="$PROJECT_DIR$/event-loop/eventLoop.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wke/wue.js" beforeDir="false" afterPath="$PROJECT_DIR$/wke/wue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/测试题.js" beforeDir="false" afterPath="$PROJECT_DIR$/测试题.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/画板.html" beforeDir="false" afterPath="$PROJECT_DIR$/画板.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -54,10 +55,10 @@
     <session id="-549106619">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="37" />
-          <entry key="project.open.time.1" value="6" />
+          <entry key="project.closed" value="40" />
+          <entry key="project.open.time.1" value="7" />
           <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.13" value="3" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.3" value="1" />
@@ -65,15 +66,15 @@
           <entry key="project.open.time.5" value="6" />
           <entry key="project.open.time.6" value="8" />
           <entry key="project.open.time.7" value="5" />
-          <entry key="project.open.time.8" value="2" />
+          <entry key="project.open.time.8" value="3" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="38" />
+          <entry key="project.opened" value="42" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="140" />
-          <entry key="js" value="210" />
+          <entry key="html" value="145" />
+          <entry key="js" value="218" />
           <entry key="json" value="2" />
           <entry key="text" value="1" />
           <entry key="ts" value="2" />
@@ -82,9 +83,9 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="140" />
+          <entry key="HTML" value="145" />
           <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="210" />
+          <entry key="JavaScript" value="218" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="TypeScript" value="2" />
           <entry key="Vue.js" value="5" />
@@ -92,15 +93,15 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="6847" />
-          <entry key="js" value="13019" />
+          <entry key="html" value="7119" />
+          <entry key="js" value="13071" />
           <entry key="ts" value="70" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="6847" />
-          <entry key="JavaScript" value="13019" />
+          <entry key="HTML" value="7119" />
+          <entry key="JavaScript" value="13071" />
           <entry key="TypeScript" value="70" />
         </counts>
       </usages-collector>
@@ -301,82 +302,91 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wke/compile.js">
+        <entry file="file://$PROJECT_DIR$/设计模式/装饰器模式.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="29" selection-start-column="22" selection-end-column="29" />
+            <state relative-caret-position="230">
+              <caret line="72" column="1" selection-start-line="72" selection-start-column="1" selection-end-line="72" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wke/index.html">
+        <entry file="file://$PROJECT_DIR$/iscroll3.html">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wke/wue.js">
+        <entry file="file://$PROJECT_DIR$/测试题.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="80" column="7" selection-start-line="80" selection-end-line="80" selection-end-column="7" />
+            <state relative-caret-position="645">
+              <caret line="43" column="29" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/domDiff/Vdom.js">
+        <entry file="file://$PROJECT_DIR$/画板.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1197">
-              <caret line="123" column="25" selection-start-line="123" selection-start-column="12" selection-end-line="123" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/domDiff/index.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vueCli/src/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+            <state relative-caret-position="344">
+              <caret line="26" column="8" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#140#161#0" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vueRouter1/src/router/index.js">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/event-loop/eventLoop.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vueRouter1/src/my-router/my-router.js">
+        <entry file="file://$PROJECT_DIR$/Visual DOM/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="88" column="32" lean-forward="true" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="32" />
+            <state relative-caret-position="75">
+              <caret line="6" column="35" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="35" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#0#31#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Visual DOM/1.html">
+        <entry file="file://$PROJECT_DIR$/Visual DOM/jsx.js">
           <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Visual DOM/react.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Visual DOM/k-react-Dom.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="18" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="18" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Visual DOM/Vdom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+            <state relative-caret-position="45">
+              <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -441,10 +451,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/设计模式/index1.html" />
-        <option value="$PROJECT_DIR$/设计模式/生成器之抽象工厂方法-es5.js" />
-        <option value="$PROJECT_DIR$/ifrema/iframe1.js" />
-        <option value="$PROJECT_DIR$/ifrema/iframe-p.html" />
         <option value="$PROJECT_DIR$/ifrema/iframe1.html" />
         <option value="$PROJECT_DIR$/分页/page1.html" />
         <option value="$PROJECT_DIR$/rnday1/ios/Podfile" />
@@ -488,10 +494,14 @@
         <option value="$PROJECT_DIR$/Waxios/js/waxios/index.js" />
         <option value="$PROJECT_DIR$/Waxios/index3.html" />
         <option value="$PROJECT_DIR$/scroll/index.html" />
-        <option value="$PROJECT_DIR$/Visual DOM/index.js" />
-        <option value="$PROJECT_DIR$/Visual DOM/Vdom.js" />
         <option value="$PROJECT_DIR$/测试题.html" />
         <option value="$PROJECT_DIR$/测试题.js" />
+        <option value="$PROJECT_DIR$/Visual DOM/1.html" />
+        <option value="$PROJECT_DIR$/Visual DOM/index.js" />
+        <option value="$PROJECT_DIR$/Visual DOM/Vdom.js" />
+        <option value="$PROJECT_DIR$/wke/wue.js" />
+        <option value="$PROJECT_DIR$/event-loop/eventLoop.html" />
+        <option value="$PROJECT_DIR$/画板.html" />
       </list>
     </option>
   </component>
@@ -527,9 +537,9 @@
       <path value="$PROJECT_DIR$/webpack2/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="64" />
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="16" />
+    <option name="y" value="32" />
     <option name="width" value="1280" />
     <option name="height" value="828" />
   </component>
@@ -550,7 +560,12 @@
             <path>
               <item name="wang-touch" type="b2602c69:ProjectViewProjectNode" />
               <item name="wang-touch" type="462c0819:PsiDirectoryNode" />
-              <item name="domDiff" type="462c0819:PsiDirectoryNode" />
+              <item name="event-loop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wang-touch" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wang-touch" type="462c0819:PsiDirectoryNode" />
+              <item name="Visual DOM" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -598,20 +613,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.测试题.js">
+  <component name="RunManager" selected="Node.js.生成器之抽象工厂方法-es6.js">
     <configuration name="生成器之工厂-es5.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="生成器之工厂-es5.js" working-dir="$PROJECT_DIR$/设计模式">
       <method v="2" />
     </configuration>
     <configuration name="生成器之工厂方法-es5.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="生成器之工厂方法-es5.js" working-dir="$PROJECT_DIR$/设计模式">
       <method v="2" />
     </configuration>
-    <configuration name="生成器之工厂-es6.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/设计模式/生成器之工厂-es6.js" working-dir="$PROJECT_DIR$/设计模式">
-      <method v="2" />
-    </configuration>
     <configuration name="生成器之抽象工厂方法-es6.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="生成器之抽象工厂方法-es6.js" working-dir="$PROJECT_DIR$/设计模式">
       <method v="2" />
     </configuration>
     <configuration name="测试题.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="测试题.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="装饰器模式.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="装饰器模式.js" working-dir="$PROJECT_DIR$/设计模式">
       <method v="2" />
     </configuration>
     <configuration name="装饰器模式.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="装饰器模式.js" working-dir="$PROJECT_DIR$/设计模式">
@@ -636,7 +651,7 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Node.js.生成器之工厂-es6.js" />
+      <item itemvalue="Node.js.生成器之抽象工厂方法-es6.js" />
       <item itemvalue="Node.js.生成器之工厂-es5.js" />
       <item itemvalue="Node.js.app.js" />
       <item itemvalue="Node.js.a.js" />
@@ -648,7 +663,6 @@
         <item itemvalue="Node.js.app.js" />
         <item itemvalue="Node.js.a.js" />
         <item itemvalue="Node.js.生成器之工厂-es5.js" />
-        <item itemvalue="Node.js.生成器之工厂-es6.js" />
       </list>
     </recent_temporary>
   </component>
@@ -773,15 +787,19 @@
       <workItem from="1591261771039" duration="2138000" />
       <workItem from="1591322486543" duration="9186000" />
       <workItem from="1591670497476" duration="610000" />
-      <workItem from="1591683070170" duration="1208000" />
+      <workItem from="1591683070170" duration="1424000" />
+      <workItem from="1592047395444" duration="3829000" />
+      <workItem from="1592097992765" duration="2659000" />
+      <workItem from="1592212258267" duration="178000" />
+      <workItem from="1592360584421" duration="3862000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="888523000" />
+    <option name="totallyTimeSpent" value="899267000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="23" width="1280" height="828" extended-state="1" />
+    <frame x="16" y="32" width="1280" height="828" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8029557" visible="true" weight="0.24861" />
@@ -798,7 +816,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.31929347" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.31929347" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32298136" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -828,29 +846,23 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/../../git/vue-ts/myapp/src/router/index.js" />
+        <option value="$PROJECT_DIR$/../../git/vue-ts/myapp/src/router/index.js.map" />
+        <option value="$PROJECT_DIR$/../../git/vue-ts/myapp/src/store/index.js" />
+        <option value="$PROJECT_DIR$/../../git/vue-ts/myapp/src/store/index.js.map" />
+        <option value="$PROJECT_DIR$/../../git/vue-ts/myapp/src/main.js.map" />
+        <option value="$PROJECT_DIR$/../../git/vue-ts/myapp/src/main.js" />
+        <option value="$PROJECT_DIR$/../../git/vue-ts/myapp/src/test.js.map" />
+        <option value="$PROJECT_DIR$/../../git/vue-ts/myapp/src/test.js" />
+      </list>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/react/组件4.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reg/切链接.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dom测试.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/轮播图/2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1613" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/轮播图/1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1348" />
@@ -1004,35 +1016,11 @@
     <entry file="file://$PROJECT_DIR$/vueCli/src/components/cmp1.vue">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Visual DOM/jsx.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Visual DOM/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="6" column="77" selection-start-line="6" selection-start-column="60" selection-end-line="6" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/react/1.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/react/组件2.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Visual DOM/k-react-Dom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="18" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Visual DOM/react.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/测试题.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -1041,7 +1029,105 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/vueCli/src/login.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/domDiff/Vdom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4080">
+          <caret line="272" column="18" selection-start-line="272" selection-start-column="9" selection-end-line="272" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vueCli/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vueRouter1/src/router/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vueRouter1/src/my-router/my-router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="88" column="32" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/domDiff/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wke/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wke/compile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wke/wue.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="80" selection-start-line="80" selection-end-line="84" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wke/ceshi.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Visual DOM/1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Visual DOM/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" column="35" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Visual DOM/jsx.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Visual DOM/react.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Visual DOM/k-react-Dom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Visual DOM/Vdom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/设计模式/装饰器模式.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="72" column="1" selection-start-line="72" selection-start-column="1" selection-end-line="72" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/iscroll3.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/测试题.js">
@@ -1051,67 +1137,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vueCli/src/login.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Visual DOM/1.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Visual DOM/Vdom.js">
+    <entry file="file://$PROJECT_DIR$/event-loop/eventLoop.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+        <state relative-caret-position="150">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vueCli/src/main.js">
+    <entry file="file://$PROJECT_DIR$/画板.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        <state relative-caret-position="344">
+          <caret line="26" column="8" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#140#161#0" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vueRouter1/src/router/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vueRouter1/src/my-router/my-router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="88" column="32" lean-forward="true" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="32" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wke/wue.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="80" column="7" selection-start-line="80" selection-end-line="80" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wke/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wke/compile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="29" selection-start-column="22" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/domDiff/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/domDiff/Vdom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1197">
-          <caret line="123" column="25" selection-start-line="123" selection-start-column="12" selection-end-line="123" selection-end-column="25" />
         </state>
       </provider>
     </entry>

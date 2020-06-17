@@ -32,7 +32,7 @@ Wue.prototype.defineReactive = function (obj,key,val) {
     var dep = new Dep();
     Object.defineProperty(obj,key,{
         enumerable: true, //可配置 可枚举
-        configurable: true, // 可删除的
+        configurable: true, // 不可删除的
         set(newval){
            if (newval===val) {
                return
@@ -73,7 +73,7 @@ function Watcher(vm,key,cb) {
     this.cb = cb;
     // 将来new 一个监听器时，将当前的Watcher实例附加到 Dep.target上
     // 避免不必要的重复添加
-    ].target = this;
+    Dep.target = this;
     console.log(this);
     this.vm[key];
     Dep.target = null;

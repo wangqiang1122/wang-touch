@@ -11,24 +11,53 @@
     </style>
 </head>
 <body>
- <canvas id="canvas" width="300px" height="300px" style="border: 1px solid black"></canvas>
+ <!--<canvas id="canvas" width="300px" height="300px" style="border: 1px solid black"></canvas>-->
+
+<!--<div style="overflow:hidden">-->
+    <!--<div style="float: left;width: 300px;height: 100px;background: red"></div>-->
+    <!--<div style="  background: blue; overflow: hidden;height: 100px"></div>-->
+
+<!--</div>-->
+
+<div style="display: flex">
+    <div style="width: 300px;height: 100px;background: red"></div>
+    <div style="  background: blue;height: 100px;flex-grow: 1"></div>
+</div>
+
 </body>
 <script>
-  window.onload = function () {
-      let canvas = document.getElementById('canvas');
-      console.log(canvas)
-      canvas.addEventListener('mousedown',function (ev) {
+  // window.onload = function () {
+  //     let canvas = document.getElementById('canvas');
+  //     console.log(canvas)
+  //     canvas.addEventListener('mousedown',function (ev) {
+  //
+  //         function move(ev) {
+  //           console.log(ev.offsetX)
+  //         }
+  //         function end() {
+  //             canvas.removeEventListener('mousemove',move);
+  //             canvas.removeEventListener('mouseup',end);
+  //         }
+  //         canvas.addEventListener('mousemove',move);
+  //         canvas.addEventListener('mouseup',end);
+  //     })
+  // }
+  // console.log(typeof Symbol('22222'))
 
-          function move(ev) {
-            console.log(ev.offsetX)
-          }
-          function end() {
-              canvas.removeEventListener('mousemove',move);
-              canvas.removeEventListener('mouseup',end);
-          }
-          canvas.addEventListener('mousemove',move);
-          canvas.addEventListener('mouseup',end);
+    console.log(1);
+  setTimeout(()=>{
+      console.log(2)
+      Promise.resolve(1).then(()=>{
+          console.log(3)
       })
-  }
+  },0)
+
+  setTimeout(()=>{
+      console.log(4)
+
+  },0)
+
+
+
 </script>
 </html>
