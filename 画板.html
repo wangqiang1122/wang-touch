@@ -44,18 +44,71 @@
   // }
   // console.log(typeof Symbol('22222'))
 
-    console.log(1);
-  setTimeout(()=>{
-      console.log(2)
-      Promise.resolve(1).then(()=>{
-          console.log(3)
-      })
-  },0)
+  //   console.log(1);
+  // setTimeout(()=>{
+  //     console.log(2)
+  //     Promise.resolve(1).then(()=>{
+  //         console.log(3)
+  //     })
+  // },0)
+  //
+  // setTimeout(()=>{
+  //     console.log(4)
+  //
+  // },0)
 
-  setTimeout(()=>{
-      console.log(4)
 
-  },0)
+  function fn1() {
+      setTimeout(()=>{
+          console.log(1);
+      },1000)
+  }
+
+  function fn2() {
+      console.log(2);
+  }
+
+  function fn3() {
+      console.log(3);
+  }
+
+  var arr = [fn1,fn2,fn3];
+
+  // 聚合方法
+  function getNum() {
+
+  }
+  // fn1(fn2(fn3()))
+  //
+  // arr.reduce((...arg)=>{
+  //
+  // })
+
+  function compose(...args) {
+      let len = args.length;
+      if (len===0) return ()=>{};
+      if (len===1) {
+          return args[0]
+      } else {
+          return args.reduce((a,b)=>{
+              console.log(a);console.log(b);
+              return (...args)=>a(b(args))
+          })
+
+          // return args.reduce((a,b)=>()=>{b(a())})
+      }
+  }
+  compose(fn1,fn2,fn3)()
+
+  // arr.reduce((a,b)=>{
+  //     (...args)=>{
+  //         a(b(args))
+  //     }
+  // })
+
+
+
+
 
 
 
