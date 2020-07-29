@@ -75,30 +75,30 @@
   var arr = [fn1,fn2,fn3];
 
   // 聚合方法
-  function getNum() {
-
-  }
+  // function getNum() {
+  //
+  // }
   // fn1(fn2(fn3()))
   //
   // arr.reduce((...arg)=>{
   //
   // })
 
-  function compose(...args) {
-      let len = args.length;
-      if (len===0) return ()=>{};
-      if (len===1) {
-          return args[0]
-      } else {
-          return args.reduce((a,b)=>{
-              console.log(a);console.log(b);
-              return (...args)=>a(b(args))
-          })
-
-          // return args.reduce((a,b)=>()=>{b(a())})
-      }
-  }
-  compose(fn1,fn2,fn3)()
+  // function compose(...args) {
+  //     let len = args.length;
+  //     if (len===0) return ()=>{};
+  //     if (len===1) {
+  //         return args[0]
+  //     } else {
+  //         return args.reduce((a,b)=>{
+  //             console.log(a);console.log(b);
+  //             return (...args)=>a(b(args))
+  //         })
+  //
+  //         // return args.reduce((a,b)=>()=>{b(a())})
+  //     }
+  // }
+  // compose(fn1,fn2,fn3)()
 
   // arr.reduce((a,b)=>{
   //     (...args)=>{
@@ -107,7 +107,24 @@
   // })
 
 
-
+  for (let index = 0; index < valueAxisChildNodesLen; index++) {
+      let curValueAxisChildNodeInnerHTML = valueAxisChildNodes[index].querySelector('.drag-target-item-name').innerHTML + valueAxisChildNodes[index].querySelector('.agg-type').innerHTML;
+      let curValueAxisChildNodeInfo = JSON.parse(valueAxisChildNodes[index].getAttribute('info'));
+      if (curValueAxisChildNodeInfo.formatter && (curValueAxisChildNodeInfo.formatter.check == 'num')) {
+          // 小数位数格式化
+          if (curValueAxisChildNodeInfo.formatter.num.digit > 0) {
+              digitFormatKeys.push(curValueAxisChildNodeInnerHTML);
+              digits.push(curValueAxisChildNodeInfo.formatter.num.digit);
+          }
+          // 千位分隔符格式化
+          if (curValueAxisChildNodeInfo.formatter.num.millesimal) {
+              separatorFormatKeys.push(curValueAxisChildNodeInnerHTML);
+          }
+      } else if (curValueAxisChildNodeInfo.formatter && (curValueAxisChildNodeInfo.formatter.check == 'percent')) {
+          // 百分数格式化
+          percentFormatKeys.push(curValueAxisChildNodeInnerHTML);
+      }
+  }
 
 
 

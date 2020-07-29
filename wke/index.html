@@ -16,6 +16,7 @@
           <div w-html="div"></div>
           <h1>{{test}}</h1>
       <input type="text" w-model="test">
+      <div>{{arr}}</div>
 
   </div>
       <!--<span w-text="test"></span>-->
@@ -27,7 +28,8 @@
             test: 'haahah',
             name: 'hello',
             foo: { age: 111 },
-            div: '<h1>dadas</h1>'
+            div: '<h1>dadas</h1>',
+            arr: [22,3,4,5,6],
         }
     })
     // console.log(a.$data.foo.age)

@@ -1,3 +1,21 @@
+const arrayProto = Array.prototype
+// 先克隆一份数组原型
+const arrayMethods = Object.create(arrayProto)
+
+const hasProto = '__proto__' in {}
+
+// 七个改变数组的方法
+const methodsToPatch = [
+    'push',
+    'pop',
+    'shift',
+    'unshift',
+    'splice',
+    'sort',
+    'reverse'
+]
+
+
 function Wue(options) {
     this.$el = options.el;
     this.$data = options.data;
@@ -10,13 +28,47 @@ Wue.prototype.observe = function (data) {
     if (!data|| typeof data !=='object') {
         return
     }
-    Object.keys(data).forEach(key => {
-        // 为每个key定义get set
-        this.defineReactive(data,key,data[key])
-        // 做一个数据代理
-        this.proxyDate(key)
-    });
+
+    return new Observer(data)
 };
+
+class Observer {
+    constructor(value) {
+        this.value = value;
+        this.dep = new Dep();
+        def(value,'__ob__',this)
+        // 判断数组
+        console.log(Array.isArray(value))
+        if (Array.isArray(value)) {
+            console.log(value)
+            protoAugment(value,arrayMethods)
+        } else {
+            // 判断value是obj还是数组
+            this.walk(value)
+        }
+
+    }
+    walk() {
+        Object.keys(obj).forEach(
+            key => defineReactive(obj, key, obj[key]))
+    }
+
+}
+
+function def(obj,key,val,enumerable) {
+    Object.defineProperty(obj, key, {
+        value: val,
+        enumerable: !!enumerable,
+        writable: true,
+        configurable: true
+    })
+}
+
+// 数组方法覆盖过程
+function protoAugment(target,src) {
+    console.log('protoAugment')
+    target.__proto__ = src
+}
 Wue.prototype.proxyDate = function(key) {
     Object.defineProperty(this,key,{
         get(){
@@ -27,7 +79,7 @@ Wue.prototype.proxyDate = function(key) {
         }
     })
 }
-Wue.prototype.defineReactive = function (obj,key,val) {
+let defineReactive = function (obj,key,val) {
     this.observe(val);
     var dep = new Dep();
     Object.defineProperty(obj,key,{
