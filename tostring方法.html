@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var str = 'dadas';
+    var obj = new String('str');
+    obj.toString = function () {
+        return 'shshsh'
+    };
+    str.toString = function() {
+        return 'shshsh'
+    }
+    console.log(self)
+   var h = Object.getOwnPropertyDescriptor(self,'str')
+    console.log(h)
+    var moban = `发发`;
+    // console.log(moban.raw())
+    // console.log(String.raw(`${1}ddd`,'hi'))
+    function foo(tpl) {
+        return String.raw(tpl,'hi')
+    }
+
+    console.log(foo `${1} hello`)
+
+
+    function g1(val) {
+        console.log(val)
+        return
+    }
+    g1 `dada`;
+
+    // let name = "Bob";
+    // console.log(String.raw `Hi\n${name}!`);
+    // console.log({}==={})
+    console.log(Number(new String()));
+    // (function (){
+    //   console.log(2222)
+    // })();
+    void function() {
+
+    }()
+</script>

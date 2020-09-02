@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <div id="g"></div>
+</body>
+<script>
+    var date1 = Date.now();
+    console.log(date1);
+    var f = '1990-4-4 2:00:00';
+    var g = 2*60*60*1000;
+    // console.log(g)
+    // console.log(new Date(f))
+    // let h = j.getHours();
+    // console.log(j.getTime())
+    var k = new Date(f).getTime();
+    var doc = document.getElementById('g');
+    setInterval(()=>{
+        // console.log(k)
+        let j = new Date(k);
+        doc.innerText = `${j.getHours()}:${j.getMinutes()}:${j.getSeconds()}`
+        k-=1000
+    },1000)
+</script>
+</html>

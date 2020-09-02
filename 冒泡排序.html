@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var arr = [55,88,99,66,77,1,2,4,5,7,0];
+
+    for(let a=0;a<arr.length-1;a++) {
+        for (var j=0;j<arr.length-a;j++) {
+            var k = '';
+            if (arr[j+1]<arr[j]) {
+                k = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = k;
+            }
+        }
+    }
+    console.log(arr);
+
+    function A() {
+        this.a = 'ddddd'
+    }
+    A.prototype.name = function () {
+        console.log(this.a)
+    };
+
+
+    A.prototype.name.call(obj)
+    Function.prototype.called = function (z) {
+
+    }
+</script>
+</html>

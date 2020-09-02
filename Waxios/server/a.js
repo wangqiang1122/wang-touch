@@ -16,7 +16,7 @@ router2.use((ctx,next)=>{
 
     next()
 });
-router2.get('/get', async (ctx,next)=>{
+router2.get('/getuser', async (ctx,next)=>{
     console.log(ctx.header)
     ctx.stauts = 200;
     ctx.body = { 'name': '网', age: 'dddd' };
