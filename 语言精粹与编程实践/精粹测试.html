@@ -27,5 +27,19 @@
         console.log(2222)
     }
 
+    // window.addEventListener('onbeforeunload', function () {
+    //     localStorage.setItem('name',"dddd")
+    // }, false)
+    // window.addEventListener('unload', function () {
+    //     alert('unload')
+    // }, false)
+    window.onbeforeunload=function () {
+        localStorage.setItem('name',"dddd")
+        // alert('beforeunload')
+    }
+    window.onunload = function () {
+        // alert('onunload')
+        // localStorage.clear();
+    }
 </script>
 </html>
