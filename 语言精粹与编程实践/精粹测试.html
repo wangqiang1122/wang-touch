@@ -8,7 +8,7 @@
 
 </body>
 <script>
-    var str ='12345678910'
+    var str ='12345678910';
 
     // my_label: {
     //     if (str&&str.length<10) {
@@ -34,12 +34,22 @@
     //     alert('unload')
     // }, false)
     window.onbeforeunload=function () {
-        localStorage.setItem('name',"dddd")
+        sessionStorage.setItem('name',"dddd")
         // alert('beforeunload')
     }
     window.onunload = function () {
         // alert('onunload')
         // localStorage.clear();
     }
+    const a = {
+        i: 1,
+        valueOf:function() {
+            return {}
+        },
+        toString: function () {
+            return a.i++;
+        }
+    }
+    console.log(a==1)
 </script>
 </html>

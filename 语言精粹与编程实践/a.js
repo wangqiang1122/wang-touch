@@ -1,1 +1,3 @@
-export let f = '2222';
+export const f = {
+    a:'1'
+};

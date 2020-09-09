@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script type="module">
+    // import * as myName from './a.js';
+    // console.log(myName)
+    // var { f:g } = myName
+    // console.log(g)
+    // myName.f='222'
+    // import { f } from './a.js';
+    // f.a = '222'
+    // var h = new Function('name',`console.log(name)`)
+    // console.log(h('3333'))
+    var g = {
+        name:""
+    }
+    console.log(Object.getOwnPropertyDescriptor(g,'name'))// 对像属性描述
+    Object.preventExtensions(g);// 不能添加新的属性
+    Object.freeze();
+    Object.seal();
+</script>
+
+</html>

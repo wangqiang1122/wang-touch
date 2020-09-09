@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 柯里化之前
+    function add(x, y) {
+        return x + y;
+    }
+
+    add(1, 2) // 3
+
+    // 柯里化之后
+    function addX(y) {
+        return function (x) {
+            return x + y;
+        };
+    }
+
+    console.log(addX(2)(1)) // 3
+    // 函数柯里化的函子
+    class Functor{
+        constructor(val) {
+            this.val = val;
+        }
+        map(f) {
+            return new Functor(f(this.val)).val;
+        }
+    }
+    Functor.of = function(val) {
+        return new Functor(val);
+    };
+    var g = Functor.of(2).map(function (val) {
+        console.log(val)
+        return val+3
+    })
+    console.log(g)
+</script>
+</html>
