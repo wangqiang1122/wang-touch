@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92e56a23-e773-4ce6-9ec8-3af3e82621ee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/语言精粹与编程实践/函数的颗粒化.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/语言精粹与编程实践/模块测试.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/语言精粹与编程实践/a.js" beforeDir="false" afterPath="$PROJECT_DIR$/语言精粹与编程实践/a.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/canvas/画板.html" beforeDir="false" afterPath="$PROJECT_DIR$/canvas/画板.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/语言精粹与编程实践/合成.js" beforeDir="false" afterPath="$PROJECT_DIR$/语言精粹与编程实践/合成.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/语言精粹与编程实践/精粹测试.html" beforeDir="false" afterPath="$PROJECT_DIR$/语言精粹与编程实践/精粹测试.html" afterDir="false" />
     </list>
@@ -74,7 +71,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="185" />
+          <entry key="html" value="186" />
           <entry key="js" value="251" />
           <entry key="json" value="2" />
           <entry key="text" value="1" />
@@ -84,7 +81,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="185" />
+          <entry key="HTML" value="186" />
           <entry key="JSON" value="2" />
           <entry key="JavaScript" value="251" />
           <entry key="PLAIN_TEXT" value="1" />
@@ -94,15 +91,15 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="10288" />
-          <entry key="js" value="15949" />
+          <entry key="html" value="10567" />
+          <entry key="js" value="16037" />
           <entry key="ts" value="70" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="10288" />
-          <entry key="JavaScript" value="15949" />
+          <entry key="HTML" value="10567" />
+          <entry key="JavaScript" value="16037" />
           <entry key="TypeScript" value="70" />
         </counts>
       </usages-collector>
@@ -302,11 +299,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/精粹测试.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
+            <state relative-caret-position="155">
+              <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -320,11 +317,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/函数的颗粒化.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="34" column="32" lean-forward="true" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
+            <state relative-caret-position="238">
+              <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/canvas/画板.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="45" column="47" lean-forward="true" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -376,15 +382,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/合成.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+            <state relative-caret-position="120">
+              <caret line="8" column="36" lean-forward="true" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/koa-my/app.js">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -447,7 +448,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/a.html" />
         <option value="$PROJECT_DIR$/canvas/canvas/饼图.html" />
         <option value="$PROJECT_DIR$/domDiff/Vdom.js" />
         <option value="$PROJECT_DIR$/reg/正则取值.html" />
@@ -493,11 +493,12 @@
         <option value="$PROJECT_DIR$/精粹测试.html" />
         <option value="$PROJECT_DIR$/语言精粹与编程实践/b.js" />
         <option value="$PROJECT_DIR$/语言精粹与编程实践/隐式类型转换.html" />
-        <option value="$PROJECT_DIR$/语言精粹与编程实践/精粹测试.html" />
-        <option value="$PROJECT_DIR$/语言精粹与编程实践/合成.js" />
         <option value="$PROJECT_DIR$/语言精粹与编程实践/a.js" />
         <option value="$PROJECT_DIR$/语言精粹与编程实践/模块测试.html" />
         <option value="$PROJECT_DIR$/语言精粹与编程实践/函数的颗粒化.html" />
+        <option value="$PROJECT_DIR$/canvas/画板.html" />
+        <option value="$PROJECT_DIR$/语言精粹与编程实践/合成.js" />
+        <option value="$PROJECT_DIR$/语言精粹与编程实践/精粹测试.html" />
       </list>
     </option>
   </component>
@@ -534,7 +535,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+    <option name="x" value="55" />
+    <option name="y" value="45" />
     <option name="width" value="1440" />
     <option name="height" value="827" />
   </component>
@@ -551,11 +553,6 @@
             <path>
               <item name="wang-touch" type="b2602c69:ProjectViewProjectNode" />
               <item name="wang-touch" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="wang-touch" type="b2602c69:ProjectViewProjectNode" />
-              <item name="wang-touch" type="462c0819:PsiDirectoryNode" />
-              <item name="柯里化" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="wang-touch" type="b2602c69:ProjectViewProjectNode" />
@@ -815,15 +812,15 @@
       <workItem from="1599014884416" duration="1723000" />
       <workItem from="1599122802309" duration="703000" />
       <workItem from="1599358780631" duration="1492000" />
-      <workItem from="1599441115941" duration="7847000" />
+      <workItem from="1599441115941" duration="11627000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="972996000" />
+    <option name="totallyTimeSpent" value="976776000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="827" extended-state="0" />
+    <frame x="55" y="45" width="1440" height="827" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8029557" visible="true" weight="0.22057787" />
@@ -887,9 +884,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vue-components/2.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/vue-components/3.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1154,20 +1148,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/精粹测试.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/合成.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/模块测试.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -1177,8 +1157,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/函数的颗粒化.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="34" column="32" lean-forward="true" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
+        <state relative-caret-position="238">
+          <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/canvas/画板.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="45" column="47" lean-forward="true" selection-start-line="45" selection-start-column="47" selection-end-line="45" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/合成.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="36" lean-forward="true" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/精粹测试.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
         </state>
       </provider>
     </entry>
