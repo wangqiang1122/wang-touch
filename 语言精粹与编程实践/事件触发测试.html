@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="father">
+    父级点击
+    <div id="son">子级</div>
+</div>
+
+</body>
+<script>
+    window.onload = function () {
+        var father = document.getElementById('father');
+        var son = document.getElementById('son');
+
+        father.addEventListener('click',function () {
+            alert('father')
+        },false);
+        son.addEventListener('click',function () {
+            alert('son')
+        },false);
+    }
+</script>
+</html>

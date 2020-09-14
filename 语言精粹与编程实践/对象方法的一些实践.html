@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let g = { 'name': '往', "age": 111, "book": { ik:'22',ih: '222' } };
+    let nobj = Object.create(g);
+    console.log(nobj)
+    let h = Object.assign({'name':'h'},g);
+    g.book.ik= '就斤斤计较';
+    g.name="dadasdasd";
+    console.log(h)
+
+    const prototype1 = {};
+    const object1 = Object.create(prototype1); //
+    console.log(Object.getPrototypeOf(object1));
+    console.log(prototype1)
+    console.log(Object.getPrototypeOf(object1) === prototype1);
+    console.log(Object.getOwnPropertyDescriptors(Object.prototype))
+</script>
+</html>

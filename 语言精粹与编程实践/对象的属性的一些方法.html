@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function MyObject() {
+
+    }
+    function MyObjectEx() {
+
+    }
+    MyObjectEx.prototype = new MyObject(); //
+    MyObject.prototype.aCustomMember = "MyObject";
+
+    var obj = new MyObjectEx();
+
+    console.log(obj.propertyIsEnumerable('aCustomMember')) // propertyIsEnumerable不检测继承的属性
+
+    for(var propNmae in obj) {
+        console.log(propNmae)
+    }
+    console.log(Object.getOwnPropertyNames(obj)) // 不会去找继承关系的属性
+    console.log(Object.keys(obj))
+    console.log('aCustomMember' in obj) // 会去找继承关系
+    console.log(obj instanceof MyObjectEx) // 对象是不是一个类的实例
+    var sy = Symbol.for('kkk');
+    var syObj = { [sy]: 100 }
+    var j = Symbol.for('kkk');
+    console.log(j)
+    console.log(syObj[j])
+
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    class Myname {
+        get name (){
+            return '2222'
+        }
+        static foo() {
+            console.log('fffff')
+        }
+        run() {
+            console.log('我是run')
+        }
+    }
+    class ChildName extends Myname {
+        constructor() {
+            super();
+            super.foo();
+        }
+    }
+    Myname.foo();
+    var obj = new Object();
+    obj.name='1111';
+    console.log(Object.getOwnPropertyDescriptor(obj,"name"))
+    console.log(Object.getOwnPropertyNames(Array.prototype))
+    console.log([1,2,3].toLocaleString())
+
+
+
+</script>
+</html>

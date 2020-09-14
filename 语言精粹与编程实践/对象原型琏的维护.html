@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function MyObject() {
+
+    }
+    function MyObjectEx() {
+
+    }
+    MyObjectEx.prototype = new MyObject();
+    MyObjectEx.prototype.constructor = MyObjectEx;
+
+    //
+    function MyObjectEx2() {
+
+    }
+    MyObjectEx2.prototype = new MyObjectEx();
+    MyObjectEx2.prototype.constructor = MyObjectEx2;
+    let obj = new MyObjectEx2();
+    var proto = Object.getPrototypeOf(obj);
+    while (proto) {
+        console.log('>>'+proto.constructor)
+        proto = Object.getPrototypeOf(proto)
+    }
+    console.log('>>'+proto)
+
+    MyObject.prototype.value =100;
+    console.log(obj instanceof MyObject)
+
+    Object.setPrototypeOf(obj,{});
+    console.log(obj instanceof MyObject)
+
+</script>
+</html>

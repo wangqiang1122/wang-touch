@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function Geth(name) {
+       this.name = name
+    }
+    Geth.prototype.conname = function () {
+        console.log(this.name)
+    }
+    var h = new Geth('嘿嘿');
+    console.log(h);
+    let j = {name: '我是call'};
+    h.conname.callr= function(context){
+        var context = context || window
+        context.fn = this;
+        context.fn()
+        delete context.fn
+    }
+    h.conname.callr(j)
+</script>
+</html>
