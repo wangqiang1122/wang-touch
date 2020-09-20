@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function MyObject() {
+
+    }
+    MyObject.prototype.name = function () {
+        console.log('name')
+    }
+    // 构造器直接调用原型里的方法
+    MyObject.prototype.name()
+
+    // var h = new MyObject();
+    // console.log(h)
+    // h.name()
+</script>
+</html>

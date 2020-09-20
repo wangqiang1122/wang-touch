@@ -19,12 +19,14 @@ Namej.prototype.seth = function () {
 // 模拟new 关键字
 function moniNew(current,...args) {
     let obj = {};
-    obj.prototype = Object.assign({},current.prototype);
+    obj.__proto__ = Object.assign({},current.prototype,{ constructor: current });
     current.call(obj,...args)
     return obj
 }
 // 新的对象
 var k = moniNew(Namej);
+console.log(k)
+k.seth()
 console.log(k.name)
 </script>
 </html>

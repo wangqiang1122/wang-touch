@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function MyObject() {
+
+    }
+    function MyObjectEx() {
+
+    }
+    // 置原型的原型
+    Object.setPrototypeOf(MyObjectEx.prototype,MyObject.prototype);
+    // 置类的原型
+    Object.setPrototypeOf(MyObjectEx,MyObject);
+    console.log(Object.getPrototypeOf(MyObjectEx)===MyObject)
+</script>
+</html>

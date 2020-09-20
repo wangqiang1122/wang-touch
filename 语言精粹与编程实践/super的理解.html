@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    class MyObject{}
+    MyObject.x = '哈哈哈';
+    class MyObjectEx extends MyObject {
+        static foo() { // 静态的
+            console.log(super.x) // supers是静态类
+        }
+    }
+
+    console.log(Object.getPrototypeOf(MyObjectEx)===MyObject)
+    // MyObjectEx.foo()
+    // 设置其原型
+    Object.setPrototypeOf(MyObjectEx,{ x:100 });
+    MyObjectEx.foo()
+</script>
+</html>

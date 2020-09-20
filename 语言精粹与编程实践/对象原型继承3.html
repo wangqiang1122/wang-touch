@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function base() {
+
+    }
+    base.prototype.aMethod = function () {
+
+    };
+    function MyObjectEx() {
+        base.call(this); //
+        this.aMethod = function () {
+
+        }
+    }
+    var g = new base();
+    console.log(g)
+    console.log(g.constructor)
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    class MyObject {
+        static get defaultCount() {
+            return 10
+        }
+        name() {
+            console.log('name')
+        }
+    }
+
+    class MyObjectEx extends MyObject {
+        static get defaultCount() {
+            return super.defaultCount+3
+        }
+        printMyCount() {
+            // Object.getPrototypeOf(this) 是找到当前对象this的原型
+            // constructor是找到当前对象圆形上的构造函数就是MyObjectEx
+            // defaultCount 获取原型上的静态方法
+            // console.log(Object.getPrototypeOf(this).constructor.defaultCount)
+            // console.log(MyObject.defaultCount)
+            super.name()
+        }
+    }
+    var g = new MyObjectEx();
+    g.printMyCount()
+</script>
+</html>
