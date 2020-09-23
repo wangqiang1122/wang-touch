@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // var h = { p:'1111' };
+    // h.watch('p',function (){
+    //     console.log(arguments)
+    // })
+    // h.p="ahahah"
+    let extent = function (subClass,baseClass) {
+        // 暂存父类构造器
+        subClass.baseConstructor = baseClass;
+    }
+    function Animal() {
+        this.name = name;
+        this.say = function (message) {
+            console.log(this.name+':'+message)
+        }
+        this.eat = function () {
+           this.say('Yum');
+        }
+    }
+    console.log(Animal.base)
+</script>
+</html>

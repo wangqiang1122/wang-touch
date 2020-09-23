@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function MyObject(x) {
+        this.xxx = x;
+        console.log('call me',new.target.name)
+    }
+    MyObject.prototype = new Object();
+    var obj  = new MyObject(5);
+    console.log(obj.xxx)
+    console.log(obj['__proto__'])
+    console.log(Object.getOwnPropertyDescriptor(obj,'xxx'))
+
+    var j = Object.create({},{ name:{value:'1111'},name1: {
+        get: function () {
+            return 'hhhh'
+        }
+        } })
+    console.log(j.name1)
+</script>
+</html>

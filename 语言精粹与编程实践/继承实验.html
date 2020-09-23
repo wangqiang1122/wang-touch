@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function Animal() {
+
+    }
+    Animal.prototype.jia = function () {
+        console.log('家!!!!')
+    };
+    function Cat(name) {
+        Animal.call(this,name);
+    }
+    function extend(old,father) {
+        let n = function () {};
+        n.prototype = father.prototype;
+        old.prototype = new father();
+        old.prototype.constructor = old;
+    }
+    extend(Cat,Animal);
+    var g = new Cat('sssss');
+    g.jia= function() {
+        console.log('滴滴嘟嘟')
+    }
+    console.log(g)
+    g.jia();
+    var h = new Cat('ddddd')
+    console.log(h)
+    h.jia()
+
+    console.log(Object.create({name:'dddd'}))
+</script>
+</html>

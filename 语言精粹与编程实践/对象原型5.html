@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var obj = {
+        showThis: function () {
+            console.log(this)
+        }
+    }
+    obj.showThis()
+    var g = obj.showThis;
+    g()
+    // 事件
+    function MyObject() {
+
+    }
+    MyObject.prototype.OnError = undefined
+    MyObject.prototype.doAction = function (str) {
+       try {
+           console.log(str)
+           return eval(str)
+       } catch (e) {
+
+       }
+    }
+    var obj1 = new MyObject();
+    console.log(obj1)
+    obj1.onError = function (e) {
+        console.log(e)
+    }
+    // obj1.doAction('aobj.tag=100')
+    // console.log(aobj)
+    function High() {
+         this.name="哈哈啊哈"
+    }
+    // High.prototype = new MyObject();
+    High.prototype['__proto__'] = MyObject.prototype
+    // Object.setPrototypeOf(High.prototype,MyObject.prototype)
+    console.log(High.prototype)
+    High.prototype.constructor = High
+    console.log(new High())
+    class Gij extends MyObject{
+
+    }
+    console.log(Gij.prototype)
+</script>
+</html>

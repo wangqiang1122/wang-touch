@@ -8,20 +8,32 @@
 
 </body>
 <script>
-    function base() {
+    function Base() {
 
     }
-    base.prototype.aMethod = function () {
+    Base.prototype.aMethod = function () {
 
     };
     function MyObjectEx() {
-        base.call(this); //
+        Base.call(this); //
         this.aMethod = function () {
 
         }
     }
-    var g = new base();
+    var g = new Base();
     console.log(g)
     console.log(g.constructor)
+    console.log(g instanceof Base);
+    var k = g instanceof Base;
+    console.log(Base.prototype.isPrototypeOf(g)) // isPrototypeOf 对象是不是继承子Base的原型
+    function High() {
+
+    }
+    High.prototype = new Base();
+    High.prototype.constructor = High;
+    // console.log(Base.prototype.isPrototypeOf(High))
+    let here = new High();
+    console.log(here instanceof Base)
+    console.log()
 </script>
 </html>
