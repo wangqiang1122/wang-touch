@@ -11,6 +11,9 @@
     function MyObject() {
 
     }
+    MyObject.prototype.name = function () {
+        console.log('name')
+    }
     function MyObjectEx() {
 
     }
@@ -19,5 +22,11 @@
     // 置类的原型
     Object.setPrototypeOf(MyObjectEx,MyObject);
     console.log(Object.getPrototypeOf(MyObjectEx)===MyObject)
+    MyObjectEx.prototype.name = function () {
+        console.log('MyObjectEx')
+    }
+    MyObject.prototype.name()
+    var g = new MyObjectEx;
+    g.name()
 </script>
 </html>

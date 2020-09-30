@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var obj = {
+        [Symbol.toStringTag] : 'dadsaad'
+    }
+    console.log(obj.constructor.toString())
+    console.log(obj.toString())
+    function f() {
+        // f.toString = function () {
+        //     return 'ddddd'
+        // }
+        return f
+    }
+    f[Symbol.toStringTag] = 'Function';
+    var g = new f();
+    console.log(f.toString())
+</script>
+</html>

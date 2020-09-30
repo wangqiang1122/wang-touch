@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var str = 'abcd';
+
+    var normalArr = str.split('');
+
+    var typeArr = new Uint8Array(4); //  类型化数组
+    console.log('f'.charCodeAt(0))
+
+    typeArr.set(normalArr.map(c=>c.charCodeAt(0)))
+    console.log(typeArr)
+    console.log(Uint8Array.prototype.isPrototypeOf(typeArr))
+    console.log(typeArr instanceof Array)
+
+    console.log(typeArr.sort())
+</script>
+</html>

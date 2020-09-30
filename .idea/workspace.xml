@@ -2,13 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="92e56a23-e773-4ce6-9ec8-3af3e82621ee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/语言精粹与编程实践/对象原型5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/语言精粹与编程实践/对象原型继承4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/语言精粹与编程实践/对象的一些方法.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/语言精粹与编程实践/直接创建对象.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/语言精粹与编程实践/继承实验.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/语言精粹与编程实践/arrayBuffer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/语言精粹与编程实践/define.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/语言精粹与编程实践/proxy/MyObject.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/语言精粹与编程实践/proxy/MyObjectProxy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/语言精粹与编程实践/proxy/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/语言精粹与编程实践/proxy/test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/语言精粹与编程实践/可被符号影响的行为.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/语言精粹与编程实践/对象属性状态.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/语言精粹与编程实践/集合对象.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/语言精粹与编程实践/对象原型继承3.html" beforeDir="false" afterPath="$PROJECT_DIR$/语言精粹与编程实践/对象原型继承3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/语言精粹与编程实践/对象原型继承2.html" beforeDir="false" afterPath="$PROJECT_DIR$/语言精粹与编程实践/对象原型继承2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/语言精粹与编程实践/隐式类型转换.html" beforeDir="false" afterPath="$PROJECT_DIR$/语言精粹与编程实践/隐式类型转换.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -55,29 +60,29 @@
     <session id="-549106619">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="65" />
+          <entry key="project.closed" value="67" />
           <entry key="project.open.time.1" value="13" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.13" value="5" />
           <entry key="project.open.time.14" value="2" />
           <entry key="project.open.time.15" value="1" />
-          <entry key="project.open.time.2" value="3" />
+          <entry key="project.open.time.2" value="4" />
           <entry key="project.open.time.3" value="3" />
           <entry key="project.open.time.4" value="5" />
-          <entry key="project.open.time.5" value="7" />
-          <entry key="project.open.time.6" value="12" />
+          <entry key="project.open.time.5" value="8" />
+          <entry key="project.open.time.6" value="13" />
           <entry key="project.open.time.7" value="9" />
           <entry key="project.open.time.8" value="7" />
           <entry key="project.open.time.9" value="4" />
-          <entry key="project.opened" value="76" />
+          <entry key="project.opened" value="80" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="1" />
-          <entry key="html" value="233" />
-          <entry key="js" value="286" />
+          <entry key="html" value="246" />
+          <entry key="js" value="292" />
           <entry key="json" value="2" />
           <entry key="text" value="1" />
           <entry key="ts" value="2" />
@@ -87,9 +92,9 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="1" />
-          <entry key="HTML" value="233" />
+          <entry key="HTML" value="246" />
           <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="286" />
+          <entry key="JavaScript" value="292" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="TypeScript" value="2" />
           <entry key="Vue.js" value="6" />
@@ -97,15 +102,15 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="15958" />
-          <entry key="js" value="16037" />
+          <entry key="html" value="17344" />
+          <entry key="js" value="16512" />
           <entry key="ts" value="70" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="15958" />
-          <entry key="JavaScript" value="16037" />
+          <entry key="HTML" value="17344" />
+          <entry key="JavaScript" value="16512" />
           <entry key="TypeScript" value="70" />
         </counts>
       </usages-collector>
@@ -306,69 +311,87 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/对象原型5.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/继承/拷贝继承.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/继承/构造函数继承.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/继承实验.html">
+        <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/对象原型继承2.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js设计模式/职责链模式.js">
+        <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/模拟new生成对象的方法.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-220" />
+            <state relative-caret-position="315">
+              <caret line="21" column="60" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js设计模式/工厂模式.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+            </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js设计模式/单例模式.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js设计模式/代理模式.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+            <state relative-caret-position="90">
+              <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/继承/实例继承.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/继承/原型链继承.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/继承/组合继承.html">
+        <entry file="file://$PROJECT_DIR$/js设计模式/策略模式.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" selection-start-line="31" selection-end-line="32" selection-end-column="38" />
+            <state relative-caret-position="180">
+              <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/define.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/对象属性状态.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/可被符号影响的行为.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="24" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/事件触发测试.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/隐式类型转换.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="313">
+              <caret line="34" column="21" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -433,15 +456,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/聚合函数/index.html" />
-        <option value="$PROJECT_DIR$/promise/2.html" />
-        <option value="$PROJECT_DIR$/promise/promiseReslove.js" />
-        <option value="$PROJECT_DIR$/倒计时/倒计时.html" />
-        <option value="$PROJECT_DIR$/Waxios/js/waxios/defaultConfig.js" />
-        <option value="$PROJECT_DIR$/Waxios/server/a.js" />
-        <option value="$PROJECT_DIR$/Waxios/js/index2.js" />
-        <option value="$PROJECT_DIR$/file.html" />
-        <option value="$PROJECT_DIR$/聚合函数/index.js" />
         <option value="$PROJECT_DIR$/隐式类型转换.html" />
         <option value="$PROJECT_DIR$/冒泡排序.html" />
         <option value="$PROJECT_DIR$/面试.js" />
@@ -465,7 +479,6 @@
         <option value="$PROJECT_DIR$/语言精粹与编程实践/对象的属性的一些方法.html" />
         <option value="$PROJECT_DIR$/语言精粹与编程实践/模拟call和apply方法.html" />
         <option value="$PROJECT_DIR$/语言精粹与编程实践/对象方法的一些实践.html" />
-        <option value="$PROJECT_DIR$/语言精粹与编程实践/隐式类型转换.html" />
         <option value="$PROJECT_DIR$/语言精粹与编程实践/对象内置的一些方法.html" />
         <option value="$PROJECT_DIR$/语言精粹与编程实践/对象原型琏的维护.html" />
         <option value="$PROJECT_DIR$/语言精粹与编程实践/对象原型的一写继承.html" />
@@ -476,7 +489,6 @@
         <option value="$PROJECT_DIR$/语言精粹与编程实践/hasownprototype.css" />
         <option value="$PROJECT_DIR$/语言精粹与编程实践/hasownprototype.html" />
         <option value="$PROJECT_DIR$/语言精粹与编程实践/对象继承.html" />
-        <option value="$PROJECT_DIR$/语言精粹与编程实践/对象原型继承2.html" />
         <option value="$PROJECT_DIR$/语言精粹与编程实践/对象原型继承父类为null.html" />
         <option value="$PROJECT_DIR$/语言精粹与编程实践/对象原型继承3.html" />
         <option value="$PROJECT_DIR$/语言精粹与编程实践/对象的一些方法.js" />
@@ -484,6 +496,17 @@
         <option value="$PROJECT_DIR$/语言精粹与编程实践/对象原型5.html" />
         <option value="$PROJECT_DIR$/语言精粹与编程实践/直接创建对象.html" />
         <option value="$PROJECT_DIR$/语言精粹与编程实践/继承实验.html" />
+        <option value="$PROJECT_DIR$/语言精粹与编程实践/隐式类型转换.html" />
+        <option value="$PROJECT_DIR$/语言精粹与编程实践/arrayBuffer.html" />
+        <option value="$PROJECT_DIR$/语言精粹与编程实践/集合对象.html" />
+        <option value="$PROJECT_DIR$/语言精粹与编程实践/proxy/MyObject.js" />
+        <option value="$PROJECT_DIR$/语言精粹与编程实践/proxy/index.html" />
+        <option value="$PROJECT_DIR$/语言精粹与编程实践/proxy/test.js" />
+        <option value="$PROJECT_DIR$/语言精粹与编程实践/proxy/MyObjectProxy.js" />
+        <option value="$PROJECT_DIR$/语言精粹与编程实践/对象原型继承2.html" />
+        <option value="$PROJECT_DIR$/语言精粹与编程实践/define.html" />
+        <option value="$PROJECT_DIR$/语言精粹与编程实践/对象属性状态.html" />
+        <option value="$PROJECT_DIR$/语言精粹与编程实践/可被符号影响的行为.html" />
       </list>
     </option>
   </component>
@@ -530,7 +553,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -547,6 +569,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -589,8 +612,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.app.js">
+  <component name="RunManager" selected="Node.js.test.js">
     <configuration name="测试题.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="测试题.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="面试.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="面试.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="装饰器模式.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="装饰器模式.js" working-dir="$PROJECT_DIR$/设计模式">
+      <method v="2" />
+    </configuration>
+    <configuration name="装饰器模式.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="装饰器模式.js" working-dir="$PROJECT_DIR$/设计模式">
+      <method v="2" />
+    </configuration>
+    <configuration name="单例模式.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="单例模式.js" working-dir="$PROJECT_DIR$/js设计模式">
       <method v="2" />
     </configuration>
     <configuration name="装饰器模式.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="装饰器模式.js" working-dir="$PROJECT_DIR$/设计模式">
@@ -608,18 +643,6 @@
     <configuration name="合成.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="合成.js" working-dir="$PROJECT_DIR$/语言精粹与编程实践">
       <method v="2" />
     </configuration>
-    <configuration name="面试.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="面试.js" working-dir="$PROJECT_DIR$">
-      <method v="2" />
-    </configuration>
-    <configuration name="装饰器模式.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="装饰器模式.js" working-dir="$PROJECT_DIR$/设计模式">
-      <method v="2" />
-    </configuration>
-    <configuration name="装饰器模式.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="装饰器模式.js" working-dir="$PROJECT_DIR$/设计模式">
-      <method v="2" />
-    </configuration>
-    <configuration name="单例模式.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="单例模式.js" working-dir="$PROJECT_DIR$/js设计模式">
-      <method v="2" />
-    </configuration>
     <configuration name="a.js (1)" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="a.js" working-dir="$PROJECT_DIR$/语言精粹与编程实践">
       <method v="2" />
     </configuration>
@@ -629,14 +652,19 @@
     <configuration name="app.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="app.js" working-dir="$PROJECT_DIR$/Waxios/server">
       <method v="2" />
     </configuration>
+    <configuration name="test.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="test.js" working-dir="$PROJECT_DIR$/语言精粹与编程实践/proxy">
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Node.js.app.js" />
       <item itemvalue="Node.js.a.js" />
       <item itemvalue="Node.js.测试题.js" />
       <item itemvalue="Node.js.a.js (1)" />
+      <item itemvalue="Node.js.test.js" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.test.js" />
         <item itemvalue="Node.js.a.js (1)" />
         <item itemvalue="Node.js.app.js" />
         <item itemvalue="Node.js.a.js" />
@@ -803,24 +831,26 @@
       <workItem from="1600600629588" duration="3050000" />
       <workItem from="1600658495371" duration="3068000" />
       <workItem from="1600744975172" duration="2358000" />
-      <workItem from="1600759244009" duration="1169000" />
+      <workItem from="1600759244009" duration="3627000" />
+      <workItem from="1601042285845" duration="1243000" />
+      <workItem from="1601116440562" duration="5047000" />
+      <workItem from="1601352139553" duration="1364000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1012177000" />
+    <option name="totallyTimeSpent" value="1022289000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="827" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8029557" visible="true" weight="0.22057787" />
-      <window_info id="Structure" order="1" sideWeight="0.19704433" side_tool="true" weight="0.19301033" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7980198" visible="true" weight="0.22057787" />
+      <window_info id="Structure" order="1" sideWeight="0.2019802" side_tool="true" weight="0.22057787" />
       <window_info id="npm" order="2" sideWeight="0.5045872" side_tool="true" weight="0.2494043" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32917318" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3165761" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.31564626" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39863947" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -828,7 +858,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3138587" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.31292516" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32298136" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -875,49 +905,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/koa-post/2.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/koa-post/app1.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/koa-post/app.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/koa-oneAuth/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/koa-my/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-89" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/koa-get/app.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/koa-ejs/app.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/koa-cookie/app.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/express/a.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/express/post.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/express/server.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/express-ejs/server1.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/express-ejs/server.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/express-ejs/server2.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -963,13 +950,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/模拟new生成对象的方法.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="60" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/super的理解.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1001,20 +981,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/对象原型继承父类为null.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/对象原型继承2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/对象原型的一写继承.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -1033,9 +999,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1050,13 +1013,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/对象原型继承4.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -1077,9 +1033,6 @@
     <entry file="file://$PROJECT_DIR$/继承/拷贝继承.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/继承/构造函数继承.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/继承/实例继承.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1098,9 +1051,6 @@
         <state relative-caret-position="-220" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js设计模式/单例模式.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/js设计模式/代理模式.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1112,6 +1062,131 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/arrayBuffer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/继承/构造函数继承.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/集合对象.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/proxy/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/proxy/MyObject.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/proxy/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/proxy/MyObjectProxy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/对象原型继承4.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/对象原型继承父类为null.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/对象原型继承2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/模拟new生成对象的方法.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="60" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js设计模式/工厂模式.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js设计模式/单例模式.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js设计模式/策略模式.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/define.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/对象属性状态.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/隐式类型转换.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="34" column="21" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/事件触发测试.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/语言精粹与编程实践/可被符号影响的行为.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="24" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="24" />
         </state>
       </provider>
     </entry>

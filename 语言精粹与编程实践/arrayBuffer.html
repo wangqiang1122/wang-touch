@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var buff = new ArrayBuffer(4);
+    // console.log(buff)
+    // buff[0]='a'
+    var arr = new Int8Array(buff);
+    arr[0] = 10
+    console.log(arr)
+    // 利用 DataView建立关系
+    // arr和view 是buff的两个视图操作的 同一个代码
+    var view = new DataView(buff)
+    console.log(view.getInt8(0))
+</script>
+</html>

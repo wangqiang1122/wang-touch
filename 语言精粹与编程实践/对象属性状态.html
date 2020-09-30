@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var obj = {name: 'ddddd'};
+    // preventExtensions
+    // Object.preventExtensions(obj)
+    // Object.freeze(obj); // 密封对象
+    obj.name = '2222';
+    console.log(obj)
+
+    Object.defineProperties(obj,{
+        'age1': {
+            value: '1111',
+            configurable: false,
+        }
+    })
+    obj.h = '实打实'
+    console.log(obj)
+
+    // 属性状态
+    Object.preventExtensions(obj)
+    console.log(Object.isExtensible(obj))
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var obj = Object.defineProperty(new Object,'n1',{ value: 100 });
+    obj.n1 = 100;
+    console.log(obj.propertyIsEnumerable('n1'));
+    console.log(obj.n1);
+    var obj2 = Object.create(obj);
+    Object.defineProperty(obj2,'n1',{
+        value: obj2.n1,
+        configurable: true,
+        enumerable: true,
+        writable: true,
+    });
+    obj2.n1 = '发发'
+    console.log(obj2)
+</script>
+</html>
