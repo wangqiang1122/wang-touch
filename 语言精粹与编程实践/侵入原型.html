@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    console.log(Object.getPrototypeOf(Object.prototype)) // 对象的原型的继承的父级是null
+    // Object.setPrototypeOf(Object.prototype,new Object) // 报错不能给object对象设置父级原型
+    console.log(Object.getOwnPropertyDescriptor(Object,'prototype'))
+    console.log(Object.getPrototypeOf(String.prototype))
+
+    function MyObject() {
+
+    }
+    var obj = new Object;
+    var obj2 = new MyObject;
+    // Object.freeze(Object.prototype)
+    console.log(Object.isExtensible(Object.prototype))
+    Object.prototype.x = 100;
+    console.log(obj2.x)
+
+    ///
+    function intrudeOnPrototype(Class,handle) {
+        var orginal = Object.getPrototypeOf(Class.prototype);
+        var target = Object.create(orginal);
+        var { proxy, revoke } = Proxy.revocable(target,handle)
+        console.log(proxy);
+        console.log(revoke)
+        Object.setPrototypeOf(Class.prototype, proxy)
+        return ()=> revoke(Object.setPrototypeOf(Class.prototype,target))
+    }
+
+    var str = new String('OldString');
+    var recovery = intrudeOnPrototype(String,{
+        get: function (target,prop) {
+            if(prop==='t') return 100;
+            return Reflect.get(...arguments);
+        }
+    })
+    var str2 = new String('NewString');
+    console.log(Object.getPrototypeOf(str)===Object.getPrototypeOf(str2));
+    console.log(str.t)
+    console.log(str2.t)
+    //
+    console.log((new Object).t)
+    // 重制
+    recovery()
+    console.log(str.t)
+    console.log(str2.t)
+
+    //
+
+</script>
+</html>

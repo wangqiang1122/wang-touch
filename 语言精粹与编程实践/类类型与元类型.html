@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // function full() {
+    //
+    // }
+    // Object.setPrototypeOf(Function.prototype,{})
+    // Function.constructor = function() {}
+    // console.log(full instanceof Function)
+    //
+    // console.log(Object.getPrototypeOf(full.prototype))
+    // console.log(Object.getPrototypeOf(Function.prototype))
+    // console.log(Function.prototype.isPrototypeOf(full))
+
+    var obj = {};
+    var obj1 = Object.create(obj);
+    console.log(obj.isPrototypeOf(obj1))// 一个对象是否是另一个对象的原型琏上
+
+    function A1() {
+
+    }
+    // 原子 最小颗粒度的元算对象显然是值，包括null string number boolean symbol undefined,
+    var f = new A1;
+    console.log(f instanceof A1) // 一个对象在其原型琏上是否存在一个构造函数的 prototype 属性。
+
+    // 生成一个空对象
+    var atom = Object.create(null);// 生成一个空对象
+    console.log(typeof atom)
+    console.log(Object.getPrototypeOf(atom))
+    // console.log(atom instanceof Object)
+    var Atom = new Function;
+    console.log(Object.setPrototypeOf(Atom.prototype,null));
+    console.log(Atom.prototype['__proto__'])
+    console.log(new Atom)
+    console.log(Object.setPrototypeOf({},null))
+    console.log(Object.create(null))
+</script>
+</html>

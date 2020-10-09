@@ -22,5 +22,28 @@
     f[Symbol.toStringTag] = 'Function';
     var g = new f();
     console.log(f.toString())
+    ///
+    class MyObject {
+        static [Symbol.hasInstance] (obj) {
+            console.log(obj)
+            return super[Symbol.hasInstance](obj) || (obj&&obj.className==="MyObject")
+        }
+    }
+    var obj1 = { className: "MyObject" };
+    var obj2 = new MyObject()
+    // console.log(obj1 instanceof MyObject)
+    console.log(obj2 instanceof MyObject);
+    // var obj3 = {  }
+    var fakeBase = new Object();
+    fakeBase[Symbol.hasInstance] = (obj) => {
+        console.log(obj)
+        return 'className' in obj
+    }
+    console.log(obj2 instanceof fakeBase)
+    // 建立一个object之外的对象
+    var atom = Object.create(null); // 一个
+    console.log(atom)
+    atom.className = '[META]';
+    console.log(atom instanceof fakeBase)
 </script>
 </html>

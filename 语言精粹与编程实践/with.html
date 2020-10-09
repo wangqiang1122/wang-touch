@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var f= new Function();
+    var constructor = null;
+    with (f.prototype) {
+        console.log(constructor)
+        console.log(f===constructor)
+    }
+</script>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var arr1 = [1,2,3];
+    // arr1[Symbol.iterator] = undefined;
+    arr1[Symbol.isConcatSpreadable] = true;
+    arr1.forEach(item=>{console.log(item) })
+    console.log(...arr1)
+</script>
+</html>

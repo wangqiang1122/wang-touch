@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // function _INTERNAL_METHOD_STANDIN(proxy,methodName,...args) {
+    //     var { target: "[[ProxyTarget]]", handler: "[[ProxyHandler]]" } = peekInternalSlots(proxy);
+    //     var method = handle[toTrapName](methodName);
+    //
+    // }
+    // function peekInternalSlots() {
+    //
+    // }
+    // function toTrapName() {
+    //
+    // }
+
+    var obj = new Object();
+    var target= new Proxy(obj,{
+        getOwnPropertyDescriptor:function (target,key) {
+            console.log(' [[GetOwnProperty]] on target >>', ...arguments)
+            return Reflect.getOwnPropertyDescriptor(...arguments)
+        }
+    })
+    var proxy = new Proxy(target,{
+        getOwnPropertyDescriptor: function (target,key) {
+            console.log(' [[GetOwnProperty]] on target >>', ...arguments)
+            return Reflect.getOwnPropertyDescriptor(...arguments)
+        },
+        defineProperty:function (target,key,desc,receiver) {
+            console.log(' [[defineProperty]] on target >>', ...arguments)
+            return Reflect.defineProperty(...arguments)
+        }
+    })
+    proxy.n1 = 100;
+    console.log(obj.n1)
+</script>
+</html>

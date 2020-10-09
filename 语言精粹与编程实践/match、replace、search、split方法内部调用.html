@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var separator = {};
+    // 设置默认分割方法
+    separator[Symbol.split] = function (str, limit) {
+        console.log(str);
+        console.log(limit)
+        return str.split(',',limit)
+    }
+    var str = 'hello,world';
+    console.log(separator)
+    console.log(str.split(separator,1))
+
+    var obj = {
+        source: 'abc.e',
+        flags: 'i',
+        [Symbol.match]: true
+    }
+    var rx = new RegExp(obj);
+    console.log(rx)
+    console.log(rx.source,rx.test('abcde'))
+    try {
+        ''.endsWith(rx)
+    }catch (e) {
+        console.log(e.message)
+    }
+    let arr = '111'
+    var newarr = arr.slice(0,2);
+    console.log(newarr)
+
+    ArraySpecies = Object.getPrototypeOf(arr).constructor[Symbol.species];
+    console.log(ArraySpecies)
+    function ArraySpecies(len) {
+
+    }
+</script>
+</html>
