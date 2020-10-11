@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function add(num1,num2) {
+        return num1+num2;
+    }
+    // 柯里化典型应用
+    function current(fn) {
+        var args = Array.prototype.slice.call(arguments,1);
+        return function () {
+           let childargs = Array.from(arguments);
+           let g = args.concat(childargs);
+           return fn.apply(null,g)
+        }
+    }
+    console.log(current(add,1,2)())
+
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    class Meta extends null {
+        constructor() {
+            console.log(new.target)
+            return Object.setPrototypeOf(class extends null{
+                constructor() {
+                    return Object.create(new.target.prototype)
+                }
+            },new.target)
+        }
+    }
+    var Atom = new Meta();
+    console.log(Object.getPrototypeOf(Atom))
+    var atom = new Atom;
+    console.log(Object.getPrototypeOf(atom))
+    class MetaClass extends Meta {
+    }
+    console.log(Object.getPrototypeOf(MetaClass))
+    class MetaObject extends new MetaClass {
+      banefunction () {}
+    }
+    console.log(Object.getPrototypeOf(MetaObject))
+    // var Atom1 = new Meta;
+    // console.log(Atom1)
+    // 检测
+    console.log(MetaObject.prototype)
+    console.log(MetaClass.prototype instanceof Meta);
+    console.log(MetaObject.prototype instanceof MetaClass) // instanceof 运算符用来测试一个对象在其原型链中是否存在一个构造函数的 prototype 属性。
+    console.log(MetaClass.isPrototypeOf(MetaObject)) // 一个对象是否在另一个对象的原型链上
+    // instanceof 当右侧是个函数时.则使用该函数的.prototype来检查原型琏
+</script>
+</html>

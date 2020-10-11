@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    class Meta extends null {
+        constructor() {
+            return Object.setPrototypeOf(class extends null{
+                constructor() {
+                    // console.log(new.target.prototype)
+                    return Object.create(new.target.prototype)
+                }
+                static [Symbol.hasInstance](obj) {
+                    console.log('18'+JSON.stringify(obj))
+                    console.log(this)
+                    return Object.prototype.isPrototypeOf.call(this.prototype,obj)
+                }
+            },new.target)
+        }
+        static [Symbol.hasInstance](obj) {
+            console.log('24'+JSON.stringify(obj))
+            console.log(this)
+            return Object.prototype.isPrototypeOf.call(this.prototype,obj)
+        }
+    }
+
+    Object.setPrototypeOf(Meta,null);
+    class MetaClass extends Meta{};
+    class MetaObject extends new MetaClass {};
+    console.log(MetaClass.constructor)
+    console.log(MetaObject instanceof MetaClass)
+    // console.log(MetaClass.prototype instanceof Meta)
+
+    var obj = new MetaObject();
+    console.log(obj instanceof MetaObject);
+    console.log(obj instanceof Object)
+</script>
+</html>

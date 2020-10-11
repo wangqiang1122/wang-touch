@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    class Meta extends null {
+        constructor() {
+            return Object.setPrototypeOf(class extends null{
+                constructor() {
+                    // console.log(Object.create(new.target.prototype))
+                    return Object.create(new.target.prototype) //新的对象
+                }
+                static [Symbol.hasInstance](obj) {
+                    console.log('18'+JSON.stringify(obj))
+                    console.log(this)
+                    return Object.prototype.isPrototypeOf.call(this.prototype,obj)
+                }
+            },new.target)
+        }
+        static [Symbol.hasInstance](obj) {
+            console.log('24'+JSON.stringify(obj))
+            console.log(this)
+            return Object.prototype.isPrototypeOf.call(this.prototype,obj)
+        }
+    }
+    class MetaClass extends Meta{
+        constructor(){
+            super()
+        }
+    }
+    // 生命类类型
+    class MetaClassEx extends MetaClass{
+
+        static foo() {
+            console.log('static method in classType')
+        }
+        bar() {
+            console.log('来自bar')
+        }
+    }
+    console.log((new MetaClassEx))
+    //
+    class ObjectEx extends new MetaClassEx {
+        static foo() {
+            super.foo()
+            console.log('子的')
+        }
+        bar() {
+            // super.bar()
+            console.log('子的bar')
+        }
+    }
+    var obj = new ObjectEx;
+    obj.bar()
+</script>
+</html>

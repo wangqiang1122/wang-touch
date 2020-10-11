@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 传统类的继承
+  // class MyObject{}
+  // class MyObjectEx extends MyObject{}
+  // 类类继承
+    class Meta extends null {
+        constructor() {
+            return Object.setPrototypeOf(class extends null{
+                constructor() {
+                    // console.log(new.target.prototype)
+                    return Object.create(new.target.prototype)
+                }
+                static [Symbol.hasInstance](obj) {
+                    console.log('18'+JSON.stringify(obj))
+                    // console.log(this)
+                    return Object.prototype.isPrototypeOf.call(this.prototype,obj)
+                }
+            },new.target)
+        }
+        static [Symbol.hasInstance](obj) {
+            console.log('24'+JSON.stringify(obj))
+            // console.log(this)
+            return Object.prototype.isPrototypeOf.call(this,obj)
+        }
+        // meta 派生出的类类检查
+        static isMeta(obj) {
+            // console.log(obj.prototype)
+            return obj instanceof Meta || obj.prototype instanceof Meta
+        }
+        // 原子对象
+        static isAtom(obj) {
+            return !( obj instanceof Object ) && ['object','function'].includes(typeof obj)
+        }
+    }
+
+  Object.setPrototypeOf(Meta,null);
+  class MetaClass extends Meta{
+     static isClassOf(obj) {
+         return obj instanceof this || obj.constructor instanceof this
+     }
+  };
+  var MyObject = new MetaClass(); // 实例对象
+  class MyObjectEx extends MyObject{}
+  class MetaObject extends new MetaClass{}
+  // console.log(MetaClass.prototype)
+  // console.log(MyObject.prototype)
+  // console.log(MetaClass instanceof Meta)
+  // console.log(MyObjectEx instanceof Meta)
+  // console.log(MyObject.prototype instanceof MetaClass)
+    console.log(MetaClass.isClassOf(MyObject)) // 元类是类的类
+  // 是不是类类型Meta
+  console.log(Meta.isMeta(MetaClass))
+  // console.log(Meta.isMeta(MyObject))
+  console.log(Meta.isAtom(Meta));
+  console.log(Meta.isAtom(MetaClass));
+  console.log(Meta.isAtom(MyObject));
+  console.log(Meta.isAtom(MetaObject))
+  console.log(Meta.isAtom(Meta.prototype))
+  // 实例是原子 不是元
+  var obj = new MetaObject()
+  console.log(Meta.isAtom(obj));
+  console.log(Meta.isMeta(obj));
+  console.log(obj instanceof MetaObject)
+  console.log(obj instanceof MetaClass);
+  console.log(MetaObject.isClassOf(obj));
+  console.log(MetaClass.isClassOf(obj));
+</script>
+</html>

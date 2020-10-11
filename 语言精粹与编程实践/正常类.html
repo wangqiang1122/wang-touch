@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    class Anmail {
+        static name() {
+
+        }
+        age() {
+            console.log('父级')
+        }
+    }
+    class Dag extends Anmail{
+        static name() {
+            super.name()
+        }
+        age() {
+            super.age()
+        }
+    }
+    var o = new Dag();
+    o.age()
+
+    class Mate extends null{
+        constructor() {
+            // return Object.setPrototypeOf(class Mate extends null{
+            //    constructor() {
+            //        return Object.create(new.target.prototype) //新的对象
+            //    }
+            // },new.target)
+            return function () {
+
+            }
+        }
+    }
+    var h = new Mate();
+    // console.log(h)
+    // class da extends new Mate{
+    //
+    // }
+    console.log(Object.getOwnPropertyDescriptors(Array.prototype))
+    console.log(Object.create(null,{ name: {value:'222'} }))
+</script>
+</html>
