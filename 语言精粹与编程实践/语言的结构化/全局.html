@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // let x =100;
+    // y = 200;
+    // console.log(this.y)
+    // console.log(self.x)
+    // var global = Function('return this')()
+    // console.log(global)
+
+    (0,eval)('var x = 100');
+    var global = Function('return this')();
+    console.log(Object.getOwnPropertyDescriptor(global,'x'))
+
+</script>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    class Meta extends null {
+        constructor() {
+            return Object.setPrototypeOf(class extends null{
+                constructor() {
+                    // console.log(Object.create(new.target.prototype))
+                    return Object.create(new.target.prototype) //新的对象
+                }
+                static [Symbol.hasInstance](obj) {
+                    console.log('18'+JSON.stringify(obj))
+                    return Object.prototype.isPrototypeOf.call(this.prototype,obj)
+                }
+            },new.target)
+        }
+        static [Symbol.hasInstance](obj) {
+            console.log('24'+JSON.stringify(obj))
+            return Object.prototype.isPrototypeOf.call(this,obj)
+        }
+        // meta 派生出的类类检查
+        static isMeta(obj) {
+            // console.log(obj.prototype)
+            return obj instanceof Meta || obj.prototype instanceof Meta
+        }
+        // 原子对象
+        static isAtom(obj) {
+            return !( obj instanceof Object ) && ['object','function'].includes(typeof obj)
+        }
+    }
+    // 元类
+    class MetaClass extends Meta{
+        static isClassOf(obj) {
+            console.log(this.isPrototypeOf(obj))
+            return obj instanceof this || obj.prototype instanceof this
+        }
+    } // 一个新的类类型
+    // 元类的类
+    class MetaObject extends new MetaClass {}
+    //
+    class NewMetaClassBase extends MetaClass{}
+    //
+    class  MetaClassEx2 extends  NewMetaClassBase{}
+    // 类类型的一个继承关系
+    class BaseListClass extends MetaClass{}
+    // 创建一个新的基类
+    class BaseList extends new BaseListClass{}
+    // 子类
+    class StringList extends BaseList {}
+
+    /**
+     * 类类型影响类的特性
+     * BaseListClass会影响很所有list
+     *
+     * 类影响实例的特性
+     */
+    console.log(BaseList instanceof q)
+    // l类类型是元类的子类
+    console.log(MetaClass.isClassOf(NewMetaClassBase))
+
+
+</script>
+</html>

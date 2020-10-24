@@ -9,6 +9,22 @@
 </body>
 <script>
     var r = new RegExp('2','g');
+    const defaultTagRE = /\{\{((?:.|\r?\n)+?)\}\}/g;
+    const defaultTagRE1 = /\{\{(.+?)\}\}/g
+    var str = '你好呀{{namae}}{{age}}'
+    console.log(defaultTagRE1.exec(str))
+    console.log(defaultTagRE1.lastIndex)
+
+    // console.log('dasd2'.test(r))
+    // var f = r.exec('dads2')
+    // // console.log(r.exec('dads2'))
+    // console.log(r.lastIndex)
+    // console.log(f["index"])
+    // r.lastIndex=0
+    // console.log(r.exec('dads2'))
+    //
+    // var str2 = '31231你还';
+    // console.log(str2.search(/(?:你)/g))
 
 </script>
 </html>

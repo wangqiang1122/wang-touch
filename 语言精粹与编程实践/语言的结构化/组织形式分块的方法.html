@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // var x = {};
+    // x.valueOf = function () {
+    //   return {}
+    // }
+    // x.toString = function() {
+    //     return 1222
+    // }
+    // console.log(x+1)
+    var x = {};
+    x[Symbol.iterator] = function *() {
+        yield* [1,23,4]
+    }
+    console.log(x)
+    console.log(...x)
+</script>
+</html>

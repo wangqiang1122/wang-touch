@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<!--<script src="this1.js">-->
+<!--</script>-->
+<!--<script src="this2.js"></script>-->
+<script src="bind实现.js"></script>
+<script>
+    var a =1 ;
+    function test1() {
+        console.log(a)
+    }
+    function test2() {
+        var a =2;
+        test1()
+    }
+    test2()
+
+    var obj = Object.create({age:2},{name: {value:2}})
+    console.log(obj)
+</script>
+</html>

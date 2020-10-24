@@ -25,12 +25,24 @@
         static [Symbol.hasInstance](obj) {
             console.log('24'+JSON.stringify(obj))
             console.log(this)
-            return Object.prototype.isPrototypeOf.call(this.prototype,obj)
+            return Object.prototype.isPrototypeOf.call(this,obj)
+        }
+        // meta 派生出的类类检查
+        static isMeta(obj) {
+            // console.log(obj.prototype)
+            return obj instanceof Meta || obj.prototype instanceof Meta
+        }
+        // 原子对象
+        static isAtom(obj) {
+            return !( obj instanceof Object ) && ['object','function'].includes(typeof obj)
         }
     }
     class MetaClass extends Meta{
-        constructor(){
+        constructor(prototype){
             super()
+            if (!prototype) return
+            if (!Meta.isAtom(prototype)) { throw '不是一个原子'}
+            Object.setPrototypeOf(this.prototype,prototype)
         }
     }
     // 生命类类型
@@ -57,5 +69,38 @@
     }
     var obj = new ObjectEx;
     obj.bar()
+    // 继承有原型的方法
+    var arrayMethods = Object.getOwnPropertyDescriptors(Array.prototype);
+    class NativeAtom extends MetaClass{}
+    class ArrayAtom extends new NativeAtom(Object.create(null,arrayMethods)) {}
+    var atom = new ArrayAtom;
+    atom.push(1,2,3,4)
+    console.log(atom.join())
+
+    // 类类的型的继承关系
+    class MetaList extends Meta {
+        push() {
+            console.log('prototype methods 大父')
+        }
+    }
+    class MetaListEx extends MetaList{
+        push() {
+            super.push()
+            console.log('prototype methods 二伏')
+        }
+    }
+    console.log(MetaListEx.prototype)
+    class ListObject extends new MetaClass(MetaListEx.prototype) {
+        push() {
+            super.push()
+            console.log('prototype methods 三')
+        }
+    }
+    var list = new ListObject();
+    console.log(list)
+    list.push();
+    console.log(ListObject.prototype)
+    console.log(ListObject instanceof MetaClass)
+    console.log(ListObject instanceof MetaClassEx)
 </script>
 </html>

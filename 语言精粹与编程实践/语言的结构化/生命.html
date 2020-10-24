@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var x = 'outer',y = 'outer';
+    function foo() {
+        console.log([x,y])
+        if(true) {
+            function x() {
+
+            }
+        } else {
+            function y() {
+
+            }
+        }
+        console.log(x,y)
+    }
+    foo()
+</script>
+</html>

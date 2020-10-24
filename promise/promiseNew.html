@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // promise 基本用法
+    // function promiseTest() {
+    //     let promise = new Promise((resolve, reject) => {
+    //         let r = parseInt(Math.random() * 10)
+    //         if (r % 2 == 0) {
+    //             resolve('成功')
+    //         } else {
+    //             reject('失败')
+    //         }
+    //     })
+    //     return promise
+    // }
+    // const promise = promiseTest()
+    // promise.then((data) => {
+    //     console.log(data)
+    // }).catch((err) => {
+    //     console.log(err)
+    // })
+
+    class Mypromise{
+        constructor(fn) {
+            this.state = 'pending'  //状态值
+            this.value = undefined	//成功的返回值
+            this.reason = undefined //失败的返回值
+            this.fullFilledfn = [];
+            this.rejectedfn = [];
+            let reslove = (value) =>{
+                if (this.state == 'pending') {
+                    this.state = 'fullFilled'
+                    this.value = value
+                    this.fullFilledfn.map(fn=>fn&&fn(value))
+                }
+            }
+            let reject = (reason)=>{
+                if (this.state == 'pending') {
+                    this.state = 'rejected'
+                    this.reason = reason;
+                    // alert(reason)
+                    this.rejectedfn.map(fn=>fn&&fn(reason))
+                }
+            }
+            try {
+                fn(reslove,reject)
+            } catch(e) {
+                reject(e)
+            }
+        }
+        then(reslove,reject) {
+           let myPromise = new Mypromise((rel,rej)=>{
+               if (this.state === 'fullFilled') {
+                   var x = reslove&&reslove(this.value);
+                   rel(x)
+               } else if(this.state === 'rejected') {
+                   var y = reject&&reject(this.reason)
+                   rej(y)
+               }
+               if (this.state === "pending") {
+                   this.fullFilledfn.push(()=>{
+                       var x = reslove&&reslove(this.value)
+                       if (!x) {
+                           rel(x)
+                       } else {
+                           rel(this.value)
+                       }
+                   });
+                   this.rejectedfn.push(()=>{
+                       console.log(this.reason)
+                       var y = reject&&reject(this.reason)
+                       // console.log(this.reason)
+                       if (!y) {
+                           rej(this.reason)
+                       } else {
+                           rej(y)
+                       }
+                   })
+               }
+           });
+           return myPromise;
+        }
+        catch(reject) {
+            this.then(undefined,reject)
+        }
+    }
+    var n = new Mypromise((reslove,reject)=>{
+        setTimeout(()=>{
+            reslove('啊哈哈2222')
+        },1000)
+    });
+    n.then((val)=>{console.log(val)}).catch((e)=>{
+        console.log(e)
+    })
+
+</script>
+</html>

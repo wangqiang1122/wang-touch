@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // class Myclass{
+    //     #data = 100;
+    //     set data(v){
+    //         this.#data = v
+    //     }
+    //     foo() {
+    //         console.log(this.#data)
+    //     }
+    // }
+    // console.log((new Myclass()))
+    // var g = new Myclass();
+    // g.data = 222;
+    // g.foo();
+    class Myclass{
+        #x = 100;
+        set x(v) {
+            this.#x = v
+        }
+        usingPrivateX() {
+            console.log(this)
+            console.log(this.#x)
+        }
+    }
+    class MyclassEx extends Myclass{
+        x=200
+    }
+    let obj1 = new Myclass();
+    obj1.x = 200
+    obj1.usingPrivateX();
+    let obj2 = new MyclassEx;
+    // console.log
+    // obj2.x = '666'
+    console.log(obj2.x)
+    obj2.usingPrivateX()
+
+</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // let obj = {
+    //     a:1,
+    //     b:4,
+    //     foo: function () {
+    //         console.log(this)
+    //     },
+    //     name: ()=>{
+    //         console.log(this)
+    //     },
+    //     leo: {
+    //         title: 'ssss',
+    //         getl: ()=>{
+    //             console.log(this)
+    //         },
+    //         getn: function () {
+    //             console.log(this)
+    //         }
+    //     }
+    // }
+    // // console.log(obj.name());
+    // // console.log(obj.foo())
+    // obj.leo.getl();
+    // obj.leo.getn();
+    // var obj = {}
+    // obj.test = function () {
+    //     var t = ()=>{
+    //         console.log(this)
+    //     }
+    //     t()
+    // }
+    // obj.test()
+
+    class Father{
+        constructor(props) {
+            // 这个方法的this永远指向一个固定的this
+            this.eat = this.eat.bind(this);
+        }
+
+        get firut (){
+            return '苹果'
+        }
+        eat() {
+            console.log('吃水果'+this.firut)
+        }
+    }
+
+    class Son {
+        get firut() {
+            return '橘子'
+        }
+    }
+    var father = new Father();
+    var son = new Son();
+    son.eat = father.eat;
+    son.eat()
+</script>

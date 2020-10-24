@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // var x =100;
+    // y = 200;
+    // eval('var z =200')
+    // console.log(Object.getOwnPropertyDescriptor(globalThis,"x"))
+    // console.log(Object.getOwnPropertyDescriptor(globalThis,"y"))
+    // console.log(Object.getOwnPropertyDescriptor(globalThis,"z"))
+    // console.log(globalThis.hasOwnProperty('x'))
+    // console.log(globalThis.hasOwnProperty('y'))
+    // console.log( delete x)
+    // console.log( delete y)
+    "use strict"
+    var g = eval;
+    g('var a = 10000');
+    function f2() {
+        "use strict"
+         var h = eval;
+         eval('var b = 20000');
+         console.log(b)
+    }
+    f2();
+    console.log(a,b)
+</script>
+</html>
