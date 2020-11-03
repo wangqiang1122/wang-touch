@@ -8,12 +8,12 @@
 
 </body>
 <script>
-    var r = new RegExp('2','g');
-    const defaultTagRE = /\{\{((?:.|\r?\n)+?)\}\}/g;
-    const defaultTagRE1 = /\{\{(.+?)\}\}/g
-    var str = '你好呀{{namae}}{{age}}'
-    console.log(defaultTagRE1.exec(str))
-    console.log(defaultTagRE1.lastIndex)
+    // var r = new RegExp('2','g');
+    // const defaultTagRE = /\{\{((?:.|\r?\n)+?)\}\}/g;
+    // const defaultTagRE1 = /\{\{(.+?)\}\}/g
+    // var str = '你好呀{{namae}}{{age}}'
+    // console.log(defaultTagRE1.exec(str))
+    // console.log(defaultTagRE1.lastIndex)
 
     // console.log('dasd2'.test(r))
     // var f = r.exec('dads2')
@@ -25,6 +25,16 @@
     //
     // var str2 = '31231你还';
     // console.log(str2.search(/(?:你)/g))
+
+
+    // var str = '123123123123123';
+    // var reg1 = /123/g;
+    // 子表达式  用exec会把子表达式一起打印出来
+    var str = 'aaddccddeeeegghhj';
+    var req1 = /(\w)\1(\w)\2/
+
+    // req1.exec(str)
+    // (3) ["aadd", "a", "d", index: 0, input: "aaddccddeeeegghhj", groups: undefined]
 
 </script>
 </html>

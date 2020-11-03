@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function foo(filename, [options=defoptions,...more]) {
+        console.log(filename)
+        console.log(options)
+        console.log(more)
+    }
+
+    foo(1,[2,3,4,5])
+    console.log(foo.length)
+</script>
+</html>

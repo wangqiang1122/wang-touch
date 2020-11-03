@@ -74,9 +74,7 @@
                        }
                    });
                    this.rejectedfn.push(()=>{
-                       console.log(this.reason)
                        var y = reject&&reject(this.reason)
-                       // console.log(this.reason)
                        if (!y) {
                            rej(this.reason)
                        } else {
@@ -88,16 +86,82 @@
            return myPromise;
         }
         catch(reject) {
-            this.then(undefined,reject)
+           return this.then(undefined,reject)
+        }
+        finally(cb) {
+            return this.then((val)=>{
+                return Mypromise.reslove(cb()).then(()=>val)
+            },(err)=>{})
         }
     }
+    Mypromise.reslove = function(value){
+       if (isPromise(value)){
+           return value
+       } else {
+           return new Mypromise((resolve)=>{
+               resolve(value)
+           })
+       }
+    };
+    // [new Promise,Promise.reslove]
+    let isPromise = function(fn) {
+        return fn instanceof Mypromise
+    };
+    // 暗号：不用背，学规律
+    Mypromise.all = function (list) {
+        // 返回储蓄值的数组
+        let resArr = [];
+        // 计数器
+        let index = 0;
+
+        return new Mypromise((reslove,reject)=>{
+            function jishqi1(i,data) {
+                resArr[i]= data
+                index+=1;
+                if(index===list.length) {
+                    reslove(resArr)
+                }
+            }
+
+            for(let a =0;a<list.length;a++ ){
+               if (isPromise(list[a])) {
+                   list[a].then((val)=>{
+                       jishqi1(a,val)
+                   },()=>{
+                       reject()
+                   })
+               } else {
+                   reject()
+               }
+            }
+        })
+
+    };
     var n = new Mypromise((reslove,reject)=>{
         setTimeout(()=>{
-            reslove('啊哈哈2222')
-        },1000)
+            reslove('啊哈哈1111')
+        },4000)
     });
+    // var n2 = new Mypromise((reslove,reject)=>{
+    //     setTimeout(()=>{
+    //         reslove('啊哈哈2222')
+    //     },3000)
+    // });
+    // var n3 = new Mypromise((reslove,reject)=>{
+    //     setTimeout(()=>{
+    //         reslove('啊哈哈333')
+    //     },2000)
+    // });
+
+    // Mypromise.all([n,n2,n3]).then((val)=>{
+    //     console.log(val)
+    // })
+    // console.log(isPromise(Mypromise.reslove('ssss')))
     n.then((val)=>{console.log(val)}).catch((e)=>{
         console.log(e)
+    }).finally((val)=>{
+        console.log(val)
+        console.log(3333)
     })
 
 </script>

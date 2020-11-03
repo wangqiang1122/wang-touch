@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // var str = 'jsplusplus';
+    // console.log(str.replace(/plus/g,'+'));
+    // xxyy->yyxx
+
+    // var str = 'aabbccdd';
+    // var reg = /(\w)\1(\w)\2/g
+    // // str1 = str.replace(reg,'$2$2$1$1'
+    // // xxyy->yyxx
+    // str1 = str.replace(reg,function ($,$1,$2) { // $正则匹配到的本身的  $1 匹配的子表达式1 $2 匹配的子表达式2  ()里的是子表达式
+    //   return $2+$2+$1+$1
+    // })
+    // js-plus-plus ->jsplusplus
+    // var str = 'js-hlus-plus';
+    // // str1 = str.replace(/-p/g,'P')
+    // var reg = /-(\w)/g
+    // console.log(reg.exec(str))
+    // str1 = str.replace(/-(\w)/g,function ($,$1) {
+    //     return $1.toUpperCase()
+    // })
+
+    // jsPlusPlus->js_plus_plus
+
+    // var str = 'jsPlusPlus';
+    //
+    // str1 = str.replace(/[A-Z]/g,function ($) {
+    //     return '_'+$.toLowerCase();
+    // })
+
+    // xxyyzz-> XxYyZz
+    // var str = 'xxyyzz';
+    // var reg = /(\w)\1(\w)\2(\w)\3/g;
+    // console.log(reg.exec(str))
+    // str1 = str.replace(/(\w)\1/g,function ($,$1) {
+    //
+    //     return $1.toUpperCase()+$1
+    // })
+
+    // aabbcc->a$b$c$  不能使用function
+
+    // var str = 'aabbcc'
+    //
+    // str1 = str.replace(/(\w)\1/g,'$1$$')  // 如果要是想换符号的话 用$*这种方式
+
+    // aa\\bb\\cc ->aabbcc
+
+    // var str = 'aa\\\\bb\\\\cc';
+    // var reg = /\\\\/g;
+    // console.log(reg.exec(str))
+    // str1 = str.replace(/\\/g,'')
+
+    // aaabbbbcccc->abc
+
+    // var str = 'aaabbbcccggggg';
+    //
+    // str1 = str.replace(/(\w)\1*/g,'$1')
+
+    // 10000000->100,000,000,000
+
+    var str = '100000000';
+    var reg = /(\d{0,3}\B)/g
+    console.log(reg.exec(str))
+    str1 = str.replace(/(\d{3}\B)/g,'$1,')
+
+</script>
+</html>

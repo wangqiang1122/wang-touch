@@ -18,6 +18,32 @@
     console.log(str.match(reg))
 
     var str1 = 'bbbbb';
-    var reg1 = /\w??/g;  //
+    var reg1 = /\w+?/g;  //
+
+     function moneyFormat (moneyStr) {
+        // 先将数值取两位小数
+        let str = (Math.round(moneyStr * 100) / 100).toString()
+        // 找到小数点的下标
+        let pointIdx = str.indexOf('.')
+        // 如果没有小数点
+        if (pointIdx < 0) {
+            // 将数值进行千位符转换
+            str = str.replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')
+            // 添加小数点
+            pointIdx = str.length
+            str += '.'
+        } else { // 如果有小数点
+            // 取整数部分, 也可以用 parseInt
+            let int = str.substr(0, pointIdx)
+            // 整数部分进行千位符转换
+            int.replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')
+        }
+        // 如果没有小数点,用 0 补全
+        while (str.length <= pointIdx + 2) {
+            str += '0'
+        }
+        return str
+    }
+    console.log(moneyFormat(0.9))
 </script>
 </html>

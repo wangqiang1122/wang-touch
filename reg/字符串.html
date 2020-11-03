@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <div></div>
+</body>
+<script type="text/html" id="'tpl">
+  <div>dadad</div>
+    <div>dadad</div>
+</script>
+
+<script>
+    // console.log(document.getElementById('tpl').innerHTML)
+    // var warp = document.getElementsByTagName('div')[0];
+    // // 换行转义为空格
+    // var str = '<h1>dadsasd<h1>\
+    //     <h2>凡事都发抖</h2>\
+    //     <h3>trtrt</h3>'
+    // console.log(str)
+
+    var reg = /test/;
+    var reg1 = new RegExp(reg); // new的话是是一个拷贝的过程打断了引用关系 不new 就是直接引用reg
+
+    reg.a = 1;
+    console.log(reg1.a)
+</script>
+</html>

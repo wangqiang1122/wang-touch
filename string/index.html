@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1">
+
+</div>
+</body>
+<script>
+    // toLocaleLowerCase,toLocaleUpperCase和toLowerCase()、toUpperCase 的区别是针对一起特殊的语言比如:土耳其语言 有特殊的大小字母，就用
+    // toLocale ,如没有比如英文用哪个都一样
+
+    var str = 'this is a test'
+
+    // indexOf
+    // str.index('1',4) // 第2个参数是开始匹配的位置
+    // str.lastIndexOf('is',4) // 第2个参数也是从那个位置开发从后往前检索
+    // str.substr(10,4) // 从第10为开始包含第十位 取4个 第两个是长度 str.substr(-4,4)可以是-1 开始位是-1
+    // str.substring(10,14) // 开始位置 结束位置 是不包括第14位置的东西的 是个开区间 如果start>end 会智能调换一下
+    // 添加模电
+    // document.getElementById('div1').innerHTML = str.sub()  // 可以直接创建标签
+
+    // tostring 将对象转化为字符串
+    // valueof 输出对象原本的值
+    // date的toString返回的是事件特有的字符串 valueof 13位毫秒时间戳
+    // 数组的toString 返回的是数组用逗号分割的字符串 valueOf 数组本身的值
+    // 对象 toString 对象的类型字符串 对象为"[object Object]" valueOf 是对象本身的值
+    // 函数通过toString 方法可以区分js的内置函数和自定义函数 [function code]
+    // toString 方法接收一个基数转换为相对应的进制 只限于数字
+
+    const a = {
+        i: 1,
+        // valueOf:function() {
+        //     console.log(1)
+        //     return new Object()
+        // },
+        // toString: function () {
+        //     console.log(a)
+        //     return a.i;
+        // }
+    }
+    // console.log(a==1)
+    console.log(a.valueOf())
+    function ggr() {}
+
+    console.log(ggr.toString())
+    console.log(window.alert.toString())
+    console.log({}.toString.call(window.alert))
+</script>
+</html>
