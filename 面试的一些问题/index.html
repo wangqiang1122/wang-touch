@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // for(var a =0;a<5;a++) {
+    //     setTimeout(()=>{
+    //         console.log(a)
+    //     },1000)
+    // }
+    // var a = [1,2]
+    // function p(b) {
+    //   b = [2,3]
+    // }
+    // p(a)
+    // console.log(a)
+    function foo() {
+      console.log(a)
+    }
+    function bar() {
+      var a = 3;
+      foo()
+    }
+    var a = 2;
+    bar()
+
+    // let obj ={
+    //   name: 'dada',
+    //   age: 1111
+    // }
+    // with(obj) {
+    //   console.log(name)
+    //   var g = '1111'
+    // }
+    // console.log(g)
+    try{
+      throw '1'
+    }catch(e)  {
+       console.log(e)
+       var b = 'gggg'
+    }
+    // console.log(e)
+    // let (a=1) {
+    //   console.log(a)
+    // }
+    // console.log(hhh)
+    let obj1 ={
+      id: 'awesome',
+      cool: function coolFn() {
+        var self= obj1;
+        console.log(self.id)
+      }
+    }
+    var id ='not awesome';
+    obj1.cool();
+    setTimeout(obj1.cool.bind(obj1),100)
+</script>
+</html>

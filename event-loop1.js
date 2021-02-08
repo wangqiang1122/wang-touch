@@ -20,6 +20,9 @@ setTimeout(function() {
 }, 0)
 new Promise(function(resolve) {
     console.log('10')
+    setTimeout(()=>{
+        console.log('222')
+    },)
     resolve()
 }).then(function() {
     console.log('11')
