@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    Function.prototype.bind = function(oThis) {
+        // var fn = this;
+        // return function() {
+        //     fn.apply(obj,arguments)
+        // }
+        if(typeof this!='function') {
+               throw new Error('报错了')
+        } else {
+           var aArgs = Array.prototype.slice.call(arguments,1)
+           // 保存当前this
+           fToBind = this;
+           // 新建函数
+           fNOP = function() {}  
+           fBound = function() {
+               return fToBind.apply(
+                   ( this instanceof fNOP &&oThis?this:oThis),
+                   aArgs.concat(
+                       Array.prototype.slice.call(arguments)
+                   )
+               )
+           }
+           fNOP.prototype = this.prototype;
+           fBound.prototype = new fNOP();
+           return fBound;  
+        }
+    }
+
+
+
+    function foo(something) {
+       this.a = something
+    }
+    var obj1 = {};
+    var bar = foo.bind(obj1)
+    bar(2)
+    console.log(obj1.a)
+    var baz = new bar(3)
+    console.log(obj1.a)
+    console.log(baz)
+    //////////
+    // 在内存里直接开辟内存 
+    console.log(Object.create(null)) // 一个顶级的空对象
+    // new新建对象 构造函数的的引用 及
+    console.log(new Array())
+</script>
+</html>
