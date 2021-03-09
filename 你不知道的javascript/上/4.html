@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var myObject = {
+        get a() {
+           return this._a_
+        },
+        set a(val) {
+           
+        }
+    }
+    let obj ={}
+    Object.defineProperty(obj,'a',{
+        get (val) {
+          return val
+        },
+        set(val,newval) {
+           console.log(val) 
+           console.log(arguments)
+           val = newVal
+        }
+    })
+    obj.a = 1;
+    console.loa(a)
+</script>
+</html>

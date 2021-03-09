@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var myArray = [1,2,3];
+    let it = myArray[Symbol.iterator]();
+    console.log(it.next())
+    console.log(it.next())
+    console.log(it.next())
+    console.log(it.next())
+    var myObject = {
+        a:2,
+        b:3,
+    }
+    Object.defineProperty(myObject,Symbol.iterator,{
+        enumerable: false,
+        writable: false,
+        configurable: true,
+        value: function() {
+           var o =this;
+           var idx = 0;
+           var ks = Object.keys(o);
+           return {
+               next: function() {
+                   return {
+                       value: o[ks[idx++]],
+                       done: (idx>ks.length)
+                   }
+               }
+           } 
+        }
+    })
+    for(let n in myObject) {
+        console.log(n)
+    }
+
+</script>
+</html>

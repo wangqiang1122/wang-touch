@@ -10,5 +10,47 @@
 </body>
 <script>
     console.log( new RegExp('a-z','g'))
+    var prefix = 'foo';
+    var myObject = {
+        [prefix+'bar']: 'hello',
+        [prefix+'baz']: 'world',
+        [Symbol('something')]: 'hello world',
+        [Symbol('Something1')]: 'hello world1'
+    }
+    for(var attr in myObject) {
+        console.log(attr)
+    }
+    console.log(myObject)
+    console.log(myObject)
+    var f = 1000
+    function add(d) {
+        var d =10
+        console.log(d)
+    }
+    add(f)
+    console.log(f)
+    // 禁止扩展
+    var g = {
+        a:2,
+    };
+    Object.preventExtensions(g) // 禁止扩展
+    g.b = 1111;
+    // console.log(b) // 扩展失败
+    // 密封
+    Object.seal(); // 禁止扩展 
+
+    Object.defineProperty(g,'b',{
+        configurable: false, // 不可配置  不能配置和删除 现有属性
+    })
+
+    // 冻结
+    Object.freeze() // 调用封闭 
+    Object.defineProperty(g,'h',{  // 不能重写任何现有属性 
+        writable: false
+    })
+    // 拿到对象所有的属性的数组
+    Object.getOwnPropertyNames()
+    // 拿到对象的详细描述
+    Object.getOwnPropertyDescriptor()
 </script>
 </html>

@@ -10,11 +10,39 @@
     var a = {
         f: function () {
             console.log('2222')
-        }
+        },
+        obj1: {
+            a:'31',
+            b:"32"
+        },
+        obj2: {
+            h: '11',
+            j: '22'
+        },
     }
     var h = JSON.parse(JSON.stringify(a));
     console.log(h)
     // 添加模电
     // document.getElementById('div1').innerHTML =
+
+    // var a = {};
+    function crateObj (obj) {
+      let obj1 = {};
+      for (var attr in obj) {
+          console.log()
+          if (typeof obj[attr]=='object') {
+            obj1[attr] =crateObj(obj[attr])
+          } else {
+            obj1[attr] = obj[attr]
+          }
+      }
+      return obj1
+    }
+   var f = crateObj(a)
+   console.log(f)
+   f.obj2.h= 'gggg'
+   console.log(a)
+   Object.getOwnPropertyDescriptor();
+   Object.setPrototypeOf();
 </script>
 </html>
