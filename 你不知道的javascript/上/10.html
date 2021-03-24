@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <title>Document</title>
+  <style>
+    .image-item {
+      display: block;
+      margin-bottom: 50px;
+      /* 一定记得设置图片高度 */
+      height: 500px; 
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <img class="image-item" src="" data-src="http://crm-dev-itrigger.oss-cn-beijing.aliyuncs.com/article_images/897fa226-6b21-4dc8-ac6f-adcea0fbd3f6.png" alt="" />
+    <img class="image-item" src="" data-src="http://crm-dev-itrigger.oss-cn-beijing.aliyuncs.com/article_images/897fa226-6b21-4dc8-ac6f-adcea0fbd3f6.png" alt="" />
+    <img class="image-item" src="" data-src="http://crm-dev-itrigger.oss-cn-beijing.aliyuncs.com/article_images/897fa226-6b21-4dc8-ac6f-adcea0fbd3f6.png" alt="" />
+    <img class="image-item" src="" data-src="http://crm-dev-itrigger.oss-cn-beijing.aliyuncs.com/article_images/897fa226-6b21-4dc8-ac6f-adcea0fbd3f6.png" alt="" />
+    <img class="image-item" src="" data-src="http://crm-dev-itrigger.oss-cn-beijing.aliyuncs.com/article_images/897fa226-6b21-4dc8-ac6f-adcea0fbd3f6.png" alt="" />
+    <img class="image-item" src="" data-src="http://crm-dev-itrigger.oss-cn-beijing.aliyuncs.com/article_images/897fa226-6b21-4dc8-ac6f-adcea0fbd3f6.png" alt="" />
+    <img class="image-item" src="" data-src="http://crm-dev-itrigger.oss-cn-beijing.aliyuncs.com/article_images/897fa226-6b21-4dc8-ac6f-adcea0fbd3f6.png" alt="" />
+    <img class="image-item" src="" data-src="http://crm-dev-itrigger.oss-cn-beijing.aliyuncs.com/article_images/897fa226-6b21-4dc8-ac6f-adcea0fbd3f6.png" alt="" />
+    <img class="image-item" src="" data-src="http://crm-dev-itrigger.oss-cn-beijing.aliyuncs.com/article_images/897fa226-6b21-4dc8-ac6f-adcea0fbd3f6.png" alt="" />
+    <img class="image-item" src="" data-src="http://crm-dev-itrigger.oss-cn-beijing.aliyuncs.com/article_images/897fa226-6b21-4dc8-ac6f-adcea0fbd3f6.png" alt="" />
+  </div>
+
+  <script>
+    // 首先获得页面当中所有的图片
+    let img = document.getElementsByTagName("img");
+
+    //存储图片加裁到的位置，避免每次都从第一 张图片开始遍历
+    let n = 0;
+
+    //页面载入完毕加载可视区域内的图片
+    lazyload();
+
+    //注册滚动条滚动事件
+    window.onscroll = lazyload;
+
+    //监听页面滚动事件
+    function lazyload() {
+
+      //可见区域高度
+      let seeHeight = document.documentElement.clientHeight;
+
+      /*滚动条距离顶部高度
+      * Chrome: document.body.scrollTop
+      * FF: document.documentElement.scrollTop
+      **/
+      let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      console.log(scrollTop)
+      for (let i = n; i < img.length; i++) { 
+        //  当前图片相对于页面顶部的距离 <= 可视区域+滚动条距离距离顶部的距离
+        if (img[i].offsetTop < seeHeight + scrollTop - 100) {
+          //将img[i]的src设置 成img[i]的data-src
+          if (img[i].getAttribute("src") == "") {
+            img[i].src = img[i].getAttribute("data-src");
+            n = i + 1;
+          }
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

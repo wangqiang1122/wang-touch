@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <title>Document</title>
+  <style>
+    .image-item {
+      display: block;
+      margin-bottom: 50px;
+      /* 一定记得设置图片高度 */
+      height: 500px; 
+    }
+    .image-item1 {
+        margin-top: 100px;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <img class="image-item" src="" data-src="http://crm-dev-itrigger.oss-cn-beijing.aliyuncs.com/article_images/f371c157-b260-4aa8-a1d7-33b3bec3a913.png" alt="" />
+    <img class="image-item1" src=""data-src="http://crm-dev-itrigger.oss-cn-beijing.aliyuncs.com/article_images/897fa226-6b21-4dc8-ac6f-adcea0fbd3f6.png" alt="" />
+    <img class="image-item" src="" data-src="http://crm-dev-itrigger.oss-cn-beijing.aliyuncs.com/article_images/897fa226-6b21-4dc8-ac6f-adcea0fbd3f6.png" alt="" />
+    <img class="image-item" src="" data-src="http://crm-dev-itrigger.oss-cn-beijing.aliyuncs.com/article_images/897fa226-6b21-4dc8-ac6f-adcea0fbd3f6.png" alt="" />
+    <img class="image-item" src="" data-src="http://crm-dev-itrigger.oss-cn-beijing.aliyuncs.com/article_images/897fa226-6b21-4dc8-ac6f-adcea0fbd3f6.png" alt="" />
+    <img class="image-item" src="" data-src="http://crm-dev-itrigger.oss-cn-beijing.aliyuncs.com/article_images/897fa226-6b21-4dc8-ac6f-adcea0fbd3f6.png" alt="" />
+    <img class="image-item" src="" data-src="http://crm-dev-itrigger.oss-cn-beijing.aliyuncs.com/article_images/897fa226-6b21-4dc8-ac6f-adcea0fbd3f6.png" alt="" />
+    <img class="image-item" src="" data-src="http://crm-dev-itrigger.oss-cn-beijing.aliyuncs.com/article_images/897fa226-6b21-4dc8-ac6f-adcea0fbd3f6.png" alt="" />
+    <img class="image-item" src="" data-src="http://crm-dev-itrigger.oss-cn-beijing.aliyuncs.com/article_images/897fa226-6b21-4dc8-ac6f-adcea0fbd3f6.png" alt="" />
+    <img class="image-item" src="" data-src="http://crm-dev-itrigger.oss-cn-beijing.aliyuncs.com/article_images/897fa226-6b21-4dc8-ac6f-adcea0fbd3f6.png" alt="" />
+  </div>
+
+  <script>
+    // 首先获得页面当中所有的图片
+    let imgs = document.getElementsByTagName("img");
+
+    //存储图片加裁到的位置，避免每次都从第一 张图片开始遍历
+    var n = 0;
+    // 记录图的总高度
+    var zheight=0;
+    //页面载入完毕加载可视区域内的图片
+   
+    // console.log(img[0].dataset.src)
+    // console.log(window.getComputedStyle(img[1],null).marginTop)
+    var len = imgs.length;
+    getImg(imgs[0],0,len)
+    // 获取当前屏幕宽度或者img设置的宽度 进行等比缩放 获取当前
+    function getImg(img,currentIndex,len) {
+        if (currentIndex>len-1||!img) return
+
+       n=currentIndex;
+       let index = currentIndex
+       let src = img.dataset.src
+       let marginTop = parseInt(window.getComputedStyle(img,null).marginTop|| div.style.marginTop||0);
+       let width = parseInt(window.getComputedStyle(img,null).width||div.style.width)||document.documentElement.clientWidth
+       let image = new Image();
+       image.src = src;
+       image.onload = function(res) {
+        //  console.log(width)  
+        //  console.log(image.width)
+        //  console.log(image.height)
+         let jiheight = image.height*width/image.width
+         console.log(jiheight)
+         img.style.height = jiheight+'px';
+         img.setAttribute('src',src)
+         // 可是区域的高度
+         let seeHeight = document.documentElement.clientHeight;
+         // 滚动条距离顶部高度
+         let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+         zheight = zheight+jiheight+marginTop;
+         console.log(zheight)
+         console.log(zheight< seeHeight + scrollTop - 100)
+         if (zheight< seeHeight + scrollTop - 100) {
+            let i = ++currentIndex
+            // console.log(imgs[i],i,len)
+            getImg(imgs[i],i,len) 
+         } 
+       }
+    //    console.log(src)
+    //    console.log(marginTop)
+    //    console.log(width)
+    }
+
+     
+ 
+    //注册滚动条滚动事件
+    window.onscroll = lazyload;
+    let seeHeight = document.documentElement.clientHeight;
+    //监听页面滚动事件
+    function lazyload() {
+        console.log(n)
+      //可见区域高度
+    //   /*滚动条距离顶部高度
+    //   * Chrome: document.body.scrollTop
+    //   * FF: document.documentElement.scrollTop
+    //   **/
+      let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      console.log(zheight)
+      console.log(seeHeight + scrollTop)
+      console.log(zheight< seeHeight + scrollTop - 100)
+      if (zheight< seeHeight + scrollTop - 100) {
+            getImg(imgs[n+1],n+1,len)
+        } 
+    //   console.log(scrollTop)
+      // 如果不设置高度或宽度 需要把第一张图片加载下来 如果计算高度
+      
+    //   for (let i = n; i < img.length; i++) { 
+    //     //  当前图片相对于页面顶部的距离 <= 可视区域+滚动条距离距离顶部的距离
+    //     if (img[i].offsetTop < seeHeight + scrollTop - 100) {
+    //       //将img[i]的src设置 成img[i]的data-src
+    //       if (img[i].getAttribute("src") == "") {
+    //         img[i].src = img[i].getAttribute("data-src");
+    //         n = i + 1;
+    //       }
+    //     }
+    //   }
+    }
+  </script>
+</body>
+
+</html>
