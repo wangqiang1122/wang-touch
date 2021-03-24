@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var obj = {
+        a:1
+    }
+    function Ad() {}
+    Ad.prototype = Object.create(obj)
+    var g = new Ad()
+    console.log(g) 
+
+    function objCreate(o) {
+        function F() {}
+        F.prototype = o;
+        return new F()
+    }
+    function Adf() {}
+    Adf.prototype = objCreate(obj)
+    console.log(new Adf())
+
+    // var Foo = {}
+    // var a1 = Object.create(Foo);
+    // console.log(a1)
+    function Foo() {}
+    Object.defineProperty(Foo.prototype,'constructor',{
+        enumerable: false,
+        value:function Gotcha(){}
+    })
+    var a1 = new Foo();
+    console.log(a1)
+    // Foo.prototype.constructor = function Gotcha(){}
+    // console.log(a1.constructor)
+    // console.log(a1.constructor.name)
+    // console.log(a1)
+</script>
+</html>

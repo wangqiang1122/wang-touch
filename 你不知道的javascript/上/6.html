@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class ver {
+        constructor() {
+            this.name='1111'
+        }
+        setname(name) {
+            this.name=name
+        }
+        age() {}
+    }
+    class ger extends ver{}
+
+    console.log(new ger().name)
+
+    console.log(Object.create(null))
+
+    Object.prototype.foo='大大';
+    var f ={};
+    console.log(f.hasOwnProperty('foo'))
+    console.log(Object.prototype.hasOwnProperty('foo'))
+    console.log(f.foo)
+    
+</script>
+</html>

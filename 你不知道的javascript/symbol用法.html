@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const PASSWORD = Symbol()
+
+    class Login {
+        constructor(username, password) {
+            this.username = username,
+            this[PASSWORD] = password
+        }
+
+        checkPassword(pwd) {
+            return this[PASSWORD] === pwd
+        }
+    }
+
+    const login = new Login('admin', '123456')
+    login.checkPassword('123456')   // true
+    console.log(login)
+    login[PASSWORD]='33333333'
+    console.log(login)
+
+</script>
+
+</html>
