@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var foo = {
+        bar: function(x){
+            if (x<10) {
+                return foo.bar(x*2)
+            }
+            return x
+        },
+        baz: function baz(x) {
+            if(x<10) {
+                return baz(x*2)
+            }
+            return x
+        }
+    }
+    console.log(foo.bar(1))
+    console.log(foo.baz(1))
+
+    var Foo = {q:1};
+    console.log( Object.create(Foo))
+    var Bar = Object.create(Foo)
+    var b1 = Object.create(Bar)
+    console.log(Foo.isPrototypeOf(Bar))
+    // console.log(Foo.isPrototypeOf(Bar))
+    console.log(Object.getPrototypeOf(Bar))
+    console.log(Object.getPrototypeOf(b1))
+
+
+    class P {
+        foo() {
+            console.log('p.foo')
+        }
+    }
+    class C extends P {
+        foo() {
+            super.foo()
+        }
+    }
+    var c1 = new C();
+    c1.foo();
+    var D ={
+        foo:function() {
+            console.log('D.foo')
+        }
+    }
+    var E = {
+        foo: C.prototype.foo
+    }
+    Object.setPrototypeOf(E,D)
+    console.log(Function.prototype.toMethod)
+    E.foo = C.prototype.foo.toMethod(E,'foo') // toMethod动态改变homeObject插槽的
+
+    E.foo()
+
+    // var D = {
+    //     foo: function() {
+    //         console.log('D.foo')
+    //     }
+    // }
+    // var E = Object.create(D)
+
+    // E.foo()
+
+</script>
+</html>

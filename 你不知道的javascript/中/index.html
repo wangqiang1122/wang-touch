@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    var g = Symbol('1');
+    var h = Symbol('1');
+    let obj = {
+        [g]: 'ddddd',
+    }
+    console.log(obj)
+    console.log(g)
+    console.log(g==h)
+    console.log(obj[g])
+    // 静默值
+    console.log(Array.prototype) // 空的数组
+    console.log(Function.prototype) // 空的函数
+    console.log(RegExp.prototype) // 正则
+    // 将原型作为静默值
+    function isThisCool(vals,fn,rx) {
+        vals = vals || Array.prototype;
+        fn = fn||Function.prototype;
+        rx = rx||RegExp.prototype;
+        console.log(vals.map(fn).join(''))
+        return rx.test(vals.map(fn).join(''))
+    }
+    console.log(isThisCool(['a','b','c'], function(v) {return v.toUpperCase()},/^[A-Z]+$/))
+</script>
+</html>

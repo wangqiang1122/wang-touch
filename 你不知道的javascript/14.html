@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        .test {
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            transition:all .6s ease-in-out;
+            -webkit-transition:all .6s ease-in-out;
+            -moz-transition:all .6s ease-in-out;
+            -o-transition:all .6s ease-in-out;
+            -ms-transition:all .6s ease-in-out;
+            background-color: orange;
+            position: relative;
+        }
+        .test::after {
+            content: '∨';
+            display: block;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: red;
+        }
+        .test:hover {
+            height: 200px;
+            background-color: purple;
+        }
+        .test:hover::after {
+            content: '∧'
+        }
+    </style>
+</head>
+<body>
+
+    <div class="test">
+        正值毕业生求职季，各路招聘网站上，年终奖已成为企业吸引人才的“标配”。与此同时，吐槽年终奖的声音也多:有的单位出手大方，有的悭吝寒酸，有的临时决定啥也不发;有的抽奖，员工靠运气“抢”，有的甚至几袋馒头“意思一下”……年终奖发不发、怎么发，门道真不少。
+    </div>
+</body>
+</html>
