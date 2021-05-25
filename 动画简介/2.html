@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    document.onclick = function(e) { 
+        console.log(e)
+        var r = 50; 
+        var x1 = 100;
+        var y1 = 100;
+        var x2= e.clientX;
+        var y2= e.clientY; 
+        var distance = Math.abs(Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2))); 
+        if (distance <= 50)
+        alert("Yes!"); 
+}
+</script>
+</html>

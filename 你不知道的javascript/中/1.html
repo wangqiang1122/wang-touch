@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    console.log(JSON.stringify(
+        [1,2,undefined,function(){}]
+    ))
+    console.log(JSON.stringify(
+        {a: function() {},g:'2'}
+    ))
+    var o= {};
+    var a = {
+        b:42,
+        c:o,
+        d:function() {},
+    };
+    o.e= a;
+    // console.log(JSON.stringify(a))
+    a.toJSON = function() {
+        return {  b: this.b }
+    }
+    console.log(JSON.stringify(a))
+    var k = {
+        a: function() {console.log('a')},
+        b: '55'
+    }
+    with(k) {
+        console.log(b)
+        console.log()
+        a()
+    }
+</script>
+</html>
