@@ -18,6 +18,7 @@
     console.log(h);
     let j = {name: '我是call'};
     h.conname.callr= function(context){
+        console.log(this)
         var context = context || window
         context.fn = this;
         context.fn()
