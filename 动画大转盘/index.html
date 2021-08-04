@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/lucky-canvas@1.5/dist/lucky-canvas.umd.min.js"></script>
+</head>
+<body>
+<div id="my-lucky"></div>
+<script>
+  let luckyWheel = new LuckyCanvas.LuckyWheel({
+    el: '#my-lucky',
+    width: '200px',
+    height: '200px'
+  }, {
+    blocks: [
+    {
+          padding: '20px',
+          imgs: [{
+            src: 'http://crm-dev-itrigger.oss-cn-beijing.aliyuncs.com/article_images/ad109b40-a8ab-40ef-a7a0-cc09ba4e442f.jpeg',
+            width: '100%',
+            rotate: false,
+            top: '20%'
+          }]
+        },  
+      { padding: '10px', background: '#ffc27a' },
+      { padding: '10px', background: '#ff4a4c' },
+      { padding: '0px', background: '#fff' }
+    ],
+    defaultConfig:{
+        offsetDegree: 60,
+        stopRange: 0.8
+    },
+    prizes: [
+    {
+        fonts: [{ text: '当文自动进行...', top: 10, lengthLimit: '80%',fontSize:'10px',wordWrap: false }],
+        background: '#f8d384',
+        title: '1' ,
+        imgs: [{
+            src: 'http://crm-dev-itrigger.oss-cn-beijing.aliyuncs.com/article_images/ad109b40-a8ab-40ef-a7a0-cc09ba4e442f.jpeg',
+            // width: '100%',
+            height: "100%",
+            // top:"40%"
+        }]
+      },
+      {
+        background: 'rgba(0,122,0,1)',
+        title: '2' ,
+      },
+      {
+        fonts: [{ text: '这段动换行', top: 20, wordWrap: false,fontSize:'10px' }],
+        background: '#f8d384',
+        title: '3' ,
+      },
+      {
+        background: '#f9e3bb',
+        title: '4' ,
+      }
+      ],
+      buttons: [
+        { radius: '20px', background: '#d64737' },
+        { radius: '15px', background: '#f6c66f',imgs:[
+            { 
+                src: 'http://crm-dev-itrigger.oss-cn-beijing.aliyuncs.com/article_images/ad109b40-a8ab-40ef-a7a0-cc09ba4e442f.jpeg',
+                width: '100%',
+                height: "100%",
+                top: '-130%',
+            }
+        ] },
+        {
+            radius: '10px',
+            background: '#fff',
+            fonts: [{ text: '开始', top: '-5px', fontSize:'10px' }]
+        }
+     ],
+     start () {
+          luckyWheel.play()
+          setTimeout(() => {
+            luckyWheel.stop(0)
+          }, 3000)
+        },
+      end (prize) {
+          console.log(prize)
+          alert(`恭喜你获得${prize.title}`)
+    },
+  })
+</script>
+</body>
+</html>

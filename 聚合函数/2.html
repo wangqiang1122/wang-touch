@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // var arr = [1,23,4];
+    // var f = arr.reduce((prev,cur)=>{
+    //     console.log(prev)
+    //     console.log(cur)
+    //    if (prev) {  
+    //      return prev+cur
+    //    }
+    //    return cur
+    // })
+    // console.log(f)
+    function f1(args) {
+        console.log('f1');
+        return args
+    }
+    function f2(args) {
+        console.log('f2');
+        return args
+    }
+    function f3(args) {
+        console.log('f3');
+        return args
+    }
+    function f4(args) {
+        console.log('f4');
+        return args
+    }
+    // f1(f2(f3(f4())))
+    // f4(f3(f2(f1())))
+
+    compose(f1,f2,f3,f4)()
+    function compose(...args) {
+        console.log(args) 
+        return ()=>{
+            args.reduce((prev,cur)=>{
+                console.log(prev) 
+                console.log(cur) 
+                return function(...args) {
+                    return prev(()=>cur(...args))()
+                }  
+            })()  
+        }
+    }
+</script>
+</html>

@@ -40,6 +40,15 @@
                 box.style.top = top+"px";
             })
         })
+
+       let p = Promise.resolve('2222')
+       console.log(p)
+       p.then((data)=>{
+           console.log(data)
+        //    return data
+       },()=>{}).then((res)=>{
+           console.log(res)
+       },()=>{})
     }
 </script>
 </html>
