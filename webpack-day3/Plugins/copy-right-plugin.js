@@ -5,7 +5,7 @@ class CopyRightPlugin {
       console.log('我触发了插件');
     }
     apply(compiler){
-      //compiler 里面有很多钩子函数
+        //compiler 里面有很多钩子函数
         // 同步调用  只有一个参数 没有cb回调函数
         compiler.hooks.compile.tap('CopyRightPlugin',(compilation)=>{
             console.log('调用了同步方法了')

@@ -11,5 +11,34 @@
     const time = new Date();
     time.setMinutes(time.getMinutes()+20);
     console.log(time)
+    
+    var something = (function() {
+        var nextVal;
+        return {
+            [Symbol.iterator]: function () {
+                return this
+            },
+            next:function() {
+                if (nextVal ===undefined) {
+                    nextVal =1;
+                }else {
+                    nextVal = (3*nextVal)+6
+                }
+                return { done: false, value: nextVal }
+            }
+        }
+    })()
+    for(var v of something) {
+        console.log(v)
+        if (v>500) {
+            break
+        }
+    }
+    let arr = [1,2,3];
+    let map = arr[Symbol.iterator]();
+    console.log(map.next());//{value: 1, done: false}
+    console.log(map.next());//{value: 2, done: false}
+    console.log(map.next());//{value: 3, done: false}
+    console.log(map.next());//{value: undefined, done: true}
 </script>
 </html>

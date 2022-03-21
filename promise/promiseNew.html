@@ -57,6 +57,7 @@
         }
         then(reslove,reject) {
            let myPromise = new Mypromise((rel,rej)=>{
+               console.log(rel)
                if (this.state === 'fullFilled') {
                    var x = reslove&&reslove(this.value);
                    rel(x)
@@ -70,7 +71,7 @@
                        if (!x) {
                            rel(x)
                        } else {
-                           rel(this.value)
+                           rel(this.value) // 往下走 不是一个Mypromise对象 then里是新的Mypromise对象
                        }
                    });
                    this.rejectedfn.push(()=>{
@@ -142,6 +143,10 @@
             reslove('啊哈哈1111')
         },4000)
     });
+    n.then(()=>{
+        
+    })
+    // n.then((data)=>{console.log(data)},()=>{})
     // var n2 = new Mypromise((reslove,reject)=>{
     //     setTimeout(()=>{
     //         reslove('啊哈哈2222')
@@ -157,12 +162,12 @@
     //     console.log(val)
     // })
     // console.log(isPromise(Mypromise.reslove('ssss')))
-    n.then((val)=>{console.log(val)}).catch((e)=>{
-        console.log(e)
-    }).finally((val)=>{
-        console.log(val)
-        console.log(3333)
-    })
+    // n.then((val)=>{console.log(val)}).catch((e)=>{
+    //     console.log(e)
+    // }).finally((val)=>{
+    //     console.log(val)
+    //     console.log(3333)
+    // })
 
 </script>
 </html>

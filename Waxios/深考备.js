@@ -41,3 +41,5 @@ var x = deepMerage(obj1,obj2);
 x.h.name = '写';
 console.log(x)
 
+
+
