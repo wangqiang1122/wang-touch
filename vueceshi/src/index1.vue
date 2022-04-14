@@ -1,36 +1,4 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@wangqiang1122 
-wangqiang1122
-/
-vue-code-input
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-48
-Insights
-Settings
-We found potential security vulnerabilities in your dependencies.
-Only the owner of this repository can see this message.
 
-vue-code-input/src/components/vaildate/index.vue
-
-xiaoqiang 添加一个Vshow的属性对父组件的v-show进行监听
-Latest commit a4f1b27 on 3 Jan 2018
- History
- 0 contributors
-175 lines (171 sloc)  4.55 KB
-   
 <template>
   <div>
 
@@ -60,13 +28,15 @@ Latest commit a4f1b27 on 3 Jan 2018
         type:Number,
         default:6
       },
-      Vshow:{
-        type:Boolean,
-        default:false
-      } //如果需要隐藏
+    //   Vshow:{
+    //     type:Boolean,
+    //     default:false
+    //   } //如果需要隐藏
     },
     data:function(){
       return {
+        //   num: 6,
+        //   Vshow: false,
         index1:0,//记录索引
         inputCode: "", //单次输入的值
         codeArray:[],  //单次展示的值
