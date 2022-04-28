@@ -67,7 +67,7 @@
 
 <script>
  function Page(obj) {
-     this.obj = obj||{page:0,page_count: 0};
+     this.obj = obj||{page:1,page_count: 0};
      this.z_page = 7;    // 一共显示的页码数
      this.show_page = this.z_page-2; // 中间显示多少个页码  必须是个基数好看
      this.fn = this.obj.block;
@@ -92,6 +92,7 @@
          this.smallPage()
      } else if( (this.obj.page+ping+1)>=this.obj.page_count) {// 还要加上最后一个   接近尾页
          pageID.appendChild(this.nearBack())
+         console.log('尾巴')
 
      } else if ((ping+2)>=(this.obj.page)) {  //3   接近首页
          pageID.appendChild( this.nearHome())

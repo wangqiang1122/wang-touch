@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    class Mypromise {
+        constructor(fn) {
+            this.state = 'pending'  //状态值
+            this.value = undefined	//成功的返回值
+            this.reason = undefined //失败的返回值
+            this.fullFilledfn = [];
+            this.rejectedfn = [];
+            let reslove = (value) => {
+                if (this.state === "pending") {
+                    this.state = "fullFilled"
+                    this.value = value
+                    this.fullFilledfn.map(fn => fn && fn(this.value))
+                }
+            }
+            let reject = (reson) => {
+                if (this.state == 'pending') {
+                    this.state = "rejected"
+                    this.reason = reson
+                    this.rejectedfn.map(fn => fn && fn(this.reason))
+                }
+            }
+            try {
+                fn(reslove, reject)
+            } catch (e) {
+                reject(e)
+            }
+        }
+        then(reslove, reject) {
+            return new Mypromise((rel, rej) => {
+                if (this.state == "pending") {
+                    this.fullFilledfn.push(() => {
+                        var x = reslove && reslove(this.value)
+                        if (!x) {
+                            rel(x)
+                        } else {
+                            rel(this.value)
+                        }
+                    })
+                    this.rejectedfn.push(() => {
+                        var y = reject && reject(this.reason)
+                        if (!y) {
+                            rej(this.reason)
+                        } else {
+                            rej(y)
+                        }
+                    })
+                }
+            })
+        }
+        catch() {
+            return this.then(undefined,reject)
+        }
+        finally() {}
+    }
+    let isPromise = function(fn) {
+        return fn instanceof Mypromise
+    };
+    Mypromise.all = function (list) {
+        // 返回储蓄值的数组
+        let resArr = [];
+        // 计数器
+        let index = 0;
+        return new Mypromise((reslove,reject)=>{
+            function jishqi1(i,data) {
+                resArr[i]= data
+                index+=1;
+                if(index===list.length) {
+                    reslove(resArr)
+                }
+            }
+            for(let a =0;a<list.length;a++ ){
+                if (isPromise(list[a])) {
+                    list[a]().then((val)=>{
+                        jishqi1(a,val)
+                    },()=>{
+                       reject()
+                    })
+                } else {
+                    reject()
+                }
+            }
+        })
+    }
+
+   let f = new Mypromise((res,rej)=>{
+        setTimeout(()=>{
+            res("dasdadas")
+        },2000)
+    })
+    f.then((res)=>{
+        console.log(res)
+    })
+</script>
+
+</html>
