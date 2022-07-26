@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<title>圆形旋转切换菜单</title>
+
+
+
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="./circle.css">
+
+</head>
+<body>
+
+<div class="holderCircle">
+
+    <div class="dotCircle">
+        <span class="itemDot active itemDot1" data-tab="1">
+            <i class="fa fa-life-ring"></i>
+            <span class="forActive"></span>
+        </span>
+        <span class="itemDot itemDot2" data-tab="2">
+            <i class="fa fa-bomb"></i>
+            <span class="forActive"></span>
+        </span>
+        <span class="itemDot itemDot3" data-tab="3">
+            <i class="fa fa-heartbeat"></i>
+            <span class="forActive"></span>
+        </span>
+        <span class="itemDot itemDot4" data-tab="4">
+            <i class="fa fa-leaf"></i>
+            <span class="forActive"></span>
+        </span>
+        <span class="itemDot itemDot5" data-tab="5">
+            <i class="fa fa-magic"></i>
+            <span class="forActive"></span>
+        </span>
+        <span class="itemDot itemDot6" data-tab="6">
+            <i class="fa fa-pencil-square-o"></i>
+            <span class="forActive"></span>
+        </span>
+        <span class="itemDot itemDot7" data-tab="7">
+            <i class="fa fa-rss-square"></i>
+            <span class="forActive"></span>
+        </span>
+        <span class="itemDot itemDot8" data-tab="8">
+            <i class="fa fa-ship"></i>
+            <span class="forActive"></span>
+        </span>
+        <span class="itemDot itemDot9" data-tab="9">
+            <i class="fa fa-truck"></i>
+            <span class="forActive"></span>
+        </span>
+        <span class="itemDot itemDot10" data-tab="10">
+            <i class="fa fa-pied-piper"></i>
+            <span class="forActive"></span>
+        </span>
+    </div>
+    
+    <div class="contentCircle">
+        
+        <div class="CirItem active CirItem1">
+            TEXT SAMPLE FOR ITEM 1
+        </div>
+        <div class="CirItem CirItem2">
+            TEXT SAMPLE FOR ITEM 2
+        </div>
+        <div class="CirItem CirItem3">
+            TEXT SAMPLE FOR ITEM 3
+        </div>
+        <div class="CirItem CirItem4">
+            TEXT SAMPLE FOR ITEM 4
+        </div>
+        <div class="CirItem CirItem5">
+            TEXT SAMPLE FOR ITEM 5
+        </div>
+        <div class="CirItem CirItem6">
+            TEXT SAMPLE FOR ITEM 6
+        </div>
+        <div class="CirItem CirItem7">
+            TEXT SAMPLE FOR ITEM 7
+        </div>
+        <div class="CirItem CirItem8">
+            TEXT SAMPLE FOR ITEM 8
+        </div>
+        <div class="CirItem CirItem9">
+            TEXT SAMPLE FOR ITEM 9
+        </div>
+        <div class="CirItem CirItem10">
+            TEXT SAMPLE FOR ITEM 10
+        </div>
+    </div>
+
+</div>
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+
+<script>
+    
+
+    let i=2;
+
+    
+$(document).ready(function(){
+    var radius = 200;
+    var fields = $('.itemDot');
+    var container = $('.dotCircle');
+    var width = container.width();
+radius = width/2.5;
+
+     var height = container.height();
+    var angle = 0, step = (2*Math.PI) / fields.length;
+    fields.each(function() {
+        var x = Math.round(width/2 + radius * Math.cos(angle) - $(this).width()/2);
+        var y = Math.round(height/2 + radius * Math.sin(angle) - $(this).height()/2);
+        if(window.console) {
+            console.log($(this).text(), x, y);
+        }
+        
+        $(this).css({
+            left: x + 'px',
+            top: y + 'px'
+        });
+        angle += step;
+    });
+    
+    
+    $('.itemDot').click(function(){
+        
+        var dataTab= $(this).data("tab");
+        $('.itemDot').removeClass('active');
+        $(this).addClass('active');
+        $('.CirItem').removeClass('active');
+        $( '.CirItem'+ dataTab).addClass('active');
+        i=dataTab;
+        
+        $('.dotCircle').css({
+            "transform":"rotate("+(360-(i-1)*36)+"deg)",
+            "transition":"2s"
+        });
+        $('.itemDot').css({
+            "transform":"rotate("+((i-1)*36)+"deg)",
+            "transition":"1s"
+        });
+        
+        
+    });
+    
+    setInterval(function(){
+        var dataTab= $('.itemDot.active').data("tab");
+        if(dataTab>10||i>10){
+        dataTab=1;
+        i=1;
+        }
+        $('.itemDot').removeClass('active');
+        $('[data-tab="'+i+'"]').addClass('active');
+        $('.CirItem').removeClass('active');
+        $( '.CirItem'+i).addClass('active');
+        i++;
+        
+        
+        $('.dotCircle').css({
+            "transform":"rotate("+(360-(i-2)*36)+"deg)",
+            "transition":"2s"
+        });
+        $('.itemDot').css({
+            "transform":"rotate("+((i-2)*36)+"deg)",
+            "transition":"1s"
+        });
+        
+        }, 5000);
+    
+});
+
+
+
+</script>
+
+
+
+</body>
+</html>

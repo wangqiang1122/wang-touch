@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+
+        .navWrap {
+            position: relative;
+            height: 300px;
+            width: 300px;
+            border: 2px dotted red;
+            border-radius: 50%;
+        }
+
+        .clitbtn {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            text-align: center;
+            width: 40px;
+            height: 40px;
+            background-color: aqua;
+            color: #fff;
+            line-height: 40px;
+            cursor: pointer;
+        }
+
+        .navWrap div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform: scale(0);
+            transition: all 0.5s ease-out;
+            opacity: 0;
+        }
+
+        .navWrap.active>div {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .nav>span {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: bisque;
+            display: inline-block;
+            text-align: center;
+            line-height: 50px;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        /* .nav>span:nth-child(1) {
+            top: 0;
+            left: 0;
+        }
+
+        .nav>span:nth-child(2) {
+            top: 0;
+            left: 100%;
+        }
+
+        .nav>span:nth-child(3) {
+            top: 100%;
+            left: 100%;
+        }
+
+        .nav>span:nth-child(4) {
+            top: 100%;
+            left: 0;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="navWrap">
+        <div class="nav">
+            <span>菜单1</span>
+            <span>菜单2</span>
+            <span>菜单3</span>
+            <span>菜单4</span>
+            <span>菜单5</span>
+            <span>菜单6</span>
+            <span>菜单7</span>
+            <span>菜单8</span>
+        </div>
+        <span class="clitbtn">点击</span>
+    </div>
+</body>
+<script>
+    (function(){
+        $('.clitbtn').click(function () {
+        console.log($('.navWrap'))
+        if (!$('.navWrap').hasClass('active')) {
+            // 圆的半径 
+            var width = $('.navWrap').width(),
+                radius = width / 2;
+            // 圆形菜单的起始、终止角度
+            var startAn = 0,
+                endAn = 360;
+
+            var radian = Math.PI / 180;
+            // 两个子菜单间的夹角 gap
+            var total = $('.nav').find('span').length,
+                gap = (endAn - startAn) / total;
+            console.log(total)
+            $.each($('.nav').find('span'), function (index, item) {
+                var myAngle = (startAn + gap * index) * radian;  // 
+                var myX = radius + radius * Math.cos(myAngle), // 
+                    myY = radius + radius * Math.sin(myAngle); // 
+                // 设置当前子菜单的位置 (left,top) = (x,y)
+                $(this).css({
+                    left: myX + 'px',
+                    top: myY + 'px'
+                });
+            })
+        }
+        $('.navWrap').toggleClass('active')
+
+    })
+    })()
+</script>
+
+</html>

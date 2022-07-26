@@ -43,7 +43,7 @@
             return new Mypromise((rel, rej) => {
                 if (this.state == "pending") {
                     this.fullFilledfn.push(() => {
-                        var x = reslove && reslove(this.value)
+                        var x = reslove && reslove(this.value) // reslove是当前then里面的函数
                         if (!x) {
                             rel(x)
                         } else {

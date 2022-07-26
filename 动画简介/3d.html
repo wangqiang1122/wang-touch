@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body,html {
+        height: 100%;
+        perspective: 3200px;
+    }
+    /*3d*/
+    .content{
+        width: 280px;
+        height: 400px;
+        position: fixed;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        top: 0;
+        margin: auto;
+        transform-style: preserve-3d;
+        /* animation: ani 5s linear infinite; */
+        transform:  rotateY(30deg);
+        
+    }
+    @keyframes ani {
+        from{
+            transform: rotateX(-10deg) rotateY(0deg);
+        }
+        to{
+            transform: rotateX(-10deg) rotateY(360deg);
+        }
+    }
+    .box{
+        width: 280px;
+        height: 400px;
+        position: absolute;
+        border: 8px solid wheat;
+
+    }
+    .box img{
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    .box:nth-child(1) {
+        transform: rotateY(72deg)  translateZ(600px);
+        /* transform:  translateZ(600px) */
+    }
+
+    .box:nth-child(2) {
+        transform: rotateY(144deg) translateZ(600px);
+        /* transform:  translateZ(600px) */
+    }
+    .box:nth-child(3) {
+        transform: rotateY(216deg) translateZ(600px);
+        /* transform:  translateZ(600px) */
+    }
+
+    .box:nth-child(4) {
+        transform: rotateY(288deg) translateZ(600px);
+        /* transform:  translateZ(600px) */
+    }
+    .box:nth-child(5) {
+        transform: rotateY(360deg) translateZ(600px);
+        /* transform:  translateZ(600px) */
+    }
+
+    </style>
+</head>
+<body>
+    <div class="content">   
+        <div class="box">
+            <img src="https://img2.baidu.com/it/u=3525963429,447969579&fm=253&fmt=auto&app=138&f=JPEG?w=400&h=800" alt="" srcset="">
+        </div>
+        <div class="box">
+            <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201505%2F10%2F20150510034724_BVJrW.thumb.400_0.jpeg&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1661140908&t=cb5a6281142a753d12b5ddd3b9ee9101" alt="" srcset="">
+        </div>
+        <div class="box">
+            <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201607%2F03%2F20160703091947_fe8VH.thumb.400_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1661140908&t=a444d81918717c3420a5e9c50db33afe" alt="" srcset="">
+        </div>
+        <div class="box">
+            <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202004%2F07%2F20200407125923_wgmcf.thumb.400_0.jpg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1661140909&t=ded0c8fa15d09e5900f8b5213a6a56bf" alt="" srcset="">
+        </div>
+        <div class="box">
+            <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201506%2F30%2F20150630225114_CYRHE.thumb.400_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1661140909&t=8c69ce235a7d2e6d1d7820dc8e7e68e9" alt="" srcset="">
+        </div>
+    </div>
+</body>
+</html>

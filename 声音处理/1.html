@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    var audioBufferSouceNode = audioContext.createBufferSource();//创建声源对象
+    audioBufferSouceNode.buffer = buffer;//声源buffer文件流
+    gainNode = audioContext.createGain();//创建音量控制器
+    audioBufferSouceNode.connect(gainNode);//声源链接音量控制器
+    var analyser = audioContext.createAnalyser();//创建分析器
+    gainNode.connect(analyser);//音量控制器链接分析器
+    analyser.connect(audioContext.destination);//分析器链接扬声器
+</script>
+</html>

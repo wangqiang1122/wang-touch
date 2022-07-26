@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>纯CSS3漩涡样式的Loading加载动画</title>
+
+<style>
+    
+*{
+    margin:0em;
+    padding:0em;
+}
+
+body { 
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    /* background: #403833; */
+    font-family: 'Open Sans';
+    font-weight: 100;
+    color:#f2f2f2;
+    font-size:100%;
+    margin:0em;
+    padding:0em;
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align:center;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor:default;
+}
+
+/* Text align it the center of screen and connect the looped animation for 2 seconds */
+.text{
+    position: absolute;
+    left: -1.3em;
+    top: -1.7em;
+    animation: text 2s infinite;
+}
+
+/* Set for the first layer vertical position */
+.vertical{
+    position:absolute;
+    top: -1.84em;
+    left: -0.4em;
+    transform: rotate(90deg);
+}
+
+/* Set for the second layer horizontal position */
+.horizontal{
+    position:absolute;
+    top:0em;
+    left:0em;
+    transform: rotate(0deg);
+}
+
+/* The next two classes do mirror for animation */
+.up{
+    position:absolute;
+    top: -4.7em;
+    right: 12.1em;
+}
+
+.down{
+    position:absolute;
+    top:2.5em;
+    right:-13.5em;
+    /* width: 15em;
+    height: 15em; */
+    transform: rotate(180deg);
+}
+
+.circle {
+    position: absolute;
+    width: 15em;
+    height: 15em;
+    transform: rotate(45deg);
+    animation: orbit 2s infinite;
+    z-index:5;
+} 
+
+.circle:after {
+    content: '';
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    border-radius: 100%;
+    background: #13A3A5; 
+}
+
+.circle:nth-child(2) {
+    animation-delay: 100ms;
+    z-index:4;
+}
+
+.circle:nth-child(2):after  {
+    background: #56bebf;
+    transform: scale(0.8,0.8);
+}
+
+.circle:nth-child(3) { 
+    animation-delay: 225ms; 
+    z-index:3;
+}
+
+.circle:nth-child(3):after  {
+    background: #ffa489; 
+    transform: scale(0.6,0.6);
+}
+
+.circle:nth-child(4) {
+    animation-delay: 350ms; 
+    z-index:2;
+}
+
+.circle:nth-child(4):after  {
+    background: #ff6d37; 
+    transform: scale(0.4,0.4);
+}
+
+
+.circle:nth-child(5) {
+    animation-delay: 475ms; 
+    z-index:1;
+}
+
+.circle:nth-child(5):after  {
+    background: #DB2F00; 
+    transform: scale(0.2,0.2);
+}
+
+@keyframes orbit { 
+    0%      { transform:rotate(45deg); } 
+    
+    5%      { transform:rotate(45deg);
+              animation-timing-function: ease-out; } 
+
+    70%     { transform:rotate(405deg); 
+              animation-timing-function: ease-in; }
+
+    100%    { transform:rotate(405deg); } 
+}
+
+</style>
+<style>
+</style>
+    
+</head>
+<body>
+
+<div class="loader">
+    <div class="horizontal">
+      <div class="up">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+      </div>
+      <div class="down">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+      </div>
+    </div>
+    <!-- <div class="vertical">
+      <div class="up">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+      </div>
+      <div class="down">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+      </div>
+    </div> -->
+</div>
+
+</body>
+</html>
