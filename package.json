@@ -23,7 +23,7 @@
     "cookie-parser": "^1.4.3",
     "cookie-session": "^2.0.0-beta.3",
     "ejs": "^2.6.1",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "koa": "^2.7.0",
     "koa-better-body": "^3.0.4",
     "koa-convert": "^1.2.0",
